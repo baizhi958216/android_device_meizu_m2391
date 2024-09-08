@@ -1,3 +1,13 @@
+# Android device tree for meizu MEIZU 20 Pro (meizu20Pro)
+
+```
+#
+# Copyright (C) 2024 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+```
+
 # Device configuration for Meizu 20 PRO
 
 The Meizu 20 PRO (codenamed _"M2391"_) are high-end smartphones from Meizu.
