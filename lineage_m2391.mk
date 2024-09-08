@@ -11,11 +11,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from meizu20Pro device
-$(call inherit-product, device/meizu/meizu20Pro/device.mk)
+# Inherit from m2391 device
+$(call inherit-product, device/meizu/m2391/device.mk)
 
-PRODUCT_DEVICE := meizu20Pro
-PRODUCT_NAME := lineage_meizu20Pro
+PRODUCT_DEVICE := m2391
+PRODUCT_NAME := lineage_m2391
 PRODUCT_BRAND := meizu
 PRODUCT_MODEL := MEIZU 20 Pro
 PRODUCT_MANUFACTURER := meizu

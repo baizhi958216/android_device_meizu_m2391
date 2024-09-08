@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=meizu20Pro
+DEVICE=m2391
 VENDOR=meizu
 
 # Load extract_utils and do some sanity checks

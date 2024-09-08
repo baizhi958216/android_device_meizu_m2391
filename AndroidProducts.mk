@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_meizu20Pro.mk
+    $(LOCAL_DIR)/lineage_m2391.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_meizu20Pro-user \
-    lineage_meizu20Pro-userdebug \
-    lineage_meizu20Pro-eng
+    lineage_m2391-user \
+    lineage_m2391-userdebug \
+    lineage_m2391-eng

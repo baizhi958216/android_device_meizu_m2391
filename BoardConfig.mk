@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/meizu/meizu20Pro
+DEVICE_PATH := device/meizu/m2391
 
 # A/B
 AB_OTA_UPDATER := true
@@ -54,8 +54,8 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CONFIG := meizu20Pro_defconfig
-TARGET_KERNEL_SOURCE := kernel/meizu/meizu20Pro
+TARGET_KERNEL_CONFIG := sm8550_defconfig
+TARGET_KERNEL_SOURCE := kernel/meizu/sm8550
 
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
@@ -125,4 +125,4 @@ BOARD_AVB_VENDOR_BOOT_ROLLBACK_INDEX_LOCATION := 1
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Inherit the proprietary files
-include vendor/meizu/meizu20Pro/BoardConfigVendor.mk
+include vendor/meizu/m2391/BoardConfigVendor.mk

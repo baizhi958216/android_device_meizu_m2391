@@ -37,7 +37,7 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 # API levels
-BOARD_API_LEVEL := 33
+# BOARD_API_LEVEL := 33
 PRODUCT_SHIPPING_API_LEVEL := 33
 
 # fastbootd
@@ -110,4 +110,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/meizu/meizu20Pro/meizu20Pro-vendor.mk)
+$(call inherit-product, vendor/meizu/m2391/m2391-vendor.mk)

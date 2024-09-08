@@ -1,4 +1,4 @@
-# Android device tree for meizu MEIZU 20 Pro (meizu20Pro)
+# Android device tree for meizu MEIZU 20 Pro (m2391)
 
 ```
 #
