@@ -5,21 +5,17 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-
 # Inherit from m2391 device
 $(call inherit-product, device/meizu/m2391/device.mk)
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := m2391
+
 PRODUCT_DEVICE := m2391
-PRODUCT_NAME := omni_m2391
-PRODUCT_BRAND := meizu
+PRODUCT_NAME := twrp_m2391
+PRODUCT_BRAND := MEIZU
 PRODUCT_MODEL := MEIZU 20 Pro
-PRODUCT_MANUFACTURER := meizu
+PRODUCT_MANUFACTURER := MEIZU
 
 PRODUCT_GMS_CLIENTID_BASE := android-meizu
 

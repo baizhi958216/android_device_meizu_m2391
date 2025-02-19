@@ -24,6 +24,36 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+on post-fs-data
+    # Permissions for vibrator , add by zuowang@bsp {@
+    chmod 0666 /sys/class/meizu/motor/on_off
+    chown system system /sys/class/meizu/motor/on_off
+    chmod 0660 /sys/class/meizu/motor/set_cspress
+    chown system system /sys/class/meizu/motor/set_cspress
+    chmod 0660 /sys/class/meizu/motor/set_mback
+    chown system system /sys/class/meizu/motor/set_mback
+    chmod 0660 /sys/class/meizu/motor/rtp
+    chown system system /sys/class/meizu/motor/rtp
+    chmod 0660 sys/class/meizu/motor/game
+    chown system system sys/class/meizu/motor/game
+    chmod 0660 /sys/class/meizu/motor/set_rtp
+    chown system system /sys/class/meizu/motor/set_rtp
+    chmod 0660 /sys/class/meizu/motor/waveform
+    chown system system /sys/class/meizu/motor/waveform
+    chmod 0660 /sys/class/meizu/motor/freq
+    chown system system /sys/class/meizu/motor/freq
+    chmod 0660 /sys/class/meizu/motor/enable
+    chown system system /sys/class/meizu/motor/enable
+    chmod 0666 /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /dev/aw8697_haptic
+    chmod 0777 /dev/aw8697_haptic
+    chown system audio /sys/class/meizu/motor/haptic_audio
+    chmod 0660 /sys/class/meizu/motor/haptic_audio
+    chmod 0660 /sys/class/meizu/motor/usr_f0
+    chown system system /sys/class/meizu/motor/usr_f0
+    mkdir /data/awinic 0770 system audio
+    # @}
 
 on init
     write /sys/class/backlight/panel0-backlight/brightness 2784
