@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+type hal_vibrator_m2391, domain, coredomain;
+type hal_vibrator_m2391_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_vibrator_m2391)
+hal_server_domain(hal_vibrator_m2391, hal_vibrator)
+binder_use(hal_vibrator_m2391)
+
+allow hal_vibrator_m2391 sysfs_type:dir search;

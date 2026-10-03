@@ -1,0 +1,45 @@
+/system_ext/bin/hw/android\.hardware\.vibrator-service\.m2391 u:object_r:hal_vibrator_m2391_exec:s0
+/sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/enable u:object_r:sysfs_vibrator:s0
+/sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/set_mback u:object_r:sysfs_vibrator:s0
+
+/dev/block/sda3 u:object_r:misc_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/misc u:object_r:misc_block_device:s0
+/dev/block/sda20 u:object_r:metadata_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/metadata u:object_r:metadata_block_device:s0
+/dev/block/sda22 u:object_r:userdata_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/userdata u:object_r:userdata_block_device:s0
+/dev/block/sda17 u:object_r:super_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/super u:object_r:super_block_device:s0
+/dev/block/sde13 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/boot_a u:object_r:boot_block_device:s0
+/dev/block/sde43 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/boot_b u:object_r:boot_block_device:s0
+/dev/block/sde30 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/init_boot_a u:object_r:boot_block_device:s0
+/dev/block/sde59 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/init_boot_b u:object_r:boot_block_device:s0
+/dev/block/sde24 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/vendor_boot_a u:object_r:boot_block_device:s0
+/dev/block/sde54 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/vendor_boot_b u:object_r:boot_block_device:s0
+/dev/block/sde17 u:object_r:dtbo_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/dtbo_a u:object_r:dtbo_block_device:s0
+/dev/block/sde47 u:object_r:dtbo_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/dtbo_b u:object_r:dtbo_block_device:s0
+/dev/block/sde16 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/vbmeta_a u:object_r:boot_block_device:s0
+/dev/block/sde46 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/vbmeta_b u:object_r:boot_block_device:s0
+/dev/block/sda18 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/vbmeta_system_a u:object_r:boot_block_device:s0
+/dev/block/sda19 u:object_r:boot_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/vbmeta_system_b u:object_r:boot_block_device:s0
+/dev/block/sde27 u:object_r:recovery_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/recovery_a u:object_r:recovery_block_device:s0
+/dev/block/sde56 u:object_r:recovery_block_device:s0
+/dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/recovery_b u:object_r:recovery_block_device:s0
+
+/dev/block/sd[a-f] u:object_r:boot_block_device:s0
+/dev/(sg[0-9]+|ufs-bsg[0-9]*) u:object_r:m2391_ufs_control_device:s0
+
+/system/bin/hw/android\.hardware\.boot-service\.qti\.recovery u:object_r:m2391_recovery_bootctl_exec:s0

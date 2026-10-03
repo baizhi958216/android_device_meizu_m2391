@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-License-Identifier: Apache-2.0
+    Fingerprint clients negotiate the HAL version and retain v1 fallback calls.
+    OMAPI retains a frozen v1 stable AIDL API. These declarations preserve the
+    actual vendor versions; they do not upgrade HAL binaries or certify hardware.
+-->
+<compatibility-matrix version="1.0" type="framework" level="7">
+    <hal format="aidl" optional="true">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <version>1</version>
+        <interface>
+            <name>IFingerprint</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.se.omapi</name>
+        <version>1</version>
+        <interface>
+            <name>ISecureElementService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

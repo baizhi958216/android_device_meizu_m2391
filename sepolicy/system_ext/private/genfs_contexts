@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+recovery_only(`
+    genfscon sysfs /devices/platform/soc/a600000.ssusb/mode u:object_r:sysfs_m2391_usb_mode:s0
+    genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/backlight/panel0-backlight u:object_r:sysfs_leds:s0
+')

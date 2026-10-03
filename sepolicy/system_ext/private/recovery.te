@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: Apache-2.0
+
+type m2391_ufs_control_device, dev_type;
+type m2391_recovery_bootctl_exec, exec_type, file_type;
+not_recovery(`
+    typeattribute m2391_recovery_bootctl_exec system_file_type;
+')
+
+recovery_only(`
+    type sysfs_m2391_usb_mode, fs_type, sysfs_type;
+    domain_auto_trans(init, m2391_recovery_bootctl_exec, hal_bootctl_default)
+    allow init sysfs_m2391_usb_mode:file rw_file_perms;
+    # First-stage init creates these nodes before loading the Recovery policy.
+    allow init { boot_block_device dtbo_block_device super_block_device }:{ blk_file lnk_file } relabelto;
+    # The Qualcomm Boot HAL reads slot attributes and updates the GPT.
+    allow hal_bootctl_default block_device:dir r_dir_perms;
+    allow hal_bootctl_default device:dir r_dir_perms;
+    # Read Recovery root directories and device-tree fstab metadata.
+    allow hal_bootctl_default rootfs:dir r_dir_perms;
+    r_dir_file(hal_bootctl_default, sysfs_dt_firmware_android)
+    allow hal_bootctl_default dev_type:blk_file getattr;
+    allow hal_bootctl_default { boot_block_device root_block_device }:blk_file rw_file_perms;
+    allow hal_bootctl_default m2391_ufs_control_device:chr_file rw_file_perms;
+    allow hal_bootctl_default self:capability sys_rawio;
+    r_dir_file(hal_bootctl_default, sysfs)
+    # Physical standalone Recovery and DTBO are managed by userspace Fastboot.
+    allow fastbootd { recovery_block_device dtbo_block_device }:blk_file rw_file_perms;
+')
