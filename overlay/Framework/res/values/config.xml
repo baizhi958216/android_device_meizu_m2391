@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The AIDL HAL reports (540,1807,r95) in 1080x2400 pixels. SystemUI
+         scales from the maximum physical mode (1440x3200), so use 4/3 here.
+         Despite its name, config_sfps_sensor_props overrides AIDL UDFPS too.
+    -->
+    <array name="config_sfps_sensor_props" translatable="false">
+        <item>@array/m2391_udfps_sensor_location</item>
+    </array>
+    <array name="m2391_udfps_sensor_location" translatable="false">
+        <item>""</item>
+        <item>720</item>
+        <item>2409</item>
+        <item>127</item>
+    </array>
+    <!-- The retained display HAL exports 90 and 120 Hz at both resolutions. -->
+    <integer name="config_defaultRefreshRate">90</integer>
+    <integer name="config_defaultPeakRefreshRate">120</integer>
+</resources>

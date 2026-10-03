@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lineage reserves a separate 20dp privacy
+         dot inset on the right; adding another 20dp made the sides unequal. -->
+    <dimen name="status_bar_padding_start">20dp</dimen>
+    <dimen name="status_bar_padding_end">0dp</dimen>
+    <!-- Microns per pixel in the maximum 1440x3200 mode (xDpi=515.154).
+         SystemUI converts the 6000um UDFPS icon into native pixels, then
+         scales to the current mode. The default -1 creates invalid padding. -->
+    <item name="pixel_pitch" format="float" type="dimen">49.3</item>
+</resources>
