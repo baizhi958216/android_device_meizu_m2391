@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: Apache-2.0
+on init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.controller a600000.dwc3
+    wait /sys/bus/platform/devices/a600000.ssusb/mode 5
+    write /sys/bus/platform/devices/a600000.ssusb/mode peripheral
+    wait /sys/class/udc/a600000.dwc3 5
+    write /sys/class/backlight/panel0-backlight/brightness 2784
+
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice} 5
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+# The standalone Recovery init starts hal but not the Boot HAL's early_hal class.
+on early-boot
+    start vendor.boot-qti
