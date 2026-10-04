@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 DEVICE_PATH := device/meizu/m2391
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+
 # Qualcomm Boot HAL preserves the GPT-based A/B slot attributes.
 PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/bootctrl
 
@@ -15,14 +17,14 @@ AB_OTA_PARTITIONS := \
     boot dtbo init_boot odm product recovery system system_dlkm system_ext \
     vbmeta vbmeta_system vendor vendor_boot vendor_dlkm
 
-PRODUCT_BUILD_BOOT_IMAGE := false
-PRODUCT_BUILD_INIT_BOOT_IMAGE := false
-PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
+PRODUCT_BUILD_BOOT_IMAGE := true
+PRODUCT_BUILD_INIT_BOOT_IMAGE := true
+PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
 PRODUCT_BUILD_RECOVERY_IMAGE := true
-PRODUCT_BUILD_VENDOR_IMAGE := false
-PRODUCT_BUILD_ODM_IMAGE := false
-PRODUCT_BUILD_VENDOR_DLKM_IMAGE := false
-PRODUCT_BUILD_SYSTEM_DLKM_IMAGE := false
+PRODUCT_BUILD_VENDOR_IMAGE := true
+PRODUCT_BUILD_ODM_IMAGE := true
+PRODUCT_BUILD_VENDOR_DLKM_IMAGE := true
+PRODUCT_BUILD_SYSTEM_DLKM_IMAGE := true
 PRODUCT_BUILD_DEBUG_BOOT_IMAGE := false
 PRODUCT_BUILD_DEBUG_VENDOR_BOOT_IMAGE := false
 PRODUCT_BUILD_CACHE_IMAGE := false
@@ -46,6 +48,17 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     bootctl
+
+# Keep the matched stock vendor policy/HAL set; base_vendor.mk would replace it.
+PRODUCT_PACKAGES += \
+    fs_config_dirs_nonsystem \
+    fs_config_files_nonsystem \
+    m2391_vendor_firmware_mnt \
+    m2391_vendor_bt_firmware \
+    m2391_vendor_dsp \
+    odm-build.prop \
+    vendor_dlkm-build.prop \
+    system_dlkm-build.prop
 
 PRODUCT_PACKAGES += \
     adbd.recovery \
@@ -76,7 +89,15 @@ PRODUCT_HOST_PACKAGES += \
     make_f2fs
 
 PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom \
     $(DEVICE_PATH)/configs/init/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc
+
+# Preserve upstream notices alongside the notices generated for this build.
+PRODUCT_COPY_FILES += \
+    vendor/meizu/m2391/proprietary/vendor/etc/NOTICE.xml.gz:$(TARGET_COPY_OUT_VENDOR)/etc/NOTICE.stock.xml.gz \
+    vendor/meizu/m2391/proprietary/odm/etc/NOTICE.xml.gz:$(TARGET_COPY_OUT_ODM)/etc/NOTICE.stock.xml.gz \
+    vendor/meizu/m2391/proprietary/vendor_dlkm/etc/NOTICE.xml.gz:$(TARGET_COPY_OUT_VENDOR_DLKM)/etc/NOTICE.stock.xml.gz \
+    vendor/meizu/m2391/proprietary/system_dlkm/etc/NOTICE.xml.gz:$(TARGET_COPY_OUT_SYSTEM_DLKM)/etc/NOTICE.stock.xml.gz
 
 $(call inherit-product, vendor/meizu/m2391/m2391-vendor.mk)
 
