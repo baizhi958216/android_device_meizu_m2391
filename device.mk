@@ -2,6 +2,7 @@
 DEVICE_PATH := device/meizu/m2391
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+$(call inherit-product, $(DEVICE_PATH)/source-packages.mk)
 
 # Qualcomm Boot HAL preserves the GPT-based A/B slot attributes.
 PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/bootctrl

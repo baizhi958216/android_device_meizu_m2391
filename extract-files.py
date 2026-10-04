@@ -55,6 +55,11 @@ def write_symlinks(ctx, packages_ctx):
         if not line or line.startswith('#'):
             continue
         path, target = line.split('|', 1)
+        # These links are installed by the source-built toolbox_vendor module.
+        if target == 'toolbox' and path.rsplit('/', 1)[-1] in {
+            'getevent', 'getprop', 'modprobe', 'setprop', 'start', 'stop',
+        }:
+            continue
         partition, location = path.split('/', 1)
         if partition != 'vendor':
             raise ValueError(f'Unexpected symlink partition: {path}')
