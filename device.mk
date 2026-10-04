@@ -56,6 +56,7 @@ PRODUCT_PACKAGES += \
     m2391_vendor_firmware_mnt \
     m2391_vendor_bt_firmware \
     m2391_vendor_dsp \
+    vendor_compatibility_matrix.xml \
     odm-build.prop \
     vendor_dlkm-build.prop \
     system_dlkm-build.prop
