@@ -1,23 +1,4 @@
 // SPDX-License-Identifier: Apache-2.0
-// Empty read-only mount points for the stock firmware partitions.
-mkdir {
-    name: "m2391_vendor_firmware_mnt",
-    dir: "firmware_mnt",
-    soc_specific: true,
-}
-
-mkdir {
-    name: "m2391_vendor_bt_firmware",
-    dir: "bt_firmware",
-    soc_specific: true,
-}
-
-mkdir {
-    name: "m2391_vendor_dsp",
-    dir: "dsp",
-    soc_specific: true,
-}
-
 vintf_compatibility_matrix {
     name: "m2391_framework_compatibility_matrix_7",
     stem: "compatibility_matrix.7.m2391.xml",

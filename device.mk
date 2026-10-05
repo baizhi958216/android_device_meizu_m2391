@@ -54,9 +54,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_dirs_nonsystem \
     fs_config_files_nonsystem \
-    m2391_vendor_firmware_mnt \
-    m2391_vendor_bt_firmware \
-    m2391_vendor_dsp \
+    vendor_firmware_mnt_mountpoint \
+    vendor_bt_firmware_mountpoint \
+    vendor_dsp_mountpoint \
     vendor_compatibility_matrix.xml \
     odm-build.prop \
     vendor_dlkm-build.prop \

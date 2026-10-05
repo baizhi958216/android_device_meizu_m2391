@@ -49,6 +49,13 @@ def include_packages(ctx, names):
 
 def write_symlinks(ctx, packages_ctx):
     """Keep relative and dangling stock links; they are not copyable blobs."""
+    # Stock ships the same 64-bit ELF in both directories. A link retains
+    # either lookup path without misdeclaring the second file as a 32-bit ELF.
+    proprietary = Path(packages_ctx.vendor_prop_path)
+    duplicate = 'libqti-qesdk-secure.so'
+    if ((proprietary / 'vendor/lib' / duplicate).read_bytes() !=
+            (proprietary / 'vendor/lib64' / duplicate).read_bytes()):
+        raise ValueError('QESDK library copies no longer match; review the link')
     names = []
     source = Path(__file__).parent / 'configs/vendor-symlinks.txt'
     native_source = source.with_name('native-symlinks.txt')
