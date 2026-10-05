@@ -49,13 +49,6 @@ def include_packages(ctx, names):
 
 def write_symlinks(ctx, packages_ctx):
     """Keep relative and dangling stock links; they are not copyable blobs."""
-    # Stock ships the same 64-bit ELF in both directories. A link retains
-    # either lookup path without misdeclaring the second file as a 32-bit ELF.
-    proprietary = Path(packages_ctx.vendor_prop_path)
-    duplicate = 'libqti-qesdk-secure.so'
-    if ((proprietary / 'vendor/lib' / duplicate).read_bytes() !=
-            (proprietary / 'vendor/lib64' / duplicate).read_bytes()):
-        raise ValueError('QESDK library copies no longer match; review the link')
     names = []
     source = Path(__file__).parent / 'configs/vendor-symlinks.txt'
     native_source = source.with_name('native-symlinks.txt')
@@ -129,7 +122,16 @@ def write_stock_etc(ctx, packages_ctx):
         for key, value in properties.items():
             ctx.bp_out.write(f'    {key}: {json.dumps(value)},\n')
         ctx.bp_out.write('}\n')
-    include_packages(ctx, [entry['module'] for entry in entries])
+    # This file is a 64-bit ELF despite its stock lib/ location. Preserve the
+    # original file and directory without creating a false 32-bit link target.
+    ctx.bp_out.write('\nm2391_prebuilt_lib {\n'
+                     '    name: "m2391_qesdk_vendor_lib",\n'
+                     '    src: "proprietary/vendor/lib/libqti-qesdk-secure.so",\n'
+                     '    filename: "libqti-qesdk-secure.so",\n'
+                     '    soc_specific: true,\n'
+                     '}\n')
+    include_packages(ctx, [entry['module'] for entry in entries] +
+                     ['m2391_qesdk_vendor_lib'])
 
 
 module = ExtractUtilsModule(

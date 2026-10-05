@@ -28440,3 +28440,75 @@ mode: 0644
 user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
+
+[vendor/etc/init/android.hardware.atrace@1.0-service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.boot@1.2-service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.camera.provider@2.4-external-service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.cas@1.2-service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.drm-service.clearkey.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.health-service.qti.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.media.omx@1.0-service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/android.hardware.sensors-service-multihal.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/memtrack_qti.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/vendor.qti.hardware.vibrator.service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/vendor.qti.qspa-service.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0
+
+[vendor/etc/init/vndservicemanager.m2391.rc]
+mode: 0644
+user: AID_ROOT
+group: AID_ROOT
+caps: 0x0

@@ -263,6 +263,3 @@ vendor/rfs/msm/wpss/readonly/firmware|/vendor/firmware_mnt
 vendor/rfs/msm/wpss/readonly/vendor/firmware|/vendor/firmware
 vendor/rfs/msm/wpss/readwrite|/mnt/vendor/persist/rfs/msm/wpss
 vendor/rfs/msm/wpss/shared|/mnt/vendor/persist/rfs/shared
-
-# Stock also places this identical 64-bit library in lib/. Preserve access via a link.
-vendor/lib/libqti-qesdk-secure.so|../lib64/libqti-qesdk-secure.so
