@@ -50,7 +50,7 @@ PRODUCT_PACKAGES += \
     update_verifier \
     bootctl
 
-# Keep the matched stock vendor policy/HAL set; base_vendor.mk would replace it.
+# Vendor filesystem and source-generated SELinux policy.
 PRODUCT_PACKAGES += \
     fs_config_dirs_nonsystem \
     fs_config_files_nonsystem \
@@ -106,3 +106,25 @@ $(call inherit-product, vendor/meizu/m2391/m2391-vendor.mk)
 # COW v2/gzip matches the supported Android 12.1-based recovery.
 PRODUCT_VIRTUAL_AB_COW_VERSION := 2
 PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := gz
+
+# Device-specific overlays and filesystem links.
+PRODUCT_PACKAGES += \
+    m2391_qesdk_vendor_lib \
+    m2391_ConnectivityResCommon_Vendor_Mz \
+    m2391_FrameworksResCommon_Vendor_Mz \
+    m2391_FrameworksResTarget_Vendor \
+    m2391_MeizuFrameworksResTarget \
+    m2391_NetworkStackResCommon_Vendor_Mz \
+    m2391_SecureElementResTarget_Vendor \
+    m2391_WifiResCommon_Vendor_Mz \
+    m2391_WifiResTarget \
+    m2391_WifiResTarget_spf \
+    m2391_link_firmware_wlan_qca_cld_kiwi_v2_WCNSS_qcom_cfg_ini \
+    m2391_link_firmware_wlan_qca_cld_kiwi_v2_wlan_mac_bin \
+    m2391_link_firmware_wlanmdsp_otaupdate \
+    m2391_link_lib_libEGL_adreno_so \
+    m2391_link_lib_libGLESv2_adreno_so \
+    m2391_link_lib_libq3dtools_adreno_so \
+    m2391_link_lib64_libEGL_adreno_so \
+    m2391_link_lib64_libGLESv2_adreno_so \
+    m2391_link_lib64_libq3dtools_adreno_so

@@ -1,5 +1,0 @@
-#!/bin/bash
-# SPDX-License-Identifier: Apache-2.0
-set -euo pipefail
-exec prebuilts/build-tools/linux-x86/bin/py3-cmd \
-    device/meizu/m2391/releasetools/ota.py "$@"

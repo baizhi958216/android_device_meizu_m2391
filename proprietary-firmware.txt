@@ -1,3 +1,3 @@
 # SPDX-License-Identifier: Apache-2.0
 # DT overlays have no matching source in this checkout.
-dtbo.img|f3340e34aa4b0ca477915552169387594e8e7569
+dtbo.img;EXTRACT_ONLY|f3340e34aa4b0ca477915552169387594e8e7569

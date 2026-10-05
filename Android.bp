@@ -5,3 +5,137 @@ vintf_compatibility_matrix {
     srcs: ["configs/vintf/framework_compatibility_matrix.7.m2391.xml"],
     system_ext_specific: true,
 }
+
+// Stock places this 64-bit ELF under lib/ as well as lib64/.
+prebuilt_lib {
+    name: "m2391_qesdk_vendor_lib",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_qesdk_vendor_lib_blob",
+    filename: "libqti-qesdk-secure.so",
+}
+
+prebuilt_overlay {
+    name: "m2391_ConnectivityResCommon_Vendor_Mz",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_ConnectivityResCommon_Vendor_Mz_blob",
+    filename: "ConnectivityResCommon_Vendor_Mz.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_FrameworksResCommon_Vendor_Mz",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_FrameworksResCommon_Vendor_Mz_blob",
+    filename: "FrameworksResCommon_Vendor_Mz.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_FrameworksResTarget_Vendor",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_FrameworksResTarget_Vendor_blob",
+    filename: "FrameworksResTarget_Vendor.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_MeizuFrameworksResTarget",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_MeizuFrameworksResTarget_blob",
+    filename: "MeizuFrameworksResTarget.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_NetworkStackResCommon_Vendor_Mz",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_NetworkStackResCommon_Vendor_Mz_blob",
+    filename: "NetworkStackResCommon_Vendor_Mz.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_SecureElementResTarget_Vendor",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_SecureElementResTarget_Vendor_blob",
+    filename: "SecureElementResTarget_Vendor.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_WifiResCommon_Vendor_Mz",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_WifiResCommon_Vendor_Mz_blob",
+    filename: "WifiResCommon_Vendor_Mz.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_WifiResTarget",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_WifiResTarget_blob",
+    filename: "WifiResTarget.apk",
+}
+
+prebuilt_overlay {
+    name: "m2391_WifiResTarget_spf",
+    soc_specific: true,
+    src: "://vendor/meizu/m2391:m2391_WifiResTarget_spf_blob",
+    filename: "WifiResTarget_spf.apk",
+}
+
+install_symlink {
+    name: "m2391_link_firmware_wlan_qca_cld_kiwi_v2_WCNSS_qcom_cfg_ini",
+    soc_specific: true,
+    installed_location: "firmware/wlan/qca_cld/kiwi_v2/WCNSS_qcom_cfg.ini",
+    symlink_target: "/vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini",
+}
+
+install_symlink {
+    name: "m2391_link_firmware_wlan_qca_cld_kiwi_v2_wlan_mac_bin",
+    soc_specific: true,
+    installed_location: "firmware/wlan/qca_cld/kiwi_v2/wlan_mac.bin",
+    symlink_target: "/mnt/vendor/persist/kiwi_v2/wlan_mac.bin",
+}
+
+install_symlink {
+    name: "m2391_link_firmware_wlanmdsp_otaupdate",
+    soc_specific: true,
+    installed_location: "firmware/wlanmdsp.otaupdate",
+    symlink_target: "/data/vendor/firmware/wlanmdsp.mbn",
+}
+
+install_symlink {
+    name: "m2391_link_lib_libEGL_adreno_so",
+    soc_specific: true,
+    installed_location: "lib/libEGL_adreno.so",
+    symlink_target: "egl/libEGL_adreno.so",
+}
+
+install_symlink {
+    name: "m2391_link_lib_libGLESv2_adreno_so",
+    soc_specific: true,
+    installed_location: "lib/libGLESv2_adreno.so",
+    symlink_target: "egl/libGLESv2_adreno.so",
+}
+
+install_symlink {
+    name: "m2391_link_lib_libq3dtools_adreno_so",
+    soc_specific: true,
+    installed_location: "lib/libq3dtools_adreno.so",
+    symlink_target: "egl/libq3dtools_adreno.so",
+}
+
+install_symlink {
+    name: "m2391_link_lib64_libEGL_adreno_so",
+    soc_specific: true,
+    installed_location: "lib64/libEGL_adreno.so",
+    symlink_target: "egl/libEGL_adreno.so",
+}
+
+install_symlink {
+    name: "m2391_link_lib64_libGLESv2_adreno_so",
+    soc_specific: true,
+    installed_location: "lib64/libGLESv2_adreno.so",
+    symlink_target: "egl/libGLESv2_adreno.so",
+}
+
+install_symlink {
+    name: "m2391_link_lib64_libq3dtools_adreno_so",
+    soc_specific: true,
+    installed_location: "lib64/libq3dtools_adreno.so",
+    symlink_target: "egl/libq3dtools_adreno.so",
+}

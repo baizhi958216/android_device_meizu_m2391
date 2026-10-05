@@ -85,12 +85,12 @@ BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 0
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
-# Describes the retained Android 13 vendor.
+# Shipping level and firmware patch level of the proprietary hardware stack.
 BOARD_SHIPPING_API_LEVEL := 33
-BOARD_SEPOLICY_VERS := 33.0
 VENDOR_SECURITY_PATCH := 2023-10-01
 BOOT_SECURITY_PATCH := 2023-10-01
-PRODUCT_PRECOMPILED_SEPOLICY := false
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
