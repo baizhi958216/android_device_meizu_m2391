@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow smart_zram smart_zram_exec:file { read getattr map execute open entrypoint };
+allow smart_zram property_socket:sock_file { write };
+allow smart_zram init:unix_stream_socket { connectto };
+allow smart_zram vendor_smartzram_prop:property_service { set };
+allow smart_zram vendor_smartzram_prop:file { read getattr map open };
+allow smart_zram vendor_toolbox_exec:file { ioctl read getattr lock map execute open watch watch_reads execute_no_trans };
+allow smart_zram loop_control_device:chr_file { ioctl read write open };
+allow smart_zram proc_meminfo:file { read open };
+allow smart_zram vendor_data_file:dir { write add_name remove_name };
+allow smart_zram vendor_data_file:file { ioctl read write create getattr unlink open };
+allow smart_zram sysfs_zram:file { write getattr setattr open };
+allow smart_zram kmsg_device:chr_file { write getattr open };
+allow smart_zram sysfs:dir { search };
+allow smart_zram sysfs_zram:dir { ioctl read getattr lock open watch watch_reads search };
+allow smart_zram sysfs_zram:file { ioctl read write getattr lock append map open watch watch_reads };
+allow smart_zram block_device:dir { ioctl read getattr lock open watch watch_reads search };
+allow smart_zram swap_block_device:blk_file { ioctl read write getattr lock append map open watch watch_reads };
+allow smart_zram vendor_file:file { execute_no_trans };
+allow smart_zram smart_zram_exec:file { execute_no_trans };
+allow smart_zram loop_device:blk_file { ioctl read write open };
+allow smart_zram smart_zram:capability { sys_admin };
+allowxperm smart_zram loop_control_device:chr_file ioctl { 0x4c82 };
+allowxperm smart_zram loop_device:blk_file ioctl { 0x4c00-0x4c01 0x4c04-0x4c05 0x4c08-0x4c09 };
+allow smart_zram cgroup:file { read write getattr open };
+allow smart_zram vendor_qti_init_shell_exec:file { entrypoint };
+allow smart_zram cgroup:dir { setattr };
+allow smart_zram device:dir { read open };
+allow smart_zram sysfs_loop:dir { search };
+allow smart_zram sysfs_loop:file { write open };

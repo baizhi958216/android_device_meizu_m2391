@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow rpmbd rpmbd_exec:file { read getattr map execute open entrypoint };
+allow rpmbd tee_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };
+allow rpmbd property_socket:sock_file { write };
+allow rpmbd init:unix_stream_socket { connectto };
+allow rpmbd vendor_rpmb_prop:property_service { set };
+allow rpmbd vendor_rpmb_prop:file { read getattr map open };

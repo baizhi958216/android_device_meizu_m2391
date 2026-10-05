@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow hal_meizu_charging_default hal_meizu_charging_default_exec:file { read getattr map execute open entrypoint };
+allow hal_meizu_charging_default hal_meizu_charging_hwservice:hwservice_manager { add find };
+allow hal_meizu_charging_default hidl_base_hwservice:hwservice_manager { add };
+allow hal_meizu_charging_default sysfs_wired_charger:file { ioctl read write getattr lock append map open watch watch_reads };
+allow hal_meizu_charging_default sysfs_wireless_charger:file { ioctl read write getattr lock append map open watch watch_reads };

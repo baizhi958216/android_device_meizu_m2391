@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow hal_meizu_sensor_aux_default hal_meizu_sensor_aux_default_exec:file { read getattr map execute open entrypoint };
+allow hal_meizu_sensor_aux_default vendor_sysfs_graphics:dir { ioctl read getattr lock open watch watch_reads search };
+allow hal_meizu_sensor_aux_default vendor_sysfs_graphics:file { ioctl read getattr lock map open watch watch_reads };
+allow hal_meizu_sensor_aux_default mnt_vendor_file:dir { ioctl read getattr lock open watch watch_reads search };
+allow hal_meizu_sensor_aux_default vendor_persist_sensors_file:dir { search };
+allow hal_meizu_sensor_aux_default vendor_persist_sensors_file:file { read getattr open };
+allow hal_meizu_sensor_aux_default self:socket { ioctl read write create getattr setattr lock append map bind connect getopt setopt shutdown };
+allow hal_meizu_sensor_aux_default self:qipcrtr_socket { ioctl read write create getattr setattr lock append map bind connect getopt setopt shutdown };
+allowxperm hal_meizu_sensor_aux_default self:socket ioctl { 0xc300-0xc305 };
+allowxperm hal_meizu_sensor_aux_default self:qipcrtr_socket ioctl { 0xc300-0xc305 };
+allow hal_meizu_sensor_aux_default vendor_sensors_prop:file { read getattr map open };
+allow hal_meizu_sensor_aux_default surfaceflinger_color_prop:file { read getattr map open };

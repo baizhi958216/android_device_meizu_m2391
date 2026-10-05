@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow mkelog_parser mkelog_parser_exec:file { read getattr map execute open entrypoint };
+allow mkelog_parser storage_file:lnk_file { read };
+allow mkelog_parser storage_file:dir { search };
+allow mkelog_parser mnt_user_file:lnk_file { read };
+allow mkelog_parser mnt_user_file:dir { search };
+allow mkelog_parser proc_version:file { ioctl read getattr lock map open watch watch_reads };
+allow mkelog_parser proc_cmdline:file { ioctl read getattr lock map open watch watch_reads };
+allow mkelog_parser proc_reset_reason:file { ioctl read getattr lock map open watch watch_reads };
+allow mkelog_parser proc_mkelog_file:file { ioctl read getattr lock map open watch watch_reads };
+allow mkelog_parser proc_rstinfo_file:file { ioctl read getattr lock map open watch watch_reads };
+allow mkelog_parser property_socket:sock_file { write };
+allow mkelog_parser init:unix_stream_socket { connectto };
+allow mkelog_parser ctl_start_prop:property_service { set };
+allow mkelog_parser sdcardfs:dir { read write create open add_name remove_name search };
+allow mkelog_parser sdcardfs:file { read write create getattr append unlink open };
+allow mkelog_parser fuse:dir { read write create open add_name remove_name search };
+allow mkelog_parser fuse:file { read write create getattr append unlink open };

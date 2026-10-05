@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow hal_tiktap_default hal_tiktap_default_exec:file { read getattr map execute open entrypoint };
+allow hal_tiktap_default hal_allocator:fd { use };
+allow hal_tiktap_default hidl_memory_hwservice:hwservice_manager { find };
+allow hal_tiktap_default proc_tiktap_buf:file { ioctl read write getattr lock append map open watch watch_reads };
+allowxperm hal_tiktap_default proc_tiktap_buf:file ioctl { 0xff09 0xff0b };

@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+hal_attribute(eid)
+hal_attribute(fbase_defrag)
+hal_attribute(fido)
+hal_attribute(geofence)
+hal_attribute(ifaa)
+hal_attribute(meizu_charging)
+hal_attribute(meizu_kelog)
+hal_attribute(meizu_sensor_aux)
+hal_attribute(secure_store)
+hal_attribute(tiktap)
+attribute vendor_service;

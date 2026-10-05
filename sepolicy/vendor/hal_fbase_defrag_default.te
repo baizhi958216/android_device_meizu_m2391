@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow hal_fbase_defrag_default hal_fbase_defrag_default_exec:file { read getattr map execute open entrypoint };
+allow hal_fbase_defrag_default hal_fbase_defrag_hwservice:hwservice_manager { add find };
+allow hal_fbase_defrag_default hidl_base_hwservice:hwservice_manager { add };

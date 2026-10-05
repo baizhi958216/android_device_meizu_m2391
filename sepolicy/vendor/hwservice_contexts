@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+vendor.qti.hardware.eid::IEid                  u:object_r:vendor_hal_eid_hwservice:s0
+vendor.rongcard.hardware.eid_rk::IEidDevice    u:object_r:hal_eid_hwservice:s0
+vendor.meizu.hardware.biometrics.fingerprint::IPlatformFingerprintService       u:object_r:hal_meizu_fingerprint_hwservice:s0
+vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon         u:object_r:hal_goodix_fingerprint_hwservice:s0
+vendor.arcsoft.hardware.biometrics.fingerprint::IArcsoftFingerprintService      u:object_r:hal_arcsoft_fingerprint_hwservice:s0
+vendor.xingji.hardware.qsee.store::IQseeStore                                   u:object_r:hal_secure_store_hwservice:s0
+vendor.meizu.hardware.ifaa::IIFAADaemon                                         u:object_r:hal_ifaa_hwservice:s0
+vendor.meizu.hardware.fido::IFIDODaemon                                         u:object_r:hal_fido_hwservice:s0
+vendor.meizu.sensor_aux::ISensorAux                        u:object_r:hal_meizu_sensor_aux_hwservice:s0
+vendor.meizu.hardware.fbase_defrag::IFbaseDefrag                                u:object_r:hal_fbase_defrag_hwservice:s0
+vendor.meizu.hardware.meizu_charging::IMeizuCharging u:object_r:hal_meizu_charging_hwservice:s0
+vendor.meizu.hardware.tiktap_hidl::ITiktap                                       u:object_r:hal_tiktap_hwservice:s0
+vendor.meizu.hardware.meizu_kelog::IMeizuKelog u:object_r:hal_meizu_kelog_hwservice:s0

@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+vendor.goodix.fingerprint.dump_dsp_log                  u:object_r:vendor_goodix_fingerprint_prop:s0
+vendor.goodix.fingerprint.dump_talog_data               u:object_r:vendor_goodix_fingerprint_prop:s0
+vendor.goodix.fingerprint.write_talog_data              u:object_r:vendor_goodix_fingerprint_prop:s0
+vendor.goodix.fingerprint.model                         u:object_r:vendor_goodix_fingerprint_prop:s0
+vendor.goodix.fingerprint.serial                        u:object_r:vendor_goodix_fingerprint_prop:s0
+vendor.goodix.fingerprint.vendor                        u:object_r:vendor_goodix_fingerprint_prop:s0
+persist.vendor.goodix.fingerprint.dump_data             u:object_r:vendor_goodix_fingerprint_prop:s0
+persist.vendor.goodix.fingerprint.disable_study         u:object_r:vendor_goodix_fingerprint_prop:s0
+persist.vendor.arcsoft.antispoof_enable                 u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.dump_afp                         u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.dump_data                        u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.dump_encry_raw                   u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.dump_raw                         u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.dump_rt_res                      u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.enroll_exotic_cancel             u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.fp.log                           u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.latent_enable                    u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.arcsoft.simu_afp                         u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.fingerprint.arcsoft.hvx.enable           u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.fingerprint.arcsoft.hvxinit.delay        u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.fingerprint.arcsoft.reinit.enable        u:object_r:vendor_arcsoft_fingerprint_prop:s0
+persist.vendor.fingerprint.arcst.bandwidth              u:object_r:vendor_arcsoft_fingerprint_prop:s0
+vendor.meizu.fingerprint.vendor                         u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.manufacturer                   u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.model                          u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.serial                         u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.in-display                     u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.x                              u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.y                              u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.width                          u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.fingerprint.height                         u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.face.debug                                 u:object_r:vendor_face_prop:s0
+vendor.meizu.ifaa.version                               u:object_r:vendor_ifaa_prop:s0
+vendor.meizu.ifaa.key                                   u:object_r:vendor_ifaa_prop:s0
+vendor.meizu.fido.aaid                                  u:object_r:vendor_fido_prop:s0
+vendor.meizu.fido.key1                                  u:object_r:vendor_fido_prop:s0
+vendor.meizu.fido.key2                                  u:object_r:vendor_fido_prop:s0
+vendor.meizu.rpmb.provisioned                           u:object_r:vendor_rpmb_prop:s0
+persist.vendor.meizu.qteedebug                          u:object_r:vendor_qteedebug_prop:s0
+ro.vendor.serialno                                      u:object_r:vendor_fix_1347671_prop:s0
+vendor.meizu.kelog.init                                 u:object_r:vendor_meizu_kelog_prop:s0
+persist.vendor.meizu.smart_zram                          u:object_r:vendor_smartzram_prop:s0
+persist.vendor.meizu.smart_zram.err                      u:object_r:vendor_smartzram_prop:s0
+persist.vendor.meizu.smart_zram.condition                u:object_r:vendor_smartzram_prop:s0
+persist.vendor.meizu.smart_zram.cfg                      u:object_r:vendor_smartzram_prop:s0
+persist.vendor.meizu.smart_zram.swapsize.curr            u:object_r:vendor_smartzram_prop:s0
+persist.vendor.meizu.smart_zram.swapsize                 u:object_r:vendor_smartzram_prop:s0
+vendor.meizu.smart_zram.init                             u:object_r:vendor_smartzram_prop:s0
+vendor.meizu.smart_zram.init_ok                          u:object_r:vendor_smartzram_prop:s0

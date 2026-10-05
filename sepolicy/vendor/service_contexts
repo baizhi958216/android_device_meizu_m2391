@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+vendor.meizu.hardware.qsh_geofence.IQshGeofence/default       u:object_r:hal_geofence_service:s0

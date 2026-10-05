@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow hal_meizu_kelog_default hal_meizu_kelog_default_exec:file { read getattr map execute open entrypoint };
+allow hal_meizu_kelog_default hal_meizu_kelog_hwservice:hwservice_manager { add find };
+allow hal_meizu_kelog_default hidl_base_hwservice:hwservice_manager { add };
+allow hal_meizu_kelog_default sysfs_rstinfo_file:file { ioctl read write getattr lock append map open watch watch_reads };
+allow hal_meizu_kelog_default proc_rstinfo_file:file { ioctl read write getattr lock append map open watch watch_reads };
+allow hal_meizu_kelog_default xmkelog_data_file:file { ioctl read write getattr lock append map open watch watch_reads };
+allow hal_meizu_kelog_default xmkelog_data_file:file { ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads };
+allow hal_meizu_kelog_default xmkelog_data_file:dir { ioctl read write getattr lock append map open watch watch_reads };
+allow hal_meizu_kelog_default xmkelog_data_file:dir { create add_name remove_name search rmdir };
+allow hal_meizu_kelog_default proc_reset_reason:file { ioctl read getattr lock map open watch watch_reads };
+allow hal_meizu_kelog_default block_device:dir { ioctl read getattr lock open watch watch_reads search };
+allow hal_meizu_kelog_default block_device:blk_file { getattr };
+allow hal_meizu_kelog_default vendor_rawdump_block_device:dir { ioctl read getattr lock open watch watch_reads search };
+allow hal_meizu_kelog_default vendor_rawdump_block_device:blk_file { read getattr open };
+allow hal_meizu_kelog_default sdcardfs:dir { read write create open add_name remove_name search };
+allow hal_meizu_kelog_default sdcardfs:file { read write create getattr append unlink open };
+allow hal_meizu_kelog_default storage_file:dir { search };
+allow hal_meizu_kelog_default fuse:dir { read write create open add_name remove_name search rmdir };
+allow hal_meizu_kelog_default fuse:file { read write create getattr append unlink rename open };
+allow hal_meizu_kelog_default storage_file:lnk_file { read };
+allow hal_meizu_kelog_default mnt_user_file:lnk_file { read };
+allow hal_meizu_kelog_default mnt_user_file:dir { search };
+allow hal_meizu_kelog_default property_socket:sock_file { write };
+allow hal_meizu_kelog_default init:unix_stream_socket { connectto };
+allow hal_meizu_kelog_default vendor_meizu_kelog_prop:property_service { set };
+allow hal_meizu_kelog_default vendor_meizu_kelog_prop:file { read getattr map open };

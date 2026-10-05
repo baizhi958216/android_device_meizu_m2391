@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow mpower_manager mpower_manager_exec:file { read getattr map execute open entrypoint };
+allow mpower_manager storage_file:lnk_file { read };
+allow mpower_manager mnt_user_file:lnk_file { read };
+allow mpower_manager mnt_user_file:dir { search };
+allow mpower_manager proc_mpower_kmsg:file { ioctl read write getattr lock append map open watch watch_reads };
+allow mpower_manager proc_cmdline:file { ioctl read getattr lock map open watch watch_reads };
+allow mpower_manager proc_version:file { ioctl read getattr lock map open watch watch_reads };
+allow mpower_manager sdcardfs:dir { read write create open add_name remove_name search };
+allow mpower_manager sdcardfs:file { write create getattr append unlink open };
+allow mpower_manager storage_file:dir { search };
+allow mpower_manager fuse:dir { read write create open add_name remove_name search };
+allow mpower_manager fuse:file { read write create getattr append unlink open };

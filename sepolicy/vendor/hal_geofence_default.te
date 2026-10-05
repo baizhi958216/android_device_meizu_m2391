@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow hal_geofence_default hal_geofence_default_exec:file { read getattr map execute open entrypoint };
+allow hal_geofence_default self:qipcrtr_socket { read write create getattr setattr lock append map bind connect getopt setopt shutdown };
+allow hal_geofence_default hal_geofence_default_exec:file { read execute };
+allow hal_geofence_default hal_geofence_service:service_manager { add find };
+allow hal_geofence_default self:process { getattr };
+allow hal_geofence_default servicemanager:binder { call transfer };
+allow hal_geofence_default system_server:binder { call transfer };
+allow hal_geofence_default self:binder { call transfer };

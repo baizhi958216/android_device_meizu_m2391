@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+allow fix_1347671 fix_1347671_exec:file { read getattr map execute open entrypoint };
+allow fix_1347671 vendor_hal_keymint_qti:binder { call transfer };
+allow fix_1347671 vendor_hal_keymint_qti:fd { use };
+allow fix_1347671 servicemanager:binder { call transfer };
+allow fix_1347671 self:qipcrtr_socket { read write create getattr setattr lock append map bind connect getopt setopt shutdown };
+allow fix_1347671 tee_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };
+allow fix_1347671 vendor_dmabuf_qseecom_heap_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };
+allow fix_1347671 vendor_file:file { ioctl read getattr lock map execute open watch watch_reads execute_no_trans };
+allow fix_1347671 vendor_shell_exec:file { ioctl read getattr lock map execute open watch watch_reads execute_no_trans };
+allow fix_1347671 vendor_tee_listener_prop:file { read getattr map open };
+allow fix_1347671 vendor_fix_1347671_prop:file { read getattr map open };

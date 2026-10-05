@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+# MEIZU additions to the Qualcomm SM8550 source policy.
+# Ported from firmware 1764145455; compiled with native SELinux build rules.
+
+vendor_restricted_prop(vendor_arcsoft_fingerprint_prop)
+vendor_restricted_prop(vendor_face_prop)
+vendor_restricted_prop(vendor_fido_prop)
+vendor_restricted_prop(vendor_fix_1347671_prop)
+vendor_restricted_prop(vendor_goodix_fingerprint_prop)
+vendor_restricted_prop(vendor_ifaa_prop)
+vendor_restricted_prop(vendor_meizu_fingerprint_prop)
+vendor_restricted_prop(vendor_meizu_kelog_prop)
+vendor_restricted_prop(vendor_qteedebug_prop)
+vendor_restricted_prop(vendor_rpmb_prop)
+vendor_restricted_prop(vendor_secure_store_prop)
+vendor_restricted_prop(vendor_smartzram_prop)
+vendor_restricted_prop(vendor_uwb_prop)
