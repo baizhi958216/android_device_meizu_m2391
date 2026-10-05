@@ -101,6 +101,30 @@ def write_stock_overlays(ctx, packages_ctx):
     include_packages(ctx, names)
 
 
+def write_stock_etc(ctx, packages_ctx):
+    """Select stock policy/configuration through native prebuilt selection."""
+    entries = json.loads((Path(__file__).parent /
+                          'configs/stock-etc-modules.json').read_text())
+    for entry in entries:
+        path = Path(entry['path'])
+        if path.parts[:2] != ('vendor', 'etc'):
+            raise ValueError(f'Unexpected stock configuration path: {path}')
+        kind = 'm2391_prebuilt_etc_common' if entry['common'] else 'm2391_prebuilt_etc'
+        properties = {
+            'name': entry['module'],
+            'src': 'proprietary/' + str(path),
+            'filename': path.name,
+            'relative_install_path': str(path.parent.relative_to('vendor/etc')),
+            'soc_specific': True,
+            'prefer': True,
+        }
+        ctx.bp_out.write('\n' + kind + ' {\n')
+        for key, value in properties.items():
+            ctx.bp_out.write(f'    {key}: {json.dumps(value)},\n')
+        ctx.bp_out.write('}\n')
+    include_packages(ctx, [entry['module'] for entry in entries])
+
+
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
@@ -112,6 +136,7 @@ module = ExtractUtilsModule(
 )
 module.proprietary_files[-1].add_post_makefile_generation_fn(write_symlinks)
 module.proprietary_files[-1].add_post_makefile_generation_fn(write_stock_overlays)
+module.proprietary_files[-1].add_post_makefile_generation_fn(write_stock_etc)
 
 if __name__ == '__main__':
     ExtractUtils.device(module).run()

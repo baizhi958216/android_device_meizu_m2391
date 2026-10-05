@@ -138,8 +138,11 @@ PRODUCT_PACKAGES += \
     android.system.wifi.keystore@1.0.vendor \
     awk_vendor \
     boringssl_self_test_vendor \
+    checkpoint_gc \
     com.dsi.ant@1.0.vendor \
     dumpsys_vendor \
+    group_odm \
+    group_vendor \
     libalsautils.vendor \
     libaudiopreprocessing \
     libavservices_minijail.vendor \
@@ -203,6 +206,9 @@ PRODUCT_PACKAGES += \
     libwifi-hal \
     libwpa_client \
     logwrapper_vendor \
+    mkshrc_vendor \
+    passwd_odm \
+    passwd_vendor \
     rkp_factory_extraction_tool \
     sh_vendor \
     toolbox_vendor \

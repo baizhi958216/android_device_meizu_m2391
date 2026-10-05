@@ -1,0 +1,77 @@
+[
+  {
+    "path": "vendor/etc/permissions/android.hardware.hardware_keystore.xml",
+    "module": "android.hardware.hardware_keystore.xml",
+    "common": false
+  },
+  {
+    "path": "vendor/etc/selinux/plat_pub_versioned.cil",
+    "module": "plat_pub_versioned.cil",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/plat_sepolicy_vers.txt",
+    "module": "plat_sepolicy_vers.txt",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/res/images/default/charger/battery_fail.png",
+    "module": "system_core_charger_res_images_battery_fail.png_default_vendor",
+    "common": false
+  },
+  {
+    "path": "vendor/etc/res/images/default/charger/battery_scale.png",
+    "module": "system_core_charger_res_images_battery_scale.png_default_vendor",
+    "common": false
+  },
+  {
+    "path": "vendor/etc/usb_compositions.conf",
+    "module": "usb_compositions.conf",
+    "common": false
+  },
+  {
+    "path": "vendor/etc/selinux/selinux_denial_metadata",
+    "module": "vendor_bug_map",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_file_contexts",
+    "module": "vendor_file_contexts",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_hwservice_contexts",
+    "module": "vendor_hwservice_contexts",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_mac_permissions.xml",
+    "module": "vendor_mac_permissions.xml",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_property_contexts",
+    "module": "vendor_property_contexts",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_seapp_contexts",
+    "module": "vendor_seapp_contexts",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_sepolicy.cil",
+    "module": "vendor_sepolicy.cil",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vendor_service_contexts",
+    "module": "vendor_service_contexts",
+    "common": true
+  },
+  {
+    "path": "vendor/etc/selinux/vndservice_contexts",
+    "module": "vndservice_contexts",
+    "common": true
+  }
+]
