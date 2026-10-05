@@ -203,6 +203,7 @@ PRODUCT_PACKAGES += \
     libwifi-hal \
     libwpa_client \
     logwrapper_vendor \
+    rkp_factory_extraction_tool \
     sh_vendor \
     toolbox_vendor \
     vendor.display.config@1.0.vendor \
