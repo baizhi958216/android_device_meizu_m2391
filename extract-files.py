@@ -13,6 +13,15 @@ from extract_utils.extract_recovery import (
     unpack_bootimg,
 )
 from extract_utils.main import ExtractUtils, ExtractUtilsModule
+from extract_utils.module import FirmwareProprietaryFile
+
+
+class NativeImageFirmware(FirmwareProprietaryFile):
+    def write_makefiles(self, module, ctx):
+        # Extraction still treats DTBO as firmware. BOARD_PREBUILT_DTBOIMAGE
+        # owns its image/AVB/OTA rules, so add-radio-file must not install it too.
+        if any(file.dst != 'dtbo.img' for file in self.file_list.all_files):
+            raise ValueError('Review native image rules before adding firmware')
 
 
 def extract_boot(ctx, file_path, dump_dir):
@@ -141,8 +150,9 @@ module = ExtractUtilsModule(
         r'^boot\.img$': extract_boot,
         r'^vendor_boot\.img$': extract_vendor_boot,
     },
-    add_firmware_proprietary_file=True,
 )
+module.proprietary_files.insert(0, NativeImageFirmware(
+    module.proprietary_file_path('proprietary-firmware.txt')))
 module.proprietary_files[-1].add_post_makefile_generation_fn(write_symlinks)
 module.proprietary_files[-1].add_post_makefile_generation_fn(write_stock_overlays)
 module.proprietary_files[-1].add_post_makefile_generation_fn(write_stock_etc)
