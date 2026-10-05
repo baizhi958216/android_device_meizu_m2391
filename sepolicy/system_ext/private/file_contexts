@@ -1,4 +1,3 @@
-/system_ext/bin/hw/android\.hardware\.vibrator-service\.m2391 u:object_r:hal_vibrator_m2391_exec:s0
 /sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/enable u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/set_mback u:object_r:sysfs_vibrator:s0
 

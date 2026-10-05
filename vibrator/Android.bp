@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 cc_binary {
     name: "android.hardware.vibrator-service.m2391",
-    system_ext_specific: true,
+    vendor: true,
     relative_install_path: "hw",
     srcs: ["service.cpp"],
     shared_libs: [

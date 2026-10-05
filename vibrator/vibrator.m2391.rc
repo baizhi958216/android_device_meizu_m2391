@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
-# Disable the Qualcomm HV backend before registering the Meizu AW8697 backend.
+# Register the Meizu AW8697 backend after preparing its sysfs controls.
 on post-fs-data
-    stop vendor.qti.vibrator
     chown system system /sys/class/meizu/motor/enable
     chown system system /sys/class/meizu/motor/set_mback
     chmod 0660 /sys/class/meizu/motor/enable
@@ -10,7 +9,7 @@ on post-fs-data
     restorecon /sys/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-2/2-005a/set_mback
     start vendor.m2391.vibrator
 
-service vendor.m2391.vibrator /system_ext/bin/hw/android.hardware.vibrator-service.m2391
+service vendor.m2391.vibrator /vendor/bin/hw/android.hardware.vibrator-service.m2391
     class hal
     user system
     group system

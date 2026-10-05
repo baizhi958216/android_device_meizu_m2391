@@ -55,3 +55,5 @@
 /vendor/bin/mpower_manager  u:object_r:mpower_manager_exec:s0
 /sys/rstinfo/rstinfo_enable    u:object_r:sysfs_rstinfo_file:s0
 /sys/class/timed_output/vibrator/enable u:object_r:vib_strength_sysfs:s0
+
+/vendor/bin/hw/android\.hardware\.vibrator-service\.m2391 u:object_r:hal_vibrator_m2391_exec:s0
