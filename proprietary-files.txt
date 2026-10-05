@@ -2052,7 +2052,7 @@ vendor/lib/libtriplecam_optical_zoom_control.so|e8e30b964c942798d7d53035d20f1f15
 vendor/lib/libtriplecam_video_optical_zoom.so|07e0e06493d523ba444cb4919ff9c2402c0b2c36
 vendor/lib/libtrustedapploader.so|c12d1c7ca4ef029cb5eff0e1f3afc62a388e56cd
 vendor/lib/libubifocus.so|592895b73b6603a3a4fddd5446086d98c97f570a
-vendor/lib/libvibrator.so|8fb670102e3b03d81deead7ce102dd5b1b98f9db
+vendor/lib/libvibrator.so;MODULE_SUFFIX=_vendor|8fb670102e3b03d81deead7ce102dd5b1b98f9db
 vendor/lib/libvideoml.so|949e83c956365723bd93471bb9688e16bbadc781
 vendor/lib/libvideooptfeature.so|dbef3e66bbec1dd5245a8f2b2cd6f8209da778ae
 vendor/lib/libvideotxr.so|fc390a92d1d787b47a4ef0b040abbb25833ddce5
@@ -2352,7 +2352,7 @@ vendor/lib/vendor.qti.qspmhal@1.0-impl.so|c5d96d83e9df7d1c2785f49c9bc1d45ab1a559
 vendor/lib/vendor.qti.qspmhal@1.0.so|0568f1b81b3d6fbee78e5648caf089c692ddbc54
 vendor/lib/vendor.qti.voiceprint@1.0.so|3665a1895d2cddfca2d0e3d13094e9814552e59e
 vendor/lib/vendor.rongcard.hardware.eid_rk@1.0.so|699965bd60a250a0a7fd071c5e780ca8f720bfc0
-vendor/lib/vndk/libstagefright_foundation.so|e4d55458b512e762511fe0c5f61f924542037f2a
+vendor/lib/vndk/libstagefright_foundation.so;MODULE_SUFFIX=_vendor|e4d55458b512e762511fe0c5f61f924542037f2a
 vendor/lib/vndk/libstagefright_omx.so;MODULE_SUFFIX=_vendor|d650a7bbb48dc0b53b6221e8c40eec39e12f3664
 vendor/lib64/android.hardware.camera.provider@2.4-external.so|f6a54eca29c7c8bd3785daac724ed5d9d2207d17
 vendor/lib64/android.hardware.camera.provider@2.4-legacy.so|c519c89cffa997e7b11da9de33e52c59d6bb810e
@@ -3192,7 +3192,7 @@ vendor/lib64/libtriplecam_optical_zoom_control.so|37bbd169277001c11ea2711ffadc47
 vendor/lib64/libtriplecam_video_optical_zoom.so|0442c7d5958daba316c3026357feca626245dada
 vendor/lib64/libtrustedapploader.so|fef9e8ee1b1f5ca79474cefa3ac78aa8ea5e3b08
 vendor/lib64/libubifocus.so|efb1d3fa658955f9278344c44043f35c40fc8f43
-vendor/lib64/libvibrator.so|056ab89c8b45e6c5dc51b8ad38729d0566ecf89c
+vendor/lib64/libvibrator.so;MODULE_SUFFIX=_vendor|056ab89c8b45e6c5dc51b8ad38729d0566ecf89c
 vendor/lib64/libvideoml.so|624ea42f203cc80d097ee241d5aa2f7e29d55d3c
 vendor/lib64/libvideooptfeature.so|71d3c4413da1834a7f2124b7c349de5017d5896d
 vendor/lib64/libvideotxr.so|7e9e4607964f542e8f00739ca792721b15726b55

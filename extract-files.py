@@ -5,7 +5,11 @@ import shutil
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from extract_utils.extract_recovery import extract_ramdisk, parse_mkbootimg_fragments, unpack_bootimg
+from extract_utils.extract_recovery import (
+    extract_ramdisk,
+    parse_mkbootimg_fragments,
+    unpack_bootimg,
+)
 from extract_utils.fixups_lib import lib_fixups
 from extract_utils.main import ExtractUtils, ExtractUtilsModule
 from extract_utils.module import ProprietaryFileType
@@ -36,7 +40,6 @@ def extract_vendor_boot(ctx, file_path, dump_dir):
     return file_path
 
 
-
 def lib_fixup_vendor_suffix(lib, partition):
     return f'{lib}_vendor' if partition == 'vendor' else None
 
@@ -44,7 +47,10 @@ def lib_fixup_vendor_suffix(lib, partition):
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
-    lib_fixups={**lib_fixups, 'libstagefright_omx': lib_fixup_vendor_suffix},
+    lib_fixups={
+        **lib_fixups,
+        ('libstagefright_foundation', 'libstagefright_omx', 'libvibrator'): lib_fixup_vendor_suffix,
+    },
     namespace_imports=['hardware/qcom-caf/bootctrl'],
     extract_fns={
         r'^boot\.img$': extract_boot,
