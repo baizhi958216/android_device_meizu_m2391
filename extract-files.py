@@ -51,14 +51,16 @@ def write_symlinks(ctx, packages_ctx):
     """Keep relative and dangling stock links; they are not copyable blobs."""
     names = []
     source = Path(__file__).parent / 'configs/vendor-symlinks.txt'
+    native_source = source.with_name('native-symlinks.txt')
+    native = dict(line.split('|', 1) for line in native_source.read_text().splitlines()
+                  if line and not line.startswith('#'))
+    reused = set()
     for line in source.read_text().splitlines():
         if not line or line.startswith('#'):
             continue
         path, target = line.split('|', 1)
-        # These links are installed by the source-built toolbox_vendor module.
-        if target == 'toolbox' and path.rsplit('/', 1)[-1] in {
-            'getevent', 'getprop', 'modprobe', 'setprop', 'start', 'stop',
-        }:
+        if path in native:
+            reused.add(path)
             continue
         partition, location = path.split('/', 1)
         if partition != 'vendor':
@@ -72,7 +74,9 @@ def write_symlinks(ctx, packages_ctx):
                          f'    symlink_target: {json.dumps(target)},\n'
                          '}\n')
         names.append(name)
-    include_packages(ctx, names)
+    if reused != native.keys():
+        raise ValueError(f'Native links missing from stock inventory: {native.keys() - reused}')
+    include_packages(ctx, names + sorted(set(native.values())))
 
 
 def write_stock_overlays(ctx, packages_ctx):
