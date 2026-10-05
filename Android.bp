@@ -1,4 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
+soong_namespace {
+    imports: ["vendor/meizu/m2391"],
+}
+
 vintf_compatibility_matrix {
     name: "m2391_framework_compatibility_matrix_7",
     stem: "compatibility_matrix.7.m2391.xml",
@@ -10,70 +14,70 @@ vintf_compatibility_matrix {
 prebuilt_lib {
     name: "m2391_qesdk_vendor_lib",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_qesdk_vendor_lib_blob",
+    src: ":m2391_qesdk_vendor_lib_blob",
     filename: "libqti-qesdk-secure.so",
 }
 
 prebuilt_overlay {
     name: "m2391_ConnectivityResCommon_Vendor_Mz",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_ConnectivityResCommon_Vendor_Mz_blob",
+    src: ":m2391_ConnectivityResCommon_Vendor_Mz_blob",
     filename: "ConnectivityResCommon_Vendor_Mz.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_FrameworksResCommon_Vendor_Mz",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_FrameworksResCommon_Vendor_Mz_blob",
+    src: ":m2391_FrameworksResCommon_Vendor_Mz_blob",
     filename: "FrameworksResCommon_Vendor_Mz.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_FrameworksResTarget_Vendor",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_FrameworksResTarget_Vendor_blob",
+    src: ":m2391_FrameworksResTarget_Vendor_blob",
     filename: "FrameworksResTarget_Vendor.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_MeizuFrameworksResTarget",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_MeizuFrameworksResTarget_blob",
+    src: ":m2391_MeizuFrameworksResTarget_blob",
     filename: "MeizuFrameworksResTarget.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_NetworkStackResCommon_Vendor_Mz",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_NetworkStackResCommon_Vendor_Mz_blob",
+    src: ":m2391_NetworkStackResCommon_Vendor_Mz_blob",
     filename: "NetworkStackResCommon_Vendor_Mz.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_SecureElementResTarget_Vendor",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_SecureElementResTarget_Vendor_blob",
+    src: ":m2391_SecureElementResTarget_Vendor_blob",
     filename: "SecureElementResTarget_Vendor.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_WifiResCommon_Vendor_Mz",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_WifiResCommon_Vendor_Mz_blob",
+    src: ":m2391_WifiResCommon_Vendor_Mz_blob",
     filename: "WifiResCommon_Vendor_Mz.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_WifiResTarget",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_WifiResTarget_blob",
+    src: ":m2391_WifiResTarget_blob",
     filename: "WifiResTarget.apk",
 }
 
 prebuilt_overlay {
     name: "m2391_WifiResTarget_spf",
     soc_specific: true,
-    src: "://vendor/meizu/m2391:m2391_WifiResTarget_spf_blob",
+    src: ":m2391_WifiResTarget_spf_blob",
     filename: "WifiResTarget_spf.apk",
 }
 

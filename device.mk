@@ -5,7 +5,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 $(call inherit-product, $(DEVICE_PATH)/source-packages.mk)
 
 # Qualcomm Boot HAL preserves the GPT-based A/B slot attributes.
-PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/bootctrl
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH) hardware/qcom-caf/bootctrl
 
 PRODUCT_SHIPPING_API_LEVEL := 33
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
