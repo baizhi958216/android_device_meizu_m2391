@@ -103,6 +103,13 @@ def write_stock_overlays(ctx, packages_ctx):
 
 def write_stock_etc(ctx, packages_ctx):
     """Select stock policy/configuration through native prebuilt selection."""
+    # Soong supports third-party plugins under vendor/. Keep their sources in
+    # the device tree and reproduce them with the generated vendor definitions.
+    plugin_source = Path(__file__).parent / 'build/soong'
+    plugin_destination = Path(packages_ctx.vendor_prop_path).parent / 'build/soong'
+    plugin_destination.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(plugin_source / 'Android.bp.in', plugin_destination / 'Android.bp')
+    shutil.copyfile(plugin_source / 'stock_etc.go', plugin_destination / 'stock_etc.go')
     entries = json.loads((Path(__file__).parent /
                           'configs/stock-etc-modules.json').read_text())
     for entry in entries:
