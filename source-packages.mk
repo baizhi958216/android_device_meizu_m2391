@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
-# Source-built vendor utilities/libraries and LineageOS protobuf compatibility modules.
+# Source modules and LineageOS compatibility libraries used by the vendor image.
 PRODUCT_PACKAGES += \
+    CneApp.libvndfwk_detect_jni.qti_vendor_symlink \
     android.automotive.watchdog-V2-ndk.vendor \
     android.frameworks.cameraservice.common@2.0.vendor \
     android.frameworks.cameraservice.device@2.0.vendor \
@@ -79,6 +80,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.2.vendor \
     android.hardware.graphics.composer@2.3.vendor \
     android.hardware.graphics.composer@2.4.vendor \
+    android.hardware.hardware_keystore.xml \
     android.hardware.health@1.0.vendor \
     android.hardware.health@2.0.vendor \
     android.hardware.health@2.1.vendor \
@@ -207,62 +209,6 @@ PRODUCT_PACKAGES += \
     mkshrc_vendor \
     passwd_odm \
     passwd_vendor \
-    rkp_factory_extraction_tool \
-    sh_vendor \
-    toolbox_vendor \
-    vendor.display.config@1.0.vendor \
-    vendor.display.config@1.1.vendor \
-    vendor.display.config@1.10.vendor \
-    vendor.display.config@1.11.vendor \
-    vendor.display.config@1.2.vendor \
-    vendor.display.config@1.3.vendor \
-    vendor.display.config@1.4.vendor \
-    vendor.display.config@1.5.vendor \
-    vendor.display.config@1.6.vendor \
-    vendor.display.config@1.7.vendor \
-    vendor.display.config@1.8.vendor \
-    vendor.display.config@1.9.vendor \
-    vendor.display.config@2.0.vendor \
-    vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor \
-    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
-    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@2.0.vendor \
-    vendor.qti.hardware.camera.aon@1.0.vendor \
-    vendor.qti.hardware.camera.aon@1.1.vendor \
-    vendor.qti.hardware.camera.aon@1.2.vendor \
-    vendor.qti.hardware.camera.aon@1.3.vendor \
-    vendor.qti.hardware.camera.device@1.0.vendor \
-    vendor.qti.hardware.camera.postproc@1.0.vendor \
-    vendor.qti.hardware.capabilityconfigstore@1.0.vendor \
-    vendor.qti.hardware.display.allocator@1.0.vendor \
-    vendor.qti.hardware.display.allocator@3.0.vendor \
-    vendor.qti.hardware.display.allocator@4.0.vendor \
-    vendor.qti.hardware.display.composer@1.0.vendor \
-    vendor.qti.hardware.display.composer@2.0.vendor \
-    vendor.qti.hardware.display.composer@3.0.vendor \
-    vendor.qti.hardware.display.composer@3.1.vendor \
-    vendor.qti.hardware.display.demura@2.0.vendor \
-    vendor.qti.hardware.display.mapper@1.0.vendor \
-    vendor.qti.hardware.display.mapper@1.1.vendor \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.0.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.1.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.2.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.3.vendor \
-    vendor.qti.hardware.perf@2.0.vendor \
-    vendor.qti.hardware.perf@2.1.vendor \
-    vendor.qti.hardware.perf@2.2.vendor \
-    vendor.qti.hardware.perf@2.3.vendor \
-    vendor.qti.hardware.qspa-V1-ndk.vendor \
-    vendor.qti.hardware.servicetracker@1.0.vendor \
-    vendor.qti.hardware.servicetracker@1.1.vendor \
-    vendor.qti.hardware.servicetracker@1.2.vendor \
-    vendor.qti.hardware.wifi.supplicant-V1-ndk.vendor \
-    CneApp.libvndfwk_detect_jni.qti_vendor_symlink \
-    android.hardware.hardware_keystore.xml \
     rfs_apq_gnss_hlos_symlink \
     rfs_apq_gnss_ramdumps_symlink \
     rfs_apq_gnss_readonly_firmware_symlink \
@@ -335,11 +281,64 @@ PRODUCT_PACKAGES += \
     rfs_msm_wpss_readonly_vendor_firmware_symlink \
     rfs_msm_wpss_readwrite_symlink \
     rfs_msm_wpss_shared_symlink \
+    rkp_factory_extraction_tool \
     selinux_policy_nonsystem \
     selinux_policy_odm \
     selinux_policy_vendor \
+    sh_vendor \
     system_core_charger_res_images_battery_fail.png_default_vendor \
     system_core_charger_res_images_battery_scale.png_default_vendor \
     toolbox_vendor \
     toybox_vendor \
-    usb_compositions.conf
+    usb_compositions.conf \
+    vendor.display.config@1.0.vendor \
+    vendor.display.config@1.1.vendor \
+    vendor.display.config@1.10.vendor \
+    vendor.display.config@1.11.vendor \
+    vendor.display.config@1.2.vendor \
+    vendor.display.config@1.3.vendor \
+    vendor.display.config@1.4.vendor \
+    vendor.display.config@1.5.vendor \
+    vendor.display.config@1.6.vendor \
+    vendor.display.config@1.7.vendor \
+    vendor.display.config@1.8.vendor \
+    vendor.display.config@1.9.vendor \
+    vendor.display.config@2.0.vendor \
+    vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor \
+    vendor.qti.hardware.camera.aon@1.0.vendor \
+    vendor.qti.hardware.camera.aon@1.1.vendor \
+    vendor.qti.hardware.camera.aon@1.2.vendor \
+    vendor.qti.hardware.camera.aon@1.3.vendor \
+    vendor.qti.hardware.camera.device@1.0.vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor \
+    vendor.qti.hardware.display.allocator@1.0.vendor \
+    vendor.qti.hardware.display.allocator@3.0.vendor \
+    vendor.qti.hardware.display.allocator@4.0.vendor \
+    vendor.qti.hardware.display.composer@1.0.vendor \
+    vendor.qti.hardware.display.composer@2.0.vendor \
+    vendor.qti.hardware.display.composer@3.0.vendor \
+    vendor.qti.hardware.display.composer@3.1.vendor \
+    vendor.qti.hardware.display.demura@2.0.vendor \
+    vendor.qti.hardware.display.mapper@1.0.vendor \
+    vendor.qti.hardware.display.mapper@1.1.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.0.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.1.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.2.vendor \
+    vendor.qti.hardware.display.mapperextensions@1.3.vendor \
+    vendor.qti.hardware.perf@2.0.vendor \
+    vendor.qti.hardware.perf@2.1.vendor \
+    vendor.qti.hardware.perf@2.2.vendor \
+    vendor.qti.hardware.perf@2.3.vendor \
+    vendor.qti.hardware.qspa-V1-ndk.vendor \
+    vendor.qti.hardware.servicetracker@1.0.vendor \
+    vendor.qti.hardware.servicetracker@1.1.vendor \
+    vendor.qti.hardware.servicetracker@1.2.vendor \
+    vendor.qti.hardware.wifi.supplicant-V1-ndk.vendor

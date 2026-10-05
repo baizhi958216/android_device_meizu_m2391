@@ -324,8 +324,6 @@ allow system_app vendor_meizu_kelog_prop:file { read getattr map open };
 allow system_app videofilter_data_file:file { ioctl read write create getattr setattr lock append map unlink rename open watch watch_reads };
 allow system_app videofilter_data_file:dir { ioctl read write create getattr setattr lock rename open watch watch_reads add_name remove_name reparent search rmdir };
 allow system_app hal_geofence_default:binder { call transfer };
-allow system_app vendor_smartzram_prop:property_service { set };
-allow system_app vendor_smartzram_prop:file { read getattr map open };
 allow system_server hal_meizu_fingerprint_hwservice:hwservice_manager { find };
 allow system_server hal_goodix_fingerprint_hwservice:hwservice_manager { find };
 allow system_server hal_arcsoft_fingerprint_hwservice:hwservice_manager { find };

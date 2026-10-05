@@ -6,6 +6,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from extract_utils.extract_recovery import extract_ramdisk, parse_mkbootimg_fragments, unpack_bootimg
+from extract_utils.fixups_lib import lib_fixups
 from extract_utils.main import ExtractUtils, ExtractUtilsModule
 from extract_utils.module import ProprietaryFileType
 
@@ -39,6 +40,8 @@ def extract_vendor_boot(ctx, file_path, dump_dir):
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
+    lib_fixups=lib_fixups,
+    namespace_imports=['hardware/qcom-caf/bootctrl'],
     extract_fns={
         r'^boot\.img$': extract_boot,
         r'^vendor_boot\.img$': extract_vendor_boot,
