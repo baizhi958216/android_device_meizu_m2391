@@ -1866,7 +1866,7 @@ vendor/lib/libdualcam_optical_zoom_control.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|
 vendor/lib/libdualcam_video_optical_zoom.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|f615825f7169aa52734702e88323f592a04477da
 vendor/lib/libeai_fixed_32.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|4a009f051dd878d0d8e3fdef90f52206f6197159
 vendor/lib/libeffects.so;DISABLE_DEPS|1981d9a8723de9f6aa73cfb74af4682fca8de1fd
-vendor/lib/libeffectsconfig.so;DISABLE_DEPS|8afbf97ad6bb60c19bd82bef7b05625dfb5a13ea
+vendor/lib/libeffectsconfig.so;EXTRACT_ONLY|8afbf97ad6bb60c19bd82bef7b05625dfb5a13ea
 vendor/lib/libengineplugin.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|02f9b1d44317119852772a9cc699ab116507dae1
 vendor/lib/libesepmconfig.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|cfb777296d068e6546799c723e1cdefa741e6d9e
 vendor/lib/libesesbprovision.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|af9770188fb3abfff8e3e99ba189eda6ea12039d
@@ -2018,7 +2018,7 @@ vendor/lib/libpowercallback.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|dbb3573102dadf6
 vendor/lib/libpowercore.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|5b755af3872f0cc5c718ec86a6c550a437e01fd2
 vendor/lib/libprotobuf-cpp-full-3.9.1.so;EXTRACT_ONLY|1c3e0d60fbcf0bb355467de16549f8edc316cb36
 vendor/lib/libprotobuf-cpp-lite-3.9.1.so;EXTRACT_ONLY|9a213b7b3c8070d5d4745f4e97e0a69f099a9111
-vendor/lib/libpsi.so;DISABLE_DEPS|b0159fff1c122bbb3bd2937efb6627bfd7deff09
+vendor/lib/libpsi.so;EXTRACT_ONLY|b0159fff1c122bbb3bd2937efb6627bfd7deff09
 vendor/lib/libpsmoptfeature.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|1b5cca4ec8fb92cd9189fc4c88f9681f21c8e3cc
 vendor/lib/libqape_oem_ext.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|09f926a8c109263f4f58149a1dd9e0967b5b8a9d
 vendor/lib/libqc2audio_base.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|6b8002ad4222a44b1c4f167352f3d3f6f77bc590
@@ -2244,7 +2244,7 @@ vendor/lib/libvideotxr.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|fc390a92d1d787b47a4e
 vendor/lib/libvideoutils.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|2bd5891251d78e2e41c3be759bea0588d86e37cd
 vendor/lib/libvmfilexfer.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|968677dfab6d83f60b3ea0d1e170d0c1f8fc4f01
 vendor/lib/libvmmem.so;DISABLE_DEPS|66e2b7103a8549843131284c80064290cf1fdce2
-vendor/lib/libvndfwk_detect_jni.qti.so;DISABLE_DEPS|f98c6a475d952f1ce39059024e355ccea70bef52
+vendor/lib/libvndfwk_detect_jni.qti.so;EXTRACT_ONLY|f98c6a475d952f1ce39059024e355ccea70bef52
 vendor/lib/libvndfwk_detect_jni.qti_vendor.so;DISABLE_DEPS|f5526773c6d4cc40aad1ea841aab4ef9435ce9b0
 vendor/lib/libvorbisidec.so;DISABLE_DEPS|e74306c37b58ec518593a4ac6327d9a16f477069
 vendor/lib/libvppclient.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|c67185e8e48abfb50288fba00bedcec68169f1ec
@@ -3211,7 +3211,7 @@ vendor/lib64/libeai_fixed.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|e409d9bb22abbe873
 vendor/lib64/libeai_float.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|1c65cefdb51e5e99045926a0771a0561eb3e0064
 vendor/lib64/libeepromcutter.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|8e9df087351144651e23234472194a0651edcbc8
 vendor/lib64/libeffects.so;DISABLE_DEPS|75029e78929aacfd8b69b6aa76bbf34bfb49e9e3
-vendor/lib64/libeffectsconfig.so;DISABLE_DEPS|98e07344eb57ba61dc505233c05140fe674c7e53
+vendor/lib64/libeffectsconfig.so;EXTRACT_ONLY|98e07344eb57ba61dc505233c05140fe674c7e53
 vendor/lib64/libembmsservice.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|a06605e1b3b73dba32aa0185e1ba9bc4353a7357
 vendor/lib64/libengineplugin.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|29652479393498709d9dee4a0599f4587c886d66
 vendor/lib64/libesepmconfig.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|4081df91d3317c7ffd56bd7df191d1c1be871fc8
@@ -3387,7 +3387,7 @@ vendor/lib64/libprekill.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|a37655babec315d79b5
 vendor/lib64/libprocomp.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|94b229152b9e396d2952300e39bfff0fd31bafa4
 vendor/lib64/libprotobuf-cpp-full-3.9.1.so;EXTRACT_ONLY|8763c27945f2a460e53bc1e540bf1981b8effce0
 vendor/lib64/libprotobuf-cpp-lite-3.9.1.so;EXTRACT_ONLY|ae7a1e7c3f66c43273dba1ea3118602b906c32af
-vendor/lib64/libpsi.so;DISABLE_DEPS|cc9759258bbd0c9563143a285511d7078c71381d
+vendor/lib64/libpsi.so;EXTRACT_ONLY|cc9759258bbd0c9563143a285511d7078c71381d
 vendor/lib64/libpsmoptfeature.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|88fc9a6ea6d2ff1acc169e360061c5a6bc1f1851
 vendor/lib64/libqape_oem_ext.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|715afe93c953a54c8fc47e26da919e5a49904d8b
 vendor/lib64/libqapesdk.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|c95d4d6e0a58461ebae290812672f50b6b7024bc
@@ -3616,7 +3616,7 @@ vendor/lib64/libvideotxr.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|7e9e4607964f542e8f
 vendor/lib64/libvideoutils.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|874cc76b3e1e0d3af002cef75da0b6a2473f2e15
 vendor/lib64/libvmfilexfer.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|8520a88db5dedc1a7226be4b3aeb7e6bef6d4dce
 vendor/lib64/libvmmem.so;DISABLE_DEPS|c059a390e9beb21538e283086866c995d0e97c6f
-vendor/lib64/libvndfwk_detect_jni.qti.so;DISABLE_DEPS|0a11499dbb9a65bb0574d575e64381073881b28b
+vendor/lib64/libvndfwk_detect_jni.qti.so;EXTRACT_ONLY|0a11499dbb9a65bb0574d575e64381073881b28b
 vendor/lib64/libvndfwk_detect_jni.qti_vendor.so;DISABLE_DEPS|4a68dd4f30a275cf78dd6fc51aafb1f4d61ad057
 vendor/lib64/libvppclient.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|a9c4e648155e190596b4fb5fc080575b36dbece3
 vendor/lib64/libvppcommon.so;MODULE_SUFFIX=_m2391;DISABLE_DEPS|d6b65c236a91f76e083be075220f295cd3c7cb4d
