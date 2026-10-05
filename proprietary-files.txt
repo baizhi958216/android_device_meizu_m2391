@@ -1371,8 +1371,8 @@ vendor/lib/android.hardware.camera.device@3.3.so;EXTRACT_ONLY|d129cc93f77f26c328
 vendor/lib/android.hardware.camera.device@3.4.so;EXTRACT_ONLY|1bca21e9fa164e20ed228debc300971776265e6c
 vendor/lib/android.hardware.camera.device@3.5.so;EXTRACT_ONLY|d00ff79084a952cc67c92ba509333aba495cd2e3
 vendor/lib/android.hardware.camera.device@3.6.so;EXTRACT_ONLY|e80243f6c2348c3d1a65666096ad019e7fc93429
-vendor/lib/android.hardware.camera.provider@2.4-external.so;EXTRACT_ONLY|464a61f6eaff6fac702ee4b641c94c73b960d3f2
-vendor/lib/android.hardware.camera.provider@2.4-legacy.so;EXTRACT_ONLY|1b6a2d0d452b799768ba2cfb7e07e9a1164ece95
+vendor/lib/android.hardware.camera.provider@2.4-external.so;DISABLE_DEPS|464a61f6eaff6fac702ee4b641c94c73b960d3f2
+vendor/lib/android.hardware.camera.provider@2.4-legacy.so;DISABLE_DEPS|1b6a2d0d452b799768ba2cfb7e07e9a1164ece95
 vendor/lib/android.hardware.camera.provider@2.4.so;EXTRACT_ONLY|f99a9ffbf0f986df00ccae3942ab495c97686c81
 vendor/lib/android.hardware.cas.native@1.0.so;EXTRACT_ONLY|e149de43c3a93a087ebbebc5117ec43f602b10dd
 vendor/lib/android.hardware.cas@1.0.so;EXTRACT_ONLY|88f3851b54b489dcd0c96ff0368a21aa30cf53c8
@@ -2649,8 +2649,8 @@ vendor/lib64/android.hardware.camera.device@3.3.so;EXTRACT_ONLY|51a8bb5644d4bb5a
 vendor/lib64/android.hardware.camera.device@3.4.so;EXTRACT_ONLY|0eee064987e02177bedebf330c6881cfa251e534
 vendor/lib64/android.hardware.camera.device@3.5.so;EXTRACT_ONLY|c4192ad82b7464e33e6c0b0fe0405927e876c801
 vendor/lib64/android.hardware.camera.device@3.6.so;EXTRACT_ONLY|744b721e9b0df463f803d5be20c453a709f3ec53
-vendor/lib64/android.hardware.camera.provider@2.4-external.so;EXTRACT_ONLY|f6a54eca29c7c8bd3785daac724ed5d9d2207d17
-vendor/lib64/android.hardware.camera.provider@2.4-legacy.so;EXTRACT_ONLY|c519c89cffa997e7b11da9de33e52c59d6bb810e
+vendor/lib64/android.hardware.camera.provider@2.4-external.so;DISABLE_DEPS|f6a54eca29c7c8bd3785daac724ed5d9d2207d17
+vendor/lib64/android.hardware.camera.provider@2.4-legacy.so;DISABLE_DEPS|c519c89cffa997e7b11da9de33e52c59d6bb810e
 vendor/lib64/android.hardware.camera.provider@2.4.so;EXTRACT_ONLY|222cc6372ac80fcd7a559a5690f60eca79a6a07c
 vendor/lib64/android.hardware.drm@1.0.so;EXTRACT_ONLY|0ee1751400222cad14385bc431672e2abb10140a
 vendor/lib64/android.hardware.drm@1.1.so;EXTRACT_ONLY|fd0a5a73849dc97eee2780db62dfbe41a06c0595

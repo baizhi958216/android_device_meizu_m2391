@@ -39,7 +39,7 @@ func factory(common bool, directory string) android.Module {
 	return module
 }
 
-func archFactory() android.Module { return factory(false, "etc") }
+func archFactory() android.Module   { return factory(false, "etc") }
 func commonFactory() android.Module { return factory(true, "etc") }
 
 // Stock also stores a 64-bit ELF under vendor/lib. Package it as an opaque

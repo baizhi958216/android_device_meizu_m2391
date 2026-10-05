@@ -65,8 +65,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.4.vendor \
     android.hardware.camera.device@3.5.vendor \
     android.hardware.camera.device@3.6.vendor \
-    android.hardware.camera.provider@2.4-external \
-    android.hardware.camera.provider@2.4-legacy \
     android.hardware.camera.provider@2.4.vendor \
     android.hardware.cas.native@1.0.vendor \
     android.hardware.cas@1.0.vendor \
