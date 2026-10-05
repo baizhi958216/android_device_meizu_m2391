@@ -37,10 +37,14 @@ def extract_vendor_boot(ctx, file_path, dump_dir):
 
 
 
+def lib_fixup_vendor_suffix(lib, partition):
+    return f'{lib}_vendor' if partition == 'vendor' else None
+
+
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
-    lib_fixups=lib_fixups,
+    lib_fixups={**lib_fixups, 'libstagefright_omx': lib_fixup_vendor_suffix},
     namespace_imports=['hardware/qcom-caf/bootctrl'],
     extract_fns={
         r'^boot\.img$': extract_boot,

@@ -22,7 +22,7 @@
 /vendor/bin/init.meizu.smart_zram.sh  u:object_r:smart_zram_exec:s0
 /data/vendor/goodix(/.*)?                                                 u:object_r:vendor_fingerprint_file:s0
 /data/vendor/arcsoft(/.*)?                                                u:object_r:vendor_fingerprint_file:s0
-/data/vendor/xm_kelog(./*)?        u:object_r:xmkelog_data_file:s0
+/data/vendor/xm_kelog(/.*)?        u:object_r:xmkelog_data_file:s0
 /data/vendor/diag_logs(/.*)?           u:object_r:mdlog_vendor_data_file:s0
 /mnt/vendor/persist/uwb(/.*)?                                             u:object_r:vendor_persist_uwb_file:s0
 /mnt/vendor/persist/tof(/.*)?   u:object_r:vendor_persist_dtof_file:s0
