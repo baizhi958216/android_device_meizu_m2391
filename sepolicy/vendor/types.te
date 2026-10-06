@@ -85,7 +85,6 @@ type vendor_fingerprint_file, data_file_type, file_type;
 type vendor_hal_eid_hwservice, hwservice_manager_type, protected_hwservice;
 type vendor_persist_dtof_file, file_type, vendor_persist_type;
 type vendor_persist_uwb_file, file_type, vendor_persist_type;
-type vendor_sysfs_suspend, fs_type, sysfs_type;
 type vendor_ufs_erf_partition_device, dev_type;
 type vib_strength_sysfs, fs_type, sysfs_type;
 type videofilter_data_file, data_file_type, file_type;

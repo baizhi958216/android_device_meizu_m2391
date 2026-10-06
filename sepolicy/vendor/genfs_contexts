@@ -71,4 +71,3 @@ genfscon sysfs "/class/meizu/charger/wireless/txid" u:object_r:sysfs_wireless_ch
 genfscon sysfs "/devices/platform/main_touch.0" u:object_r:sysfs_tp_file:s0
 genfscon sysfs "/class/meizu/usb_c/pps_online" u:object_r:pps_online_sysfs:s0
 genfscon sysfs "/rstinfo/rstinfo_enable" u:object_r:sysfs_rstinfo_file:s0
-genfscon sysfs "/power/mem_sleep" u:object_r:vendor_sysfs_suspend:s0

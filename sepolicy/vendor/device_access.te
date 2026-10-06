@@ -56,7 +56,6 @@ typeattribute vendor_hal_dataconnection_service vendor_service;
 typeattribute vendor_hal_qms_service vendor_service;
 typeattribute vendor_hal_bttpi_service vendor_service;
 typeattribute vendor_hal_qspa_service vendor_service;
-allow vendor_qti_init_shell vendor_sysfs_suspend:file { write lock append map open };
 allow init mob-listio_exec:file { read getattr map execute open };
 allow init mob-listio:process { transition };
 dontaudit init mob-listio:process { noatsecure };
