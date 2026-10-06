@@ -51,6 +51,7 @@ module = ExtractUtilsModule(
     lib_fixups={
         **lib_fixups,
         (
+            'android.hardware.bluetooth.audio@2.0-impl',
             'libbluetooth_audio_session',
             'libbluetooth_audio_session_aidl',
             'libvibrator',
