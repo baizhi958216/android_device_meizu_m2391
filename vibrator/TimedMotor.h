@@ -19,7 +19,7 @@ public:
             std::lock_guard<std::mutex> lock(mutex_);
             quit_ = true;
             pending_ = false;
-            writer_("enable", "0");
+            stopHardware();
         }
         changed_.notify_all();
         worker_.join();
@@ -30,8 +30,11 @@ public:
         pending_ = false;
         callback_ = {};
         ++generation_;
-        if (!writer_("enable", "0") ||
-            !writer_(tap ? "set_mback" : "enable", tap ? "1 1" : std::to_string(milliseconds))) {
+        // enable loops the last RAM effect, which can be a short click.
+        // cont drives the resonant motor continuously until this timer stops it.
+        if (!stopHardware() ||
+            !writer_(tap ? "set_mback" : "cont", tap ? "1 1" : "1")) {
+            stopHardware();
             changed_.notify_all();
             return false;
         }
@@ -47,9 +50,15 @@ public:
         pending_ = false;
         callback_ = {};
         changed_.notify_all();
-        return writer_("enable", "0");
+        return stopHardware();
     }
 private:
+    bool stopHardware() {
+        // Attempt both writes even if one fails: either backend may be active.
+        const bool continuousStopped = writer_("cont", "0");
+        const bool effectStopped = writer_("enable", "0");
+        return continuousStopped && effectStopped;
+    }
     void loop() {
         std::unique_lock<std::mutex> lock(mutex_);
         while (!quit_) {
@@ -59,11 +68,11 @@ private:
             if (changed_.wait_until(lock, deadline_, [this, generation] {
                     return quit_ || !pending_ || generation_ != generation;
                 })) continue;
-            writer_("enable", "0");
+            const bool stopped = stopHardware();
             pending_ = false;
             auto callback = std::move(callback_);
             lock.unlock();
-            if (callback) callback();
+            if (stopped && callback) callback();
             lock.lock();
         }
     }
