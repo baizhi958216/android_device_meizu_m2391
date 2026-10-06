@@ -279,7 +279,6 @@ vendor/bin/vendor.qti.qspmhal@1.0-service|4b1dd4be751771b4adb0f73bf17de862696434
 vendor/bin/vendor_cmd_tool|4febd7b2a6b08cbcdc5b93f5f6493482a60cc0f8
 vendor/bin/vendor_modprobe.sh;MAKE_COPY_RULE_ONLY|70d7d43207e9a6c68b77a23fb832e84dc4f480e7
 vendor/bin/vmmgr|b346a19685f34d0ab11cff039c2fba881896523b
-vendor/bin/vndservicemanager|9adb893c5c79e2724f9476077c344c8cbb0e3da4
 vendor/bin/vppcommonlibraryunittest|6308f4a3bcda0bf1d61e7bb449852cfae6d0b003
 vendor/bin/vppipcunittest|8dcb00e2353a236c2382a7839b82d2bd598ccf38
 vendor/bin/vpplibraryfunctionaltest|abd17b2d6d9a095050cbf7134444545fbdc652a9
@@ -593,7 +592,6 @@ vendor/etc/init/vendor.sensors.sscrpcd.rc|df52901f1ad0fbc97d6070e28896a6be401548
 vendor/etc/init/vendor.xingji.hardware.biometrics.face@1.0-service.rc|642f1533ae54307311c21d5407b28f00f769601c
 vendor/etc/init/vendor.xingji.hardware.qsee.store@1.0-service.rc|88d250b604cfce8d7f65c5fd832c10999faa5f08
 vendor/etc/init/vmmgr.rc|538c80735fb78cfe7aac244e06a7fef2e853bb24
-vendor/etc/init/vndservicemanager.rc:vendor/etc/init/vndservicemanager.m2391.rc|fd8dced0d9066349fcb677e89d625a705738c3de|a6a67f2e2dfe2df02f1799bf0717d1c42bbd2c75
 vendor/etc/init/vppservice.rc|005de95a8f7aa351a8a4e9c7ee765233b5d1f937
 vendor/etc/init/wfdvndservice.rc|42e28fb8e0bf00620d7b9939b5bd3164ca671033
 vendor/etc/izat.conf|47e69957584832f6b63ad1eef07c388daa43fcf4

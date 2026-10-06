@@ -53,6 +53,12 @@ PRODUCT_PACKAGES += \
     update_verifier \
     bootctl
 
+# IServiceManager's C++ ABI must match the source-built vendor libbinder.
+PRODUCT_PACKAGES += vndservicemanager
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/init/zz-vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz-vndservicemanager.rc
+
 # Vendor filesystem and source-generated SELinux policy.
 PRODUCT_PACKAGES += \
     fs_config_dirs_nonsystem \
