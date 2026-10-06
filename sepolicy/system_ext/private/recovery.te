@@ -7,9 +7,7 @@ not_recovery(`
 ')
 
 recovery_only(`
-    type sysfs_m2391_usb_mode, fs_type, sysfs_type;
     domain_auto_trans(init, m2391_recovery_bootctl_exec, hal_bootctl_default)
-    allow init sysfs_m2391_usb_mode:file rw_file_perms;
     # First-stage init creates these nodes before loading the Recovery policy.
     allow init { boot_block_device dtbo_block_device super_block_device }:{ blk_file lnk_file } relabelto;
     # The Qualcomm Boot HAL reads slot attributes and updates the GPT.
