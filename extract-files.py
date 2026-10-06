@@ -54,6 +54,12 @@ module = ExtractUtilsModule(
     },
     namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
     blob_fixups={
+        # Its onrestart actions restart main/hal. Starting it before APEX
+        # activation can pin those services to the bootstrap mount namespace
+        # when libbinder's LLNDK dependencies are not available yet.
+        'vendor/etc/init/vndservicemanager.m2391.rc': blob_fixup().regex_replace(
+            r'(?m)^    class core\n', '    class core\n    updatable\n',
+        ),
         (
             'vendor/bin/qguard',
             'vendor/lib64/libqfp-service.so',
