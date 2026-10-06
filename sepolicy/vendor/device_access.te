@@ -90,8 +90,12 @@ allow servicemanager fix_1347671:binder { call transfer };
 allow servicemanager fix_1347671:dir { search };
 allow servicemanager fix_1347671:file { read open };
 allow servicemanager fix_1347671:process { getattr };
-allow hal_face_default vendor_face_prop:property_service { set };
-allow hal_face_default vendor_face_prop:file { read getattr map open };
+# Stock face TA initialization uses QSEECom/smcinvoke and its secure heaps.
+allow hal_face_default tee_device:chr_file rw_file_perms;
+allow hal_face_default ion_device:chr_file rw_file_perms;
+allow hal_face_default vendor_dmabuf_qseecom_heap_device:chr_file rw_file_perms;
+allow hal_face_default vendor_dmabuf_qseecom_ta_heap_device:chr_file rw_file_perms;
+set_prop(hal_face_default, vendor_face_prop)
 allow init hal_fbase_defrag_default_exec:file { read getattr map execute open };
 allow init hal_fbase_defrag_default:process { transition };
 dontaudit init hal_fbase_defrag_default:process { noatsecure };
