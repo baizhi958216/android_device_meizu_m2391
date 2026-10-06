@@ -2352,8 +2352,8 @@ vendor/lib/vendor.qti.qspmhal@1.0-impl.so|c5d96d83e9df7d1c2785f49c9bc1d45ab1a559
 vendor/lib/vendor.qti.qspmhal@1.0.so|0568f1b81b3d6fbee78e5648caf089c692ddbc54
 vendor/lib/vendor.qti.voiceprint@1.0.so|3665a1895d2cddfca2d0e3d13094e9814552e59e
 vendor/lib/vendor.rongcard.hardware.eid_rk@1.0.so|699965bd60a250a0a7fd071c5e780ca8f720bfc0
-vendor/lib/vndk/libstagefright_foundation.so;MODULE_SUFFIX=_vendor|e4d55458b512e762511fe0c5f61f924542037f2a
-vendor/lib/vndk/libstagefright_omx.so;MODULE_SUFFIX=_vendor|d650a7bbb48dc0b53b6221e8c40eec39e12f3664
+vendor/lib/vndk/libstagefright_foundation.so;MODULE_SUFFIX=_vndk|e4d55458b512e762511fe0c5f61f924542037f2a
+vendor/lib/vndk/libstagefright_omx.so;MODULE_SUFFIX=_vndk|d650a7bbb48dc0b53b6221e8c40eec39e12f3664
 vendor/lib64/android.hardware.camera.provider@2.4-external.so|f6a54eca29c7c8bd3785daac724ed5d9d2207d17
 vendor/lib64/android.hardware.camera.provider@2.4-legacy.so|c519c89cffa997e7b11da9de33e52c59d6bb810e
 vendor/lib64/android.hardware.secure_element@1.0-impl.so|a947ce7b31e2dcb38a258143a8c102b5fd8f5e00

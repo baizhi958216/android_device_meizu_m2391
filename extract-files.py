@@ -49,7 +49,7 @@ module = ExtractUtilsModule(
     'meizu',
     lib_fixups={
         **lib_fixups,
-        ('libstagefright_foundation', 'libstagefright_omx', 'libvibrator'): lib_fixup_vendor_suffix,
+        'libvibrator': lib_fixup_vendor_suffix,
     },
     namespace_imports=['hardware/qcom-caf/bootctrl'],
     extract_fns={
