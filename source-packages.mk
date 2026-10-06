@@ -148,8 +148,6 @@ PRODUCT_PACKAGES += \
     libaudiopreprocessing \
     libavservices_minijail.vendor \
     libbinderdebug.vendor \
-    libbluetooth_audio_session \
-    libbluetooth_audio_session_aidl \
     libbundlewrapper \
     libcamera2ndk_vendor \
     libchrome.vendor \

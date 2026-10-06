@@ -50,7 +50,11 @@ module = ExtractUtilsModule(
     'meizu',
     lib_fixups={
         **lib_fixups,
-        'libvibrator': lib_fixup_vendor_suffix,
+        (
+            'libbluetooth_audio_session',
+            'libbluetooth_audio_session_aidl',
+            'libvibrator',
+        ): lib_fixup_vendor_suffix,
     },
     namespace_imports=['hardware/qcom-caf/bootctrl'],
     blob_fixups={

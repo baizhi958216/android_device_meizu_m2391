@@ -91,7 +91,6 @@ VENDOR_SECURITY_PATCH := 2023-10-01
 BOOT_SECURITY_PATCH := 2023-10-01
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
