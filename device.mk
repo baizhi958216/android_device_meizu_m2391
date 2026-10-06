@@ -57,10 +57,7 @@ PRODUCT_PACKAGES += \
     vendor_firmware_mnt_mountpoint \
     vendor_bt_firmware_mountpoint \
     vendor_dsp_mountpoint \
-    vendor_compatibility_matrix.xml \
-    odm-build.prop \
-    vendor_dlkm-build.prop \
-    system_dlkm-build.prop
+    vendor_compatibility_matrix.xml
 
 PRODUCT_PACKAGES += \
     adbd.recovery \
