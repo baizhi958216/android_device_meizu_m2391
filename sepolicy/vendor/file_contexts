@@ -57,3 +57,5 @@
 /sys/class/timed_output/vibrator/enable u:object_r:vib_strength_sysfs:s0
 
 /vendor/bin/hw/android\.hardware\.vibrator-service\.m2391 u:object_r:hal_vibrator_m2391_exec:s0
+
+/vendor/bin/hw/wpa_supplicant\.m2391 u:object_r:hal_wifi_supplicant_default_exec:s0

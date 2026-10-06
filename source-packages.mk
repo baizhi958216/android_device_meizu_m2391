@@ -52,6 +52,7 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.common-V1-ndk.vendor \
     android.hardware.biometrics.face@1.0.vendor \
     android.hardware.biometrics.fingerprint-V1-ndk.vendor \
+    android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.bluetooth.audio@2.0.vendor \
     android.hardware.bluetooth.audio@2.1.vendor \
     android.hardware.bluetooth@1.0.vendor \
@@ -82,6 +83,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.3.vendor \
     android.hardware.graphics.composer@2.4.vendor \
     android.hardware.hardware_keystore.xml \
+    android.hardware.health-service.qti \
     android.hardware.health@1.0.vendor \
     android.hardware.health@2.0.vendor \
     android.hardware.health@2.1.vendor \
@@ -107,6 +109,7 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.1.vendor \
     android.hardware.secure_element@1.2.vendor \
     android.hardware.security.keymint-V1-ndk.vendor \
+    android.hardware.sensors-service.multihal \
     android.hardware.sensors@1.0.vendor \
     android.hardware.sensors@2.0-ScopedWakelock.vendor \
     android.hardware.sensors@2.0.vendor \
@@ -137,6 +140,7 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.0.vendor \
     android.system.net.netd@1.1.vendor \
     android.system.wifi.keystore@1.0.vendor \
+    audio.bluetooth.default \
     awk_vendor \
     boringssl_self_test_vendor \
     checkpoint_gc \
@@ -148,6 +152,8 @@ PRODUCT_PACKAGES += \
     libaudiopreprocessing \
     libavservices_minijail.vendor \
     libbinderdebug.vendor \
+    libbluetooth_audio_session \
+    libbluetooth_audio_session_aidl \
     libbundlewrapper \
     libcamera2ndk_vendor \
     libchrome.vendor \

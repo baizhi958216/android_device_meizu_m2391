@@ -88,14 +88,12 @@ vendor/bin/hw/android.hardware.dumpstate-service.qti|d6f1733047a48733c35c8a73189
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|2e9271e6beef80c9c6faa5ea9de1708836d238b3
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-spu-qti|f23cc2364eb257d8106a53b46b29a96f4dea0faa
 vendor/bin/hw/android.hardware.gnss-aidl-service-qti|5f60c6352c1da75dca025f78d7cfa38a77b16b9b
-vendor/bin/hw/android.hardware.health-service.qti;MODULE_SUFFIX=_vendor|81774c9584809291a630b0f3519af28e364a84eb
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti|4b24ad1a54396fc9e1fc4460cf2f0c174aafcf83
 vendor/bin/hw/android.hardware.keymaster@4.0-strongbox-service-qti|84d2a5e940377f7d41998b7fd869d2f5264219fc
 vendor/bin/hw/android.hardware.media.omx@1.0-service|68d2dc5d6933c92ba229b247ddd7f3c7a7107dab
 vendor/bin/hw/android.hardware.power-service|d33bb3fc850f5a315d5c9699a71bab54e6329197|03cacc74375507b04ace8157783ab1b8655ab23e
 vendor/bin/hw/android.hardware.security.keymint-service-qti|b464334de5f958e2d9bcdd3879be87eac6cb5b12
 vendor/bin/hw/android.hardware.security.keymint-service-spu-qti|1ab88a2c12d3fc635380e62618dacd541fa8431a
-vendor/bin/hw/android.hardware.sensors-service.multihal;MODULE_SUFFIX=_vendor|f6790e7ca045331537cc810e46b34b0878ae5573
 vendor/bin/hw/android.hardware.thermal@2.0-service.qti-v2|d67d807544097f6168877bb8e7d8275f2f660093
 vendor/bin/hw/android.hardware.usb.gadget@1.1-service-qti|28908dd8f0f7f11522918126269d4bf2e15e86a7
 vendor/bin/hw/android.hardware.usb@1.2-service-qti|0782430422dddb0c09d78021be2556838af528a7
@@ -147,7 +145,7 @@ vendor/bin/hw/vendor.qti.secure_element@1.2-service|349e6ad3acd16140c9741b65a9fb
 vendor/bin/hw/vendor.rongcard.hardware.eid_rk@1.0-service|a02510d42c9cb1dea7cb0cfc6e15eb57034f0954
 vendor/bin/hw/vendor.xingji.hardware.biometrics.face@1.0-service|cb7bfeafdcbb9350791415573595d0f2acee10db
 vendor/bin/hw/vendor.xingji.hardware.qsee.store@1.0-service|11cf88a7d867a52d46311e3ce36ecdcb4560ba34
-vendor/bin/hw/wpa_supplicant;MODULE_SUFFIX=_vendor|251baf054917fd5d1f28ba8059d2d881d62bfee2
+vendor/bin/hw/wpa_supplicant:vendor/bin/hw/wpa_supplicant.m2391|251baf054917fd5d1f28ba8059d2d881d62bfee2
 vendor/bin/image_update|b9f2355663169e0b18fb3170db23b87945c130dc
 vendor/bin/ims-dataservice-daemon|540b01f58f505a50fdafc82051dfdb653c025f27
 vendor/bin/ims_rtp_daemon|a98c0baf9e1eea58b21e473216d24e0f76a71d6d
@@ -470,16 +468,14 @@ vendor/etc/init/android.hardware.drm-service.widevine.rc|54c79ef531c9c135fa234a8
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc|c266f08783a17f6583e3f22c85e55b0c200442ea
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|c2d2c4545022aa8de59542763e4018cbf5a18b9a
 vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc|a6e2521aa94a0a479aa6e4a9b3af072b05ce97dd
-vendor/etc/init/android.hardware.health-service.qti.rc:vendor/etc/init/android.hardware.health-service.qti.m2391.rc|6d1e875ae41647d7b72b0ab28b6529912a200cfc
 vendor/etc/init/android.hardware.identity-service-qti.rc|d60dadc0e2dea6be10133aaa63bccb553a888f8b
 vendor/etc/init/android.hardware.media.omx@1.0-service.rc:vendor/etc/init/android.hardware.media.omx@1.0-service.m2391.rc|fa9f9df72e13ffd66543e4ecc0787ab7388e27c9
 vendor/etc/init/android.hardware.power-service.rc|d3db0cb8407afea07d87ff7538e4234e32a5c836
 vendor/etc/init/android.hardware.security.keymint-service-qti.rc|28d39a691127b567b7745b1ae6da87b7a282325e
-vendor/etc/init/android.hardware.sensors-service-multihal.rc:vendor/etc/init/android.hardware.sensors-service-multihal.m2391.rc|6875550a4b2389ac8c9c379295d402b62c646329
 vendor/etc/init/android.hardware.thermal@2.0-service.qti-v2.rc|e54634899a59c42cfa406f4a0e6c4de54cee864c
 vendor/etc/init/android.hardware.usb.gadget@1.1-service-qti.rc|e91b24c3a1fd6893fca68a8141fedc8007dc5dbf
 vendor/etc/init/android.hardware.usb@1.2-service-qti.rc|a2861bb85d9a01edbc69a9d7cb99fe7fc533ac25
-vendor/etc/init/android.hardware.wifi.supplicant-service.rc|98ff8fda99e06d64fab02d446dd6b98e5dc5db48
+vendor/etc/init/android.hardware.wifi.supplicant-service.rc|98ff8fda99e06d64fab02d446dd6b98e5dc5db48|33d2f9501a0456c090f258f702a5714843a5ef9a
 vendor/etc/init/android.hardware.wifi@1.0-service.rc|9a3dae9fae49a721d329aea450aa69ad93805ca7
 vendor/etc/init/boringssl_self_test.rc;EXTRACT_ONLY|2bdb4653416c63baaf04589ddb4116d291b50615
 vendor/etc/init/cnd.rc|9fd1819f43edae6feabe51066c59f21ff6e94fa1
@@ -494,7 +490,7 @@ vendor/etc/init/feature_enabler_client.rc|7c8e7cf20093d1a6d94d7de2debd53a7e51f8c
 vendor/etc/init/fix.1347671.rc|fc8e300f42c805455c4141a85af8899e5bbc2dbb
 vendor/etc/init/hostapd.android.rc|778c9f364c94f8d142cbe997f4e32929ef9279aa
 vendor/etc/init/hw/init.qcom.factory.rc|0e464c03341b1ad50b533ce77b91ceafe5209b7c
-vendor/etc/init/hw/init.qcom.rc|945222d589659309fa6a6d544354494534356380
+vendor/etc/init/hw/init.qcom.rc|945222d589659309fa6a6d544354494534356380|419363ec0e4dbc3e7d927983fb48f5e8df64483d
 vendor/etc/init/hw/init.qcom.usb.rc|22b67bb1291e6984967d5cf1292167aa45481d95
 vendor/etc/init/hw/init.qti.kernel.rc|659f22f8d9a5c048ab7a12bf7a98ccb063976bc4
 vendor/etc/init/hw/init.qti.ufs.rc|95eae15b3e1def85866edfe617f1ea737dbbbafd
@@ -951,7 +947,6 @@ vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml;EXTRACT_ONLY|fb08
 vendor/etc/vintf/manifest/android.hardware.drm-service.xml;EXTRACT_ONLY|9fa22af7d76036299638029b8e2946731ce652f3
 vendor/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml;EXTRACT_ONLY|5ad718016776f155b911f8bacf7097aa4bb52aa8
 vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml;EXTRACT_ONLY|f32053a374e42c5fd0b6f42e3c2414b9eb4f2ae5
-vendor/etc/vintf/manifest/android.hardware.health-service.qti.xml;EXTRACT_ONLY|840f64c0083de4edfd981c5cdd0971f68b7d6f8f
 vendor/etc/vintf/manifest/android.hardware.radio.config.xml;EXTRACT_ONLY|e7a669fddb0c2d003ceac21399bcdac52382f839
 vendor/etc/vintf/manifest/android.hardware.radio.data.xml;EXTRACT_ONLY|20ab014d626af57a6bd2f7d9cebd3efd5c639906
 vendor/etc/vintf/manifest/android.hardware.radio.messaging.xml;EXTRACT_ONLY|51b4e1e124bc136b4a7c197dce29cbcc11db6066
@@ -960,7 +955,6 @@ vendor/etc/vintf/manifest/android.hardware.radio.network.xml;EXTRACT_ONLY|6a9e12
 vendor/etc/vintf/manifest/android.hardware.radio.sim.xml;EXTRACT_ONLY|b9f55e722f0a8c420c05507330bef75565e47055
 vendor/etc/vintf/manifest/android.hardware.radio.voice.xml;EXTRACT_ONLY|91915bd70355502f9bc67c6a34d5ee0e42fe62bd
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml;EXTRACT_ONLY|4fc674252b0c5b6571d0af1005741084bd1146ac
-vendor/etc/vintf/manifest/android.hardware.sensors-multihal.xml;EXTRACT_ONLY|bc63aab099e1b92ac9b50b9a9b935990bc224de0
 vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml;EXTRACT_ONLY|4569dd40c5f5d5c9183a7e5734a78420bbaa5761
 vendor/etc/vintf/manifest/android.hardware.usb.gadget@1.1-service.xml;EXTRACT_ONLY|82f5ee8bbfc2ff04d68e8aa74b45149d666406ac
 vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml;EXTRACT_ONLY|566d08411dab08d284c839e605a0bab9a672db2d
@@ -1518,7 +1512,6 @@ vendor/lib/hw/android.hardware.audio@6.0-impl.so|c19ed8f856a034ffeeae5b3a837d233
 vendor/lib/hw/android.hardware.audio@7.0-impl.so|ec0d0035e227c6c889efd72a9f9c9b463aeac54f
 vendor/lib/hw/android.hardware.audio@7.1-impl.so|e0ec4ba1ce4ec9ad98b8eed1cf630d60b9dbcf2f
 vendor/lib/hw/android.hardware.bluetooth.audio-impl-qti.so|c3cbcf103c2cf1cc0255b719822c4a646e1921ff
-vendor/lib/hw/android.hardware.bluetooth.audio@2.0-impl.so;MODULE_SUFFIX=_vendor|61f9cc666510e748f2dd718d6a819c1c7a74cc38
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|e48b29ac9dec70d8ee912ae9681a631a128975c3
 vendor/lib/hw/android.hardware.bluetooth@1.1-impl-qti.so|3785220476aa6ad7102f73804e523a8584d8fe60
 vendor/lib/hw/android.hardware.boot@1.0-impl-1.2-qti.so|f70d1bebf3ac9bd55837ff170cb0cd8cae989ee4
@@ -1530,7 +1523,6 @@ vendor/lib/hw/android.hardware.renderscript@1.0-impl.so|ad582d1abe9d49efd32fbc15
 vendor/lib/hw/android.hardware.soundtrigger@2.1-impl.so|bdf1a5481c2391fc5eb617d409be2d99acf085cb
 vendor/lib/hw/android.hardware.soundtrigger@2.2-impl.so|6f1f8863980f599decd47e10726dd8119c3ef67a
 vendor/lib/hw/android.hardware.soundtrigger@2.3-impl.so|5e339f644aadd668cec5b6cd90b449657246cf9c
-vendor/lib/hw/audio.bluetooth.default.so;MODULE_SUFFIX=_vendor|91875aaed11a0319ec71fb3a91429c4637c0a238
 vendor/lib/hw/audio.bluetooth_qti.default.so|736b8323dfddd7cd85790a397a3bf3595f515394
 vendor/lib/hw/audio.primary.default.so|5021cf9186846f042f52921e39b1f99193604e1f
 vendor/lib/hw/audio.primary.kalama.so|daa02c31b68c508db2beb7f5107e75ecde0ad71c
@@ -1636,8 +1628,6 @@ vendor/lib/libbatching.so|dbd1db3bf1b6ffb4423ce982cd9d69e06307c613
 vendor/lib/libbatterylistener.so|a457ee20c9d7a42122dc295a70461ebfa8046665
 vendor/lib/libbitmlengine.so|4726fb52ca06973c90708a5ee57ef453b363a2d5
 vendor/lib/libbitmlenginev2.so|075e816167a0fc7c99b07dd3bf932f531b4b0a14
-vendor/lib/libbluetooth_audio_session.so;MODULE_SUFFIX=_vendor|5841875e2ed42345b7a1ddff7d42204b67e5c8b7
-vendor/lib/libbluetooth_audio_session_aidl.so;MODULE_SUFFIX=_vendor|0f8a126bd847cc7ae8c6f9a5d0c7180fdb530084
 vendor/lib/libbluetooth_audio_session_aidl_qti.so|be017dedfeea3ec0199fe01ee5c56bca9f78afdb
 vendor/lib/libbluetooth_audio_session_qti.so|66ac7ba1ec48a29f608b2e8680b885662f528675
 vendor/lib/libbluetooth_audio_session_qti_2_1.so|336a1ecc2da7ef765e15645809fe42860705731b
@@ -2604,7 +2594,6 @@ vendor/lib64/hw/android.hardware.audio@6.0-impl.so|fd92ef3d60d6f18c9dfea04a91049
 vendor/lib64/hw/android.hardware.audio@7.0-impl.so|9f69c2d247bf11b82599ae6bbfe3e5099784f52d
 vendor/lib64/hw/android.hardware.audio@7.1-impl.so|fbbefaaea08c2092ef3046e477047ffd3b74cf40
 vendor/lib64/hw/android.hardware.bluetooth.audio-impl-qti.so|3a4c9266620b6a9a4adb78bf35dbc6c807055232
-vendor/lib64/hw/android.hardware.bluetooth.audio@2.0-impl.so;MODULE_SUFFIX=_vendor|f42449320dc8b57d6e5fded8c5be848189c3bc73
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|414c65d536ee0fea28056f6c954c0a5565bfd893
 vendor/lib64/hw/android.hardware.bluetooth@1.1-impl-qti.so|812dbf66f509598c0e5e28d955010b8546b3f10e
 vendor/lib64/hw/android.hardware.boot@1.0-impl-1.2-qti.so|f011e412ecd45408c20c80e700149b139e585d58
@@ -2615,7 +2604,6 @@ vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so|d7ed9bf
 vendor/lib64/hw/android.hardware.renderscript@1.0-impl.so|89fa4c2674ba91e4b55e5de84d3d539076fe2a78
 vendor/lib64/hw/android.hardware.soundtrigger@2.2-impl.so|522ed8bfa299d67ed55efce859db3282cd40954c
 vendor/lib64/hw/android.hardware.soundtrigger@2.3-impl.so|7c9571a9c042efe4afd99df32dc549e4b5c2c04d
-vendor/lib64/hw/audio.bluetooth.default.so;MODULE_SUFFIX=_vendor|ac86d84866b2ecd02641a748f43ec0cc5be36848
 vendor/lib64/hw/audio.bluetooth_qti.default.so|5f7f38b26d271f32869f718693ad9e8f8333378a
 vendor/lib64/hw/audio.primary.default.so|98b5871413691dd1521bbc0b16c324a16f16fc76
 vendor/lib64/hw/audio.primary.kalama.so|f97263eb470c381d695990f844d80848d45d2706
@@ -2747,8 +2735,6 @@ vendor/lib64/libbatching.so|72ff2a56384e8fe73c9a984c1638e4157eff1c91
 vendor/lib64/libbatterylistener.so|7bc5d49cffcab8010a2fab0cb5b3ff81fef74cbb
 vendor/lib64/libbitmlengine.so|4ac37de52c489e9331702cc5980bfe68bb81fd5e
 vendor/lib64/libbitmlenginev2.so|263df29e54579e9f50a2f6be1e1046004c1b2691
-vendor/lib64/libbluetooth_audio_session.so;MODULE_SUFFIX=_vendor|a4c99877dc2c4ae0cbeceb4e42cf831674a8001f
-vendor/lib64/libbluetooth_audio_session_aidl.so;MODULE_SUFFIX=_vendor|14787701a545a112650a148249f9801d012b299e
 vendor/lib64/libbluetooth_audio_session_aidl_qti.so|224e831b603c394f098b4587f0bb3243d7324034
 vendor/lib64/libbluetooth_audio_session_qti.so|11bc59038cefefa94e4bd16f27cb7371bec33992
 vendor/lib64/libbluetooth_audio_session_qti_2_1.so|d48ca20f4700e1bb145e09d9dc07b88c56915096

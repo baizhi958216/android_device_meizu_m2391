@@ -50,12 +50,7 @@ module = ExtractUtilsModule(
     'meizu',
     lib_fixups={
         **lib_fixups,
-        (
-            'android.hardware.bluetooth.audio@2.0-impl',
-            'libbluetooth_audio_session',
-            'libbluetooth_audio_session_aidl',
-            'libvibrator',
-        ): lib_fixup_vendor_suffix,
+        'libvibrator': lib_fixup_vendor_suffix,
     },
     namespace_imports=['hardware/qcom-caf/bootctrl'],
     blob_fixups={
@@ -63,6 +58,15 @@ module = ExtractUtilsModule(
         # redundantly links V3, which Soong rejects alongside V4.
         'vendor/bin/hw/android.hardware.power-service': blob_fixup()
         .remove_needed('android.hardware.power-V3-ndk.so'),
+        # Keep the Meizu/QTI supplicant extensions without colliding with the
+        # platform executable. Both stock service definitions use this path.
+        (
+            'vendor/etc/init/android.hardware.wifi.supplicant-service.rc',
+            'vendor/etc/init/hw/init.qcom.rc',
+        ): blob_fixup().regex_replace(
+            '/vendor/bin/hw/wpa_supplicant ',
+            '/vendor/bin/hw/wpa_supplicant.m2391 ',
+        ),
     },
     extract_fns={
         r'^boot\.img$': extract_boot,
