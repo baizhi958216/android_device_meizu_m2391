@@ -93,7 +93,7 @@ vendor/bin/hw/android.hardware.health-service.qti|81774c9584809291a630b0f3519af2
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti|4b24ad1a54396fc9e1fc4460cf2f0c174aafcf83
 vendor/bin/hw/android.hardware.keymaster@4.0-strongbox-service-qti|84d2a5e940377f7d41998b7fd869d2f5264219fc
 vendor/bin/hw/android.hardware.media.omx@1.0-service|68d2dc5d6933c92ba229b247ddd7f3c7a7107dab
-vendor/bin/hw/android.hardware.power-service|d33bb3fc850f5a315d5c9699a71bab54e6329197
+vendor/bin/hw/android.hardware.power-service|d33bb3fc850f5a315d5c9699a71bab54e6329197|03cacc74375507b04ace8157783ab1b8655ab23e
 vendor/bin/hw/android.hardware.security.keymint-service-qti|b464334de5f958e2d9bcdd3879be87eac6cb5b12
 vendor/bin/hw/android.hardware.security.keymint-service-spu-qti|1ab88a2c12d3fc635380e62618dacd541fa8431a
 vendor/bin/hw/android.hardware.sensors-service.multihal|f6790e7ca045331537cc810e46b34b0878ae5573

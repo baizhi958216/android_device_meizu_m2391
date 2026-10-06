@@ -11,6 +11,7 @@ from extract_utils.extract_recovery import (
     unpack_bootimg,
 )
 from extract_utils.fixups_lib import lib_fixups
+from extract_utils.fixups_blob import blob_fixup
 from extract_utils.main import ExtractUtils, ExtractUtilsModule
 from extract_utils.module import ProprietaryFileType
 
@@ -52,6 +53,12 @@ module = ExtractUtilsModule(
         'libvibrator': lib_fixup_vendor_suffix,
     },
     namespace_imports=['hardware/qcom-caf/bootctrl'],
+    blob_fixups={
+        # V4 exports all Power symbols used by this service. The stock binary
+        # redundantly links V3, which Soong rejects alongside V4.
+        'vendor/bin/hw/android.hardware.power-service': blob_fixup()
+        .remove_needed('android.hardware.power-V3-ndk.so'),
+    },
     extract_fns={
         r'^boot\.img$': extract_boot,
         r'^vendor_boot\.img$': extract_vendor_boot,
