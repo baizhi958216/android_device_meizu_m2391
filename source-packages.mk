@@ -347,3 +347,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.1.vendor \
     vendor.qti.hardware.servicetracker@1.2.vendor \
     vendor.qti.hardware.wifi.supplicant-V1-ndk.vendor
+
+# Native replacement for the stock Binder service inspection utility.
+PRODUCT_PACKAGES += vndservice

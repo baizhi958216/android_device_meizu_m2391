@@ -143,3 +143,14 @@ install_symlink {
     installed_location: "lib64/libq3dtools_adreno.so",
     symlink_target: "egl/libq3dtools_adreno.so",
 }
+
+// Provide the compiler runtime ABI used by the stock SLIM daemon.
+cc_library_shared {
+    name: "libemutls_m2391",
+    vendor: true,
+    compile_multilib: "64",
+    srcs: ["compat/emutls_compat.c"],
+    include_dirs: ["external/compiler-rt/lib/builtins"],
+    cflags: ["-fvisibility=default"],
+    stl: "none",
+}
