@@ -10,3 +10,6 @@ allow hal_geofence_default self:process { getattr };
 allow hal_geofence_default servicemanager:binder { call transfer };
 allow hal_geofence_default system_server:binder { call transfer };
 allow hal_geofence_default self:binder { call transfer };
+
+# Preserve IPC setup supplied by macros in the stock policy.
+binder_use(hal_geofence_default)

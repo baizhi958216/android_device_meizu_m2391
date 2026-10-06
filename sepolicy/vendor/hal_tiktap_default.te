@@ -7,3 +7,6 @@ allow hal_tiktap_default hal_allocator:fd { use };
 allow hal_tiktap_default hidl_memory_hwservice:hwservice_manager { find };
 allow hal_tiktap_default proc_tiktap_buf:file { ioctl read write getattr lock append map open watch watch_reads };
 allowxperm hal_tiktap_default proc_tiktap_buf:file ioctl { 0xff09 0xff0b };
+
+# Preserve IPC setup supplied by macros in the stock policy.
+binder_use(hal_tiktap_default)
