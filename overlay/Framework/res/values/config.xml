@@ -16,4 +16,11 @@
     <!-- The retained display HAL exports 90 and 120 Hz at both resolutions. -->
     <integer name="config_defaultRefreshRate">90</integer>
     <integer name="config_defaultPeakRefreshRate">120</integer>
+    <!-- Device capabilities from the matching stock FrameworksResCommon_Sys.
+         CarrierConfig still decides which services each carrier enables. -->
+    <bool name="config_device_volte_available">true</bool>
+    <bool name="config_device_vt_available">true</bool>
+    <bool name="config_device_wfc_ims_available">true</bool>
+    <!-- Bind the stock Qualcomm MMTEL implementation for voice and IMS SMS. -->
+    <string name="config_ims_mmtel_package" translatable="false">org.codeaurora.ims</string>
 </resources>

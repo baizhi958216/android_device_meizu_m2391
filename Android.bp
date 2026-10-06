@@ -168,3 +168,27 @@ cc_library_shared {
     shared_libs: ["libcodec2_vndk"],
     cflags: ["-Wall", "-Wextra", "-Werror"],
 }
+
+// Keep the declared IMS classloader dependencies checked against the manifest.
+android_app_import {
+    name: "ims",
+    owner: "meizu",
+    apk: ":m2391_ims_apk",
+    certificate: "platform",
+    privileged: true,
+    system_ext_specific: true,
+    uses_libs: [
+        "qti-telephony-hidl-wrapper",
+        "qti-telephony-utils",
+        "ims-ext-common",
+    ],
+    enforce_uses_libs: true,
+}
+
+// Restore the matching stock carrier-specific IMS and signal configuration.
+prebuilt_overlay {
+    name: "m2391_CarrierConfigResCommon",
+    product_specific: true,
+    src: ":m2391_carrier_config_blob",
+    filename: "CarrierConfigResCommon_Sys.apk",
+}

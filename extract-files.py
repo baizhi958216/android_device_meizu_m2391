@@ -2,8 +2,12 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import shutil
+import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ims_fixup import remove_ims_overlay
 
 from extract_utils.extract_recovery import (
     extract_ramdisk,
@@ -45,15 +49,22 @@ def lib_fixup_vendor_suffix(lib, partition):
     return f'{lib}_vendor' if partition == 'vendor' else None
 
 
+def lib_fixup_system_ext_suffix(lib, partition):
+    return f'{lib}_system_ext' if partition == 'system_ext' else None
+
+
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
     lib_fixups={
         **lib_fixups,
         'libvibrator': lib_fixup_vendor_suffix,
+        ('vendor.qti.diaghal@1.0', 'vendor.qti.imsrtpservice@3.0',
+         'vendor.qti.imsrtpservice@3.1'): lib_fixup_system_ext_suffix,
     },
     namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
     blob_fixups={
+        'system_ext/priv-app/ims/ims.apk': blob_fixup().call(remove_ims_overlay),
         # Qualcomm's Android 13 display/power consumers embed the old
         # XMLDocument layout; current TinyXML2 corrupts those objects.
         (

@@ -62,6 +62,19 @@ PRODUCT_PACKAGES += libtinyxml2-v34
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/zz-vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz-vndservicemanager.rc
 
+# Keep the stock HIDL service and QCOM function table on the same legacy ABI.
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/wifi/qcom-hals.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/qcom.xml
+
+# IMS userspace and its source-built Qualcomm extension library.
+PRODUCT_PACKAGES += ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/permissions/privapp-permissions-m2391-ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-m2391-ims.xml
+
+# Restore the stock dual-SIM default (NR/LTE/GSM/WCDMA).
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.telephony.default_network=26,26
+
 # Vendor filesystem and source-generated SELinux policy.
 PRODUCT_PACKAGES += \
     fs_config_dirs_nonsystem \
