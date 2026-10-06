@@ -54,6 +54,25 @@ module = ExtractUtilsModule(
     },
     namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
     blob_fixups={
+        # Qualcomm's Android 13 display/power consumers embed the old
+        # XMLDocument layout; current TinyXML2 corrupts those objects.
+        (
+            'vendor/bin/poweropt-service',
+            'vendor/lib/libaodoptfeature.so',
+            'vendor/lib/libdpps.so',
+            'vendor/lib/libpowercore.so',
+            'vendor/lib/libpsmoptfeature.so',
+            'vendor/lib/libsnapdragoncolor-manager.so',
+            'vendor/lib/libstandbyfeature.so',
+            'vendor/lib/libvideooptfeature.so',
+            'vendor/lib64/libaodoptfeature.so',
+            'vendor/lib64/libdpps.so',
+            'vendor/lib64/libpowercore.so',
+            'vendor/lib64/libpsmoptfeature.so',
+            'vendor/lib64/libsnapdragoncolor-manager.so',
+            'vendor/lib64/libstandbyfeature.so',
+            'vendor/lib64/libvideooptfeature.so',
+        ): blob_fixup().replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
         (
             'vendor/bin/qguard',
             'vendor/lib64/libqfp-service.so',

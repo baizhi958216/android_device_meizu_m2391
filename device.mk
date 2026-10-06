@@ -56,6 +56,9 @@ PRODUCT_PACKAGES += \
 # IServiceManager's C++ ABI must match the source-built vendor libbinder.
 PRODUCT_PACKAGES += vndservicemanager
 
+# Legacy XMLDocument ABI used by the proprietary display and power stack.
+PRODUCT_PACKAGES += libtinyxml2-v34
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/zz-vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz-vndservicemanager.rc
 
