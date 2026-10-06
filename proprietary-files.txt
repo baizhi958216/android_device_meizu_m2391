@@ -83,7 +83,6 @@ vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti|8b5082a208b4d3a181c1c3b
 vendor/bin/hw/android.hardware.boot@1.2-service|96511031cb38f89a3339704cf23a9bdfab58451e
 vendor/bin/hw/android.hardware.camera.provider@2.4-external-service|743cf4c377544355e406d020b72e53ace040b172
 vendor/bin/hw/android.hardware.cas@1.2-service|533af1fe7366a8baf3db48407090f792dac5fafe
-vendor/bin/hw/android.hardware.drm-service.clearkey|7fd70cf3169858975494b3b82bdf3102b60b683e
 vendor/bin/hw/android.hardware.drm-service.widevine|42f026fb31d52faeed6a6ac080cdae11e3eaff52
 vendor/bin/hw/android.hardware.dumpstate-service.qti|d6f1733047a48733c35c8a73189de43d674db232
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti|2e9271e6beef80c9c6faa5ea9de1708836d238b3
@@ -466,7 +465,6 @@ vendor/etc/init/android.hardware.bluetooth@1.1-service-qti.rc|809312d943f5194c46
 vendor/etc/init/android.hardware.boot@1.2-service.rc:vendor/etc/init/android.hardware.boot@1.2-service.m2391.rc|bca408330fe72bc4d98f80b0c06cb3f7dfcf67af
 vendor/etc/init/android.hardware.camera.provider@2.4-external-service.rc:vendor/etc/init/android.hardware.camera.provider@2.4-external-service.m2391.rc|5a8d8a98079ef50a06c32be665261d9b3021aab1
 vendor/etc/init/android.hardware.cas@1.2-service.rc:vendor/etc/init/android.hardware.cas@1.2-service.m2391.rc|9cc9ff28fe0c50a8475bbf84af53e80859c46007
-vendor/etc/init/android.hardware.drm-service.clearkey.rc:vendor/etc/init/android.hardware.drm-service.clearkey.m2391.rc|c0465ba6570a1d84f65548ec9a9354a76bf3166c
 vendor/etc/init/android.hardware.drm-service.widevine.rc|54c79ef531c9c135fa234a8515b3d37f0e1ccc4d
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc|c266f08783a17f6583e3f22c85e55b0c200442ea
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc|c2d2c4545022aa8de59542763e4018cbf5a18b9a
@@ -950,7 +948,6 @@ vendor/etc/vintf/compatibility_matrix.xml;EXTRACT_ONLY|0054d2bfd8287d12a12fc7d13
 vendor/etc/vintf/manifest/android.hardware.atrace@1.0-service.xml;EXTRACT_ONLY|0d20be0134869ce6ccda228c44e08b7da0207c9b
 vendor/etc/vintf/manifest/android.hardware.boot@1.2.xml;EXTRACT_ONLY|5852b11884f0f30981d189b173b6d830a3cd4d83
 vendor/etc/vintf/manifest/android.hardware.cas@1.2-service.xml;EXTRACT_ONLY|fb087cd01fd270e53e4ea916b9da8d2f6c73b896
-vendor/etc/vintf/manifest/android.hardware.drm-service.clearkey.xml;EXTRACT_ONLY|5153699452bf52188dd89276db5f7cb2715d9f67
 vendor/etc/vintf/manifest/android.hardware.drm-service.xml;EXTRACT_ONLY|9fa22af7d76036299638029b8e2946731ce652f3
 vendor/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml;EXTRACT_ONLY|5ad718016776f155b911f8bacf7097aa4bb52aa8
 vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml;EXTRACT_ONLY|f32053a374e42c5fd0b6f42e3c2414b9eb4f2ae5
