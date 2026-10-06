@@ -73,7 +73,7 @@ module = ExtractUtilsModule(
         (
             'vendor/lib/libqcodec2_core.so',
             'vendor/lib64/libqcodec2_core.so',
-        ): blob_fixup().add_needed('libcodec2_shim.so'),
+        ): blob_fixup().add_needed('libcodec2_m2391.so'),
         (
             'vendor/lib/vendor.libdpmframework.so',
             'vendor/lib64/vendor.libdpmframework.so',

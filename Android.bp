@@ -154,3 +154,13 @@ cc_library_shared {
     cflags: ["-fvisibility=default"],
     stl: "none",
 }
+
+cc_library_shared {
+    name: "libcodec2_m2391",
+    vendor: true,
+    compile_multilib: "both",
+    srcs: ["compat/codec2_compat.cpp"],
+    header_libs: ["libcodec2_headers", "libcodec2_vndk_headers"],
+    shared_libs: ["libcodec2_vndk"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}
