@@ -68,6 +68,7 @@ PRODUCT_PACKAGES += \
     linker.recovery \
     otacerts.recovery \
     recovery \
+    update_engine_sideload \
     servicemanager.recovery \
     shell_and_utilities_recovery \
     watchdogd.recovery \
