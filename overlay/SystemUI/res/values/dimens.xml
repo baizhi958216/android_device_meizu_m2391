@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Power button center calibrated to 76mm below the top of the display.
+         Use a physical unit to follow the display mode's reported xDpi
+         without moving the wake/sleep origin when UI density changes. -->
+    <dimen name="physical_power_button_center_screen_location_y">76mm</dimen>
     <!-- Lineage reserves a separate 20dp privacy
          dot inset on the right; adding another 20dp made the sides unequal. -->
     <dimen name="status_bar_padding_start">20dp</dimen>
