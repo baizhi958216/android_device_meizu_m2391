@@ -1629,7 +1629,9 @@ vendor/lib/libbluetooth_audio_session_qti_2_1.so|336a1ecc2da7ef765e15645809fe428
 vendor/lib/libboot_control_qti.so|4bb4baa328b1bd23d57d88249e692dc9bae74d17
 vendor/lib/libbt-hidlclient.so|eb3703c025c546d3a65951c652cf46a0024f70d6
 vendor/lib/libbtnv.so|d7a1fc97bb8836627f21a53f9a51a3da819c9e81
-vendor/lib/libc2filterplugin.so|c3d7ac5f28529b08635fd7a718236be83ca75afb
+# Keep the stock diagnostic blob for extraction/hash checks only. Its dump
+# filter suppresses decoded output with the source-built Codec2 wrapper.
+vendor/lib/libc2filterplugin.so;EXTRACT_ONLY|c3d7ac5f28529b08635fd7a718236be83ca75afb
 vendor/lib/libcacertclient.so|3b1ed6929a3a6f20d7b6dd725e41a6c7dac14fec
 vendor/lib/libcamerapostproc.so|15f1cb82972a67d8b73be313aacb1266dbc44ec5
 vendor/lib/libcamxcommonutils.so|4b2d9c61ac7abe137de2d7c01033c644619cebe2
@@ -2737,7 +2739,9 @@ vendor/lib64/libboot_control_qti.so|9a21eae4c4acd78c51716d2ec8bb9a9b6cc9c3b1
 vendor/lib64/libbt-hidlclient.so|812c806bee5a50793b591e0fb2ccb7337d0eaf80
 vendor/lib64/libbtnv.so|7ffea4b6731817ad5cc3b9ee88bc401fb2584bce
 vendor/lib64/libc++_shared.so|1e8fae617460faf1bfa7715ad9e68e5216b7828e
-vendor/lib64/libc2filterplugin.so|ca7d91c8170d73a2a906e6838c919077d201d79f
+# Keep the stock diagnostic blob for extraction/hash checks only. Its dump
+# filter suppresses decoded output with the source-built Codec2 wrapper.
+vendor/lib64/libc2filterplugin.so;EXTRACT_ONLY|ca7d91c8170d73a2a906e6838c919077d201d79f
 vendor/lib64/libcacertclient.so|0898229bd1ba54b25d871777fd7abc90d6ca11e2
 vendor/lib64/libcamerapostproc.so|6359ffe64cf1180708ad3dcafe4e76317247ff85
 vendor/lib64/libcamxcommonutils.so|f54eb8eef02ce59281a29a084d310cc03cacfc94
