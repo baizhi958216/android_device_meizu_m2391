@@ -11,27 +11,6 @@ lunch lineage_m2391 "$aosp_target_release" userdebug
 mka bacon
 ```
 
-## Fingerprint payment
-
-`IFAAService` and `SoterService` are imported from the matching stock dump,
-then signed with the ROM's platform certificate and installed in `system_ext`.
-Both retain `android.uid.system` and the Meizu/QTI HIDL transports; the existing
-`system_app` HAL policy applies. Ordinary fingerprint unlock alone does not
-provide these app-facing services.
-
-Keep `ro.product.mobile.name=m2391`: the stock IFAA service derives its payment
-model identifier (`MEIZU-M2391`) from it. The APKs remain in their original
-`system/app` extraction paths and are pinned in `proprietary-files.txt`;
-`Android.bp` selects their installation partition and certificate.
-
-On-device validation on 2026-10-07, with SELinux enforcing: Alipay bound both
-services, IFAA v4 detected the enrolled fingerprint, native IFAA commands
-returned success, and the user confirmed that the fingerprint-payment option
-appeared. A payment transaction was not tested. The Soter HIDL connection works,
-but device-ID lookup, ATTK verification and test-app ASK generation returned
-`-20` from the native stack; WeChat payment remains unverified. Do not treat
-successful service binding as successful key generation.
-
 ## Device specifications
 
 | Feature | Specification |
