@@ -2,6 +2,19 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <displayConfiguration>
     <name>MEIZU 20 Pro built-in OLED</name>
+    <!-- Keep the same 360dp UI width across both physical display modes. -->
+    <densityMapping>
+        <density>
+            <width>1080</width>
+            <height>2400</height>
+            <density>480</density>
+        </density>
+        <density>
+            <width>1440</width>
+            <height>3200</height>
+            <density>640</density>
+        </density>
+    </densityMapping>
     <!-- Stock nits calibration, with 0..4095 backlight values normalized to 0..1. -->
     <screenBrightnessMap interpolation="linear">
         <point><value>0.001709402</value><nits>2.35</nits></point>
