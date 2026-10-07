@@ -17,6 +17,53 @@
     <integer name="config_defaultRefreshRate">90</integer>
     <integer name="config_defaultPeakRefreshRate">120</integer>
 
+    <bool name="config_automatic_brightness_available">true</bool>
+    <!-- Preserve the stock panel's minimum of 7 on its 0..4095 backlight scale. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.001709402</item>
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+    <!-- Stock m2391 ambient-lux curve; the initial zero-lux point is implicit. -->
+    <integer-array name="config_autoBrightnessLevels" translatable="false">
+        <item>1</item>
+        <item>6</item>
+        <item>18</item>
+        <item>32</item>
+        <item>56</item>
+        <item>114</item>
+        <item>223</item>
+        <item>455</item>
+        <item>665</item>
+        <item>873</item>
+        <item>1320</item>
+        <item>1515</item>
+        <item>1750</item>
+        <item>2060</item>
+        <item>3020</item>
+        <item>5020</item>
+        <item>8000</item>
+        <item>65000</item>
+    </integer-array>
+    <array name="config_autoBrightnessDisplayValuesNits" translatable="false">
+        <item>6.5</item>
+        <item>6.5</item>
+        <item>28.5</item>
+        <item>59.1</item>
+        <item>59.1</item>
+        <item>70.4</item>
+        <item>76.5</item>
+        <item>120.4</item>
+        <item>154.4</item>
+        <item>208.3</item>
+        <item>217.7</item>
+        <item>250.4</item>
+        <item>309.8</item>
+        <item>333.9</item>
+        <item>396.8</item>
+        <item>432.6</item>
+        <item>480.7</item>
+        <item>491.6</item>
+        <item>1086.0</item>
+    </array>
+
     <!-- M2391Gestures synchronizes this setting with the Meizu binary mask. -->
     <bool name="config_supportDoubleTapWake">true</bool>
 

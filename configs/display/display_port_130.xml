@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<displayConfiguration>
+    <name>MEIZU 20 Pro built-in OLED</name>
+    <!-- Stock nits calibration, with 0..4095 backlight values normalized to 0..1. -->
+    <screenBrightnessMap interpolation="linear">
+        <point><value>0.001709402</value><nits>2.35</nits></point>
+        <point><value>0.004639805</value><nits>4.74</nits></point>
+        <point><value>0.005616606</value><nits>5.43</nits></point>
+        <point><value>0.013431013</value><nits>12.84</nits></point>
+        <point><value>0.028083028</value><nits>27.2</nits></point>
+        <point><value>0.052503053</value><nits>50.74</nits></point>
+        <point><value>0.076923077</value><nits>74.32</nits></point>
+        <point><value>0.101343101</value><nits>98.91</nits></point>
+        <point><value>0.135531136</value><nits>134.1</nits></point>
+        <point><value>0.184371184</value><nits>181.4</nits></point>
+        <point><value>0.247863248</value><nits>242.9</nits></point>
+        <point><value>0.330891331</value><nits>323.2</nits></point>
+        <point><value>0.37973138</value><nits>371.9</nits></point>
+        <point><value>0.443223443</value><nits>435.2</nits></point>
+        <point><value>0.492063492</value><nits>484.0</nits></point>
+        <point><value>0.4998779</value><nits>491.6</nits></point>
+        <point><value>0.671550672</value><nits>689.0</nits></point>
+        <point><value>0.842490842</value><nits>886.0</nits></point>
+        <point><value>1.0</value><nits>1086.0</nits></point>
+    </screenBrightnessMap>
+    <lightSensor>
+        <type>android.sensor.light</type>
+        <name>stk_stk3a7x Ambient Light Sensor Non-wakeup</name>
+    </lightSensor>
+</displayConfiguration>
