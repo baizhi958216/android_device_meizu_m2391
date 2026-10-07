@@ -16,6 +16,7 @@ import android.hardware.biometrics.BiometricStateListener;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.PowerManager;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
@@ -30,12 +31,17 @@ public final class GestureApplication extends Application {
     private Handler mHandler;
     private FingerprintManager mFingerprintManager;
     private boolean mFingerprintListenerRegistered;
+    private boolean mKeyguardAuthenticationRunning;
     private int mRetries;
     private final Runnable mApply = this::applySetting;
     private final BiometricStateListener mFingerprintListener = new BiometricStateListener() {
         @Override
         public void onStateChanged(int newState) {
-            synchronizeSetting();
+            mHandler.post(() -> {
+                mKeyguardAuthenticationRunning =
+                        newState == BiometricStateListener.STATE_KEYGUARD_AUTH;
+                synchronizeSetting();
+            });
         }
 
         @Override
@@ -97,8 +103,14 @@ public final class GestureApplication extends Application {
                     Settings.Secure.DOUBLE_TAP_TO_WAKE, 0, userId) != 0;
             // The ultrasonic HAL authenticates from its hardware interrupt. Without
             // bit 24, Goodix disables this path when the display enters DOZE_SUSPEND.
+            // During AOD entry keyguard may report not showing even though its
+            // authentication client is running. Keep the interrupt armed while
+            // noninteractive, including when this process restarts during AOD.
+            boolean fingerprintRequested = mKeyguardAuthenticationRunning
+                    || !getSystemService(PowerManager.class).isInteractive()
+                    || getSystemService(KeyguardManager.class).isKeyguardLocked();
             boolean fingerprintEnabled = mFingerprintManager != null
-                    && getSystemService(KeyguardManager.class).isKeyguardLocked()
+                    && fingerprintRequested
                     && mFingerprintManager.hasEnrolledFingerprints(userId)
                     && Settings.Secure.getIntForUser(getContentResolver(),
                             DOZE_PULSE_ON_AUTH, 1, userId) != 0;
