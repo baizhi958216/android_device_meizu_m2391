@@ -15,3 +15,5 @@ vendor.meizu.hardware.fbase_defrag::IFbaseDefrag                                
 vendor.meizu.hardware.meizu_charging::IMeizuCharging u:object_r:hal_meizu_charging_hwservice:s0
 vendor.meizu.hardware.tiktap_hidl::ITiktap                                       u:object_r:hal_tiktap_hwservice:s0
 vendor.meizu.hardware.meizu_kelog::IMeizuKelog u:object_r:hal_meizu_kelog_hwservice:s0
+
+vendor.xingji.hardware.biometrics.face::IBiometricsFace u:object_r:hal_face_hwservice:s0
