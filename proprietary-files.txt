@@ -1536,6 +1536,11 @@ vendor/lib64/libqttestservice.so|6a6c895f7fcc1d6157093fb364c47b4699c19afd
 vendor/lib64/vendor.qti.hardware.factory@1.0.so|a8829ee53cc6e9d1be8b10825bc7e41feddb40f7
 vendor/lib64/vendor.qti.hardware.factory@1.1.so|9977f7e72b6fb948049fbfb24c7ddde9f8413178
 
+# Fingerprint - Payment services
+# Platform signing preserves android.uid.system for the app-to-HAL bridges.
+system/app/IFAAService/IFAAService.apk;EXTRACT_ONLY;FILEGROUP=m2391_ifaa_service_apk|02601e0102233e1006ed555ba3bcb54f72f11e08
+system/app/SoterService/SoterService.apk;EXTRACT_ONLY;FILEGROUP=m2391_soter_service_apk|37bc7210b9a4843c522f275e23d4a4c8c2228fb7
+
 # Fingerprint
 vendor/app/QFingerprintService/QFingerprintService.apk;PRESIGNED|8c42293ce10d22a67ea3312db94ae0b814e0983e
 vendor/bin/hw/qfp-daemon|d87f9b8b5937b7d4153e3956dbb365091914708b

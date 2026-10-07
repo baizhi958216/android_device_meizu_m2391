@@ -89,6 +89,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/qcom-hals.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/qcom.xml
 
+# Fingerprint payment app-to-HAL bridges (ordinary fingerprint unlock is separate).
+PRODUCT_PACKAGES += IFAAService SoterService
+
 # IMS userspace and its source-built Qualcomm extension library.
 PRODUCT_PACKAGES += m2391_qcril_database QtiTelephonyService ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon \
     qti-telephony-hidl-wrapper qti-telephony-utils \
