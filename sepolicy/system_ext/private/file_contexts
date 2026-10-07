@@ -1,6 +1,7 @@
 /sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/enable u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/set_mback u:object_r:sysfs_vibrator:s0
 /sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/cont u:object_r:sysfs_vibrator:s0
+/sys/devices/platform/soc/9c0000\.qcom,qupv3_i2c_geni_se/994000\.i2c/i2c-2/2-005a/gain u:object_r:sysfs_vibrator:s0
 
 /dev/block/sda3 u:object_r:misc_block_device:s0
 /dev/block/(by-name|bootdevice/by-name|platform/soc/1d84000\.ufshc/by-name)/misc u:object_r:misc_block_device:s0

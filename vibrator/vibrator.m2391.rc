@@ -4,12 +4,15 @@ on post-fs-data
     chown system system /sys/class/meizu/motor/enable
     chown system system /sys/class/meizu/motor/set_mback
     chown system system /sys/class/meizu/motor/cont
+    chown system system /sys/class/meizu/motor/gain
     chmod 0660 /sys/class/meizu/motor/enable
     chmod 0660 /sys/class/meizu/motor/set_mback
     chmod 0660 /sys/class/meizu/motor/cont
+    chmod 0660 /sys/class/meizu/motor/gain
     restorecon /sys/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-2/2-005a/enable
     restorecon /sys/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-2/2-005a/set_mback
     restorecon /sys/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-2/2-005a/cont
+    restorecon /sys/devices/platform/soc/9c0000.qcom,qupv3_i2c_geni_se/994000.i2c/i2c-2/2-005a/gain
     start vendor.m2391.vibrator
 
 service vendor.m2391.vibrator /vendor/bin/hw/android.hardware.vibrator-service.m2391
