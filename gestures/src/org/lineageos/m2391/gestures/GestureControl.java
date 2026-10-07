@@ -16,20 +16,30 @@ final class GestureControl {
     private static final String NODE = "/sys/class/meizu/tp/gesture_control";
     private static final int ENABLE = 1 << 31;
     private static final int DOUBLE_TAP = 1 << 4;
+    private static final int FINGERPRINT = 1 << 24;
 
     private GestureControl() {}
 
-    static void setDoubleTapEnabled(boolean enabled) throws IOException {
+    static void setGesturesEnabled(boolean doubleTapEnabled, boolean fingerprintEnabled)
+            throws IOException {
         int current = readMask();
-        int updated = enabled ? current | ENABLE | DOUBLE_TAP : current & ~DOUBLE_TAP;
+        int updated = current & ~(DOUBLE_TAP | FINGERPRINT);
+        if (doubleTapEnabled) {
+            updated |= DOUBLE_TAP;
+        }
+        if (fingerprintEnabled) {
+            updated |= FINGERPRINT;
+        }
         if ((updated & ~ENABLE) == 0) {
             updated = 0;
+        } else {
+            updated |= ENABLE;
         }
         if (updated == current) {
             return;
         }
         // show() prints hex, but store() reads a little-endian u32 directly.
-        // Preserve other gestures, including bit 24 used by fingerprint long press.
+        // Preserve gesture bits not owned by this controller.
         byte[] bytes = ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN)
                 .putInt(updated).array();
         try (FileOutputStream output = new FileOutputStream(NODE)) {
