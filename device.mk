@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.m2391 \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
+    M2391SettingsOverlay \
     M2391TelephonyOverlay \
     M2391SystemUIOverlay \
     android.hidl.allocator@1.0-service \
