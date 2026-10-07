@@ -47,7 +47,6 @@ PRODUCT_PACKAGES += \
     M2391Gestures \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
-    M2391SettingsOverlay \
     M2391LineageOverlay \
     M2391TelephonyOverlay \
     M2391SystemUIOverlay \
@@ -57,6 +56,14 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     bootctl
+
+# DerpFest exposes min/max refresh rates through its own display settings page.
+# The Lineage switch resources targeted by this RRO do not exist in DerpFest.
+ifeq ($(wildcard vendor/lineage/config/derpfest.mk),)
+PRODUCT_PACKAGES += M2391SettingsOverlay
+else
+PRODUCT_PACKAGES += M2391DerpFestSettingsOverlay
+endif
 
 # IServiceManager's C++ ABI must match the source-built vendor libbinder.
 PRODUCT_PACKAGES += vndservicemanager
