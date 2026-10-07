@@ -29,6 +29,7 @@ public final class GestureApplication extends Application {
     private static final int MAX_RETRIES = 30;
     private static final String DOZE_PULSE_ON_AUTH = "doze_pulse_on_auth";
     private Handler mHandler;
+    private LiftToWakeController mLiftToWake;
     private FingerprintManager mFingerprintManager;
     private boolean mFingerprintListenerRegistered;
     private boolean mKeyguardAuthenticationRunning;
@@ -56,6 +57,7 @@ public final class GestureApplication extends Application {
         HandlerThread thread = new HandlerThread(TAG);
         thread.start();
         mHandler = new Handler(thread.getLooper());
+        mLiftToWake = new LiftToWakeController(this, mHandler);
         ContentObserver observer = new ContentObserver(mHandler) {
             @Override
             public void onChange(boolean selfChange) {
@@ -67,6 +69,9 @@ public final class GestureApplication extends Application {
                 observer, UserHandle.USER_ALL);
         getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(DOZE_PULSE_ON_AUTH), false,
+                observer, UserHandle.USER_ALL);
+        getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(LiftToWakeController.SETTING), false,
                 observer, UserHandle.USER_ALL);
         IntentFilter filter = new IntentFilter(Intent.ACTION_USER_SWITCHED);
         filter.addAction(Intent.ACTION_SCREEN_ON);
@@ -91,6 +96,7 @@ public final class GestureApplication extends Application {
 
     private void applySetting() {
         try {
+            mLiftToWake.update();
             if (mFingerprintManager == null) {
                 mFingerprintManager = getSystemService(FingerprintManager.class);
             }

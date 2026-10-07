@@ -5,12 +5,26 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.USE_BIOMETRIC_INTERNAL" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <application
         android:name=".GestureApplication"
         android:label="M2391 Gestures"
         android:allowBackup="false"
         android:directBootAware="true"
         android:persistent="true">
+        <activity android:name=".LiftToWakeSettings"
+            android:label="@string/lift_to_wake_title"
+            android:theme="@android:style/Theme.DeviceDefault.Settings"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data android:name="com.android.settings.summary"
+                android:resource="@string/lift_to_wake_summary" />
+        </activity>
         <receiver android:name=".BootReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />

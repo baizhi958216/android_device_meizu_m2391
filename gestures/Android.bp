@@ -2,6 +2,7 @@
 android_app {
     name: "M2391Gestures",
     srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
     platform_apis: true,
     certificate: "platform",
     privileged: true,

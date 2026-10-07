@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="lift_to_wake_title">Lift to wake</string>
+    <string name="lift_to_wake_summary">Wake the lock screen when you pick up your phone</string>
+</resources>

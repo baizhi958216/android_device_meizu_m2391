@@ -70,6 +70,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/keylayout/main_touch.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/main_touch.kl
 
 PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/permissions/privapp-permissions-m2391-gestures.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-m2391-gestures.xml
+
+PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/display/display_port_130.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_port_130.xml
 
 PRODUCT_COPY_FILES += \

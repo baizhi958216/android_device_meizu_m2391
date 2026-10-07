@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <string name="lift_to_wake_title">抬手亮屏</string>
+    <string name="lift_to_wake_summary">拿起手机时点亮锁屏</string>
+</resources>
