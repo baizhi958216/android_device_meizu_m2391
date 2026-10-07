@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# First-stage init creates physical super and DTBO nodes before policy is loaded.
+# Its normal /dev/block restorecon must finish before ueventd coldboot and OTA.
+# AOSP permits the symlinks, but this UFS layout also needs the physical nodes.
+allow init { super_block_device dtbo_block_device }:blk_file relabelto;
