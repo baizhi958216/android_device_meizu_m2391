@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+key 116 POWER
+key 143 WAKEUP
+# mz_gesture_ts reports Flyme's double-tap scan code on main_touch.
+key 624 WAKEUP

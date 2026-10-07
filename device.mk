@@ -44,6 +44,7 @@ PRODUCT_ENABLE_UFFD_GC := true
 
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.m2391 \
+    M2391Gestures \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
     M2391SettingsOverlay \
@@ -64,6 +65,9 @@ PRODUCT_PACKAGES += libtinyxml2-v34
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/zz-vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz-vndservicemanager.rc
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/keylayout/main_touch.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/main_touch.kl
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.camera.m2391.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.camera.m2391.rc

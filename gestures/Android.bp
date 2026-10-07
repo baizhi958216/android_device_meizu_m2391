@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: Apache-2.0
+android_app {
+    name: "M2391Gestures",
+    srcs: ["src/**/*.java"],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    system_ext_specific: true,
+    optimize: {
+        enabled: false,
+    },
+}

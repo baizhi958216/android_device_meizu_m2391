@@ -16,6 +16,10 @@
     <!-- The retained display HAL exports 90 and 120 Hz at both resolutions. -->
     <integer name="config_defaultRefreshRate">90</integer>
     <integer name="config_defaultPeakRefreshRate">120</integer>
+
+    <!-- M2391Gestures synchronizes this setting with the Meizu binary mask. -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+
     <bool name="config_device_volte_available">true</bool>
     <bool name="config_device_vt_available">true</bool>
     <bool name="config_device_wfc_ims_available">true</bool>
