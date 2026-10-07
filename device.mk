@@ -67,7 +67,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/qcom-hals.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/qcom.xml
 
 # IMS userspace and its source-built Qualcomm extension library.
-PRODUCT_PACKAGES += ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon
+PRODUCT_PACKAGES += ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon \
+    qti-telephony-hidl-wrapper qti-telephony-utils \
+    qti_telephony_hidl_wrapper.xml qti_telephony_utils.xml
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-m2391-ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-m2391-ims.xml
 

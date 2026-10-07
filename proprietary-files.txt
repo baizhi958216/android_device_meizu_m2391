@@ -4123,10 +4123,6 @@ vendor_boot/lib/modules/xcharge_notify_subsys.ko;EXTRACT_ONLY|f940e89ccd8e67c72b
 vendor_boot/lib/modules/xcharge_thermal.ko;EXTRACT_ONLY|82704cd69494a889b35424e1c0e6e0b1871e9ecc
 
 # IMS userspace
-system_ext/etc/permissions/qti_telephony_hidl_wrapper.xml|3b687e0ed64784e02508f85c0be9e74b3f52559a
-system_ext/etc/permissions/qti_telephony_utils.xml|94c95bd091e47c772f7d505d8f7e54b9f99da149
-system_ext/framework/qti-telephony-hidl-wrapper.jar|77c7f41948be53355f90de595c544ecedf57b879
-system_ext/framework/qti-telephony-utils.jar|b6c75083250ec30e049f8bb345b2411c64f11721
 system_ext/priv-app/ims/ims.apk;EXTRACT_ONLY;FILEGROUP=m2391_ims_apk|0cd72da8d775c54103ee32be140f189c54f59b8d|0f8cb237f799ddb2b82d5f5659a37d220c4bb73b
 system_ext/lib/lib-imsvideocodec.so|f7c101f27609b3ba4f173ec7dcb0d4845244ec75
 system_ext/lib/lib-imsvt.so|53b4720e31ce5340fe009df484ba9765bd5bc371
