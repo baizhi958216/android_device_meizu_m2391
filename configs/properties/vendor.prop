@@ -195,6 +195,8 @@ bluetooth.profile.mcp.server.enabled=true
 bluetooth.profile.ccp.server.enabled=true
 camera.disable_zsl_mode=1
 ro.camera.enableCamera1MaxZsl=1
+# Stock CHI GetNumCameras returns only two cameras unless this is 1.
+ro.vendor.camera.no_vts=1
 drm.service.enabled=true
 vendor.wv.oemcrypto.debug.enable_hlos_data_path=true
 persist.demo.hdmirotationlock=false
