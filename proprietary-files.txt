@@ -1524,7 +1524,7 @@ vendor/lib/hw/audio.primary.kalama.so|daa02c31b68c508db2beb7f5107e75ecde0ad71c
 vendor/lib/hw/audio.r_submix.default.so|32d19f44ce3fcf46663f337fc0d37a27ab66c782
 vendor/lib/hw/audio.usb.default.so|ad02f0d51aa4a5b4b93ee6947de754fe8de927c8
 vendor/lib/hw/audio.virtual.default.so|4d60dcfa63038ca56a75ba68e8b0b843224a48c8
-vendor/lib/hw/camera.qcom.so|5452829cc09f3a724a0eeaec364a911123d58ea3
+vendor/lib/hw/camera.qcom.so|5452829cc09f3a724a0eeaec364a911123d58ea3|d830d95b4683f2c9306d0538c50f17354180d0d1
 vendor/lib/hw/com.dsi.ant@1.0-impl.so|fa0d89ce01b4ad48fbc6ad2752babd401f854d7f
 vendor/lib/hw/com.qti.chi.offline.so|046763d3f6372f0f91598ff1473536caea4aadc2
 vendor/lib/hw/com.qti.chi.override.so|ca0ca307e321680200587b6fd2bad5bc99e3337b
@@ -2605,7 +2605,7 @@ vendor/lib64/hw/audio.primary.kalama.so|f97263eb470c381d695990f844d80848d45d2706
 vendor/lib64/hw/audio.r_submix.default.so|6223c1d29e49c8913e3588648eb534a9df7c8820
 vendor/lib64/hw/audio.usb.default.so|69a04fdcc835c1f49bfe29945c990a0ac6a9f5bf
 vendor/lib64/hw/audio.virtual.default.so|cda543538cf7955bd7e9e98b551f950ee9ee12ba
-vendor/lib64/hw/camera.qcom.so|ce1dc906d89fa3c0f9a3065a0772975043e48b20
+vendor/lib64/hw/camera.qcom.so|ce1dc906d89fa3c0f9a3065a0772975043e48b20|79854d2c1934963d4cb360af929c82f2ebb2c816
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so|947287df97a4eff66b2e7b3d19288714b005312b
 vendor/lib64/hw/com.qti.chi.offline.so|638e8edafd394149bf92dd4ce4e05f2975753a73
 vendor/lib64/hw/com.qti.chi.override.so|364a53e71db1ab7784b70c434a313cb6a1279f8c

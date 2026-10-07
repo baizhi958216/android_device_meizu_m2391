@@ -65,6 +65,14 @@ module = ExtractUtilsModule(
     namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
     blob_fixups={
         'system_ext/priv-app/ims/ims.apk': blob_fixup().call(remove_ims_overlay),
+        # EEPROM pair verification needs the real bootloader PSN. Expose it
+        # through a camera-owned vendor property instead of default_prop.
+        (
+            'vendor/lib/hw/camera.qcom.so',
+            'vendor/lib64/hw/camera.qcom.so',
+        ): blob_fixup().binary_regex_replace(
+            rb'ro\.meizu\.hardware\.psn\x00', b'ro.vendor.camera.psn\x00\x00',
+        ),
         # Qualcomm's Android 13 display/power consumers embed the old
         # XMLDocument layout; current TinyXML2 corrupts those objects.
         (

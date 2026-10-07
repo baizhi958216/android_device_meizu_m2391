@@ -2,6 +2,9 @@
 # MEIZU additions to the Qualcomm SM8550 source policy.
 # Ported from firmware 1764145455; compiled with native SELinux build rules.
 
+ro.vendor.camera.psn                                    u:object_r:vendor_camera_prop:s0 exact string
+ro.vendor.camera.no_vts                                 u:object_r:vendor_camera_prop:s0 exact bool
+
 vendor.goodix.fingerprint.dump_dsp_log                  u:object_r:vendor_goodix_fingerprint_prop:s0
 vendor.goodix.fingerprint.dump_talog_data               u:object_r:vendor_goodix_fingerprint_prop:s0
 vendor.goodix.fingerprint.write_talog_data              u:object_r:vendor_goodix_fingerprint_prop:s0
