@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Keep the stock IMS implementation but remove its QSSI overlay selection gate."""
+"""Keep the IMS implementation but remove its QSSI overlay selection gate."""
 import struct
 import zipfile
 from pathlib import Path
 
 
 def remove_ims_overlay(ctx, file, file_path, **kwargs):
-    # The stock IMS APK also declares itself an overlay gated on a QSSI boot
+    # The IMS APK also declares itself an overlay gated on a QSSI boot
     # property. PackageParser skips the entire APK when that property is absent.
     # Retain its application, resources and DEX; Soong signs the result with the
     # platform certificate. No vendor boot property is forged for this purpose.
@@ -57,7 +57,7 @@ def remove_ims_overlay(ctx, file, file_path, **kwargs):
             chunks.append(chunk)
         offset += length
     if removed != 1 or depth:
-        raise ValueError('Expected exactly one complete stock IMS overlay element')
+        raise ValueError('Expected exactly one complete IMS overlay element')
     patched = bytearray(manifest[:header] + b''.join(chunks))
     struct.pack_into('<I', patched, 4, len(patched))
     temporary = Path(file_path + '.ims-tmp')

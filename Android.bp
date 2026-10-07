@@ -10,7 +10,6 @@ vintf_compatibility_matrix {
     system_ext_specific: true,
 }
 
-// Stock places this 64-bit ELF under lib/ as well as lib64/.
 prebuilt_lib {
     name: "m2391_qesdk_vendor_lib",
     soc_specific: true,
@@ -144,7 +143,6 @@ install_symlink {
     symlink_target: "egl/libq3dtools_adreno.so",
 }
 
-// Provide the compiler runtime ABI used by the stock SLIM daemon.
 cc_library_shared {
     name: "libemutls_m2391",
     vendor: true,
@@ -185,10 +183,20 @@ android_app_import {
     enforce_uses_libs: true,
 }
 
-// Restore the matching stock carrier-specific IMS and signal configuration.
 prebuilt_overlay {
     name: "m2391_CarrierConfigResCommon",
     product_specific: true,
     src: ":m2391_carrier_config_blob",
     filename: "CarrierConfigResCommon_Sys.apk",
+}
+
+// Bridge modem call-state parameters into the Qualcomm Audio HAL.
+android_app_import {
+    name: "QtiTelephonyService",
+    owner: "meizu",
+    apk: ":m2391_qti_telephony_service_apk",
+    certificate: "platform",
+    system_ext_specific: true,
+    uses_libs: ["qti-telephony-hidl-wrapper"],
+    enforce_uses_libs: true,
 }

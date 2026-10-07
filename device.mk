@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.m2391 \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
+    M2391TelephonyOverlay \
     M2391SystemUIOverlay \
     android.hidl.allocator@1.0-service \
     android.frameworks.sensorservice@1.0 \
@@ -66,18 +67,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.camera.m2391.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.camera.m2391.rc
 
-# Keep the stock HIDL service and QCOM function table on the same legacy ABI.
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/qcom-hals.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/qcom.xml
 
 # IMS userspace and its source-built Qualcomm extension library.
-PRODUCT_PACKAGES += ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon \
+PRODUCT_PACKAGES += m2391_qcril_database QtiTelephonyService ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon \
     qti-telephony-hidl-wrapper qti-telephony-utils \
     qti_telephony_hidl_wrapper.xml qti_telephony_utils.xml
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-m2391-ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-m2391-ims.xml
 
-# Restore the stock dual-SIM default (NR/LTE/GSM/WCDMA).
+# Dual-SIM default (NR/LTE/GSM/WCDMA).
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.telephony.default_network=26,26
 

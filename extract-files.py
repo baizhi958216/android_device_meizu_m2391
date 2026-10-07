@@ -31,7 +31,7 @@ def extract_boot(ctx, file_path, dump_dir):
 
 
 def extract_vendor_boot(ctx, file_path, dump_dir):
-    """Extract DTB and the stock platform ramdisk's signed kernel modules."""
+    """Extract DTB and ramdisk's signed kernel modules."""
     destination = Path(dump_dir, 'vendor_boot')
     destination.mkdir(exist_ok=True)
     with TemporaryDirectory() as temporary:
@@ -40,7 +40,7 @@ def extract_vendor_boot(ctx, file_path, dump_dir):
         fragments = parse_mkbootimg_fragments(args)
         platform = [fragment for fragment in fragments if fragment.ramdisk_type == 1]
         if len(platform) != 1:
-            raise ValueError('Expected one stock platform vendor ramdisk')
+            raise ValueError('Expected platform vendor ramdisk')
         extract_ramdisk(platform[0].path, destination)
     return file_path
 
@@ -65,6 +65,9 @@ module = ExtractUtilsModule(
     namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
     blob_fixups={
         'system_ext/priv-app/ims/ims.apk': blob_fixup().call(remove_ims_overlay),
+        # Audio/modem bridge has the same QSSI self-overlay gate.
+        'system_ext/app/QtiTelephonyService/QtiTelephonyService.apk':
+            blob_fixup().call(remove_ims_overlay),
         # EEPROM pair verification needs the real bootloader PSN. Expose it
         # through a camera-owned vendor property instead of default_prop.
         (
@@ -144,12 +147,12 @@ module = ExtractUtilsModule(
         'vendor/etc/vintf/manifest_kalama.xml': blob_fixup().regex_replace(
             r'\s*<sepolicy>[\s\S]*?</sepolicy>', '',
         ),
-        # V4 exports all Power symbols used by this service. The stock binary
+        # V4 exports all Power symbols used by this service. Vendor binary
         # redundantly links V3, which Soong rejects alongside V4.
         'vendor/bin/hw/android.hardware.power-service': blob_fixup()
         .remove_needed('android.hardware.power-V3-ndk.so'),
         # Keep the Meizu/QTI supplicant extensions without colliding with the
-        # platform executable. Both stock service definitions use this path.
+        # platform executable. Both service definitions use this path.
         (
             'vendor/etc/init/android.hardware.wifi.supplicant-service.rc',
             'vendor/etc/init/hw/init.qcom.rc',
