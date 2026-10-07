@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The stock HIDL service dynamically loads the matching proprietary HAL. -->
 <WifiVendorHal version="1">
     <path>/vendor/lib64/libwifi-hal-qcom.so</path>
     <primary>1</primary>

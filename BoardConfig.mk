@@ -94,7 +94,6 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
-# Assemble the stock SKU manifest and HAL fragments with native VINTF tools.
 DEVICE_MANIFEST_SKUS := kalama
 DEVICE_MANIFEST_KALAMA_FILES := \
     vendor/meizu/m2391/proprietary/vendor/etc/vintf/manifest_kalama.xml \

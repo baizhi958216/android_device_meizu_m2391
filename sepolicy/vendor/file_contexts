@@ -60,7 +60,6 @@
 
 /vendor/bin/hw/wpa_supplicant\.m2391 u:object_r:hal_wifi_supplicant_default_exec:s0
 
-# Stock service names differ from the AOSP/SM8550 executable patterns.
 /(vendor|system/vendor)/bin/hw/vendor\.meizu\.ir@1\.0-service u:object_r:hal_ir_default_exec:s0
 /vendor/bin/hw/android\.hardware\.usb\.gadget@1\.1-service-qti u:object_r:vendor_hal_usb_qti_exec:s0
 /vendor/bin/hw/android\.hardware\.usb@1\.2-service-qti u:object_r:vendor_hal_usb_qti_exec:s0

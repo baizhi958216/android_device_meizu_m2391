@@ -14,5 +14,4 @@ allow fix_1347671 vendor_shell_exec:file { ioctl read getattr lock map execute o
 allow fix_1347671 vendor_tee_listener_prop:file { read getattr map open };
 allow fix_1347671 vendor_fix_1347671_prop:file { read getattr map open };
 
-# Preserve IPC setup supplied by macros in the stock policy.
 binder_use(fix_1347671)

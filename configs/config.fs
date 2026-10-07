@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# Stock inode ownership/modes/capabilities. Recompiled by fs_config_generator.
+# Recompiled by fs_config_generator.
 
 # Vendor accounts from firmware 1764145455; generate passwd/group natively.
 

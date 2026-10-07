@@ -90,7 +90,6 @@ allow servicemanager fix_1347671:binder { call transfer };
 allow servicemanager fix_1347671:dir { search };
 allow servicemanager fix_1347671:file { read open };
 allow servicemanager fix_1347671:process { getattr };
-# Stock face TA initialization uses QSEECom/smcinvoke and its secure heaps.
 allow hal_face_default tee_device:chr_file rw_file_perms;
 allow hal_face_default ion_device:chr_file rw_file_perms;
 allow hal_face_default vendor_dmabuf_qseecom_heap_device:chr_file rw_file_perms;
