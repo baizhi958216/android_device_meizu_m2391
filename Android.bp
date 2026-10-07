@@ -200,3 +200,23 @@ android_app_import {
     uses_libs: ["qti-telephony-hidl-wrapper"],
     enforce_uses_libs: true,
 }
+
+// App-facing payment services retain the stock Meizu/QTI HIDL transports.
+// Re-sign both packages with this ROM's platform key for android.uid.system.
+android_app_import {
+    name: "IFAAService",
+    owner: "meizu",
+    apk: ":m2391_ifaa_service_apk",
+    certificate: "platform",
+    system_ext_specific: true,
+    enforce_uses_libs: true,
+}
+
+android_app_import {
+    name: "SoterService",
+    owner: "meizu",
+    apk: ":m2391_soter_service_apk",
+    certificate: "platform",
+    system_ext_specific: true,
+    enforce_uses_libs: true,
+}
