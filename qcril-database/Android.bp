@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: Apache-2.0
+filegroup {
+    name: "m2391_qcril_config_sql",
+    srcs: ["config/13.1_config.sql"],
+}
+
+genrule {
+    name: "m2391_qcril_config_database",
+    srcs: [
+        "//vendor/meizu/m2391:m2391_qcril_sql_files",
+        ":m2391_qcril_config_sql",
+    ],
+    tools: ["generate_qcril_db"],
+    cmd: "$(location generate_qcril_db) $(out) $(in)",
+    out: ["qcrilNr.db"],
+}
+
+prebuilt_etc {
+    name: "m2391_qcril_database",
+    filename: "qcrilNr.db",
+    src: ":m2391_qcril_config_database",
+    relative_install_path: "qcril_database",
+    vendor: true,
+    required: ["m2391_qcril_config_13_1"],
+}
+
+prebuilt_etc {
+    name: "m2391_qcril_config_13_1",
+    filename: "13.1_config.sql",
+    src: "config/13.1_config.sql",
+    relative_install_path: "qcril_database/upgrade/config",
+    vendor: true,
+}
