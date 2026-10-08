@@ -49,6 +49,7 @@
 /dev/dtof_only          u:object_r:dtof_only_device:s0
 /dev/arcsoft_fp                                                           u:object_r:fingerprint_device:s0
 /dev/aw8697_haptic u:object_r:haptic_dev:s0
+/dev/msm_cirrus_playback u:object_r:audio_device:s0
 /dev/stmvl53l1_ranging  u:object_r:st_dtof_device:s0
 /vendor/bin/image_update u:object_r:image_update_exec:s0
 /vendor/bin/mkelog_parser  u:object_r:mkelog_parser_exec:s0
