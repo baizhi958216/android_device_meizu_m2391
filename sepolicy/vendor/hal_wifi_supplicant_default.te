@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
+# The stock supplicant starts as root and drops to wifi in os_program_init().
+# Without this transition it cannot create files in the wifi-owned data directory.
+allow hal_wifi_supplicant_default self:capability { setgid setuid };
