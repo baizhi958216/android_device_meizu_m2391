@@ -93,7 +93,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += IFAAService SoterService
 
 # IMS userspace and its source-built Qualcomm extension library.
-PRODUCT_PACKAGES += m2391_qcril_database QtiTelephonyService ims ims-ext-common ims_ext_common.xml m2391_CarrierConfigResCommon \
+PRODUCT_PACKAGES += m2391_qcril_database QtiTelephonyService ims ims-ext-common ims_ext_common.xml M2391CarrierConfig m2391_CarrierConfigResCommon \
     qti-telephony-hidl-wrapper qti-telephony-utils \
     qti_telephony_hidl_wrapper.xml qti_telephony_utils.xml
 PRODUCT_COPY_FILES += \

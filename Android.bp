@@ -183,6 +183,15 @@ android_app_import {
     enforce_uses_libs: true,
 }
 
+// GMS CarrierSettings replaces CarrierConfig but bypasses the stock vendor.xml
+// overlay required by this Android 13 Qualcomm IMS stack. Keep the source app
+// under a device module name so GMS cannot remove it via overrides.
+override_android_app {
+    name: "M2391CarrierConfig",
+    base: "CarrierConfig",
+    overrides: ["CarrierSettings"],
+}
+
 prebuilt_overlay {
     name: "m2391_CarrierConfigResCommon",
     product_specific: true,

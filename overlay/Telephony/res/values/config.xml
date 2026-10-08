@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Use the source CarrierConfig service with the stock vendor.xml overlay.
+         GMS CarrierSettings omits these legacy Qualcomm IMS carrier settings. -->
+    <string name="platform_carrier_config_package" translatable="false">com.android.carrierconfig</string>
     <!-- ImsResolver reads TeleService resources for the device MMTEL provider. -->
     <string name="config_ims_mmtel_package" translatable="false">org.codeaurora.ims</string>
 </resources>
