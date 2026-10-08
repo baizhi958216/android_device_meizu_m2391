@@ -4866,7 +4866,7 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/nxp-uwb-service.rc]
+[vendor/etc/init/nxp-uwb-service.m2391.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT

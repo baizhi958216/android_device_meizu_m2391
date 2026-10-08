@@ -4226,7 +4226,7 @@ vendor/lib64/hw/audio.usb.default.so|69a04fdcc835c1f49bfe29945c990a0ac6a9f5bf
 # UWB
 vendor/bin/hw/android.hardware.uwb-service.nxp|70be2a74d26ca4954690168829472a2cf6b59e10
 vendor/etc/init/init.kalama.uwb.rc|8931d8858bf4a1584989945d583b6890c76284dd
-vendor/etc/init/nxp-uwb-service.rc|91e1bfc4d6fdb6f239d5a678389191c5ccd5e2bc
+vendor/etc/init/nxp-uwb-service.rc:vendor/etc/init/nxp-uwb-service.m2391.rc|91e1bfc4d6fdb6f239d5a678389191c5ccd5e2bc
 vendor/etc/libuwb-countrycode.conf|a4c658d044e4cfa5f87f284e5015472fb0ee2703
 vendor/etc/libuwb-nxp-m2391_npi.conf|c43375d8196ccb6e7aeb6e2d898651f46131566d
 vendor/etc/libuwb-nxp.conf|dc909cdf812caada99117bb8b365fd2a5665ec5e
