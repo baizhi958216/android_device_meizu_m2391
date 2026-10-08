@@ -40,7 +40,6 @@ PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += $(DEVICE_PATH)/configs/linker.config.j
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_ENFORCE_VINTF_MANIFEST := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
-PRODUCT_ENABLE_UFFD_GC := true
 
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.m2391 \
@@ -120,8 +119,7 @@ PRODUCT_PACKAGES += \
     watchdogd.recovery \
     android.hardware.boot-service.qti.recovery \
     android.hardware.fastboot-service.example_recovery \
-    android.hardware.health-service.example_recovery \
-    fastbootd
+    android.hardware.health-service.example_recovery
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.recovery.usb.vid?=18D1 \
