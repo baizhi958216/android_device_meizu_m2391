@@ -42,6 +42,9 @@ BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 BOARD_RECOVERY_MKBOOTIMG_ARGS := --header_version 4 --os_version 13.0.0 --os_patch_level 2023-10
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+# Match the 1080-pixel recovery display mode with readable high-density resources.
+TARGET_RECOVERY_DENSITY := xxhdpi
+TARGET_RECOVERY_UI_SCREEN_WIDTH := 1080
 BOARD_USES_METADATA_PARTITION := true
 # dex_preopt_config.mk treats any nonempty value (including "false") as enabled.
 BOARD_USES_SYSTEM_OTHER_ODEX :=
