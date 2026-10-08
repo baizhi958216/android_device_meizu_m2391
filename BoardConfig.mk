@@ -27,6 +27,10 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 # Stock QSEE/camera/display binaries use the legacy ION allocator ABI.
 $(call soong_config_set_bool,libion,legacy_impl,true)
 
+# Preserve the Android 13 audio metadata/port ABI used by the stock HIDL HAL.
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
+$(call soong_config_set_bool,android_hardware_audio,skip_codec_provenance_field,true)
+
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
