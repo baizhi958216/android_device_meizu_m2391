@@ -24,6 +24,9 @@ include vendor/meizu/m2391/BoardConfigVendor.mk
 
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
+# Stock QSEE/camera/display binaries use the legacy ION allocator ABI.
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
