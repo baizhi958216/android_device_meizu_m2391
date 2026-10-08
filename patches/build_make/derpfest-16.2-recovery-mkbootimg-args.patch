@@ -1,0 +1,23 @@
+--- a/tools/releasetools/common.py
++++ b/tools/releasetools/common.py
+@@ -1812,6 +1812,11 @@
+     cmd.append(open(fn).read().rstrip("\n"))
+ 
+   if partition_name == "recovery":
++    # Match build-recoveryimage-target: board recovery overrides come after
++    # generic Android version arguments, including stock boot-header fields.
++    version_args = info_dict.get("mkbootimg_version_args")
++    if version_args and version_args.strip():
++      cmd.extend(shlex.split(version_args))
+     args = info_dict.get("recovery_mkbootimg_args")
+     if not args:
+       # Fall back to "mkbootimg_args" for recovery image
+@@ -1825,7 +1830,7 @@
+     cmd.extend(shlex.split(args))
+ 
+   args = info_dict.get("mkbootimg_version_args")
+-  if args and args.strip():
++  if partition_name != "recovery" and args and args.strip():
+     cmd.extend(shlex.split(args))
+ 
+   if has_ramdisk:
