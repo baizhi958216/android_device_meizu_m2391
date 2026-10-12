@@ -185,6 +185,10 @@ persist.vendor.qcom.bluetooth.scram.enabled=false
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aptxadaptiver2_1_support=true
 persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
+# Classic audio profiles default to disabled when their properties are absent.
+bluetooth.profile.a2dp.source.enabled=true
+bluetooth.profile.hfp.ag.enabled=true
+bluetooth.profile.avrcp.target.enabled=true
 bluetooth.profile.bap.broadcast.assist.enabled=false
 bluetooth.profile.bap.broadcast.source.enabled=false
 bluetooth.profile.bap.unicast.client.enabled=false
@@ -231,7 +235,8 @@ debug.sf.late.sf.duration=10500000
 vendor.display.enable_async_vds_creation=1
 vendor.display.enable_rounded_corner=1
 vendor.display.disable_3d_adaptive_tm=1
-vendor.display.disable_sdr_dimming=1
+# Preserve SDR luminance when HDR layers raise the panel backlight.
+vendor.display.disable_sdr_dimming=0
 vendor.display.enable_rc_support=1
 vendor.display.disable_sdr_histogram=1
 vendor.display.enable_hdr10_gpu_target=1
