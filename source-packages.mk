@@ -331,3 +331,16 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.wifi.supplicant-V1-ndk.vendor
 
 PRODUCT_PACKAGES += vndservice
+
+# The HIDL audio glue (service, HAL implementations, util libraries) is built
+# from source so it always matches the platform ABI.  The stock QTI legacy HAL
+# (audio.primary.kalama, AGM/PAL) and the stock audio configs stay as prebuilt
+# blobs, matching the official kalama trees.  This is why no platform patch is
+# needed for the stock audio HAL metadata ABI.
+PRODUCT_PACKAGES += \
+    android.hardware.audio.service \
+    android.hardware.audio@7.1-impl \
+    android.hardware.audio.effect@7.0-impl \
+    android.hardware.soundtrigger@2.3-impl \
+    audio.r_submix.default \
+    audio.usb.default

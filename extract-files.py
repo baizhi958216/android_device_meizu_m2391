@@ -134,8 +134,13 @@ module = ExtractUtilsModule(
         .regex_replace(r'(?m)^[ \t]*interface .*\n', '')
         .regex_replace(r'(?m)^[ \t]*disabled\n', ''),
         # assemble_vintf supplies the version of the source-built policy.
-        'vendor/etc/vintf/manifest_kalama.xml': blob_fixup().regex_replace(
-            r'\s*<sepolicy>[\s\S]*?</sepolicy>', '',
+        'vendor/etc/vintf/manifest_kalama.xml': blob_fixup()
+        .regex_replace(r'\s*<sepolicy>[\s\S]*?</sepolicy>', '')
+        # The source-built audio service/impl replace the stock HIDL service,
+        # so its VINTF declarations must not be shipped twice.
+        .regex_replace(
+            r'\s*<hal format="hidl">\s*<name>android\.hardware\.audio(\.effect)?</name>[\s\S]*?</hal>',
+            '',
         ),
         # V4 exports all Power symbols used by this service. Vendor binary
         # redundantly links V3, which Soong rejects alongside V4.
