@@ -46,7 +46,10 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 BOARD_RAMDISK_USE_LZ4 := true
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
-BOARD_RECOVERY_MKBOOTIMG_ARGS := --header_version 4 --os_version 13.0.0 --os_patch_level 2023-10
+# Recovery keeps no OS-version override: releasetools appends the platform
+# version arguments after the board recovery arguments, so an override here
+# would only reach the standalone build and the OTA payload would disagree.
+BOARD_RECOVERY_MKBOOTIMG_ARGS := --header_version 4
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 # Match the 1080-pixel recovery display mode with readable high-density resources.
 TARGET_RECOVERY_DENSITY := xxhdpi
