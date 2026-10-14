@@ -20,16 +20,6 @@ from extract_utils.main import ExtractUtils, ExtractUtilsModule
 from extract_utils.module import ProprietaryFileType
 
 
-def extract_boot(ctx, file_path, dump_dir):
-    """Expose the kernel as a blob, without retaining the boot container."""
-    destination = Path(dump_dir, 'boot')
-    destination.mkdir(exist_ok=True)
-    with TemporaryDirectory() as temporary:
-        unpack_bootimg(file_path, temporary)
-        shutil.copyfile(Path(temporary, 'kernel'), destination / 'kernel')
-    return file_path
-
-
 def extract_vendor_boot(ctx, file_path, dump_dir):
     """Extract DTB and ramdisk's signed kernel modules."""
     destination = Path(dump_dir, 'vendor_boot')
@@ -162,7 +152,6 @@ module = ExtractUtilsModule(
         ),
     },
     extract_fns={
-        r'^boot\.img$': extract_boot,
         r'^vendor_boot\.img$': extract_vendor_boot,
     },
 )

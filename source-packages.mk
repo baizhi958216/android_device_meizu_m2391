@@ -11,40 +11,22 @@ PRODUCT_PACKAGES += \
     android.frameworks.cameraservice.service@2.2.vendor \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.atrace@1.0.vendor \
-    android.hardware.audio.common-util.vendor \
-    android.hardware.audio.common@2.0-util.vendor \
-    android.hardware.audio.common@4.0-util.vendor \
     android.hardware.audio.common@4.0.vendor \
-    android.hardware.audio.common@5.0-util.vendor \
     android.hardware.audio.common@5.0.vendor \
-    android.hardware.audio.common@6.0-util.vendor \
     android.hardware.audio.common@6.0.vendor \
     android.hardware.audio.common@7.0-enums.vendor \
-    android.hardware.audio.common@7.0-util.vendor \
     android.hardware.audio.common@7.0.vendor \
     android.hardware.audio.common@7.1-enums.vendor \
-    android.hardware.audio.common@7.1-util.vendor \
-    android.hardware.audio.effect@2.0-util.vendor \
     android.hardware.audio.effect@2.0.vendor \
-    android.hardware.audio.effect@4.0-util.vendor \
     android.hardware.audio.effect@4.0.vendor \
-    android.hardware.audio.effect@5.0-util.vendor \
     android.hardware.audio.effect@5.0.vendor \
-    android.hardware.audio.effect@6.0-util.vendor \
     android.hardware.audio.effect@6.0.vendor \
-    android.hardware.audio.effect@7.0-util.vendor \
     android.hardware.audio.effect@7.0.vendor \
-    android.hardware.audio@2.0-util.vendor \
     android.hardware.audio@2.0.vendor \
-    android.hardware.audio@4.0-util.vendor \
     android.hardware.audio@4.0.vendor \
-    android.hardware.audio@5.0-util.vendor \
     android.hardware.audio@5.0.vendor \
-    android.hardware.audio@6.0-util.vendor \
     android.hardware.audio@6.0.vendor \
-    android.hardware.audio@7.0-util.vendor \
     android.hardware.audio@7.0.vendor \
-    android.hardware.audio@7.1-util.vendor \
     android.hardware.audio@7.1.vendor \
     android.hardware.authsecret@1.0.vendor \
     android.hardware.automotive.vehicle@2.0-manager-lib \

@@ -67,6 +67,24 @@ vendor/firmware/spk-movie.txt|7562863621c6fd67864dc5152e760dff3972078b
 vendor/firmware/spk-music-out.txt|a5218b1f7be04c7bf587fc4e5c078be31d306f43
 vendor/firmware/spk-music.txt|fd617ae53307fc68a2f48891687a8586deb05e6b
 vendor/firmware/spk-voice.txt|d3cfefe506d0bf6a2f31157848d9a064a771165a
+vendor/lib/android.hardware.audio.common-util.so|9c796f76c0cf229bc65da447781c2de933459e5f
+vendor/lib/android.hardware.audio.common@2.0-util.so|a3b2c8f54108561eb4482621cb15cf67a70d680b
+vendor/lib/android.hardware.audio.common@4.0-util.so|4bbfa48dd342122ae5a9de8ae8da9780eb854a82
+vendor/lib/android.hardware.audio.common@5.0-util.so|cb2720eec5413c6215da8d6be188e2c88356a0e4
+vendor/lib/android.hardware.audio.common@6.0-util.so|e18dd72370e625a221e7d1fd26562d23d4a00f12
+vendor/lib/android.hardware.audio.common@7.0-util.so|335958b198b0c4b6d8e837cffdd4de8dc9d16e7e
+vendor/lib/android.hardware.audio.common@7.1-util.so|13555c65f0d53702dc329980225698ad44b91256
+vendor/lib/android.hardware.audio.effect@2.0-util.so|82110cf01ce1a422d1f6ce8e5888c0a28691d3f3
+vendor/lib/android.hardware.audio.effect@4.0-util.so|b25b4a3a2095f6e0c34e9d572cea5b5c66252c57
+vendor/lib/android.hardware.audio.effect@5.0-util.so|633a4551205ee2c7cf1f3e3071a52aa8cb7bec20
+vendor/lib/android.hardware.audio.effect@6.0-util.so|ff2668d2168e3581cbef772c016154d394491e83
+vendor/lib/android.hardware.audio.effect@7.0-util.so|8dde9232013489985682e7410e6c4ff3736f77e8
+vendor/lib/android.hardware.audio@2.0-util.so|c32fee8f7f8a1e064a6f449c385fd6bff840501a
+vendor/lib/android.hardware.audio@4.0-util.so|3db03a197cc1e5eb3bbf92358eb7ef839d9c5d01
+vendor/lib/android.hardware.audio@5.0-util.so|38e8ce333e2b38876de7cfb8b3494bf5cd3bfac9
+vendor/lib/android.hardware.audio@6.0-util.so|ac00e6746f868b4d52acb052ae29a5440e80ef57
+vendor/lib/android.hardware.audio@7.0-util.so|ae66005637012df26730125974ba833de9bb3507
+vendor/lib/android.hardware.audio@7.1-util.so|1417f57ca2a50ffa2437680248653477344058e3
 vendor/lib/hw/android.hardware.audio@2.0-impl.so|c7f50b7f9f6bd306775c449c8b5855c52492a815
 vendor/lib/hw/android.hardware.audio@4.0-impl.so|f50cf0ce38986d62208034fcfdeb333ffa70a7f2
 vendor/lib/hw/android.hardware.audio@5.0-impl.so|fa6a9e108f1d6c2a0613b0c8bf4859e4347ef099
@@ -108,6 +126,24 @@ vendor/lib/vendor.qti.hardware.AGMIPC@1.0-impl.so|b9caf78c0fc27a7d7cecdae2ae1653
 vendor/lib/vendor.qti.hardware.AGMIPC@1.0.so|e10a3d8606e64903d341407738c9b728998b87cf
 vendor/lib/vendor.qti.hardware.pal@1.0-impl.so|eb4c81ec1e7c7fe481ee0cce4dd750cf6b0d0329
 vendor/lib/vendor.qti.hardware.pal@1.0.so|8532e42bb06609e6abe5b64b808e28d9c0858902
+vendor/lib64/android.hardware.audio.common-util.so|68a67b1c00f4d0e107ff0abf2ffcda47de017dfe
+vendor/lib64/android.hardware.audio.common@2.0-util.so|6135e6380d178babc0b7d958bbcecfe2adfd514e
+vendor/lib64/android.hardware.audio.common@4.0-util.so|292235f0b51072e335a60077fcd46324e072cbcd
+vendor/lib64/android.hardware.audio.common@5.0-util.so|27baca96ac4a31a12514b22870ba2dae6ad51982
+vendor/lib64/android.hardware.audio.common@6.0-util.so|9c70242bbe6c675f6a93597697d061431e006882
+vendor/lib64/android.hardware.audio.common@7.0-util.so|c9cd382ee62ddde008247ffb56936274c106f540
+vendor/lib64/android.hardware.audio.common@7.1-util.so|a75173e8273ac5dfafcb37d1e7cb059100a70316
+vendor/lib64/android.hardware.audio.effect@2.0-util.so|9e692ceb64b4bc0c71977d5d8b26ce16dce3ce20
+vendor/lib64/android.hardware.audio.effect@4.0-util.so|2aaf5e2cee781a4e6e247c64fd230f68f76ad61c
+vendor/lib64/android.hardware.audio.effect@5.0-util.so|9486142adfc6a95b2720cf5079539e7a6e855f06
+vendor/lib64/android.hardware.audio.effect@6.0-util.so|eb6ce3f0f88ce1e16a21a5df98e1ced479caafe1
+vendor/lib64/android.hardware.audio.effect@7.0-util.so|410f269d31d2ce91813c7db40b0b21696f1d780f
+vendor/lib64/android.hardware.audio@2.0-util.so|e2d50f8e184b71e52b8ef8e03fe8543f85e6ac62
+vendor/lib64/android.hardware.audio@4.0-util.so|3d9caf7b6f41e5f844852a4c234ae1516787b56b
+vendor/lib64/android.hardware.audio@5.0-util.so|a257dfd923c22f7a2962d3c63c8f9a1f2f0c25b5
+vendor/lib64/android.hardware.audio@6.0-util.so|b2193e05dd30048edb479671ba9464fd0027ba1f
+vendor/lib64/android.hardware.audio@7.0-util.so|05ba8ecac66f758961eb40cfcf040ca9a15070a2
+vendor/lib64/android.hardware.audio@7.1-util.so|16d7eca973294fef562cfce8dcbb6b1c11bdaf39
 vendor/lib64/hw/android.hardware.audio@2.0-impl.so|e88404a017990343038e651f40824e84502f4e10
 vendor/lib64/hw/android.hardware.audio@4.0-impl.so|59c2fb560ec8a06aa504855e953ae4e251317847
 vendor/lib64/hw/android.hardware.audio@5.0-impl.so|06db3c841f9b68ecb5e33ebfdda5c08cd47c4764
@@ -346,8 +382,7 @@ vendor/lib64/libboot_control_qti.so|9a21eae4c4acd78c51716d2ec8bb9a9b6cc9c3b1
 vendor/lib64/librecovery_updater.so|0b14b2cd02db86d6975cdac415a8c39a25fc5fcb
 vendor/lib64/librecovery_updater_msm.so|1b7828d9e0f5f4df139229bf4be3171407326b4c
 
-# Boot - Kernel and DTB
-boot/kernel;EXTRACT_ONLY|bea461cbf7f955b10da88230430b26544cd36a0c
+# Boot - DTB
 vendor_boot/dtb:vendor_boot/dtb/kalama.dtb;EXTRACT_ONLY|0242fc69ecf7005f8644c039155035392a844d8d
 
 # Camera
