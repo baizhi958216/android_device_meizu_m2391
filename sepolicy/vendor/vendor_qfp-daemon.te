@@ -1,0 +1,2 @@
+# SPDX-License-Identifier: Apache-2.0
+set_prop(vendor_qfp-daemon, vendor_meizu_fingerprint_prop)

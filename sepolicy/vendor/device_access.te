@@ -219,6 +219,8 @@ allow platform_app sysfs_fingerprint_file:file { ioctl read write getattr lock a
 allow platform_app vendor_meizu_fingerprint_prop:file { read getattr map open };
 allow platform_app vendor_goodix_fingerprint_prop:file { read getattr map open };
 allow platform_app vendor_arcsoft_fingerprint_prop:file { read getattr map open };
+allow platform_app hal_fingerprint_hwservice:hwservice_manager { find };
+allow platform_app vendor_qfp-daemon:binder { call transfer };
 allow platform_app hal_ifaa_hwservice:hwservice_manager { find };
 allow platform_app hal_ifaa_default:binder { call transfer };
 allow platform_app vendor_ifaa_prop:file { read getattr map open };
