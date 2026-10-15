@@ -337,10 +337,14 @@ PRODUCT_PACKAGES += vndservice
 # (audio.primary.kalama, AGM/PAL) and the stock audio configs stay as prebuilt
 # blobs, matching the official kalama trees.  This is why no platform patch is
 # needed for the stock audio HAL metadata ABI.
+# android.hardware.bluetooth.audio-impl is the AIDL bluetooth audio HAL that the
+# source-built android.hardware.audio.service dlopens (optionalInterfaceSharedLibs
+# in its service.cpp) to publish the bluetooth audio provider factory.
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.audio@7.1-impl \
     android.hardware.audio.effect@7.0-impl \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl \
     audio.r_submix.default \
     audio.usb.default

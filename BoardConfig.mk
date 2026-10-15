@@ -30,6 +30,14 @@ $(call soong_config_set_bool,libion,legacy_impl,true)
 # The stock HIDL audio HAL keeps the Android 13 audio port layout.
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
+# The stock QTI audio service was 64-bit (android.hardware.audio.service_64) and the
+# Qualcomm AudioReach stack (GSL/AGM/PAL) only works from a 64-bit process: in a
+# 32-bit one its gsl_init() fails with "ar_shmem_alloc failed" -> AGM init fails ->
+# adev_open() fails -> loadHwModule("primary") returns -ENODEV -> no primary output
+# at all, i.e. no sound.  The AOSP audio service defaults to compile_multilib
+# "prefer32", so force the 64-bit variant so it loads /vendor/lib64/hw/*.
+$(call soong_config_set_bool,android_hardware_audio,run_64bit,true)
+
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296

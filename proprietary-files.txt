@@ -252,7 +252,6 @@ vendor/etc/bluetooth_qti_hearing_aid_audio_policy_configuration.xml|1e3e692dbb4e
 vendor/etc/init/android.hardware.bluetooth@1.1-service-qti.rc|809312d943f5194c464f4edcdf172c09d0be0b0b
 vendor/etc/permissions/android.hardware.bluetooth.xml|596edbac426a7848ecae8d299420ad44a6c05907
 vendor/etc/permissions/android.hardware.bluetooth_le.xml|ef02c51db6a1298350e19c5e5b331d08bd1e559d
-vendor/etc/vintf/manifest/bluetooth_audio.xml;EXTRACT_ONLY|5cdd9a3c4fbd6cde75aa207af8f1bb0177eb8924
 vendor/etc/vintf/manifest/bttpi-saidl.xml;EXTRACT_ONLY|d261b1bb5fdfae4f314515b122f6c20c667f09b0
 vendor/lib/btaudio_offload_if.so|3b04bde2f1f15fe12816ba85baa4d05d06d50d9f
 vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so|3e87c1c27bf82d066d4eba331b07916855f17199
