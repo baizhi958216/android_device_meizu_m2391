@@ -1,3 +1,4 @@
 # SPDX-License-Identifier: Apache-2.0
-# Populate the typed camera PSN alias before the provider starts.
 set_prop(vendor_init, vendor_camera_prop)
+set_prop(vendor_init, audio_prop)
+set_prop(vendor_init, vendor_qcc_prop)

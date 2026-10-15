@@ -20,7 +20,6 @@ dalvik.vm.heapsize=512m
 dalvik.vm.heaptargetutilization=0.5
 dalvik.vm.heapminfree=8m
 dalvik.vm.heapmaxfree=32m
-ro.adb.secure=1
 ro.oem_unlock_supported=1
 ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.has_HDR_display=true
@@ -38,7 +37,9 @@ ro.control_privapp_permissions=enforce
 persist.vendor.qcomsysd.enabled=1
 vendor.power.pasr.enabled=true
 vendor.pasr.activemode.enabled=true
-persist.backup.ntpServer=0.pool.ntp.org
+# persist.backup.ntpServer is typed default_prop, which vendor_init can never be
+# granted (`neverallow { domain -init } default_prop:property_service set`).
+# Moved to configs/properties/system.prop, which init loads in its own domain.
 sys.vendor.shutdown.waittime=500
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 ro.vendor.beluga.p=0x3
@@ -55,7 +56,9 @@ persist.vendor.qfp=true
 ro.vendor.qspm.enable=true
 persist.vendor.radio.enableadvancedscan=true
 persist.sys.fuse.passthrough.enable=true
-ro.mediaserver.64b.enable=true
+# ro.mediaserver.64b.enable is typed default_prop (see the note above) and is a
+# pre-Treble leftover; it is kept in configs/properties/system.prop for parity
+# with the stock property set.
 vendor.hw.fm.init=0
 vendor.mm.enable.qcom_parser=16777215
 ro.hardware.vulkan=adreno
@@ -75,7 +78,9 @@ persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicerec=false
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.tmic.enabled=false
-ro.qc.sdk.audio.fluencetype=none
+# ro.qc.sdk.audio.fluencetype is typed default_prop (see the note above). The
+# authoritative spelling for this HAL is the vendor-namespaced twin already set
+# above; the legacy spelling is kept in configs/properties/system.prop.
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
 persist.audio.fluence.speaker=true
@@ -99,7 +104,12 @@ vendor.audio.safx.pbe.enabled=false
 vendor.audio.parser.ip.buffer.size=262144
 vendor.audio.flac.sw.decoder.24bit=true
 vendor.audio.hal.boot.timeout.ms=20000
-persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
+# persist.vendor.bt.a2dp_offload_cap dropped: it is typed bluetooth_prop, which
+# `neverallow { domain -coredomain -bluetooth -hal_bluetooth_server }
+# bluetooth_prop:property_service set` keeps away from vendor_init, and nothing
+# under /vendor, /odm, /system_ext, /system/lib64 or /system/bin reads it. The
+# live capability properties are persist.vendor.qcom.bluetooth.a2dp_offload_cap
+# and persist.bluetooth.a2dp_offload.cap below.
 ro.bluetooth.a2dp_offload.supported=true
 persist.bluetooth.a2dp_offload.disabled=false
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac

@@ -7,3 +7,7 @@ ro.camera.disableJpegR=true
 
 # Stock IFAA device ID is MEIZU-M2391, derived from this property.
 ro.product.mobile.name=m2391
+
+persist.backup.ntpServer=0.pool.ntp.org
+ro.mediaserver.64b.enable=true
+ro.qc.sdk.audio.fluencetype=none
