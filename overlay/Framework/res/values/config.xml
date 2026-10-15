@@ -13,8 +13,20 @@
         <item>2409</item>
         <item>127</item>
     </array>
-    <!-- The retained display HAL exports 90 and 120 Hz at both resolutions. -->
-    <integer name="config_defaultRefreshRate">90</integer>
+    <!-- The retained display HAL exports 90 and 120 Hz at both resolutions.
+         Default to 120 Hz: the stock display driver (prebuilt msm_drm.ko)
+         gates ADFR on the 120 Hz timing and rejects it outright at 90 Hz,
+
+           E [DDI] dsi_panel_set_adfr adfr fps set 0 is skiped, not allowed at fps=90
+
+         so a 90 Hz default both capped the panel below its capability and
+         disabled ADFR, which is also what recovers the low-rate power saving.
+         config_defaultPeakRefreshRate is already 120, which is why only an
+         explicit peak selection used to reach 120 Hz. Verified on device:
+         with 120 Hz active mActiveModeId becomes 1 (1080x2400@120) and the
+         ADFR rejection disappears; reverting the default brings back 90 Hz
+         and the rejection. -->
+    <integer name="config_defaultRefreshRate">120</integer>
     <integer name="config_defaultPeakRefreshRate">120</integer>
 
     <bool name="config_automatic_brightness_available">true</bool>
