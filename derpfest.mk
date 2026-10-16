@@ -13,4 +13,5 @@ TARGET_INCLUDE_ACCORD := true
 PRODUCT_MODULE_BUILD_FROM_SOURCE := true
 
 PRODUCT_PACKAGES += \
-    M2391CarrierConfig
+    M2391CarrierConfig \
+    M2391UpdaterOverlay
