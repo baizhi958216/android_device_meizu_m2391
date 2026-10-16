@@ -8,7 +8,7 @@ device tree for the MEIZU 20 Pro (`m2391`).
 source build/envsetup.sh
 source vendor/lineage/vars/aosp_target_release
 lunch lineage_m2391 "$aosp_target_release" userdebug
-mka bacon
+m derp
 ```
 
 ## Device specifications
