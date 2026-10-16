@@ -183,6 +183,15 @@ android_app_import {
     enforce_uses_libs: true,
 }
 
+// Google's CarrierSettings replaces CarrierConfig but does not consume the
+// stock vendor.xml carrier overlay used by this device's Qualcomm IMS stack.
+// A distinct module name also survives GMS filtering of "CarrierConfig".
+override_android_app {
+    name: "M2391CarrierConfig",
+    base: "CarrierConfig",
+    overrides: ["CarrierSettings"],
+}
+
 prebuilt_overlay {
     name: "m2391_CarrierConfigResCommon",
     product_specific: true,
