@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="config_wifiRssiLevelThresholds" translatable="false">
+        <item>-88</item>
+        <item>-77</item>
+        <item>-66</item>
+        <item>-55</item>
+    </integer-array>
+</resources>
