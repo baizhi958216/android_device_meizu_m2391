@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# DTBO has a dedicated label on m2391. A/B OTA needs to open and update
+# both slots, just as it does for the other boot-chain block devices.
+allow update_engine dtbo_block_device:blk_file rw_file_perms;
