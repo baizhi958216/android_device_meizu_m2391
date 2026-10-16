@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: Apache-2.0
+android_app {
+    name: "M2391DisplayRecovery",
+    srcs: ["src/**/*.java"],
+    platform_apis: true,
+    certificate: "platform",
+    system_ext_specific: true,
+}

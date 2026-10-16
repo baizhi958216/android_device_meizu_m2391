@@ -45,6 +45,7 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.m2391 \
     M2391Gestures \
     M2391CarrierConfig \
+    M2391DisplayRecovery \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
     M2391SettingsOverlay \
