@@ -9,6 +9,6 @@ $(call inherit-product, device/meizu/m2391/device.mk)
 
 PRODUCT_NAME := lineage_m2391
 PRODUCT_DEVICE := m2391
-PRODUCT_MANUFACTURER := Meizu
+PRODUCT_MANUFACTURER := meizu
 PRODUCT_BRAND := Meizu
 PRODUCT_MODEL := MEIZU 20 Pro

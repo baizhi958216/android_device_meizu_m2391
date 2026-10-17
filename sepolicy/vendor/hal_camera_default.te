@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# The ST ToF HAL locates VL53L1 by querying input device names.
+allow hal_camera_default input_device:dir { read open search };
+allow hal_camera_default input_device:chr_file { ioctl read open };
+
+# Keep ToF controls separate from generic sysfs write access.
+allow hal_camera_default sysfs_st_dtof:file rw_file_perms;
+
+# Vendor init executes restorecon in init.camera.m2391.rc at boot.
+allow vendor_init sysfs:file relabelfrom;
+allow vendor_init sysfs_st_dtof:file relabelto;

@@ -1,3 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 on init
     setprop ro.vendor.camera.psn ${ro.boot.psn}
+
+on post-fs-data
+    restorecon /sys/class/meizu/dtof/enable_ps_sensor
+    restorecon /sys/class/meizu/dtof/timing_budget
+    restorecon /sys/class/meizu/dtof/set_delay_ms
