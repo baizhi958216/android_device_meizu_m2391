@@ -8,6 +8,7 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ims_fixup import remove_ims_overlay
+from camera_multicam_fixup import fix_camera_multicam
 
 from extract_utils.extract_recovery import (
     extract_ramdisk,
@@ -54,6 +55,16 @@ module = ExtractUtilsModule(
     },
     namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
     blob_fixups={
+        # The logical m2391 rear camera advertises three sensors but its stock
+        # default MCX table omits tele. Retain its sensor/calibration mapping.
+        'vendor/lib64/hw/com.qti.chi.override.so':
+            blob_fixup().call(fix_camera_multicam),
+        # The three-camera SAT engine uses the same wrapper ABI. Keep the dual
+        # zoom translator: replacing it with the triple translator breaks crops.
+        'vendor/lib64/libarcsoft_dual_sat.so': blob_fixup().binary_regex_replace(
+            rb'libarcsoft_triple_sat\.so\x00',
+            b'libarcsoft_dual_sat.so\x00\x00\x00',
+        ),
         'system_ext/priv-app/ims/ims.apk': blob_fixup().call(remove_ims_overlay),
         # Audio/modem bridge has the same QSSI self-overlay gate.
         'system_ext/app/QtiTelephonyService/QtiTelephonyService.apk':

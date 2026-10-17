@@ -2,6 +2,9 @@
 # MEIZU additions to the Qualcomm SM8550 source policy.
 # Ported from firmware 1764145455; compiled with native SELinux build rules.
 
+# VL53L1 input numbering can change; restore labels through /sys/class/meizu/dtof.
+/sys/devices/virtual/input/input[0-9]+/(enable_ps_sensor|timing_budget|set_delay_ms) u:object_r:sysfs_st_dtof:s0
+
 /(vendor|system/vendor)/bin/rpmbd                                         u:object_r:rpmbd_exec:s0
 /(vendor|system/vendor)/bin/mob-listio          u:object_r:mob-listio_exec:s0
 /(vendor|system/vendor)/bin/qteedebugd                                    u:object_r:qteedebugd_exec:s0

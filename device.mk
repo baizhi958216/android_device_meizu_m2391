@@ -80,6 +80,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.camera.m2391.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.camera.m2391.rc
 
+# The generic default only covers cameras 0/1 and omits 4K. Include the physical
+# auxiliaries and logical camera 4 using modes exposed by this device's HAL.
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/media/media_profiles_m2391.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_m2391.xml
+PRODUCT_SYSTEM_PROPERTIES += \
+    media.settings.xml=/vendor/etc/media_profiles_m2391.xml
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/qcom-hals.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_hals/qcom.xml
 

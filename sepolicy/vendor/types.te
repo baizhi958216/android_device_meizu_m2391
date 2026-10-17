@@ -69,6 +69,7 @@ type rpmbd_exec, exec_type, file_type, vendor_file_type;
 type smart_zram, domain;
 type smart_zram_exec, exec_type, file_type, vendor_file_type;
 type st_dtof_device, dev_type;
+type sysfs_st_dtof, fs_type, sysfs_type;
 type swap_dfp_allow_sysfs, fs_type, sysfs_type;
 type sysfs_display_file, fs_type, mlstrustedobject, sysfs_type;
 type sysfs_fingerprint_file, fs_type, sysfs_type;
