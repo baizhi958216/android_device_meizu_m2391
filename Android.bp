@@ -8,11 +8,11 @@ cc_library_headers {
     vendor: true,
     recovery_available: true,
     header_libs: [
-        "//kernel/sm8550-modules:qti_audio_kernel_uapi",
+        "//kernel/meizu/m2391-modules:qti_audio_kernel_uapi",
         "//kernel/meizu/m2391:m2391_audio_core_headers",
     ],
     export_header_lib_headers: [
-        "//kernel/sm8550-modules:qti_audio_kernel_uapi",
+        "//kernel/meizu/m2391-modules:qti_audio_kernel_uapi",
         "//kernel/meizu/m2391:m2391_audio_core_headers",
     ],
 }

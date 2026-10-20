@@ -139,4 +139,4 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.qcom
 # Combine the audio module UAPI with the core kernel's ADSP sleep-monitor UAPI.
 $(call soong_config_set,qtiaudio,kernel_headers,//device/meizu/m2391:m2391_audio_kernel_headers)
 # NFC uses the kernel module tree's userspace UAPI export directly.
-$(call soong_config_set,qtinfc,kernel_headers,//kernel/sm8550-modules:qti_nfc_kernel_headers)
+$(call soong_config_set,qtinfc,kernel_headers,//kernel/meizu/m2391-modules:qti_nfc_kernel_headers)
