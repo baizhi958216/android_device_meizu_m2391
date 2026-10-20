@@ -18,7 +18,6 @@ from extract_utils.extract_recovery import (
 from extract_utils.fixups_lib import lib_fixups
 from extract_utils.fixups_blob import blob_fixup
 from extract_utils.main import ExtractUtils, ExtractUtilsModule
-from extract_utils.module import ProprietaryFileType
 
 
 def extract_vendor_boot(ctx, file_path, dump_dir):
@@ -170,12 +169,6 @@ module = ExtractUtilsModule(
     extract_fns={
         r'^vendor_boot\.img$': extract_vendor_boot,
     },
-)
-# DTBO is extracted as firmware but installed by BOARD_PREBUILT_DTBOIMAGE.
-module.add_proprietary_file(
-    'proprietary-firmware.txt',
-    vendor_rel_sub_path='radio',
-    kind=ProprietaryFileType.FIRMWARE,
 )
 
 if __name__ == '__main__':
