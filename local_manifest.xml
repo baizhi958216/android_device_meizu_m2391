@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="m2391" fetch="https://github.com" />
+  <project name="m2391-dev/android_device_meizu_m2391" path="device/meizu/m2391" remote="m2391" revision="lineage-24.0" />
+  <project name="m2391-dev/android_vendor_meizu_m2391" path="vendor/meizu/m2391" remote="m2391" revision="lineage-24.0" />
+  <project name="baizhi958216/android_kernel_meizu_m2391" path="kernel/meizu/m2391" remote="m2391" revision="lineage-20" />
+  <!-- Keep the checkout path required by Kbuild and the trace headers. -->
+  <project name="m2391-dev/android_kernel_meizu_m2391-modules" path="kernel/sm8550-modules" remote="m2391" revision="lineage-24.0" />
+</manifest>
