@@ -1,0 +1,12 @@
+# Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+
+on init
+    chown system usb /sys/class/usb_notify/usb_control/disable
+    chown system usb /sys/devices/platform/soc/${vendor.usb.device:-a600000.ssusb}/usb_data_enabled
+
+service vendor.usb-hal /vendor/bin/hw/android.hardware.usb-service.m2391
+    interface aidl android.hardware.usb.IUsb/default
+    class hal
+    user root
+    group root system mtp usb

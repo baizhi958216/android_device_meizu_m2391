@@ -1,0 +1,8 @@
+# Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+
+service vendor.usbgadget-hal /vendor/bin/hw/android.hardware.usb.gadget-service.m2391
+    interface aidl android.hardware.usb.gadget.IUsbGadget/default
+    class hal
+    user root
+    group root system mtp usb
