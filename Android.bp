@@ -3,6 +3,20 @@ soong_namespace {
     imports: ["vendor/meizu/m2391"],
 }
 
+cc_library_headers {
+    name: "m2391_audio_kernel_headers",
+    vendor: true,
+    recovery_available: true,
+    header_libs: [
+        "//kernel/sm8550-modules:qti_audio_kernel_uapi",
+        "//kernel/meizu/m2391:m2391_audio_core_headers",
+    ],
+    export_header_lib_headers: [
+        "//kernel/sm8550-modules:qti_audio_kernel_uapi",
+        "//kernel/meizu/m2391:m2391_audio_core_headers",
+    ],
+}
+
 vintf_compatibility_matrix {
     name: "m2391_framework_compatibility_matrix_7",
     stem: "compatibility_matrix.7.m2391.xml",
