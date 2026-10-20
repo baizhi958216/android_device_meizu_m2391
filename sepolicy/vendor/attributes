@@ -12,4 +12,3 @@ hal_attribute(meizu_kelog)
 hal_attribute(meizu_sensor_aux)
 hal_attribute(secure_store)
 hal_attribute(tiktap)
-attribute vendor_service;

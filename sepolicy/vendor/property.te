@@ -1,6 +1,4 @@
 # SPDX-License-Identifier: Apache-2.0
-# MEIZU additions to the Qualcomm SM8550 source policy.
-# Ported from firmware 1764145455; compiled with native SELinux build rules.
 
 vendor_restricted_prop(vendor_arcsoft_fingerprint_prop)
 vendor_restricted_prop(vendor_face_prop)
