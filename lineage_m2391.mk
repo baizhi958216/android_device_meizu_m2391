@@ -12,3 +12,6 @@ PRODUCT_DEVICE := m2391
 PRODUCT_MANUFACTURER := meizu
 PRODUCT_BRAND := Meizu
 PRODUCT_MODEL := MEIZU 20 Pro
+
+# Route the system updater and download/changelog links to the community OTA site.
+PRODUCT_PACKAGES += M2391UpdaterOverlay

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="updater_server_url" translatable="false">https://ota.azhi.moe/lineage/m2391.json</string>
+    <string name="menu_changelog_url" translatable="false">https://ota.azhi.moe/lineage/<xliff:g id="device_name">%1$s</xliff:g>/changes</string>
+    <string name="menu_downloads_url" translatable="false">https://ota.azhi.moe/lineage/<xliff:g id="device_name">%1$s</xliff:g>/downloads</string>
+    <string name="header_download_url" translatable="false">https://ota.azhi.moe/lineage/m2391/downloads</string>
+    <string name="report_issue_url" translatable="false">https://github.com/m2391-dev/android_device_meizu_m2391/issues</string>
+</resources>

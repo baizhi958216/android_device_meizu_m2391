@@ -1,6 +1,4 @@
-# device tree for MEIZU 20 Pro
-
-device tree for the MEIZU 20 Pro (`m2391`).
+#  Device Tree for MEIZU 20 Pro (`m2391`)
 
 ## Build
 
@@ -11,21 +9,25 @@ lunch lineage_m2391 "$aosp_target_release" userdebug
 mka bacon
 ```
 
-## Device specifications
+## Spec Sheet
 
-| Feature | Specification |
-| --- | --- |
-| Device | MEIZU 20 Pro |
-| Codename | `m2391`; stock OTA identifier: `meizu20Pro` |
-| SoC | Qualcomm Snapdragon 8 Gen 2 (`kalama`) |
-| GPU | Adreno 740 |
-| Memory | 8 GB / 12 GB, depending on variant |
-| Storage | 128 GB / 256 GB / 512 GB, depending on variant |
-| Display | 6.81-inch OLED, 3200 × 1440, 120 Hz |
-| Battery | 5000 mAh (typical), 80 W wired / 50 W wireless charging |
-| Rear cameras | 50 MP main + 50 MP ultrawide + 50 MP portrait telephoto |
-| Front camera | 32 MP |
+| Feature          | Specification |
+| :---------------- | :-------------------------------- |
+| CPU              | 1x3.2 GHz Cortex-X3 & 2x2.8 GHz Cortex-A715 & 2x2.8 GHz Cortex-A710 & 3x2.0 GHz Cortex-A510 |
+| Chipset          | Qualcomm SM8550-AB Snapdragon 8 Gen 2 (4 nm) |
+| GPU              | Adreno 740 |
+| Memory           | 8 GB / 12 GB, LPDDR5X |
+| Shipped Software | Android 13, Flyme 10 |
+| Storage          | 128 GB / 256 GB / 512 GB (UFS 3.1 for 128 GB; UFS 4.0 for 256 GB / 512 GB) |
+| Battery          | 5000 mAh (typical), 80 W wired / 50 W wireless charging |
+| Dimensions       | 164.2 x 76.4 x 7.8 mm |
+| Display          | 6.81-inch LTPO AMOLED, 3200 x 1440, 120 Hz |
+| Rear Camera      | 50 MP, f/1.88 (wide), OIS |
+|                  | 50 MP, f/1.85 (portrait telephoto) |
+|                  | 50 MP, f/2.2, 129° (ultrawide / macro) |
+| Front Camera     | 32 MP, f/2.45 |
+| Release Date     | April 3, 2023 (announced March 30, 2023) |
 
-<p align="center">
-<img src="https://openfile.meizu.com/group1/M00/0B/50/Cgbj0GTkEiiACPvqAAdsxsQKM48695.png" width="500" height="590">
-</p>
+## Device Picture
+
+![MEIZU 20 Pro](https://openfile.meizu.com/group1/M00/0B/50/Cgbj0GTkEiiACPvqAAdsxsQKM48695.png)
