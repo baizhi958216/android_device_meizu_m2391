@@ -50,6 +50,7 @@ def lib_fixup_system_ext_suffix(lib, partition):
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
+    add_firmware_proprietary_file=True,
     lib_fixups={
         **lib_fixups,
         'libvibrator': lib_fixup_vendor_suffix,

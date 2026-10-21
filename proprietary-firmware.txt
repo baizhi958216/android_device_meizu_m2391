@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# Firmware from MEIZU 20 Pro (meizu20Pro), Flyme 12.6.0.0A
+# Android 16, build 1764145455, security patch 2025-12-05.
+
+# Firmware
+abl.img;AB|251e8a6326f3ce2b6561f8cc218f1ec78f478338
+aop.img;AB|a39ac6a122c3888ae0e3e354e0d431e5a7462a94
+aop_config.img;AB|2f4f487d6549c7e6ec588078558c2e62e8da029d
+bluetooth.img;AB|8ba344a3079993aadf04ff9e3480088690fb5c3a
+cpucp.img;AB|7022facf4d913025124be2da616c36b5a455b0e9
+devcfg.img;AB|64c5fa40566284f3836ed3cf3eda6ad2f87a955c
+dsp.img;AB|7e91dc5b820e13ed63680981752accdd1d822667
+featenabler.img;AB|043b12d1c5fadd315bcb80e6698c79e2cbf39a80
+hyp.img;AB|63a384b16b08be059f4da1c86f47b0e33736a784
+imagefv.img;AB|d7bd282913fdf6ac8ee7d4079233deb7d9f5772e
+keymaster.img;AB|7d43f440fceae9cf2b83c92cc950fd5c27ce7032
+modem.img;AB|2c5788d5bbaf1add0089a0ee6e40e7e63d69b402
+qupfw.img;AB|94151cbd6da21ac7a9af98679eb0975a96dedbfb
+shrm.img;AB|4c1164af72ce069c33a9be065acd66d60ad12aee
+tz.img;AB|4cf168a0bd68f79e464b02e0852bdec4cc30deea
+uefi.img;AB|d856f236de9a2e5433d93c41bcb911d2c5280c51
+uefisecapp.img;AB|4ba173f72a013d47904482c9e45be0e3715be94b
+xbl.img;AB|6552093ddd2e009f79855cdc9723a52ee06dbe59
+xbl_config.img;AB|90d552adb9afad1f759222e66432cb6aaa2db347
+xbl_ramdump.img;AB|300de9cfec428565be01c9aa2dd143ecbf794a52
