@@ -1,0 +1,166 @@
+diff --git a/ipc/HwBinders/agm_ipc_client/Android.bp b/ipc/HwBinders/agm_ipc_client/Android.bp
+index 78ead1a..9086a35 100644
+--- a/ipc/HwBinders/agm_ipc_client/Android.bp
++++ b/ipc/HwBinders/agm_ipc_client/Android.bp
+@@ -9,6 +9,8 @@ cc_library_shared {
+     defaults: [
+         "android_hardware_qtiaudio_config_defaults",
+     ],
++    // Keep the 32-bit tinyalsa/tinycompress IPC client path.
++    compile_multilib: "both",
+     owner: "qti",
+     vendor: true,
+ 
+diff --git a/ipc/HwBinders/agm_ipc_client/src/agm_client_wrapper.cpp b/ipc/HwBinders/agm_ipc_client/src/agm_client_wrapper.cpp
+index dd3abdd..079f81d 100644
+--- a/ipc/HwBinders/agm_ipc_client/src/agm_client_wrapper.cpp
++++ b/ipc/HwBinders/agm_ipc_client/src/agm_client_wrapper.cpp
+@@ -33,6 +33,7 @@
+ 
+ #define LOG_TAG "agm_client_wrapper"
+ 
++#include <inttypes.h>
+ #include <cutils/list.h>
+ #include <vendor/qti/hardware/AGMIPC/1.0/IAGMCallback.h>
+ #include <hidl/LegacySupport.h>
+@@ -853,7 +854,7 @@ int agm_session_get_buf_info(uint32_t session_id, struct agm_buf_info *buf_info,
+ int agm_set_gapless_session_metadata(uint64_t handle, enum agm_gapless_silence_type type,
+                                      uint32_t silence)
+ {
+-    ALOGV("%s called with handle = %lu \n", __func__, handle);
++    ALOGV("%s called with handle = %" PRIu64 " \n", __func__, handle);
+     if (!agm_server_died) {
+         android::sp<IAGM> agm_client = get_agm_server();
+         AgmGaplessSilenceType type_hidl = (AgmGaplessSilenceType) type;
+@@ -915,11 +916,11 @@ int agm_session_set_non_tunnel_mode_config(uint64_t handle,
+ 
+ int agm_session_write_with_metadata(uint64_t handle, struct agm_buff *buf, size_t *consumed_size)
+ {
+-    ALOGV("%s called with handle = %lu \n", __func__, handle);
++    ALOGV("%s called with handle = %" PRIu64 " \n", __func__, handle);
+     int32_t ret = -EINVAL;
+ 
+     if (!agm_server_died) {
+-        ALOGV("%s:%d hndl %lu",__func__, __LINE__, handle);
++        ALOGV("%s:%d hndl %" PRIu64,__func__, __LINE__, handle);
+         android::sp<IAGM> agm_client = get_agm_server();
+         hidl_vec<AgmBuff> buf_hidl(1);
+         native_handle_t *allocHidlHandle = nullptr;
+diff --git a/ipc/HwBinders/agm_ipc_service/src/agm_server_wrapper.cpp b/ipc/HwBinders/agm_ipc_service/src/agm_server_wrapper.cpp
+index dbfce5f..bed1064 100644
+--- a/ipc/HwBinders/agm_ipc_service/src/agm_server_wrapper.cpp
++++ b/ipc/HwBinders/agm_ipc_service/src/agm_server_wrapper.cpp
+@@ -63,6 +63,7 @@
+ 
+ #define LOG_TAG "agm_server_wrapper"
+ #include "inc/agm_server_wrapper.h"
++#include <inttypes.h>
+ #include <log/log.h>
+ #include <cutils/list.h>
+ #include <cutils/android_filesystem_config.h>
+@@ -231,11 +232,11 @@ void add_fd_to_list(uint64_t sess_handle, int input_fd, int dup_fd)
+                                      list);
+             if (session_handle->handle == sess_handle) {
+                 if (session_handle->shared_mem_fd_list.size() > MAX_CACHE_SIZE) {
+-                    ALOGE("%s cache limit exceeded handle %lx [input %d - dup %d] ",
++                    ALOGE("%s cache limit exceeded handle %" PRIx64 " [input %d - dup %d] ",
+                             __func__ , sess_handle, input_fd, dup_fd );
+                 }
+                 session_handle->shared_mem_fd_list.push_back(std::make_pair(input_fd, dup_fd));
+-                ALOGV("sess_handle %lx, session_id:%d input_fd %d, dup fd %d", session_handle->handle,
++                ALOGV("sess_handle %" PRIx64 ", session_id:%d input_fd %d, dup fd %d", session_handle->handle,
+                        session_handle->session_id, input_fd, dup_fd);
+             }
+          }
+@@ -356,7 +357,7 @@ static void add_session_handle_to_list_l(uint32_t session_id, uint64_t handle)
+         return;
+     }
+     session_handle->handle = handle;
+-    ALOGV("%s: Adding session id %d and handle %lx to client handle list \n", __func__, session_id, handle);
++    ALOGV("%s: Adding session id %d and handle %" PRIx64 " to client handle list \n", __func__, session_id, handle);
+ }
+ 
+ namespace vendor {
+@@ -435,7 +436,7 @@ void ipc_callback (uint32_t session_id,
+                          it = (hndle->shared_mem_fd_list.begin() + i);
+                          if (it != hndle->shared_mem_fd_list.end())
+                              hndle->shared_mem_fd_list.erase(it);
+-                         ALOGV("input fd %d  payload fd %lu\n", input_fd,
++                         ALOGV("input fd %d  payload fd %" PRIu64 "\n", input_fd,
+                                rw_done_payload->buff.alloc_info.alloc_handle);
+                          break;
+                      }
+@@ -1388,7 +1389,7 @@ exit:
+ Return<int32_t> AGM::ipc_agm_set_gapless_session_metadata(uint64_t hndl,
+                      AgmGaplessSilenceType type, uint32_t silence) {
+     enum agm_gapless_silence_type type_local = (enum agm_gapless_silence_type)type;
+-    ALOGV("%s : handle = %lu \n", __func__, hndl);
++    ALOGV("%s : handle = %" PRIu64 " \n", __func__, hndl);
+     return agm_set_gapless_session_metadata(hndl, type_local, silence);
+ }
+ 
+diff --git a/plugins/tinyalsa/Android.bp b/plugins/tinyalsa/Android.bp
+index 236cf20..1639f5d 100644
+--- a/plugins/tinyalsa/Android.bp
++++ b/plugins/tinyalsa/Android.bp
+@@ -4,6 +4,8 @@ cc_library_shared {
+         "android_hardware_qtiaudio_config_defaults",
+         "qtiaudio_dynamic_log_defaults",
+     ],
++    // Keep the 32-bit tinyalsa/tinycompress IPC client path.
++    compile_multilib: "both",
+     owner: "qti",
+     vendor: true,
+ 
+@@ -32,6 +34,8 @@ cc_library_shared {
+         "android_hardware_qtiaudio_config_defaults",
+         "qtiaudio_dynamic_log_defaults",
+     ],
++    // Keep the 32-bit tinyalsa/tinycompress IPC client path.
++    compile_multilib: "both",
+     owner: "qti",
+     vendor: true,
+ 
+@@ -58,6 +62,8 @@ cc_library_shared {
+         "android_hardware_qtiaudio_config_defaults",
+         "qtiaudio_dynamic_log_defaults",
+     ],
++    // Keep the 32-bit tinyalsa/tinycompress IPC client path.
++    compile_multilib: "both",
+     owner: "qti",
+     vendor: true,
+ 
+diff --git a/plugins/tinyalsa/src/agm_pcm_plugin.c b/plugins/tinyalsa/src/agm_pcm_plugin.c
+index f2892ca..024a8cd 100644
+--- a/plugins/tinyalsa/src/agm_pcm_plugin.c
++++ b/plugins/tinyalsa/src/agm_pcm_plugin.c
+@@ -29,6 +29,7 @@
+ **/
+ #define LOG_TAG "PLUGIN: pcm"
+ 
++#include <inttypes.h>
+ #include <agm/agm_api.h>
+ #include <errno.h>
+ #include <limits.h>
+@@ -370,7 +371,7 @@ static int agm_pcm_plugin_update_hw_ptr(struct agm_pcm_priv *priv)
+             priv->pos_buf->hw_ptr_base = hw_base;
+             AGM_LOGD("%s: crossed_boundary = %u, new_hw_ptr=%ld \n",
+                                                 __func__, crossed_boundary, new_hw_ptr);
+-            AGM_LOGD("%s: delta_wall_clk_frames = %x, delta_wall_clk_us=%ld \n",
++            AGM_LOGD("%s: delta_wall_clk_frames = %x, delta_wall_clk_us=%" PRId64 " \n",
+                                                 __func__, delta_wall_clk_frames, delta_wall_clk_us);
+             AGM_LOGD("%s: shared buffer length = %lx \n",
+                                                 __func__, priv->total_size_frames);
+diff --git a/snd_parser/Android.bp b/snd_parser/Android.bp
+index 1f552d1..f5a7cc5 100644
+--- a/snd_parser/Android.bp
++++ b/snd_parser/Android.bp
+@@ -3,6 +3,8 @@ cc_library_shared {
+     defaults: [
+         "android_hardware_qtiaudio_config_defaults",
+     ],
++    // tinyalsa/tinycompress also load this helper from 32-bit processes.
++    compile_multilib: "both",
+     owner: "qti",
+     vendor: true,
+ 

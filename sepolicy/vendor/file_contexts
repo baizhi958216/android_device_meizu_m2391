@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # MEIZU additions to the Qualcomm SM8550 source policy.
+/vendor/bin/init\.qti\.display_boot\.m2391\.sh u:object_r:qti_display_boot_exec:s0
 # Ported from firmware 1764145455; compiled with native SELinux build rules.
 
 # VL53L1 input numbering can change; restore labels through /sys/class/meizu/dtof.
@@ -67,5 +68,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.meizu\.ir@1\.0-service u:object_r:hal_ir_default_exec:s0
 /vendor/bin/hw/android\.hardware\.usb\.gadget@1\.1-service-qti u:object_r:vendor_hal_usb_qti_exec:s0
 /vendor/bin/hw/android\.hardware\.usb@1\.2-service-qti u:object_r:vendor_hal_usb_qti_exec:s0
+/vendor/bin/hw/android\.hardware\.usb-service\.m2391 u:object_r:vendor_hal_usb_qti_exec:s0
+/vendor/bin/hw/android\.hardware\.usb\.gadget-service\.m2391 u:object_r:vendor_hal_usb_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.uwb-service\.nxp u:object_r:hal_uwb_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.xingji\.hardware\.biometrics\.face@1\.0-service u:object_r:hal_face_default_exec:s0

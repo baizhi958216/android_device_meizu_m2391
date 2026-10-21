@@ -1,0 +1,1 @@
+../../../../vendor/qcom/opensource/usb/hal/UsbGadget.cpp

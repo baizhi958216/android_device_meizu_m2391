@@ -1782,7 +1782,7 @@ user: AID_ROOT
 group: AID_SHELL
 caps: 0x0
 
-[vendor/bin/init.qti.display_boot.sh]
+[vendor/bin/init.qti.display_boot.m2391.sh]
 mode: 0755
 user: AID_ROOT
 group: AID_SHELL
@@ -4776,7 +4776,7 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/init.qti.display_boot.rc]
+[vendor/etc/init/init.qti.display_boot.m2391.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -5142,19 +5142,19 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/vendor.qti.hardware.display.allocator-service.rc]
+[vendor/etc/init/vendor.qti.hardware.display.allocator-service.m2391.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/vendor.qti.hardware.display.composer-service.rc]
+[vendor/etc/init/vendor.qti.hardware.display.composer-service.m2391.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/vendor.qti.hardware.display.demura-service.rc]
+[vendor/etc/init/vendor.qti.hardware.display.demura-service.m2391.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT

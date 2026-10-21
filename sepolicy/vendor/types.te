@@ -1,6 +1,4 @@
 # SPDX-License-Identifier: Apache-2.0
-# MEIZU additions to the Qualcomm SM8550 source policy.
-# Ported from firmware 1764145455; compiled with native SELinux build rules.
 
 type data_role_sysfs, fs_type, sysfs_type;
 type dtof_only_device, dev_type;
@@ -8,39 +6,19 @@ type fingerprint_device, dev_type;
 type fix_1347671, domain, hal_keymint_client, halclientdomain;
 type fix_1347671_exec, exec_type, file_type, vendor_file_type;
 type hal_arcsoft_fingerprint_hwservice, hwservice_manager_type;
-type hal_eid_default, domain, hal_eid, hal_eid_server, halclientdomain, halserverdomain, vendor_hal_qteeconnector_client;
-type hal_eid_default_exec, exec_type, file_type, vendor_file_type;
 type hal_eid_hwservice, hwservice_manager_type;
-type hal_fbase_defrag_default, domain, hal_fbase_defrag, hal_fbase_defrag_server, halserverdomain;
-type hal_fbase_defrag_default_exec, exec_type, file_type, vendor_file_type;
 type hal_fbase_defrag_hwservice, hwservice_manager_type;
-type hal_fido_default, domain, hal_fido, hal_fido_server, halserverdomain;
-type hal_fido_default_exec, exec_type, file_type, vendor_file_type;
 type hal_fido_hwservice, hwservice_manager_type;
-type hal_geofence_default, domain, hal_geofence, hal_geofence_server, halserverdomain;
-type hal_geofence_default_exec, exec_type, file_type, vendor_file_type;
-type hal_geofence_service, hal_service_type, service_manager_type, vendor_service;
+type hal_geofence_service, hal_service_type, service_manager_type;
 type hal_goodix_fingerprint_hwservice, hwservice_manager_type;
-type hal_ifaa_default, domain, hal_ifaa, hal_ifaa_server, halserverdomain;
-type hal_ifaa_default_exec, exec_type, file_type, vendor_file_type;
 type hal_ifaa_hwservice, hwservice_manager_type;
-type hal_meizu_charging_default, domain, hal_meizu_charging, hal_meizu_charging_server, halserverdomain;
-type hal_meizu_charging_default_exec, exec_type, file_type, vendor_file_type;
 type hal_meizu_charging_hwservice, hwservice_manager_type;
 type hal_meizu_fingerprint_hwservice, hwservice_manager_type;
-type hal_meizu_kelog_default, domain, hal_meizu_kelog, hal_meizu_kelog_server, halserverdomain;
-type hal_meizu_kelog_default_exec, exec_type, file_type, vendor_file_type;
 type hal_meizu_kelog_hwservice, hwservice_manager_type;
-type hal_meizu_sensor_aux_default, domain, hal_meizu_sensor_aux, hal_meizu_sensor_aux_server, halserverdomain;
-type hal_meizu_sensor_aux_default_exec, exec_type, file_type, vendor_file_type;
 type hal_meizu_sensor_aux_hwservice, hwservice_manager_type;
-type hal_secure_store_default, domain, hal_secure_store, hal_secure_store_server, halserverdomain;
-type hal_secure_store_default_exec, exec_type, file_type, vendor_file_type;
 type hal_secure_store_hwservice, hwservice_manager_type;
-type hal_tiktap_default, domain, hal_tiktap, hal_tiktap_server, halserverdomain, mlstrustedsubject;
-type hal_tiktap_default_exec, exec_type, file_type, vendor_file_type;
 type hal_tiktap_hwservice, hwservice_manager_type;
-type hal_tiktap_service, protected_service, service_manager_type, vendor_service;
+type hal_tiktap_service, protected_service, service_manager_type;
 type haptic_dev, dev_type;
 type image_update, domain;
 type image_update_exec, exec_type, file_type, vendor_file_type;

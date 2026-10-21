@@ -1,0 +1,63 @@
+diff --git a/Android.bp b/Android.bp
+index 6d39a3f..88e41b2 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -33,24 +33,25 @@ cc_library_headers {
+     defaults: ["generated_kernel_header_defaults"],
+ }
+ 
+-soong_config_module_type {
+-    name: "android_hardware_qtiaudio_config_default",
+-    module_type: "cc_defaults",
+-    config_namespace: "android_hardware_audio",
+-    bool_variables: [
+-        "run_64bit",
+-    ],
+-    properties: ["compile_multilib"],
+-}
+-
+-android_hardware_qtiaudio_config_default {
++// A 64-bit audio service can coexist with legacy 32-bit vendor clients.
++// Keep the service choice as the default; devices may build both AudioReach ABIs.
++cc_defaults {
+     name: "android_hardware_qtiaudio_config_defaults",
+-
+-    soong_config_variables: {
+-        run_64bit: {
+-            compile_multilib: "64",
+-        },
+-    },
++    header_libs: select(soong_config_variable("qtiaudio", "kernel_headers"), {
++        any @ headers: [headers],
++        default: [],
++    }),
++    cflags: select(soong_config_variable("android_hardware_audio", "skip_speaker_layout_channel_mask_field"), {
++        true: ["-DSKIP_SPEAKER_LAYOUT_CHANNEL_MASK_FIELD"],
++        default: [],
++    }),
++    compile_multilib: select(soong_config_variable("qtiaudio", "compile_multilib"), {
++        any @ multilib: multilib,
++        default: select(soong_config_variable("android_hardware_audio", "run_64bit"), {
++            true: "64",
++            default: unset,
++        }),
++    }),
+ }
+ 
+ install_symlink {
+diff --git a/nqnfcinfo/Android.bp b/nqnfcinfo/Android.bp
+index 6cc1c9d..77d7b8c 100644
+--- a/nqnfcinfo/Android.bp
++++ b/nqnfcinfo/Android.bp
+@@ -12,7 +12,10 @@ cc_binary {
+         "main.cpp",
+     ],
+ 
+-    header_libs: ["generated_kernel_headers"],
++    header_libs: ["generated_kernel_headers"] + select(soong_config_variable("qtinfc", "kernel_headers"), {
++        any @ headers: [headers],
++        default: [],
++    }),
+ 
+     shared_libs: [
+         "libc",

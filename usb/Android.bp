@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: Apache-2.0
+cc_defaults {
+    name: "m2391_usb_hal_defaults",
+    cflags: ["-Werror"],
+    vendor: true,
+    relative_install_path: "hw",
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+}
+
+cc_binary {
+    name: "android.hardware.usb-service.m2391",
+    defaults: ["m2391_usb_hal_defaults"],
+    srcs: ["Usb.cpp"],
+    shared_libs: ["android.hardware.usb-V3-ndk"],
+    init_rc: ["android.hardware.usb-service.m2391.rc"],
+    vintf_fragments: ["android.hardware.usb-service.m2391.xml"],
+}
+
+cc_binary {
+    name: "android.hardware.usb.gadget-service.m2391",
+    defaults: ["m2391_usb_hal_defaults"],
+    srcs: ["UsbGadget.cpp"],
+    shared_libs: [
+        "android.hardware.usb.gadget@1.1",
+        "android.hardware.usb.gadget-V1-ndk",
+    ],
+    static_libs: ["libusbconfigfs"],
+    init_rc: ["android.hardware.usb.gadget-service.m2391.rc"],
+    vintf_fragments: ["android.hardware.usb.gadget-service.m2391.xml"],
+}

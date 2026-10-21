@@ -38,6 +38,15 @@ $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_
 # "prefer32", so force the 64-bit variant so it loads /vendor/lib64/hw/*.
 $(call soong_config_set_bool,android_hardware_audio,run_64bit,true)
 
+# AudioReach, Codec2 audio and SoundTrigger are hosted by 64-bit services.
+# Keep the unrelated 32-bit OMX, external camera and application stacks.
+$(call soong_config_set,qtiaudio,compile_multilib,64)
+$(call soong_config_set,soundtrigger,audioserver_multilib,64)
+$(call soong_config_set,qtiaudio,feature_agm_hidl,true)
+$(call soong_config_set,qtiaudio,feature_pal_hidl,true)
+$(call soong_config_set,qtiaudio,feature_hal_v7,true)
+$(call soong_config_set,qtiaudio,feature_sound_trigger,true)
+
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
@@ -126,3 +135,8 @@ TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/properties/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/properties/vendor.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/properties/odm.prop
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.qcom
+
+# Combine the audio module UAPI with the core kernel's ADSP sleep-monitor UAPI.
+$(call soong_config_set,qtiaudio,kernel_headers,//device/meizu/m2391:m2391_audio_kernel_headers)
+# NFC uses the kernel module tree's userspace UAPI export directly.
+$(call soong_config_set,qtinfc,kernel_headers,//kernel/meizu/m2391-modules:qti_nfc_kernel_headers)

@@ -18,7 +18,6 @@ from extract_utils.extract_recovery import (
 from extract_utils.fixups_lib import lib_fixups
 from extract_utils.fixups_blob import blob_fixup
 from extract_utils.main import ExtractUtils, ExtractUtilsModule
-from extract_utils.module import ProprietaryFileType
 
 
 def extract_vendor_boot(ctx, file_path, dump_dir):
@@ -40,6 +39,10 @@ def lib_fixup_vendor_suffix(lib, partition):
     return f'{lib}_vendor' if partition == 'vendor' else None
 
 
+def lib_fixup_m2391_suffix(lib, partition):
+    return f'{lib}_m2391' if partition == 'vendor' else None
+
+
 def lib_fixup_system_ext_suffix(lib, partition):
     return f'{lib}_system_ext' if partition == 'system_ext' else None
 
@@ -47,14 +50,34 @@ def lib_fixup_system_ext_suffix(lib, partition):
 module = ExtractUtilsModule(
     'm2391',
     'meizu',
+    add_firmware_proprietary_file=True,
     lib_fixups={
         **lib_fixups,
         'libvibrator': lib_fixup_vendor_suffix,
+        # Keep the OEM shared Wi-Fi HAL separate from upstream's same-name module.
+        'libwifi-hal-qcom': lib_fixup_m2391_suffix,
         ('vendor.qti.diaghal@1.0', 'vendor.qti.imsrtpservice@3.0',
          'vendor.qti.imsrtpservice@3.1'): lib_fixup_system_ext_suffix,
     },
-    namespace_imports=['device/meizu/m2391', 'hardware/qcom-caf/bootctrl'],
+    # Direct source-namespace imports let Soong select matching prefer:true
+    # prebuilts without deleting placeholders from shared Qualcomm repositories.
+    namespace_imports=[
+        'device/meizu/m2391',
+        'hardware/qcom-caf/bootctrl',
+        'hardware/qcom-caf/sm8550',
+        'hardware/qcom-caf/wlan',
+        'vendor/qcom/opensource/dataservices',
+    ],
     blob_fixups={
+        # Keep the OEM display startup script and init service definitions under
+        # device-specific paths, alongside the exported upstream display rules.
+        'vendor/etc/init/init.qti.display_boot.m2391.rc': blob_fixup().regex_replace(
+            r'/vendor/bin/init\.qti\.display_boot\.sh',
+            '/vendor/bin/init.qti.display_boot.m2391.sh',
+        ),
+        # The audio service is 64-bit, including the legacy effects fallback.
+        'vendor/etc/audio/sku_kalama/audio_effects.conf':
+            blob_fixup().regex_replace('/vendor/lib/soundfx/', '/vendor/lib64/soundfx/'),
         # The logical m2391 rear camera advertises three sensors but its stock
         # default MCX table omits tele. Retain its sensor/calibration mapping.
         'vendor/lib64/hw/com.qti.chi.override.so':
@@ -170,12 +193,6 @@ module = ExtractUtilsModule(
     extract_fns={
         r'^vendor_boot\.img$': extract_vendor_boot,
     },
-)
-# DTBO is extracted as firmware but installed by BOARD_PREBUILT_DTBOIMAGE.
-module.add_proprietary_file(
-    'proprietary-firmware.txt',
-    vendor_rel_sub_path='radio',
-    kind=ProprietaryFileType.FIRMWARE,
 )
 
 if __name__ == '__main__':

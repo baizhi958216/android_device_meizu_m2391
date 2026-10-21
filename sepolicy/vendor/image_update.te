@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
-# MEIZU additions to the Qualcomm SM8550 source policy.
-# Ported from firmware 1764145455; compiled with native SELinux build rules.
 
-allow image_update image_update_exec:file { read getattr map execute open entrypoint };
-allow image_update block_device:dir { ioctl read getattr lock open watch watch_reads search };
+init_daemon_domain(image_update)
+
+allow image_update block_device:dir r_dir_perms;
 allow image_update vendor_ufs_erf_partition_device:blk_file { read write open };
