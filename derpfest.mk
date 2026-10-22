@@ -4,6 +4,9 @@
 # device feature selections take effect before DerpFest evaluates its defaults.
 
 DERP_BOOTANIMATION := default
+# Use the dark Monet animation regardless of the current system theme.
+PRODUCT_PRODUCT_PROPERTIES += ro.product.bootanim.file=bootanimation-dark.zip
+
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_SUPPORTS_BLUR := true
 TARGET_SUPPORTS_QUICK_TAP := true
