@@ -1898,29 +1898,8 @@ vendor/bin/hw/vendor.meizu.ir@1.0-service|4e13a2cc120dd75b367323a916999eacf561a6
 vendor/etc/init/vendor.meizu.ir@1.0-service.rc|14ae4c91dc60929468483bdeb3d812b9795733af
 vendor/etc/vintf/manifest/vendor.meizu.ir@1.0-service.xml;EXTRACT_ONLY|0a1a207c0859a1f75bad45c337cad60b5e791906
 
-# Kernel modules - Vendor DLKM
-vendor_dlkm/lib/modules/maudit.ko;EXTRACT_ONLY|1dc78635e6dad01e8e750641c2c29640613a2f08
-vendor_dlkm/lib/modules/msm_geni_serial.ko;EXTRACT_ONLY|d307619f143517cbac8c876d0e72c36a921d025e
-vendor_dlkm/lib/modules/mz_hang_dump.ko;EXTRACT_ONLY|c0b266b57c87536a426c6be09119b96f347b4437
-vendor_dlkm/lib/modules/mz_reclaim_opt.ko;EXTRACT_ONLY|6d158d461e12c81514bf9f4fbadbb7c60f86b007
-vendor_dlkm/lib/modules/mz_rstinfo.ko;EXTRACT_ONLY|99363da66e4ce67098ab103cc7d83a86b6122678
-vendor_dlkm/lib/modules/pwm_ir.ko;EXTRACT_ONLY|2613744fd9e2c13dcb9b5c61bd914e3b0a742707
-vendor_dlkm/lib/modules/qcom_q6v5.ko;EXTRACT_ONLY|53e5a0c34157a4d9dc5d16f07724dac110d025fe
+# Kernel module blocklist - Vendor DLKM
 vendor_dlkm/lib/modules/system_dlkm.modules.blocklist|dbf1590554ec65fa05f3bcdf64e9d7452ad1db3c
-
-# Kernel modules - Vendor ramdisk
-vendor_boot/lib/modules/maudit.ko;EXTRACT_ONLY|1dc78635e6dad01e8e750641c2c29640613a2f08
-vendor_boot/lib/modules/minidump.ko;EXTRACT_ONLY|ad87f60ffe9566500b8b9cea40e115d78875eb5e
-vendor_boot/lib/modules/msm_geni_serial.ko;EXTRACT_ONLY|d307619f143517cbac8c876d0e72c36a921d025e
-vendor_boot/lib/modules/mz_compaction_opt.ko;EXTRACT_ONLY|6e2de9ab23fb5839da7cd2f1f45b16bc05c88a29
-vendor_boot/lib/modules/mz_enhance_qcom_wdog.ko;EXTRACT_ONLY|facc2e47eedd4de17f318c7b3071727ff2a4f574
-vendor_boot/lib/modules/mz_hang_dump.ko;EXTRACT_ONLY|c0b266b57c87536a426c6be09119b96f347b4437
-vendor_boot/lib/modules/mz_kshrink_slabd.ko;EXTRACT_ONLY|8e93ba30740c92e434af065f5bf588d8f3494af4
-vendor_boot/lib/modules/mz_reclaim_opt.ko;EXTRACT_ONLY|6d158d461e12c81514bf9f4fbadbb7c60f86b007
-vendor_boot/lib/modules/mz_rstinfo.ko;EXTRACT_ONLY|99363da66e4ce67098ab103cc7d83a86b6122678
-vendor_boot/lib/modules/qcom-dload-mode.ko;EXTRACT_ONLY|8224c72d4695533b42042f0779b23858d86dc5ef
-vendor_boot/lib/modules/qcom_q6v5.ko;EXTRACT_ONLY|53e5a0c34157a4d9dc5d16f07724dac110d025fe
-vendor_boot/lib/modules/qcom_wdt_core.ko;EXTRACT_ONLY|a56f520b1737ee2a7e172d7b2f4b9dcb2e77e3db
 
 # Licenses and notices
 odm/etc/NOTICE.xml.gz;EXTRACT_ONLY|26a880f80f2f63a339389956ef7e00b60765147c
