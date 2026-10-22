@@ -15,7 +15,6 @@ qcom_tsens.ko
 rpmh-regulator.ko
 bwmon.ko
 qcom-cpufreq-hw.ko
-mz_vip_task.ko
 sched-walt.ko
 thermal_pause.ko
 cpu_hotplug.ko
