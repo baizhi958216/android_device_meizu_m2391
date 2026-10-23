@@ -39,6 +39,11 @@ PRODUCT_BUILD_SUPER_PARTITION := true
 
 PRODUCT_EXTRA_VNDK_VERSIONS := 33
 
+# Prioritize install completion; ART can verify code at runtime and optimize
+# apps later through background dexopt. Overrides runtime_libart.mk's default.
+PRODUCT_SYSTEM_PROPERTIES += \
+    pm.dexopt.install=skip
+
 # Native libbinder needs this LLNDK library, absent from the VNDK 33 list.
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += $(DEVICE_PATH)/configs/linker.config.json
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
