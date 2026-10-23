@@ -15,7 +15,6 @@ qcom_tsens.ko
 rpmh-regulator.ko
 bwmon.ko
 qcom-cpufreq-hw.ko
-mz_vip_task.ko
 sched-walt.ko
 thermal_pause.ko
 cpu_hotplug.ko
@@ -333,5 +332,6 @@ msm_ext_display.ko
 sync_fence.ko
 msm_hw_fence.ko
 msm-mmrm.ko
-goodix_ts.ko
 mz_gesture_ts.ko
+qts.ko
+goodix_ts.ko
