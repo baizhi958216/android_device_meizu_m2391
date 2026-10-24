@@ -12,4 +12,9 @@
          SystemUI converts the 6000um UDFPS icon into native pixels, then
          scales to the current mode. The default -1 creates invalid padding. -->
     <item name="pixel_pitch" format="float" type="dimen">49.3</item>
+    <!-- DerpFest's UdfpsAnimation subtracts the sensor radius from its center.
+         Compensate using the radius in maximum-mode pixels; the animation
+         applies the display scale factor itself. Keep this in px so changing
+         UI density does not move the animation away from the sensor. -->
+    <dimen name="udfps_animation_offset">127px</dimen>
 </resources>
