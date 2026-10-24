@@ -4,6 +4,7 @@
 
 ro.vendor.camera.psn                                    u:object_r:vendor_camera_prop:s0 exact string
 ro.vendor.camera.no_vts                                 u:object_r:vendor_camera_prop:s0 exact bool
+vendor.meizu.camera_id                                  u:object_r:vendor_meizu_camera_id_prop:s0 exact string
 
 vendor.goodix.fingerprint.dump_dsp_log                  u:object_r:vendor_goodix_fingerprint_prop:s0
 vendor.goodix.fingerprint.dump_talog_data               u:object_r:vendor_goodix_fingerprint_prop:s0
