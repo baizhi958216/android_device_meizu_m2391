@@ -218,6 +218,7 @@ allow hal_uwb_default uwb_device:chr_file rw_file_perms;
 allow hal_uwb_default uwb_vendor_data_file:dir create_dir_perms;
 allow hal_uwb_default uwb_vendor_data_file:file create_file_perms;
 allow hal_uwb_default vendor_persist_uwb_file:dir r_dir_perms;
+allow hal_uwb_default mnt_vendor_file:dir search;
 allow hal_uwb_default vendor_persist_uwb_file:file r_file_perms;
 allow hal_uwb_default proc_mz_info:file r_file_perms;
 # init.qcom.post_boot.sh publishes the board camera identifier from soc0.
