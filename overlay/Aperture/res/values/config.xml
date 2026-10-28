@@ -2,7 +2,10 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <resources>
     <bool name="config_enableAuxCameras">true</bool>
-    <!-- Camera 4 exposes the rear three-camera zoom path. Aperture otherwise
-         filters it out because it contains multiple physical cameras. -->
-    <bool name="config_ignoreLogicalAuxCameras">false</bool>
+    <!-- Keep standalone main, ultrawide and telephoto cameras for manual lens
+         selection. Logical camera 4 duplicates the main camera's 1x entry. -->
+    <string-array name="config_ignoredAuxCameraIds">
+        <item>4</item>
+    </string-array>
+    <bool name="config_ignoreLogicalAuxCameras">true</bool>
 </resources>
