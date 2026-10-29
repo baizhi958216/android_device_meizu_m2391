@@ -220,6 +220,9 @@ allow hal_uwb_default uwb_vendor_data_file:file create_file_perms;
 allow hal_uwb_default vendor_persist_uwb_file:dir r_dir_perms;
 allow hal_uwb_default vendor_persist_uwb_file:file r_file_perms;
 allow hal_uwb_default proc_mz_info:file r_file_perms;
+# init.qcom.post_boot.sh publishes the board camera identifier from soc0.
+set_prop(vendor_qti_init_shell, vendor_meizu_camera_id_prop)
+get_prop(hal_camera_default, vendor_meizu_camera_id_prop)
 allow platform_app sysfs_wireless_charger:file rw_file_perms;
 allow shell sysfs_wireless_charger:file rw_file_perms;
 allow system_app sysfs_wireless_charger:file rw_file_perms;
