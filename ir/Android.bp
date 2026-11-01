@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: Apache-2.0
+cc_binary {
+    name: "android.hardware.ir-service.m2391",
+    // Preserve the OEM init service name, SELinux transition and fs_config.
+    stem: "vendor.meizu.ir@1.0-service",
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: ["service.cpp"],
+    shared_libs: [
+        "android.hardware.ir-V1-ndk",
+        "libbinder_ndk",
+        "liblog",
+    ],
+    init_rc: ["vendor.meizu.ir@1.0-service.rc"],
+    // The OEM VINTF fragment is included by DEVICE_MANIFEST_KALAMA_FILES.
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+    cpp_std: "c++17",
+}
