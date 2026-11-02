@@ -1893,9 +1893,7 @@ vendor/lib64/hw/vendor.aks.gamepad@1.0-impl.so|6bbf78f778424245a314610551227da75
 vendor/lib64/vendor.aks.gamepad@1.0.so|b2d1f219c3d2c730d0ee19a721a85a1a7fc515e7
 vendor/usr/keylayout/Vendor_2212_Product_0010.kl|9416161e2f9e708defbdf6670b26700287da96d2
 
-# IR
-vendor/bin/hw/vendor.meizu.ir@1.0-service|4e13a2cc120dd75b367323a916999eacf561a6c2
-vendor/etc/init/vendor.meizu.ir@1.0-service.rc|14ae4c91dc60929468483bdeb3d812b9795733af
+# IR - VINTF declaration for the source-built HAL
 vendor/etc/vintf/manifest/vendor.meizu.ir@1.0-service.xml;EXTRACT_ONLY|0a1a207c0859a1f75bad45c337cad60b5e791906
 
 # Kernel module blocklist - Vendor DLKM

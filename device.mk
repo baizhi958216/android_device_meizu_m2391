@@ -51,6 +51,7 @@ PRODUCT_ENFORCE_VINTF_MANIFEST := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 PRODUCT_PACKAGES += \
+    android.hardware.ir-service.m2391 \
     android.hardware.vibrator-service.m2391 \
     M2391Gestures \
     M2391DisplayRecovery \
