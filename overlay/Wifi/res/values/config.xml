@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- CN firmware exposes no usable 6 GHz channels. Keep Wi-Fi 6 on 5 GHz. -->
+    <bool name="config_wifiSoftap6ghzSupported">false</bool>
+    <bool name="config_wifiSoftap5ghzSupported">true</bool>
+    <bool name="config_wifiSoftapIeee80211axSupported">true</bool>
+
     <integer-array name="config_wifiRssiLevelThresholds" translatable="false">
         <item>-88</item>
         <item>-77</item>
