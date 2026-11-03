@@ -1,0 +1,36 @@
+From: m2391 device maintainers
+Subject: [PATCH] Restore opt-in StrictMode leak detection and penalties
+
+DerpFest 17 enables activity and registration leak checks for all apps targeting
+API 24+, even on user builds and with persist.sys.strictmode.disable=true.
+It also unconditionally makes receiver/service-connection leaks fatal.
+
+Restore AOSP defaults: keep file URI exposure protection, leave leak detection
+to app/debug policies, and respect the selected penalty instead of forcing death.
+QQ 9.3.80 loses its main process when QQScanActivity is destroyed; scan-to-web
+also kills that process while QQBrowserActivity is opening in :tool.
+
+This applies to frameworks/base, not to the device tree itself.
+
+--- a/core/java/android/os/StrictMode.java
++++ b/core/java/android/os/StrictMode.java
+@@ -1633,8 +1633,6 @@
+         if (targetSdkVersion >= Build.VERSION_CODES.N) {
+             builder.detectFileUriExposure();
+             builder.penaltyDeathOnFileUriExposure();
+-            builder.detectActivityLeaks();
+-            builder.detectLeakedRegistrationObjects();
+         }
+ 
+         if (Build.IS_USER || DISABLE || SystemProperties.getBoolean(DISABLE_PROPERTY, false)) {
+@@ -2768,9 +2766,7 @@
+ 
+     /** @hide */
+     public static void onVmPolicyViolation(Violation originStack) {
+-        boolean forceDeath = originStack instanceof IntentReceiverLeakedViolation 
+-            || originStack instanceof ServiceConnectionLeakedViolation;
+-        onVmPolicyViolation(originStack, forceDeath);
++        onVmPolicyViolation(originStack, false);
+     }
+ 
+     /** @hide */
