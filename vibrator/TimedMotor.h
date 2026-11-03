@@ -33,7 +33,7 @@ public:
         worker_.join();
     }
     // Levels 0/1/2 select the finite RAM waves 16/17/18.
-    // A negative level selects continuous playback for sustained requests.
+    // A negative level selects a RAM carrier loop for timed envelopes.
     bool play(int milliseconds, int level, int gain, std::function<void()> complete) {
         if (milliseconds <= 0 || level < -1 || level > 2 || gain < 1 || gain > 128) return false;
         std::lock_guard<std::mutex> lock(mutex_);
@@ -46,8 +46,8 @@ public:
         // writes here add I2C/standby waits to every key press.
         active_ = true;
         continuous_ = level < 0;
-        if (!writer_(continuous_ ? "cont" : "set_mback",
-                     continuous_ ? "1" : std::to_string(level) + " 1") ||
+        if (!writer_(continuous_ ? "ram_loop" : "set_mback",
+                     continuous_ ? std::to_string(gain) : std::to_string(level) + " 1") ||
             // The path can reset gain, so apply it after start.
             !writer_("gain", std::to_string(gain))) {
             stopHardware();
@@ -127,8 +127,8 @@ private:
     }
     bool stopHardware() {
         if (!active_) return true;
-        // cont=0 stops the chip in both RAM and continuous playback modes.
-        const bool stopped = writer_("cont", "0");
+        // Drain queued RAM starts before stopping, including a failed start.
+        const bool stopped = writer_("enable", "0");
         if (stopped) active_ = false;
         return stopped;
     }

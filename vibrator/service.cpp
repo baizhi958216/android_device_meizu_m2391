@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 #include "TimedMotor.h"
+#include "RamLoop.h"
 
 #include <aidl/android/hardware/vibrator/BnVibrator.h>
 #include <android/binder_manager.h>
@@ -9,6 +10,7 @@
 #include <cmath>
 #include <cstring>
 #include <fcntl.h>
+#include <cstdio>
 #include <unistd.h>
 
 using namespace aidl::android::hardware::vibrator;
@@ -16,7 +18,7 @@ using Status = ndk::ScopedAStatus;
 
 static constexpr const char* kMotor = "/sys/class/meizu/motor/";
 
-static bool writeNode(const char* node, const std::string& value) {
+static bool writeRawNode(const char* node, const std::string& value) {
     const std::string path = std::string(kMotor) + node;
     int fd = open(path.c_str(), O_WRONLY | O_CLOEXEC);
     if (fd < 0) {
@@ -34,6 +36,22 @@ static bool writeNode(const char* node, const std::string& value) {
     return result == static_cast<ssize_t>(value.size());
 }
 
+static int readRamIndex() {
+    FILE* file = fopen("/sys/class/meizu/motor/index", "re");
+    if (!file) return -1;
+    int index = -1;
+    if (fscanf(file, "index = %d", &index) != 1) index = -1;
+    fclose(file);
+    return index;
+}
+
+static bool writeNode(const char* node, const std::string& value) {
+    if (strcmp(node, "ram_loop") == 0) {
+        return RamLoop::start(writeRawNode, readRamIndex, std::stoi(value));
+    }
+    return writeRawNode(node, value);
+}
+
 class Vibrator final : public BnVibrator {
 public:
     Vibrator() : motor_(writeNode) { motor_.initialize(); }
@@ -45,11 +63,9 @@ public:
     Status off() override { return motor_.stop() ? Status::ok() : failure(); }
     Status on(int32_t duration, const std::shared_ptr<IVibratorCallback>& callback) override {
         if (duration <= 0) return Status::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
-        // Legacy keyboards issue short timed requests instead of perform().
-        // Use a single click for these rather than a continuous buzz.
-        const bool shortFeedback = duration <= 50;
-        return motor_.play(shortFeedback ? std::max(duration, kTapDurationMs) : duration,
-                           shortFeedback ? 1 : -1, 128, completion(callback))
+        // Timed waveforms use one carrier at every duration. A short on()
+        // can be part of an envelope and must not become a finite click.
+        return motor_.play(duration, -1, 128, completion(callback))
                        ? Status::ok() : failure();
     }
     Status perform(Effect effect, EffectStrength strength,
@@ -143,8 +159,7 @@ public:
     Status composePwle(const std::vector<PrimitivePwle>&,
                        const std::shared_ptr<IVibratorCallback>&) override { return unsupported(); }
 private:
-    // Shipped 170 Hz RAM mBack waves: 232 samples at 24 kHz (9.67 ms).
-    // Allow 15 ms for completion instead of a fixed 50 ms delay.
+    // Finite mBack effects retain their own tail; timed envelopes use RAM 19.
     static constexpr int kTapDurationMs = 15;
     static Status unsupported() { return Status::fromExceptionCode(EX_UNSUPPORTED_OPERATION); }
     static Status failure() { return Status::fromServiceSpecificError(EIO); }
@@ -162,7 +177,7 @@ int main() {
         __android_log_print(ANDROID_LOG_ERROR, "m2391-vibrator", "service registration failed");
         return 1;
     }
-    __android_log_print(ANDROID_LOG_INFO, "m2391-vibrator", "registered; AW8697 mBack backend");
+    __android_log_print(ANDROID_LOG_INFO, "m2391-vibrator", "registered; AW8697 RAM envelope backend v2");
     ABinderProcess_joinThreadPool();
     return 1;
 }
