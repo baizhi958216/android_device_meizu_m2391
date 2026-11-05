@@ -54,6 +54,7 @@ type sysfs_fingerprint_file, fs_type, sysfs_type;
 type sysfs_pstore_file, fs_type, sysfs_type;
 type sysfs_rstinfo_file, fs_type, sysfs_type;
 type sysfs_tp_file, fs_type, mlstrustedobject, sysfs_type;
+type sysfs_touch_game_mode, fs_type, sysfs_type;
 type sysfs_wired_charger, fs_type, sysfs_type;
 type sysfs_wireless_charger, fs_type, sysfs_type;
 type system_stats_sysfs, fs_type, sysfs_type;
