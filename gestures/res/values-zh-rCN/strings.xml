@@ -3,4 +3,7 @@
 <resources>
     <string name="lift_to_wake_title">抬手亮屏</string>
     <string name="lift_to_wake_summary">拿起手机时点亮锁屏</string>
+    <string name="game_touch_title">高触控报点率</string>
+    <string name="game_touch_summary">在游戏和所选应用中提高触控报点率</string>
+    <string name="game_touch_automatic">此游戏自动启用</string>
 </resources>

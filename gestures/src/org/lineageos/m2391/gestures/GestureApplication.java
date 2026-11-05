@@ -58,6 +58,7 @@ public final class GestureApplication extends Application {
         thread.start();
         mHandler = new Handler(thread.getLooper());
         mLiftToWake = new LiftToWakeController(this, mHandler);
+        GameTouchController gameTouch = new GameTouchController(this, mHandler);
         ContentObserver observer = new ContentObserver(mHandler) {
             @Override
             public void onChange(boolean selfChange) {
@@ -73,6 +74,14 @@ public final class GestureApplication extends Application {
         getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(LiftToWakeController.SETTING), false,
                 observer, UserHandle.USER_ALL);
+        getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(GameTouchApps.SETTING), false,
+                new ContentObserver(mHandler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        gameTouch.refresh();
+                    }
+                }, UserHandle.USER_ALL);
         IntentFilter filter = new IntentFilter(Intent.ACTION_USER_SWITCHED);
         filter.addAction(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -81,9 +90,11 @@ public final class GestureApplication extends Application {
             @Override
             public void onReceive(Context context, Intent intent) {
                 synchronizeSetting();
+                gameTouch.refresh();
             }
         }, filter, Context.RECEIVER_NOT_EXPORTED);
         synchronizeSetting();
+        gameTouch.refresh();
     }
 
     void synchronizeSetting() {
