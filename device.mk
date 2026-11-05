@@ -62,6 +62,7 @@ PRODUCT_PACKAGES += \
     M2391TelephonyOverlay \
     M2391SystemUIOverlay \
     M2391WifiOverlay \
+    M2391UwbOverlay \
     android.hidl.allocator@1.0-service \
     android.frameworks.sensorservice@1.0 \
     m2391_framework_compatibility_matrix_7 \
