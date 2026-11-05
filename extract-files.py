@@ -9,6 +9,7 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ims_fixup import remove_ims_overlay
 from camera_multicam_fixup import fix_camera_multicam
+from uwb_hal_fixup import fix_uwb_hal
 
 from extract_utils.extract_recovery import (
     extract_ramdisk,
@@ -69,6 +70,12 @@ module = ExtractUtilsModule(
         'vendor/qcom/opensource/dataservices',
     ],
     blob_fixups={
+        # The OEM HAL asks read(2) for 4 bytes while expecting a full UCI packet.
+        # Pass the caller's real capacity so the driver can respect the bound.
+        (
+            'vendor/lib/uwb_uci.helios.nxp4mz.so',
+            'vendor/lib64/uwb_uci.helios.nxp4mz.so',
+        ): blob_fixup().call(fix_uwb_hal),
         # Keep the OEM display startup script and init service definitions under
         # device-specific paths, alongside the exported upstream display rules.
         'vendor/etc/init/init.qti.display_boot.m2391.rc': blob_fixup().regex_replace(

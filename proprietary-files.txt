@@ -3377,8 +3377,8 @@ vendor/etc/libuwb-nxp-m2391_npi.conf|c43375d8196ccb6e7aeb6e2d898651f46131566d
 vendor/etc/libuwb-nxp.conf|dc909cdf812caada99117bb8b365fd2a5665ec5e
 vendor/etc/libuwb-uci.conf|f0df0d4e427a712789e42ada7df9309429c17f7d
 vendor/etc/vintf/manifest/nxp-uwb-service.xml;EXTRACT_ONLY|46d4bd3f9780242ea253c1a125b9d1a265598fb3
-vendor/lib/uwb_uci.helios.nxp4mz.so|5b116219ec46d23af8df70fcced55595bde0b503
-vendor/lib64/uwb_uci.helios.nxp4mz.so|f3e0a2af944b448ed85b23225e10fc85c6dd095c
+vendor/lib/uwb_uci.helios.nxp4mz.so|5b116219ec46d23af8df70fcced55595bde0b503|4d8bc97168d2948d68d3a62ea8b0547e3a852da4
+vendor/lib64/uwb_uci.helios.nxp4mz.so|f3e0a2af944b448ed85b23225e10fc85c6dd095c|190760e2164448acdf79d735b4dc6cc287a52086
 
 # UWB - Firmware
 vendor/firmware/uwb/libsr100t_prod_fw.bin|8c8daa850e2dabaa303389a7a82221d3c6b46e0f
