@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SR100's CCC hopping capability (A2=1F) uses the FiRa extension
+         masks: modes in bits 4:2 and sequences in bits 1:0. The legacy
+         masks in bits 7:3 decode this value as having no hopping modes. -->
+    <bool name="fira_supported_extension_ccc">true</bool>
+</resources>
