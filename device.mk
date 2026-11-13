@@ -152,7 +152,9 @@ PRODUCT_HOST_PACKAGES += \
     sload_f2fs \
     make_f2fs
 
+# Use the same partition layout in Android, first-stage init and recovery.
 PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
     $(DEVICE_PATH)/configs/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom \
     $(DEVICE_PATH)/configs/init/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc
 
