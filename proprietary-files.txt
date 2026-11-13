@@ -832,7 +832,6 @@ vendor/etc/permissions/handheld_core_hardware.xml|c4a39dc564910e778a82c1042457ef
 odm/etc/group;EXTRACT_ONLY|da39a3ee5e6b4b0d3255bfef95601890afd80709
 odm/etc/passwd;EXTRACT_ONLY|da39a3ee5e6b4b0d3255bfef95601890afd80709
 vendor/etc/excluded-input-devices.xml|c0261466b4cec1c6ed1bd5f5f2f802baf00fdba9
-vendor/etc/fstab.qcom|1af1772681025344cdaca5c330b23063bc2fc559
 vendor/etc/hal_uuid_map_config.xml|b0d41178ed66edb38c60c89db9d8292d5b9e9f30
 vendor/etc/iAmCdRom.iso|11b89cb6c8e31bc6fcfaf0d3ddc1edcd2c016ee6
 vendor/etc/mkshrc;EXTRACT_ONLY|4893b45d1a31d504bd64d40a4068befd3e474dbf
