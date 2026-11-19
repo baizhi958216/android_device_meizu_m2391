@@ -100,11 +100,11 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
-# Reserve 3 GiB in product, 256 MiB in system and 128 MiB in system_ext
-# for recovery add-ons and their future updates.
+# Reserve 256 MiB in product, 256 MiB in system and 128 MiB in system_ext
+# for recovery add-ons while keeping the images within the 8 GiB super partition.
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 268435456
 BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 134217728
-BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 3221225472
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 268435456
 # Let mke2fs size inode tables for the whole filesystem, including free space.
 # The build default otherwise trims spare inodes too tightly for recovery add-ons.
 BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
