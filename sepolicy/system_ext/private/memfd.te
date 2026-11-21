@@ -4,3 +4,6 @@ policycap memfd_class;
 
 # CameraService returns large metadata parcels to system_server.
 allow system_server cameraserver:memfd_file { read write getattr map };
+
+# App-created MediaCodec message queues are shared with the codec service.
+allow mediacodec appdomain:memfd_file { read write getattr map };
