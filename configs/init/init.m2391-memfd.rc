@@ -1,0 +1,3 @@
+# Android 17 on Linux 6.18: use memfd with the API 33 vendor.
+on early-init
+    setprop sys.use_memfd true

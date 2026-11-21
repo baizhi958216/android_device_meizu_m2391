@@ -72,6 +72,10 @@ PRODUCT_PACKAGES += vndservicemanager
 # Legacy XMLDocument ABI used by the proprietary display and power stack.
 PRODUCT_PACKAGES += libtinyxml2-v34
 
+# The API 33 vendor otherwise selects ashmem, absent on Linux 6.18.
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/init/init.m2391-memfd.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.m2391-memfd.rc
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/zz-vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz-vndservicemanager.rc
 
