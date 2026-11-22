@@ -79,6 +79,8 @@ allow init proc_mz_info:file { read getattr setattr open };
 allow init mz_rpmb_device:chr_file { ioctl read write open };
 allow mediacodec videofilter_data_file:file create_file_perms;
 allow mediacodec videofilter_data_file:dir create_dir_perms;
+# App-created MediaCodec message queues are shared with the codec service.
+allow mediacodec appdomain:memfd_file { read write getattr map };
 allow platform_app hal_goodix_fingerprint_hwservice:hwservice_manager { find };
 allow platform_app hal_arcsoft_fingerprint_hwservice:hwservice_manager { find };
 allow platform_app vendor_fingerprint_file:dir create_dir_perms;
