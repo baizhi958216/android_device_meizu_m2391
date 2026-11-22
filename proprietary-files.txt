@@ -1453,7 +1453,7 @@ vendor/etc/init/android.hardware.gnss-aidl-service-qti.rc|a6e2521aa94a0a479aa6e4
 vendor/etc/init/loc-launcher.rc|b1422d7deab218570019887dcac97d175f401cea
 vendor/etc/init/vendor.qsap.location.rc|3b95c6ee5b19974fa90fccfa8dfd498828356a8f
 vendor/etc/init/vendor.qsap.qapeservice.rc|3f3230102529b8f29726c4c93ed0d8b68e845c6e
-vendor/etc/izat.conf|47e69957584832f6b63ad1eef07c388daa43fcf4
+vendor/etc/izat.conf|47e69957584832f6b63ad1eef07c388daa43fcf4|d71dbc77797d20b518a07a4ebc49d9664411ec85
 vendor/etc/lowi.conf|7fba2c732f7b9c2abb7cd247c6a44978bab24e83
 vendor/etc/permissions/android.hardware.location.gps.xml|c9d1b72a882a99276e3442a91730589a94055f57
 vendor/etc/sap.conf|8a9130e250dbf39f1db455d4f0af978be9cc53bd

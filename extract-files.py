@@ -70,6 +70,10 @@ module = ExtractUtilsModule(
         'vendor/qcom/opensource/dataservices',
     ],
     blob_fixups={
+        'vendor/etc/izat.conf': blob_fixup().regex_replace(
+            r'(PROCESS_NAME=lowi-server\nPROCESS_ARGUMENT=\n)PROCESS_STATE=DISABLED\n',
+            r'\1PROCESS_STATE=ENABLED\n\n',
+        ),
         # The OEM HAL asks read(2) for 4 bytes while expecting a full UCI packet.
         # Pass the caller's real capacity so the driver can respect the bound.
         (
