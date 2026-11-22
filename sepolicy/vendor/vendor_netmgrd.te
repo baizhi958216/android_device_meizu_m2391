@@ -1,0 +1,2 @@
+# Netmgr creates RMNET interfaces with RTM_NEWLINK on kernels using nlmsg xperms.
+allowxperm vendor_netmgrd self:netlink_route_socket nlmsg priv_route_socket_nlmsgs;

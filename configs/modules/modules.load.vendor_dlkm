@@ -304,3 +304,4 @@ msm_video.ko
 v4l2loopback.ko
 nxp-sr100.ko
 msm_kgsl.ko
+tipc.ko
