@@ -156,9 +156,9 @@ $(call soong_config_set,qtidisplay,libdisplayconfig_qti_namespace,hardware/qcom-
 $(call soong_config_set_bool,qtidisplay,default,true)
 $(call soong_config_set_bool,qtidisplay,drmpp,true)
 $(call soong_config_set_bool,qtidisplay,gralloc4,true)
-$(call soong_config_set_bool,qtidisplay,gralloc_handle_has_custom_content_md_reserved_size,true)
-$(call soong_config_set_bool,qtidisplay,gralloc_handle_has_reserved_size,true)
-$(call soong_config_set_bool,qtidisplay,gralloc_handle_has_ubwcp_format,false)
+$(call soong_config_set,qtidisplay,gralloc_handle_has_custom_content_md_reserved_size,true)
+$(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
+$(call soong_config_set,qtidisplay,gralloc_handle_has_ubwcp_format,false)
 
 # Wi-Fi (source-built wpa_supplicant, hostapd, and QCOM Wi-Fi HAL)
 BOARD_WLAN_DEVICE := qcwcn
