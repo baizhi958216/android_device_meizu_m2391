@@ -63,6 +63,8 @@ module = ExtractUtilsModule(
         'hardware/qcom-caf/thermal',
         'hardware/qcom-caf/wlan',
         'hardware/qcom-caf/wlan/qcwcn',
+        'vendor/qcom/opensource/commonsys/display',
+        'vendor/qcom/opensource/commonsys-intf/display',
         'vendor/qcom/opensource/dataservices',
     ],
     blob_fixups={

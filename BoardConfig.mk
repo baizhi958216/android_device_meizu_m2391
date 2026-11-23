@@ -150,6 +150,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.qcom
 $(call soong_config_set,qtiaudio,kernel_headers,//device/meizu/m2391:m2391_audio_kernel_headers)
 # NFC uses the kernel module tree's userspace UAPI export directly.
 $(call soong_config_set,qtinfc,kernel_headers,//kernel/meizu/m2391-modules:qti_nfc_kernel_headers)
+# Point source-built Power and Display HALs at the QSSI display interfaces.
+$(call soong_config_set,qtidisplay,headers_namespace,vendor/qcom/opensource/commonsys-intf/display)
+$(call soong_config_set,qtidisplay,libdisplayconfig_qti_namespace,hardware/qcom-caf/sm8550)
 
 # Wi-Fi (source-built wpa_supplicant, hostapd, and QCOM Wi-Fi HAL)
 BOARD_WLAN_DEVICE := qcwcn

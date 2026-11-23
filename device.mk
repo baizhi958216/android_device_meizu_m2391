@@ -9,7 +9,9 @@ $(call inherit-product, $(DEVICE_PATH)/source-packages.mk)
 # to replace source placeholders, including PAL's libPeripheralStateUtils.
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH) hardware/qcom-caf/bootctrl \
     hardware/qcom-caf/sm8550 hardware/qcom-caf/thermal hardware/qcom-caf/wlan \
-    hardware/qcom-caf/wlan/qcwcn vendor/qcom/opensource/dataservices
+    hardware/qcom-caf/wlan/qcwcn vendor/qcom/opensource/commonsys/display \
+    vendor/qcom/opensource/commonsys-intf/display \
+    vendor/qcom/opensource/dataservices
 
 PRODUCT_SHIPPING_API_LEVEL := 33
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
