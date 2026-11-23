@@ -766,12 +766,6 @@ vendor/lib64/vendor.display.color@1.5.so|ea8dd5d3667a5a240621fd11bfb42f066290375
 vendor/lib64/vendor.display.color@1.6.so|950502cf7617c316188b748a4e94b65cea3dad7b
 vendor/lib64/vendor.display.color@1.7.so|e860cc288c8b525b19f025176ae2278be5bd471a
 vendor/lib64/vendor.display.postproc@1.0.so|a6b8d3f7240ee6a4f73c59a27f5213dcbaaaa02c
-vendor/lib64/vendor.qti.hardware.display.config-V1-ndk.so|8680cef8ac6435e378610a63407d9f0e4116fb2d
-vendor/lib64/vendor.qti.hardware.display.config-V2-ndk.so|1acb8bf262972dd31c4472667799d7b528d2d545
-vendor/lib64/vendor.qti.hardware.display.config-V3-ndk.so|60c9ee63e5d732df8f51a97c3eedd084d1490374
-vendor/lib64/vendor.qti.hardware.display.config-V4-ndk.so|a70532897833f557c2736935004328c7b91bec8b
-vendor/lib64/vendor.qti.hardware.display.config-V5-ndk.so|2b99c58aa249ba23966e3bc7936d3f15e183de8e
-vendor/lib64/vendor.qti.hardware.display.config-V6-ndk.so|849fa5f7aa4eb8f6f213b4f05cf6dccdb02f795d
 vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so|a6d514c137601dec33be1e284349e6763bb7622c
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so|0fa4053593d3aeeb81176c8bf43c9b3789cdb8a5
 
