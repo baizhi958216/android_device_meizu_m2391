@@ -2418,7 +2418,6 @@ vendor/etc/wifi/icm.conf|c8b726f237fbdb2073bdc2b3a7571c0bf96f940e
 vendor/etc/wifi/kiwi_v2/WCNSS_qcom_cfg.ini|34c349d6b3060aa2aee06f61892db39a0fd5d091
 vendor/etc/wifi/p2p_supplicant_overlay.conf|4c7abbf7a716bf765bba5160c6b192cb8133d71f
 vendor/etc/wifi/vendor_cmd.xml|dd2fdb1ea6903729b196ef41a9f69b36650527ca
-vendor/etc/wifi/wpa_supplicant.conf|0546200cd6d7fa6bdc57f4ef3ecdc3279313b4fa
 vendor/etc/wifi/wpa_supplicant_overlay.conf|8a08fe916b6e31b73e4eae65f7339f87839d4867
 vendor/lib64/libwifi-hal-ctrl.so|7657c12047a7da060c0db5bfc784123df5947de8
 vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so|9d669c336be62bdebc91d93d3f9325a7b72400ef

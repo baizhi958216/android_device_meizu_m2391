@@ -27,6 +27,8 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 # Stock QSEE/camera/display binaries use the legacy ION allocator ABI.
 $(call soong_config_set_bool,libion,legacy_impl,true)
 
+$(call soong_config_set_bool,qtidisplay,default,true)
+
 # The stock HIDL audio HAL keeps the Android 13 audio port layout.
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
