@@ -63,7 +63,6 @@ module = ExtractUtilsModule(
         'hardware/qcom-caf/thermal',
         'hardware/qcom-caf/wlan',
         'vendor/qcom/opensource/dataservices',
-        'vendor/qcom/opensource/power',
     ],
     blob_fixups={
         'vendor/etc/izat.conf': blob_fixup().regex_replace(
