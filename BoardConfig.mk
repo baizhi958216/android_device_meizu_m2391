@@ -153,6 +153,12 @@ $(call soong_config_set,qtinfc,kernel_headers,//kernel/meizu/m2391-modules:qti_n
 # Point source-built Power and Display HALs at the QSSI display interfaces.
 $(call soong_config_set,qtidisplay,headers_namespace,vendor/qcom/opensource/commonsys-intf/display)
 $(call soong_config_set,qtidisplay,libdisplayconfig_qti_namespace,hardware/qcom-caf/sm8550)
+$(call soong_config_set_bool,qtidisplay,default,true)
+$(call soong_config_set_bool,qtidisplay,drmpp,true)
+$(call soong_config_set_bool,qtidisplay,gralloc4,true)
+$(call soong_config_set_bool,qtidisplay,gralloc_handle_has_custom_content_md_reserved_size,true)
+$(call soong_config_set_bool,qtidisplay,gralloc_handle_has_reserved_size,true)
+$(call soong_config_set_bool,qtidisplay,gralloc_handle_has_ubwcp_format,false)
 
 # Wi-Fi (source-built wpa_supplicant, hostapd, and QCOM Wi-Fi HAL)
 BOARD_WLAN_DEVICE := qcwcn
