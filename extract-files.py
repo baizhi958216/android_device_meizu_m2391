@@ -62,6 +62,7 @@ module = ExtractUtilsModule(
         'hardware/qcom-caf/sm8550',
         'hardware/qcom-caf/thermal',
         'hardware/qcom-caf/wlan',
+        'hardware/qcom-caf/wlan/qcwcn',
         'vendor/qcom/opensource/dataservices',
     ],
     blob_fixups={
