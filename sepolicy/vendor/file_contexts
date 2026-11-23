@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
 # MEIZU additions to the Qualcomm SM8550 source policy.
-/vendor/bin/init\.qti\.display_boot\.m2391\.sh u:object_r:qti_display_boot_exec:s0
 # Ported from firmware 1764145455; compiled with native SELinux build rules.
 
 # VL53L1 input numbering can change; restore labels through /sys/class/meizu/dtof.

@@ -46,11 +46,16 @@ PRODUCT_ENFORCE_VINTF_MANIFEST := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.ir-service.m2391 \
     android.hardware.vibrator-service.m2391 \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.demura-service \
     M2391Gestures \
     M2391CarrierConfig \
-    M2391DisplayRecovery \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
     M2391SettingsOverlay \

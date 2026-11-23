@@ -43,3 +43,4 @@ vendor.meizu.fido.aaid                                  u:object_r:vendor_fido_p
 vendor.meizu.fido.key1                                  u:object_r:vendor_fido_prop:s0
 vendor.meizu.fido.key2                                  u:object_r:vendor_fido_prop:s0
 ro.vendor.serialno                                      u:object_r:vendor_fix_1347671_prop:s0
+persist.vendor.display.boot_resolution                  u:object_r:vendor_display_boot_res_prop:s0 exact string

@@ -642,11 +642,7 @@ vendor/lib64/vendor.qti.diaghal@1.0.so|2effed4ee617cdb1dbb43fc60f911c176ae4382a
 # Display
 vendor/bin/feature_enabler_client|78e121d704db30c371f54ad8673901ed86a4250a
 vendor/bin/hw/vendor.display.color@1.0-service|8a4b8a0ffc9e91aec8d7bac45579c0905c71a3c0
-vendor/bin/hw/vendor.qti.hardware.display.allocator-service|5295479f1f41dc053baaa39b30c667867662699a
-vendor/bin/hw/vendor.qti.hardware.display.composer-service|643338d779db8867d6b3fae495c13039b0c8b7cb
-vendor/bin/hw/vendor.qti.hardware.display.demura-service|ff771df10d01e70da19d503c2414755a83321d6a
 vendor/bin/hw/vendor.qti.hardware.lights.service|d7121da883e78e6b8c5010c3b6fdcc43ad2953b3
-vendor/bin/init.qti.display_boot.sh:vendor/bin/init.qti.display_boot.m2391.sh;MAKE_COPY_RULE_ONLY|974ec264f295c13f7fe88b8da57c2ee4d44e2288
 vendor/bin/ppd|9249dc2c4d0e2a94e0982d020a701f6a2478f714
 vendor/bin/qdcmss|72b913073cbd2362f9a85115429974cf5910b163
 vendor/bin/ubwcconvert|a9a88006394ee17fd867e4a2312e0d1b435618cc
@@ -690,12 +686,8 @@ vendor/etc/display/thermallevel_to_fps.xml|bc38035c8f41308fc25cc30969fbbf16ab86c
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc|c266f08783a17f6583e3f22c85e55b0c200442ea
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|576ce4393b7746b77a230745aa9e9ee3bd31b17d
 vendor/etc/init/feature_enabler_client.rc|7c8e7cf20093d1a6d94d7de2debd53a7e51f8c29
-vendor/etc/init/init.qti.display_boot.rc:vendor/etc/init/init.qti.display_boot.m2391.rc|d70c76f6f9c612be32d60f218421c5566b6e5401|a325851b9c45fc3074b6fd33a2fd2fa20977853a
 vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
 vendor/etc/init/vendor.display.color@1.0-service.rc|fc58968025ec9f09b4fedee0b9daecc6a56c8373
-vendor/etc/init/vendor.qti.hardware.display.allocator-service.rc:vendor/etc/init/vendor.qti.hardware.display.allocator-service.m2391.rc|73d22daf61665ead21e6145e9a871735cdc06b91
-vendor/etc/init/vendor.qti.hardware.display.composer-service.rc:vendor/etc/init/vendor.qti.hardware.display.composer-service.m2391.rc|99dd9755841ef4accaac6ca113e617d69e2aeedc
-vendor/etc/init/vendor.qti.hardware.display.demura-service.rc:vendor/etc/init/vendor.qti.hardware.display.demura-service.m2391.rc|13f054ca55d1d9fd0513aea904f9502b205ab6cd
 vendor/etc/init/vendor.qti.hardware.lights.service.rc|608b61c194819e9f91e58035cf7801261b2a1cf4
 vendor/etc/init/wfdvndservice.rc|42e28fb8e0bf00620d7b9939b5bd3164ca671033
 vendor/etc/seccomp_policy/wfdhdcphalservice.policy|79188993ca1227695921d9f237c3f0832a4ae155
@@ -703,21 +695,10 @@ vendor/etc/seccomp_policy/wfdvndservice.policy|0a65e2a2079a3ed9f2c56fe342ebfc08a
 vendor/etc/seccomp_policy/wifidisplayhalservice.policy|9787d71828c281a3c590c16b1bf707fb03a5a244
 vendor/etc/smomo_setting.xml|2babfd2c6b55d46d2ab00dba19387acf4d1b2a4f
 vendor/etc/snapdragon_color_libs_config.xml|20be96679760b14cd63577a17f4a040e543254dd
-vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml;EXTRACT_ONLY|f32053a374e42c5fd0b6f42e3c2414b9eb4f2ae5
-vendor/etc/vintf/manifest/vendor.qti.hardware.display.allocator-service.xml;EXTRACT_ONLY|f9e9966dca44a4598da015b9f54b992cbb71bd35
-vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service.xml;EXTRACT_ONLY|6fc74e0b0b7161b0c816ef84d217f89f0d694021
-vendor/etc/vintf/manifest/vendor.qti.hardware.display.demura-service.xml;EXTRACT_ONLY|a260715c0d434985d287fdb8089dd89a92c2551c
 vendor/etc/vintf/manifest/vendor.qti.hardware.lights.service.xml;EXTRACT_ONLY|7595bd5c94c45742794617edd2fee24742ea30c8
 vendor/etc/vintf/manifest/vendor.qti.hardware.wifidisplaysession-service.xml;EXTRACT_ONLY|d80adcbcb0650b7ec264bf0922a68ce44b885b1b
 vendor/etc/wfdconfig.xml|41d220ee3a422513cd14db1ee7e1797383833148
-vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so|20bb90e65360b321ce5d979e48720d722e924c85
 vendor/lib/hw/gralloc.default.so|dcbc7b416fafbd8ccd44b94bbc127471a2039bf9
-vendor/lib/libdisplayconfig.qti.so|cbf73063132de8b3ac7557ee1ccbe901989cf3fb
-vendor/lib/libgralloc.qti.so|375abd904fda8753a355cc6643dd7f90862a48d3
-vendor/lib/libgralloccore.so|d9adf0ae6834a498457ff158734ed618c6b262b7
-vendor/lib/libgrallocutils.so|31bb5781dcbfbcbfa65e9ceaee24251735dbf4d4
-vendor/lib/libqdMetaData.so|98dbdfbeb4591072c84092d24253228d72d80011
-vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so|d7ed9bf277a5858cc82565b022c92f73dce26778
 vendor/lib64/hw/gralloc.default.so|46fa6c0c1beacb4227bdafed0f4c37804eb160ae
 vendor/lib64/libFileMux_proprietary.so|c5402266f0acb7636c2031b75df6b65af7666db1
 vendor/lib64/libbacklight-calib.so|8522660315c8d64e690d0faedf23027a40f8e871
@@ -726,43 +707,31 @@ vendor/lib64/libclstc_gcp_adapter.so|b79dadb2a1f01fbd9247ce2d9eb2623f2bb09f45
 vendor/lib64/libclstc_tm.so|4493a709d717985b50c70c6a3be26d59fa8e367f
 vendor/lib64/libdigital-dimming.so|792b742ae4c297d8f750e65ae0b01c54ccdcb63f
 vendor/lib64/libdisp-aba.so|45bfdf710dfee7eaaaaa19584fdb0b9d62a975ab
-vendor/lib64/libdisplayconfig.qti.so|c4011424079f24513a33b16312f7c01acf995ef9
-vendor/lib64/libdisplaydebug.so|949aa3d0187248c2e1cefdef9083816e14a9ac4c
 vendor/lib64/libdisplayqos.so|b3e83b9af77c92d819f1c38dcc9f305601ca27b2
 vendor/lib64/libdisplayskuutils.so|4335b456d8228a4eaa9a9a2bd8777879159607a1
 vendor/lib64/libdpps.so|e79c201c7717f79e1bfcb9db88b20d385f4d7136|cc2c4ba0984fbd71816dcc22ea1adf9dac768750
 vendor/lib64/libfeutils.so|a141f6f8ee0e6a2aa4e7b4d8caa43a6f4a05d856
 vendor/lib64/libgame_enhance.so|b585d4aa700a807c8209b79b0360eb010cd958a3
-vendor/lib64/libgralloc.qti.so|93e43bfc9322c85c48a03b04a5619b6e54327b67
-vendor/lib64/libgralloccore.so|5b30bf39e25956c9d723998630e9648a03541567
-vendor/lib64/libgrallocutils.so|11cbea9ce47305da298188b10b9460b0a94c9b67
 vendor/lib64/libhdr10plus.so|b2e343f01307f4b60240483748954c3c8cc3c9e8
 vendor/lib64/libhdr_backlight_adapter.so|bf495e78f3b4d8e0ef9e240f8d9d9ef08ad29581
 vendor/lib64/libhdr_tm.so|06ec2f6ba7baa668cd21a9e66d5f121df3d8d7e2
 vendor/lib64/libhdrdynamic.so|4b876ff4765193fc68c21ea41e2c3cfcb79435bc
 vendor/lib64/libhdrdynamicootf.so|8a944467de4fafcccdc55fcde184652be506e6fd
-vendor/lib64/libhistogram.so|1f4d329998ed4978567aca3325c9d8cfc78ce689
 vendor/lib64/libintervmipc.so|08d81ffd7d38c250934677ea056a29315536e112
 vendor/lib64/libmemutils.so|83fd9d24b199416fd6f75b4625c29737604388da
 vendor/lib64/libmm-hdcpmgr.so|14097c1408dc110ef8dce578576024b610af547f
 vendor/lib64/libmmrtpdecoder_vendor.so|cf5d4098727703cca3154865ae7780a60e8d63f3
 vendor/lib64/libmmrtpencoder_vendor.so|cee42cd8db7ee136bc72cf326ddab4a340e9e217
-vendor/lib64/libqdMetaData.so|2721633ca3823689559faca403be1be9464439c1
 vendor/lib64/libqdcm-algo.so|8a7aae2246915f43a7c9b946280822bdb7de2a20
 vendor/lib64/libqdcm-json-mode-parser.so|534c914998fddfe915a75db9d7dc94327577b1ae
 vendor/lib64/libqdcm-mode-parser.so|1e69faae4212feb0d4ef89039eb760f2b2578c37
-vendor/lib64/libqdutils.so|e81369266e89db7aaba7f3d3e7be536e1e075cbe
 vendor/lib64/libqrtrclient.so|ab0a87b0db246a836f6b001c3e4874d6f14361cf
 vendor/lib64/libqseed3.so|3f3540f90ddafc814d86bb04c95446e4623ffa2e
-vendor/lib64/libqservice.so|ccc27932be3a702f3639c5c8da137c9d36d0ff3a
 vendor/lib64/librcmask.so|b5c7dd55f9a517f61dba444662996ee551224257
 vendor/lib64/libsdm-color.so|c36b857c03f1ac8e89882fd59812ae501e4c9772
 vendor/lib64/libsdm-colormgr-algo.so|e869abec7e7a19898e8263c1f20721121f068e14
 vendor/lib64/libsdm-disp-vndapis.so|5fa6bcf6d84109034e9375eaeaec01fcbf048d48
-vendor/lib64/libsdmcore.so|1b9502244d5fba928188a3663b53f551a1edf33a
-vendor/lib64/libsdmdal.so|c374400293a57c314d600f798cbcb72f6c240421
 vendor/lib64/libsdmextension.so|7c4abb95cd7e9bb1fb22faf46f92db8462cdafe8
-vendor/lib64/libsdmutils.so|7e261d0a3447c4ef5d36bd9d9bcfcee03eee93b4
 vendor/lib64/libsnapdragoncolor-manager.so|d6efbf91a02ff7f664392a13544244bddb70a880|df6108ee1176a34ede4376d5236685adcb5d49b6
 vendor/lib64/libsnapdragoncolor-qdcm.so|311fe9dd8d193fe15598c8011f3ee380eb9b5bc9
 vendor/lib64/libtestutils.so|c08a0c89b3102badf6eb58cb38df608d70a43877
@@ -814,12 +783,10 @@ vendor/bin/hw/android.hardware.drm-service.widevine|42f026fb31d52faeed6a6ac080cd
 vendor/etc/init/android.hardware.drm-service.widevine.rc|54c79ef531c9c135fa234a8515b3d37f0e1ccc4d
 vendor/etc/vintf/manifest/android.hardware.drm-service.xml;EXTRACT_ONLY|9fa22af7d76036299638029b8e2946731ce652f3
 vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml;EXTRACT_ONLY|7e13b6628572b1cdd76351b744e2805d4e6f2dd9
-vendor/lib64/libdrmutils.so|a735fbf4ebc260344549d35768f94fcb1d8c1942
 vendor/lib64/libhdcp1prov.so|37176d4c602c9c59067bdd28661b7875877af436
 vendor/lib64/libhdcp2p2prov.so|a8a3eaf356cdc59f066044c6b743d14ea40a6569
 vendor/lib64/libhdcpsrm.so|9b547efa9e5012928893ffcc2c163e0234c37ff0
 vendor/lib64/liboemcrypto.so|6a85dc743a6d6d2a0b59c9769e679793ef91a18f
-vendor/lib64/libsdedrm.so|791e907c984f8b66aae300673c7da9b8fba3cd2e
 vendor/lib64/libwvaidl.so|35a17cc63cfd8184ea929ba79fe3bd7dbee01bf3
 
 # DSP - ADSP modules
@@ -1078,7 +1045,6 @@ vendor/lib/libCB.so|16d4e5c13aa603bb3667165fc3f727701e20a164
 vendor/lib/libOpenCL.so|6c8bd633d344fde2ed5d7ccb85239659cfc936fc
 vendor/lib/libadreno_app_profiles.so|8201150e3c434439fa3742fe31e55fb1df66e3b8
 vendor/lib/libadreno_utils.so|cba3b022ca20fc43fe6c101557ef8be5251870a4
-vendor/lib/libgpu_tonemapper.so|da210304dd0d0b50e571479f39c218ef9a8d4c62
 vendor/lib/libgpudataproducer.so|c3e270e325ea48b15881ea22c58bcbca7e98d2ee
 vendor/lib/libgsl.so|7a90f5627c0918713f1b9b30aac0cdbf480d4a4e
 vendor/lib/libkcl.so|d27724f17db8e3876e75297cd301af68c20f9853
@@ -1098,7 +1064,6 @@ vendor/lib64/libCB.so|0f2051b433633de88d215bf78c65a2ae653ac5b8
 vendor/lib64/libOpenCL.so|70dccd0685942db60e00b50e04b17b14386e03cc
 vendor/lib64/libadreno_app_profiles.so|05dd11d3b29aae1dab6a0d3a3241db8f7aeda78b
 vendor/lib64/libadreno_utils.so|867bb9710dcd19c0b380928ef2c0d2eac796a36b
-vendor/lib64/libgpu_tonemapper.so|962086ac556cbd89e5e6ee49537ecbccc49fe834
 vendor/lib64/libgpudataproducer.so|843cbb3f7f4ecd31fcb4dc76bd0ca8016884cb7c
 vendor/lib64/libgsl.so|3899824a839dea78bc9c6db47f12da598f7e25ad
 vendor/lib64/libkcl.so|005701e64cd10ff805c7d9ceea25fe95313dfb45
@@ -1489,7 +1454,6 @@ vendor/etc/ufs_ffu_firmware.bin|2e026afd7bf5b1889ed95dbfe60fca7ceff74bd0
 vendor/etc/vintf/manifest/vendor.qti.memory.pasrmanager@1.0-service.xml;EXTRACT_ONLY|7df963e6444be110b2b3896847dd57fd8558996f
 vendor/etc/vmmgr.conf|012585558b38264f1924e4d2a4e05441b7c09b18
 vendor/lib64/hw/vendor.qti.memory.pasrmanager@1.0-impl.so|b2d451950ae12f80f20b92c293d862a7ff538df2
-vendor/lib64/libfilefinder.so|600cfdec39ed1e8e9785d524714940880bbc9b1a
 vendor/lib64/libpasrutils.so|8901edb4fcd9f3833759230e73d11e523f3e28d0
 vendor/lib64/vendor.qti.power.pasrmanager@1.0.so|8929787734d5557a52747e0c27875b34ccedf715
 
