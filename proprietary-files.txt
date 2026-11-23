@@ -817,7 +817,6 @@ vendor/etc/init/hw/init.qti.kernel.rc|659f22f8d9a5c048ab7a12bf7a98ccb063976bc4
 vendor/etc/init/hw/init.qti.ufs.rc|95eae15b3e1def85866edfe617f1ea737dbbbafd
 vendor/etc/init/hw/init.target.rc|72726de5b0d55a6d31b01af889048ce7606b4ec1
 vendor/etc/init/init.qdmastats.rc|b5cd45247ca956f53bed21d53df14556599d33b6
-vendor/etc/init/init.vendor.aks.rc|313ecca76a806ba763ebf44b3997555a521008ca
 vendor/etc/init/tlpd.rc|459836b123db27753cc70c7a02f2bbfa392776ea
 vendor/etc/init/update_erf_partition.rc|07635335ccf617670849f8a83ece948f95beceb6
 vendor/etc/init/vendor.qti.psiclient@1.0-service.rc|3c8e69345951b17aed25be91d5cac59e2ff49c35
@@ -945,23 +944,18 @@ vendor/bin/diag_socket_log|62673ec124657c9530aeca5ce6a96030d1dddfbc
 vendor/bin/diag_uart_log|6619c4b79504e4bdfb0b8d6c9530a7c26e5e7391
 vendor/bin/diagcommd|a07af8d2b70f50be2179cda39b3da8094b2335bb
 vendor/bin/hw/android.hardware.dumpstate-service.qti|d6f1733047a48733c35c8a73189de43d674db232
-vendor/bin/hw/vendor.meizu.hardware.meizu_kelog@1.0-service|b37eb471b62259866bd097691cad141a7d77abe6
 vendor/bin/init.qti.kernel.debug-kalama.sh;MAKE_COPY_RULE_ONLY|dc81e468887dbc85435fdf8f88955b387b976580
 vendor/bin/init.qti.kernel.early_debug-kalama.sh;MAKE_COPY_RULE_ONLY|6664ee90721994900d57189dbd0515f1e6bfa98b
 vendor/bin/ssr_diag|566b48184204e895ee1431a0d3d01de52b6b22a4
 vendor/bin/test_diag|5f126d86da9d7ba2c8e86a0e27979b6c8268cd73
 vendor/etc/init/diagcommd.rc|2429b97faa61d4d2fd67ac3097d6ee552651e487
-vendor/etc/init/vendor.meizu.hardware.meizu_kelog@1.0-service.rc|7d4206647cd83cfb03111f1ea7d29022290fd0bf
 vendor/etc/init/vendor.qti.diag.rc|7fac6597717eea1008311ccfa01d25f93582ef5c
-vendor/etc/meizu_kelog.ini|68c90049f1cf5811082c926e19fb8e2408554c2e
-vendor/etc/vintf/manifest/vendor.meizu.hardware.meizu_kelog@1.0-service.xml;EXTRACT_ONLY|ea7cc1fd98ce7dea8aa8e3a3d47fe0bce8c4dfe2
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml;EXTRACT_ONLY|cd7745bb829bc9bfb8a23ba779c796384e9b3835
 vendor/lib/libdiag.so|96a9cb5310d4568781e60bef83bd2253eb415036
 vendor/lib/libdiagjni.so|fcf8779aaa3c6e7ba9e8a59f8af95b20a67edd33
 vendor/lib/vendor.qti.diaghal@1.0.so|b0f9739c55f223279649f7d6f75bddaed77c568a
 vendor/lib64/libdiag.so|cc1ed039d75e1d55f75e9b3fa73bb4ab87026402
 vendor/lib64/libdiagjni.so|365f2a63012515e9b1314a8aa7b8befa240dd6eb
-vendor/lib64/vendor.meizu.hardware.meizu_kelog@1.0.so|0dec12336c11381c56fbe651cc2aa3f0ef010d7b
 vendor/lib64/vendor.qti.diaghal@1.0.so|2effed4ee617cdb1dbb43fc60f911c176ae4382a
 
 # Display
@@ -1328,8 +1322,6 @@ vendor/lib64/libsysmon_cdsp_skel.so|74a9aa9d333457fc03b20f82e59ea295a021fdca
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so|6a5325f0244ae4735490530c314d94e044c103a2
 
 # Face authentication
-vendor/bin/hw/vendor.xingji.hardware.biometrics.face@1.0-service|cb7bfeafdcbb9350791415573595d0f2acee10db
-vendor/etc/init/vendor.xingji.hardware.biometrics.face@1.0-service.rc|642f1533ae54307311c21d5407b28f00f769601c
 vendor/etc/vintf/manifest/manifest_xingji_face_default.xml;EXTRACT_ONLY|b8607ac9822e7e0a1c6002bdf269d9f68084557c
 vendor/lib/libFace3DTA.so|f3856c80c841a9603b203e712d2ac6a5b7936883
 vendor/lib/libFace3D_hlos.so|403e442d060d4b751504d945f731c70da8c5ae27
@@ -1337,7 +1329,6 @@ vendor/lib/libface3d_dev.so|b57ce8f0c50e94516809c3c50a41e40fcc212c10
 vendor/lib64/libFace3DTA.so|adc2a1b6c4ae6c7defd1024437652dcda44db691
 vendor/lib64/libFace3D_hlos.so|47b7df8ff69c5519911236195a8f3e8c4d1cdade
 vendor/lib64/libface3d_dev.so|ffea73b869dc340d130be4656d0807b4ccb8e085
-vendor/lib64/vendor.xingji.hardware.biometrics.face@1.0.so|899a239cb46a3a6f0ac37f9282977d95a85b03c7
 
 # Factory tests
 vendor/bin/PktRspTest|901194e0141c3706b4c7bd772c45842240e714c6
@@ -1430,8 +1421,6 @@ vendor/bin/fm_qsoc_patches|abc8c3fb3f7ff3054f1b273eed59b8aca076abc8
 vendor/bin/fmconfig|c9de20f591f60767837ddc3d4c977f72bd91aa79
 vendor/bin/fmfactorytest|dfde2f261655ca7b36a1fd600662c0e9599af34b
 vendor/bin/fmfactorytestserver|8a450b6a64c34149ce7171d3d4da82e554fd9074
-vendor/etc/init.qti.fm.sh|0ac820dd85ebdf5fa73b5e971f6787ff35ceb65d
-vendor/etc/init/init.qti.fm.rc|4f5459058debbea76991e69f8522126f6655fd3b
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|cef60ed6f75da2617a8fed08d8c6d0e33aa8ef94
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|03a3fed3ff2c67bc4e1a39b460577da5c1b30a2a
 
@@ -1618,21 +1607,14 @@ vendor/gpu/kbc/unified_kbcs_64.bin|9a7aab994cc37cfaf78c4cfe32fd1b1b1f7ee071
 vendor/gpu/kbc/unified_ksqs.bin|e1174f1692be432f5ceca8f85ea669dbe667a2e7
 
 # Haptics
-vendor/bin/hw/vendor.meizu.hardware.tiktap_hidl@1.0-service|f5b1103794a65d1164e9ebfc02de9299fb8f56f5
-vendor/etc/init/vendor.meizu.hardware.tiktap_hidl@1.0-service.rc|ad1fd90be96e625317ca32a33096e8e93ccb3e55
-vendor/etc/vintf/manifest/vendor.meizu.hardware.tiktap_hidl@1.0-service.xml;EXTRACT_ONLY|ca05c8dfaa744576ee64d06e460f3e0c230ef9e1
 vendor/etc/vintf/manifest/vendor.qti.hardware.vibrator.service.xml;EXTRACT_ONLY|1b2536fb77244fbd1b87826229ca1ee72286aa47
-vendor/lib/hw/vendor.meizu.hardware.tiktap_hidl@1.0-impl.so|55d999520edd1fb686615094c02f21f50b7e916e
 vendor/lib/hw/vibrator.default.so|9b67e61d5a9ad8256e5a6e88ca96326adbc3689f
 vendor/lib/libvibrator.so;MODULE_SUFFIX=_vendor|8fb670102e3b03d81deead7ce102dd5b1b98f9db
-vendor/lib/vendor.meizu.hardware.tiktap_hidl@1.0.so|0f6db33442354152a7117c30aa2ad192da95d28a
 vendor/lib64/hw/tiktap_algo.default.so|96e607437d0dd6499a1b258921684286cfef0920
-vendor/lib64/hw/vendor.meizu.hardware.tiktap_hidl@1.0-impl.so|67e8d897d814bd7abfc4c46955be82135a1746e9
 vendor/lib64/hw/vibrator.default.so|d94e43006bce4ad3a6af4a57c8a27eb99c400b2b
 vendor/lib64/libqtivibratoreffect.so|17a633e033fef68603dd1842c0c1379bd0f06d77
 vendor/lib64/libqtivibratoreffectoffload.so|ae1371616810501bce42f566132b5c853bba1048
 vendor/lib64/libvibrator.so;MODULE_SUFFIX=_vendor|056ab89c8b45e6c5dc51b8ad38729d0566ecf89c
-vendor/lib64/vendor.meizu.hardware.tiktap_hidl@1.0.so|33c8760e9091c229aae5fba852ee3d84ee0865b7
 vendor/lib64/vendor.qti.hardware.vibrator.impl.so|ccf96de41d6ebb73b5c1bf3dcc1f5d1b1f47831e
 
 # Haptics - Firmware
@@ -1883,13 +1865,6 @@ vendor/lib64/vendor.qti.imsrtpservice@3.1-service-Impl.so|dc4256b147f8ac5f49dfaf
 vendor/lib64/vendor.qti.imsrtpservice@3.1.so|f364df69208ca5449dd637e71846e110cd8494a6
 
 # Input - Gamepad
-vendor/bin/hw/vendor.aks.gamepad@1.0-service|b9fb6d2cd8738d15c71ee43576a709bc12cace11
-vendor/etc/init/vendor.aks.gamepad@1.0-service.rc|4c450f4edc7cf89914b438f8046d2d5cf42ba7f3|1ab96a262de7604ae91138561f37883a217acb18
-vendor/etc/vintf/manifest/vendor.aks.gamepad@1.0-service.xml;EXTRACT_ONLY|6ece5d3e535d20dd8a82bc4b3323d0fe5bafff1b
-vendor/lib/hw/vendor.aks.gamepad@1.0-impl.so|60427644279533246b46688f5071164030c166ab
-vendor/lib/vendor.aks.gamepad@1.0.so|e0972010aeef31944748a5e7533180ca11fcb357
-vendor/lib64/hw/vendor.aks.gamepad@1.0-impl.so|6bbf78f778424245a314610551227da757b11a9f
-vendor/lib64/vendor.aks.gamepad@1.0.so|b2d1f219c3d2c730d0ee19a721a85a1a7fc515e7
 vendor/usr/keylayout/Vendor_2212_Product_0010.kl|9416161e2f9e708defbdf6670b26700287da96d2
 
 # IR - VINTF declaration for the source-built HAL
@@ -2095,20 +2070,15 @@ vendor/app/pasrservice/pasrservice.apk;PRESIGNED|79eae010d1bbe571f0ad33556629bdd
 vendor/bin/checkpoint_gc;EXTRACT_ONLY|a693f96942ca87f2c2ab73e67987e0de9fb02092
 vendor/bin/f2managertest|bca5b0d6fcb28129bd696af10ac36c369ade5e2e
 vendor/bin/hw/pasrknob|f6ef679a8108e77f8e03cf33decb18df13a81b1b
-vendor/bin/hw/vendor.meizu.hardware.fbase_defrag@1.0-service|ec90fcc46a9e8561558ffbba4a9c29b62249ca0c
 vendor/bin/hw/vendor.qti.memory.pasrmanager@1.0-service|ce93c02f76384c4665e6b2928e288917a8529112
 vendor/bin/image_update|b9f2355663169e0b18fb3170db23b87945c130dc
-vendor/bin/init.meizu.smart_zram.sh;MAKE_COPY_RULE_ONLY|fdb2fd06fb2d4171cd9d77ab9a5ba1af9820474a
 vendor/bin/smartzram_tool|71444008eee62ac00adfc30afbaf5c1756a23e8c
 vendor/bin/ufs-utils|aa2ffb3599da32acc9cdfb0163fd0acbc808d536
 vendor/bin/vmmgr|b346a19685f34d0ab11cff039c2fba881896523b
-vendor/etc/init/init.meizu.smart_zram.rc|db4682c309cf6fe3e29339dad851122e36d3f27c
-vendor/etc/init/vendor.meizu.hardware.fbase_defrag@1.0-service.rc|ff6d791b936b179be5e9cb5222e19a2f4f48c3ec
 vendor/etc/init/vendor.qti.memory.pasrmanager@1.0-service.rc|0392c66c185676fe4405e170338c8222f223b825
 vendor/etc/init/vendor.qti.pasrknob@1.0-service.rc|f6da6680dff8aaf797f3540771b2d9633c8087b7
 vendor/etc/init/vmmgr.rc|538c80735fb78cfe7aac244e06a7fef2e853bb24
 vendor/etc/ufs_ffu_firmware.bin|2e026afd7bf5b1889ed95dbfe60fca7ceff74bd0
-vendor/etc/vintf/manifest/vendor.meizu.hardware.fbase_defrag@1.0-service.xml;EXTRACT_ONLY|3acf7d5c57766a9aabc071fc2ff1e7c80305e4ed
 vendor/etc/vintf/manifest/vendor.qti.memory.pasrmanager@1.0-service.xml;EXTRACT_ONLY|7df963e6444be110b2b3896847dd57fd8558996f
 vendor/etc/vmmgr.conf|012585558b38264f1924e4d2a4e05441b7c09b18
 vendor/lib/hw/vendor.qti.memory.pasrmanager@1.0-impl.so|4348cf5bf78c048ed2ec1de8607d1736a9c4fa31
@@ -2118,7 +2088,6 @@ vendor/lib/vendor.qti.power.pasrmanager@1.0.so|58d4f1ad2ce961e448e6ab6fa9908712e
 vendor/lib64/hw/vendor.qti.memory.pasrmanager@1.0-impl.so|b2d451950ae12f80f20b92c293d862a7ff538df2
 vendor/lib64/libfilefinder.so|600cfdec39ed1e8e9785d524714940880bbc9b1a
 vendor/lib64/libpasrutils.so|8901edb4fcd9f3833759230e73d11e523f3e28d0
-vendor/lib64/vendor.meizu.hardware.fbase_defrag@1.0.so|b47f120d0b6913027460fafa1f663deec4ee8897
 vendor/lib64/vendor.qti.power.pasrmanager@1.0.so|8929787734d5557a52747e0c27875b34ccedf715
 
 # Networking - CNE
@@ -2899,25 +2868,19 @@ vendor/bin/hw/vendor.meizu.hardware.fido@2.0-service|7b851435c8648ef9607c9820b3c
 vendor/bin/hw/vendor.meizu.hardware.ifaa@1.0-service|559f4c236539533d0b952901af4c8d01613005d5
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service|c11df88f16372d538fcf0db8c7f63651b9b00cc5
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service|5b32d3d36a4f38ebe6dde4c82b1a416b5eb4bfe1
-vendor/bin/hw/vendor.xingji.hardware.qsee.store@1.0-service|11cf88a7d867a52d46311e3ce36ecdcb4560ba34
 vendor/bin/qseecom_sample_client|4cee8d70998d876b42ed4811206d4501ff332669
 vendor/bin/qseecomd|14cf5ef6f68f0414d906e1c4c4560e2d99ef0997
-vendor/bin/qteedebugd|c4e01c7d8d3a359656466352e5df035704a30ca5
 vendor/bin/rpmbClient|ce01ac9e84de20c3025db180a6039e9ba03fb2b0
-vendor/bin/rpmbd|b295aee0810498b14de1aff480840e0884f69194
 vendor/bin/smcinvoke_example|9f360d4a020b430d529b2d8e79cd3a9cfb96f75d
 vendor/bin/smcinvoke_skeleton|daee6b6699d4ef0c2cf63bac2ed9e24c48b9e774
 vendor/bin/smcinvoke_skeleton_cpp|ad143328372d48c0b737ccbeacd952a460a11268
 vendor/bin/vendor.qti.hardware.soter@1.0-provision|eb6c33a1719b86bb53f607949d8666934e9fc325
 vendor/etc/gpfspath_oem_config.xml|7aeade35b0bbe27530f6aca8c1ed5192a7acf59d
 vendor/etc/init/qseecomd.rc|2e9881d40839e6ec2e355a807b2a9b07b4c44793
-vendor/etc/init/qteedebugd.rc|ea57ed108091b7dfbfa80d041ec803ed3cf6e31d
-vendor/etc/init/rpmbd.rc|2f852711d0b69cd0bac1220a0d1955b251db556a
 vendor/etc/init/vendor.meizu.hardware.fido@2.0-service.rc|65d835b858afb5c372b580f7ce706e81194369c9
 vendor/etc/init/vendor.meizu.hardware.ifaa@1.0-service.rc|f0e44832a74baca539ff145f662ca1514fc357ba
 vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc|0f43244d70d5efc1e4f089b926a9dc4f59e53db1
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb7e8ca000e48bd28ae
-vendor/etc/init/vendor.xingji.hardware.qsee.store@1.0-service.rc|88d250b604cfce8d7f65c5fd832c10999faa5f08
 vendor/etc/ssg/ta_config.json|a603b321ea1d383d46b0ea250a5ceecc19dfa2bb
 vendor/etc/vintf/manifest/manifest_xingji_qsee_store_default.xml;EXTRACT_ONLY|7a108af4053f885f5bdbbb186818091cda32c1e8
 vendor/etc/vintf/manifest/vendor.meizu.hardware.fido@2.0-service.xml;EXTRACT_ONLY|67dec913ed60f39df50dc00ff198937bf6d296f1
@@ -2977,7 +2940,6 @@ vendor/lib64/vendor.meizu.hardware.ifaa@1.0.so|8c2717e5b68779b9cd39ece7416b46f2a
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so|cb636de822862ec251edf94604ff686bddd64d6b
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|4a0536f30b81e1a88a101a742d6c1b86c91c6b47
 vendor/lib64/vendor.qti.hardware.soter@1.0.so|8e3780dce9e0a79650b769b306207195561a3562
-vendor/lib64/vendor.xingji.hardware.qsee.store@1.0.so|c3850b8f77bf43721f12bbdbb61c232548af74d7
 
 # Security - TEE and authentication - Firmware
 vendor/firmware/mzfido64.b00|6d9129468ca49e6badd110537a292ef18ee95d48
@@ -3012,14 +2974,12 @@ vendor/firmware/secstoreapp64.b08|531ab726b352bca6acc26e0f68309029427664f9
 vendor/firmware/secstoreapp64.mdt|94c096ebf3c71a2975fd1afc25789a5c4237c3d9
 
 # Sensors and context hub
-vendor/bin/hw/vendor.meizu.hardware.qsh_geofence-service|76d658398987d19f0c0ab66d6a227ce9c637a4b1
 vendor/bin/hw/vendor.meizu.sensor_aux@1.0-default-service|285cd7b1c724d67f53ebddf4cab1406cec24c9d8
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service|54b9dd8dbc691262cf9b9cbc577229d3ed12eb9a
 vendor/bin/init.qcom.sensors.sh;MAKE_COPY_RULE_ONLY|454c6de8c65b9ad1c41f063544871a4ba0665689
 vendor/bin/sensors.qti|1ecf0822a3957f5ee9cd0981e344018b38460879
 vendor/bin/sscrpcd|c0804db0eb8f25052e44330352f2f186d714df30
 vendor/etc/init/init.vendor.sensors.rc|96a8d7ddf7b0a1c3ffed6e4a42423f586db45cc7
-vendor/etc/init/vendor.meizu.hardware.qsh_geofence-service.rc|eeb6730ac8403645af5939aa2a8760e600b4af00
 vendor/etc/init/vendor.meizu.sensor_aux@1.0-default-service.rc|ed6768338e106d54ea536d1e88b26abd98303e89
 vendor/etc/init/vendor.qsap.sensors.rc|65a1095ce3c72d712afef27fd54f587110a7dec0
 vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc|449c88778d880c0d47cc4d651fc60c4c424c1a3f
@@ -3133,7 +3093,6 @@ vendor/etc/sensors/config/sns_transport_ppe.json|d727118c3c908e58c71db85027a41d4
 vendor/etc/sensors/config/sns_wrist_pedo.json|66313c34d3b0d76de2f7aa39498b91c4e1feebc1
 vendor/etc/sensors/hals.conf|0a7c8ea093bb68ced874905c917b81fe8be437a4
 vendor/etc/sensors/sns_reg_config|5cc0421997c7231f779ed42d00d336a6961c3a9a
-vendor/etc/vintf/manifest/vendor.meizu.hardware.qsh_geofence-service.xml;EXTRACT_ONLY|53fe113b9c0828319401f7fbf2c275d20c407ac3
 vendor/etc/vintf/manifest/vendor.meizu.sensor_aux@1.0-default-service.xml;EXTRACT_ONLY|6586eb98dc7ff0eae212e09fddc35ca054d43003
 vendor/lib/camera/com.qti.sensor.imx318.so|532023964fdbe9fd68083479961a028c052e17c7
 vendor/lib/camera/com.qti.sensor.imx334.so|048e0f790832f8e4a9b02fccc134c07be8226b38
@@ -3287,7 +3246,6 @@ vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so|22b8f5194541fc6
 vendor/lib64/libSensorsInterface.so|73e5624472f1050c9433d9f4c843d22990bfd629
 vendor/lib64/libnanopb.so|11470fbfaa772c96f8209c6509ac805aa3103a3f
 vendor/lib64/libqsh_ble_pb.so|c9b38c5d12477a9ca8659f9217bbd1e0ba394a01
-vendor/lib64/libqsh_geofence.so|36939e3681d3985367731e8b670d16dbc4b1fdef
 vendor/lib64/libqsh_utils.so|9d7a1b36af88784d0cbdf25c53f33ff76cd11c52
 vendor/lib64/libsensor_calibration.so|7d6dab61c1f4f6a9d012849d3cf5658824aa1ad0
 vendor/lib64/libsensorcal.so|25c995be0a555f6c915ad64f80e80a62ba186fe1
@@ -3306,7 +3264,6 @@ vendor/lib64/libsnsutils.so|e64a2492cdebd327e425edaa0b85dca2055548f7
 vendor/lib64/libssc.so|2c2ed2a5f08dc0effd36b50bbe1a5cac90bc9e80
 vendor/lib64/libssc_default_listener.so|77e2d46ef53ae842a3d11d8fbfad08feff654def
 vendor/lib64/sensors.ssc.so|70fad8cb9eddbfa6a660e0d7f6eae12b1e3fb357
-vendor/lib64/vendor.meizu.hardware.qsh_geofence-V1-ndk_platform.so|4eafafa64d56ac8ad5e55586eb9e0279b85fb029
 vendor/lib64/vendor.meizu.sensor_aux@1.0.so|0a530bffc2906a46bea8c21bb86f7556b96cf9b2
 vendor/lib64/vendor.meizu.sensor_aux_m2391@1.0-default-impl.so|475444519b18ae04c3d79aa9e33b1a4f66041f47
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|d296a4d5b06065a8cd426ef0c88d6ffb2902aefe

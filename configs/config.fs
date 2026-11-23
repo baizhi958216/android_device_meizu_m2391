@@ -1362,19 +1362,7 @@ user: AID_ROOT
 group: AID_SHELL
 caps: 0x0
 
-[vendor/bin/hw/vendor.aks.gamepad@1.0-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
 [vendor/bin/hw/vendor.display.color@1.0-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/hw/vendor.meizu.hardware.fbase_defrag@1.0-service]
 mode: 0755
 user: AID_ROOT
 group: AID_SHELL
@@ -1393,24 +1381,6 @@ group: AID_SHELL
 caps: 0x0
 
 [vendor/bin/hw/vendor.meizu.hardware.meizu_charging@1.0-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/hw/vendor.meizu.hardware.meizu_kelog@1.0-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/hw/vendor.meizu.hardware.qsh_geofence-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/hw/vendor.meizu.hardware.tiktap_hidl@1.0-service]
 mode: 0755
 user: AID_ROOT
 group: AID_SHELL
@@ -1578,18 +1548,6 @@ user: AID_ROOT
 group: AID_SHELL
 caps: 0x0
 
-[vendor/bin/hw/vendor.xingji.hardware.biometrics.face@1.0-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/hw/vendor.xingji.hardware.qsee.store@1.0-service]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
 [vendor/bin/hw/wpa_supplicant]
 mode: 0755
 user: AID_ROOT
@@ -1717,12 +1675,6 @@ group: AID_SHELL
 caps: 0x0
 
 [vendor/bin/init.media.videofilter.sh]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/init.meizu.smart_zram.sh]
 mode: 0755
 user: AID_ROOT
 group: AID_SHELL
@@ -2454,12 +2406,6 @@ user: AID_ROOT
 group: AID_SHELL
 caps: 0x0
 
-[vendor/bin/qteedebugd]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
 [vendor/bin/qti]
 mode: 0755
 user: AID_ROOT
@@ -2587,12 +2533,6 @@ group: AID_SHELL
 caps: 0x0
 
 [vendor/bin/rpmbClient]
-mode: 0755
-user: AID_ROOT
-group: AID_SHELL
-caps: 0x0
-
-[vendor/bin/rpmbd]
 mode: 0755
 user: AID_ROOT
 group: AID_SHELL
@@ -4470,12 +4410,6 @@ user: AID_ROOT
 group: AID_SHELL
 caps: 0x0
 
-[vendor/etc/init.qti.fm.sh]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/etc/init/android.hardware.atrace@1.0-service.rc]
 mode: 0644
 user: AID_ROOT
@@ -4758,12 +4692,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/init.meizu.smart_zram.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/etc/init/init.qccvendor.rc]
 mode: 0644
 user: AID_ROOT
@@ -4782,12 +4710,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/init.qti.fm.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/etc/init/init.qti.media.rc]
 mode: 0644
 user: AID_ROOT
@@ -4801,12 +4723,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/init/init.time_daemon.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/init.vendor.aks.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -4932,12 +4848,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/qteedebugd.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/etc/init/qttestservice.rc]
 mode: 0644
 user: AID_ROOT
@@ -4945,12 +4855,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/init/qvrd_vndr.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/rpmbd.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -4986,12 +4890,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/init/vendor.aks.gamepad@1.0-service.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/etc/init/vendor.display.color@1.0-service.rc]
 mode: 0644
 user: AID_ROOT
@@ -4999,12 +4897,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/init/vendor.dpmd.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/vendor.meizu.hardware.fbase_defrag@1.0-service.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -5023,24 +4915,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/init/vendor.meizu.hardware.meizu_charging@1.0-service.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/vendor.meizu.hardware.meizu_kelog@1.0-service.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/vendor.meizu.hardware.qsh_geofence-service.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/vendor.meizu.hardware.tiktap_hidl@1.0-service.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -5305,18 +5179,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/init/vendor.sensors.sscrpcd.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/vendor.xingji.hardware.biometrics.face@1.0-service.rc]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/init/vendor.xingji.hardware.qsee.store@1.0-service.rc]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -5731,12 +5593,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/meizu_charging.ini]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/meizu_kelog.ini]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -7950,18 +7806,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/etc/vintf/manifest/vendor.aks.gamepad@1.0-service.xml]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/vintf/manifest/vendor.meizu.hardware.fbase_defrag@1.0-service.xml]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/etc/vintf/manifest/vendor.meizu.hardware.fido@2.0-service.xml]
 mode: 0644
 user: AID_ROOT
@@ -7975,24 +7819,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/etc/vintf/manifest/vendor.meizu.hardware.meizu_charging@1.0-service.xml]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/vintf/manifest/vendor.meizu.hardware.meizu_kelog@1.0-service.xml]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/vintf/manifest/vendor.meizu.hardware.qsh_geofence-service.xml]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/etc/vintf/manifest/vendor.meizu.hardware.tiktap_hidl@1.0-service.xml]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -12043,18 +11869,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/lib/hw/sound_trigger.primary.kalama.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib/hw/vendor.aks.gamepad@1.0-impl.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib/hw/vendor.meizu.hardware.tiktap_hidl@1.0-impl.so]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -16218,12 +16032,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/lib/vendor.aks.gamepad@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/lib/vendor.display.color@1.0.so]
 mode: 0644
 user: AID_ROOT
@@ -16381,12 +16189,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/lib/vendor.libmwqemiptablemgr.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib/vendor.meizu.hardware.tiktap_hidl@1.0.so]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -20022,18 +19824,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/lib64/hw/vendor.aks.gamepad@1.0-impl.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib64/hw/vendor.meizu.hardware.tiktap_hidl@1.0-impl.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so]
 mode: 0644
 user: AID_ROOT
@@ -22794,12 +22584,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/lib64/libqsh_geofence.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/lib64/libqsh_utils.so]
 mode: 0644
 user: AID_ROOT
@@ -24204,12 +23988,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/lib64/vendor.aks.gamepad@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/lib64/vendor.display.color@1.0.so]
 mode: 0644
 user: AID_ROOT
@@ -24372,12 +24150,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/lib64/vendor.meizu.hardware.fbase_defrag@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/lib64/vendor.meizu.hardware.fido@2.0.so]
 mode: 0644
 user: AID_ROOT
@@ -24391,24 +24163,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor/lib64/vendor.meizu.hardware.meizu_charging@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib64/vendor.meizu.hardware.meizu_kelog@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib64/vendor.meizu.hardware.qsh_geofence-V1-ndk_platform.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib64/vendor.meizu.hardware.tiktap_hidl@1.0.so]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -25680,18 +25434,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor/lib64/vendor.xingji.hardware.biometrics.face@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor/lib64/vendor.xingji.hardware.qsee.store@1.0.so]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor/lib64/vendor.xj.hardware.wifi.supplicant-V1-ndk.so]
 mode: 0644
 user: AID_ROOT
@@ -26598,18 +26340,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/aks-adc-joystick.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/aks-ads1015.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/altmode-glink.ko]
 mode: 0644
 user: AID_ROOT
@@ -26653,12 +26383,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor_dlkm/lib/modules/boot_stats.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/bootloader_log.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -26760,73 +26484,13 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/coresight-cti.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-dummy.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-funnel.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/coresight-hwevent.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/coresight-remote-etm.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-replicator.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-stm.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/coresight-tgu.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-tmc.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-tpda.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight-tpdm.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/coresight.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -26851,18 +26515,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor_dlkm/lib/modules/cs35l45_dlkm.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/cs_press_f71.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/cs_press_m68.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -26911,12 +26563,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor_dlkm/lib/modules/ep_pcie_drv.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/eud.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -27090,12 +26736,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/kunit.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/leds-qpnp-vibrator-ldo.ko]
 mode: 0644
 user: AID_ROOT
@@ -27174,12 +26814,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/maudit.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/max31760_fan.ko]
 mode: 0644
 user: AID_ROOT
@@ -27187,12 +26821,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor_dlkm/lib/modules/mbhc_dlkm.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/meizu_key_value.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -27408,55 +27036,7 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/mz_bl_lock.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mz_debug_vendor_hooks.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/mz_gesture_ts.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mz_hang_dump.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mz_reclaim_opt.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mz_rpmb_ctl.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mz_rstinfo.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mz_thermal_log.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/mzprobe.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -27954,12 +27534,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/radio-i2c-rtc6226-qca.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/rdbg.ko]
 mode: 0644
 user: AID_ROOT
@@ -28188,43 +27762,7 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/stm_console.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/stm_core.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/stm_ftrace.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/stm_nfc_i2c.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/stm_p_basic.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/stm_p_ost.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/stm_st54se_gpio.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT
@@ -28296,12 +27834,6 @@ user: AID_ROOT
 group: AID_ROOT
 caps: 0x0
 
-[vendor_dlkm/lib/modules/tz_log_dlkm.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
 [vendor_dlkm/lib/modules/ucsi_glink.ko]
 mode: 0644
 user: AID_ROOT
@@ -28345,12 +27877,6 @@ group: AID_ROOT
 caps: 0x0
 
 [vendor_dlkm/lib/modules/usbmon.ko]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
-caps: 0x0
-
-[vendor_dlkm/lib/modules/v4l2loopback.ko]
 mode: 0644
 user: AID_ROOT
 group: AID_ROOT

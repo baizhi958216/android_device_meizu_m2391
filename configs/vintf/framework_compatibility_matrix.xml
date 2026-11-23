@@ -32,14 +32,6 @@
     </interface>
   </hal>
   <hal format="hidl" optional="true">
-    <name>vendor.aks.gamepad</name>
-    <version>1.0</version>
-    <interface>
-      <name>IGamepad</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="hidl" optional="true">
     <name>vendor.display.color</name>
     <version>1.7</version>
     <interface>
@@ -64,14 +56,6 @@
     </interface>
   </hal>
   <hal format="hidl" optional="true">
-    <name>vendor.meizu.hardware.fbase_defrag</name>
-    <version>1.0</version>
-    <interface>
-      <name>IFbaseDefrag</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="hidl" optional="true">
     <name>vendor.meizu.hardware.fido</name>
     <version>2.0</version>
     <interface>
@@ -92,30 +76,6 @@
     <version>1.0</version>
     <interface>
       <name>IMeizuCharging</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="hidl" optional="true">
-    <name>vendor.meizu.hardware.meizu_kelog</name>
-    <version>1.0</version>
-    <interface>
-      <name>IMeizuKelog</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="aidl" optional="true">
-    <name>vendor.meizu.hardware.qsh_geofence</name>
-    <version>1</version>
-    <interface>
-      <name>IQshGeofence</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="hidl" optional="true">
-    <name>vendor.meizu.hardware.tiktap_hidl</name>
-    <version>1.0</version>
-    <interface>
-      <name>ITiktap</name>
       <instance>default</instance>
     </interface>
   </hal>
@@ -700,22 +660,6 @@
     <version>1.0</version>
     <interface>
       <name>IEidDevice</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="hidl" optional="true">
-    <name>vendor.xingji.hardware.biometrics.face</name>
-    <version>1.0</version>
-    <interface>
-      <name>IBiometricsFace</name>
-      <instance>default</instance>
-    </interface>
-  </hal>
-  <hal format="hidl" optional="true">
-    <name>vendor.xingji.hardware.qsee.store</name>
-    <version>1.0</version>
-    <interface>
-      <name>IQseeStore</name>
       <instance>default</instance>
     </interface>
   </hal>

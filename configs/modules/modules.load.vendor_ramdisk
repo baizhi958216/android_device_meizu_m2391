@@ -1,4 +1,3 @@
-mz_freq_qos.ko
 qcom_wdt_core.ko
 gh_virt_wdt.ko
 qcom_cpu_vendor_hooks.ko
@@ -110,8 +109,3 @@ xcharge_notify_subsys.ko
 xcharge_thermal.ko
 xcharge_mbattery_logger.ko
 xcharge_chg_interface.ko
-mz_enhance_qcom_wdog.ko
-mz_mrg.ko
-mz_compaction_opt.ko
-mz_kshrink_slabd.ko
-mz_thermal_boost.ko
