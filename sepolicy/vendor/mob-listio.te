@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: Apache-2.0
-
-init_daemon_domain(mob-listio)
-
-allow mob-listio self:capability { net_raw };
-allow mob-listio sysfs:file rw_file_perms;

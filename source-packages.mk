@@ -2,7 +2,6 @@
 # Source modules and LineageOS compatibility libraries used by the vendor image.
 PRODUCT_PACKAGES += \
     CneApp.libvndfwk_detect_jni.qti_vendor_symlink \
-    android.automotive.watchdog-V2-ndk.vendor \
     android.frameworks.cameraservice.common@2.0.vendor \
     android.frameworks.cameraservice.device@2.0.vendor \
     android.frameworks.cameraservice.device@2.1.vendor \
@@ -29,8 +28,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.0.vendor \
     android.hardware.audio@7.1.vendor \
     android.hardware.authsecret@1.0.vendor \
-    android.hardware.automotive.vehicle@2.0-manager-lib \
-    android.hardware.automotive.vehicle@2.0.vendor \
     android.hardware.biometrics.common-V1-ndk.vendor \
     android.hardware.biometrics.face@1.0.vendor \
     android.hardware.biometrics.fingerprint-V1-ndk.vendor \
@@ -110,13 +107,6 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.1.vendor \
     android.hardware.usb@1.2.vendor \
     android.hardware.weaver@1.0.vendor \
-    android.hardware.wifi@1.0.vendor \
-    android.hardware.wifi@1.1.vendor \
-    android.hardware.wifi@1.2.vendor \
-    android.hardware.wifi@1.3.vendor \
-    android.hardware.wifi@1.4.vendor \
-    android.hardware.wifi@1.5.vendor \
-    android.hardware.wifi@1.6.vendor \
     android.hidl.allocator@1.0.vendor \
     android.system.keystore2-V1-ndk.vendor \
     android.system.net.netd@1.0.vendor \
@@ -422,16 +412,24 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
-# Generic HALs and GPT-aware Boot Control / Qualcomm USB services.
+# Generic HALs and GPT-aware Boot Control / Qualcomm USB / Power / Thermal / Wi-Fi services.
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
+    android.hardware.power-service-qti \
     android.hardware.renderscript@1.0-impl \
+    android.hardware.thermal-service.qti \
     android.hardware.usb-service.m2391 \
     android.hardware.usb.gadget-service.m2391 \
+    android.hardware.wifi-service \
+    hostapd \
+    hostapd_cli \
+    libwifi-hal-qcom \
     local_time.default \
     nqnfcinfo \
     sensors.dynamic_sensor_hal \
-    vendor.qti.hardware.memtrack-service
+    vendor.qti.hardware.memtrack-service \
+    wpa_cli \
+    wpa_supplicant
 
 # Platform codec and audio policy declarations identical to stock.
 PRODUCT_COPY_FILES += \

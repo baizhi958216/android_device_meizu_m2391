@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: Apache-2.0
-
-init_daemon_domain(rpmbd)
-set_prop(rpmbd, vendor_rpmb_prop)
-
-allow rpmbd tee_device:chr_file rw_file_perms;

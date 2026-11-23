@@ -148,3 +148,14 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.qcom
 $(call soong_config_set,qtiaudio,kernel_headers,//device/meizu/m2391:m2391_audio_kernel_headers)
 # NFC uses the kernel module tree's userspace UAPI export directly.
 $(call soong_config_set,qtinfc,kernel_headers,//kernel/meizu/m2391-modules:qti_nfc_kernel_headers)
+
+# Wi-Fi (source-built wpa_supplicant, hostapd, and QCOM Wi-Fi HAL)
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_DEFAULT := qca_cld3
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X

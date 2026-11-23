@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: Apache-2.0
-
-init_daemon_domain(qteedebugd)
-set_prop(qteedebugd, vendor_qteedebug_prop)
-
-allow qteedebugd proc:file r_file_perms;

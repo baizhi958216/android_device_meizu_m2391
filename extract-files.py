@@ -40,10 +40,6 @@ def lib_fixup_vendor_suffix(lib, partition):
     return f'{lib}_vendor' if partition == 'vendor' else None
 
 
-def lib_fixup_m2391_suffix(lib, partition):
-    return f'{lib}_m2391' if partition == 'vendor' else None
-
-
 def lib_fixup_system_ext_suffix(lib, partition):
     return f'{lib}_system_ext' if partition == 'system_ext' else None
 
@@ -55,8 +51,6 @@ module = ExtractUtilsModule(
     lib_fixups={
         **lib_fixups,
         'libvibrator': lib_fixup_vendor_suffix,
-        # Keep the OEM shared Wi-Fi HAL separate from upstream's same-name module.
-        'libwifi-hal-qcom': lib_fixup_m2391_suffix,
         ('vendor.qti.diaghal@1.0', 'vendor.qti.imsrtpservice@3.0',
          'vendor.qti.imsrtpservice@3.1'): lib_fixup_system_ext_suffix,
     },
@@ -66,8 +60,10 @@ module = ExtractUtilsModule(
         'device/meizu/m2391',
         'hardware/qcom-caf/bootctrl',
         'hardware/qcom-caf/sm8550',
+        'hardware/qcom-caf/thermal',
         'hardware/qcom-caf/wlan',
         'vendor/qcom/opensource/dataservices',
+        'vendor/qcom/opensource/power',
     ],
     blob_fixups={
         'vendor/etc/izat.conf': blob_fixup().regex_replace(
@@ -158,26 +154,19 @@ module = ExtractUtilsModule(
             'libstagefright_foundation.so', 'libstagefright_foundation-meizu.so',
         ),
         'vendor/bin/slim_daemon': blob_fixup().add_needed('libemutls_m2391.so'),
-        'vendor/bin/hw/hostapd': blob_fixup().replace_needed(
-            'libcrypto.so', 'libcrypto-v33.so',
-        ),
-        'vendor/bin/hw/wpa_supplicant.m2391': blob_fixup()
-        .replace_needed('libcrypto.so', 'libcrypto-v33.so')
-        .replace_needed('libkeystore-engine-wifi-hidl.so', 'libkeystore-engine-wifi-hidl-v33.so'),
-        'vendor/lib64/libkeystore-engine-wifi-hidl-v33.so': blob_fixup()
-        .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
         # These proprietary HIDL interfaces have no source metadata for init's
         # checker. Keep their registration in the HAL, and start non-lazy ones
         # through their existing class rather than interface-triggered startup.
         'vendor/etc/init/qfp-daemon.rc': blob_fixup().regex_replace(
             r'(?m)^[ \t]*interface vendor\.qti\.hardware\.fingerprint@1\.0::.*\n', '',
         ),
-        (
-            'vendor/etc/init/vendor.aks.gamepad@1.0-service.rc',
-            'vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc',
-        ): blob_fixup()
+        'vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc': blob_fixup()
         .regex_replace(r'(?m)^[ \t]*interface .*\n', '')
         .regex_replace(r'(?m)^[ \t]*disabled\n', ''),
+        # Drop factory init import for the removed factory test stack.
+        'vendor/etc/init/hw/init.qcom.rc': blob_fixup().regex_replace(
+            r'(?m)^import /vendor/etc/init/hw/init\.qcom\.factory\.rc\n', '',
+        ),
         # assemble_vintf supplies the version of the source-built policy.
         'vendor/etc/vintf/manifest_kalama.xml': blob_fixup()
         .regex_replace(r'\s*<sepolicy>[\s\S]*?</sepolicy>', '')
@@ -186,19 +175,10 @@ module = ExtractUtilsModule(
         .regex_replace(
             r'\s*<hal format="hidl">\s*<name>android\.hardware\.audio(\.effect)?</name>[\s\S]*?</hal>',
             '',
-        ),
-        # V4 exports all Power symbols used by this service. Vendor binary
-        # redundantly links V3, which Soong rejects alongside V4.
-        'vendor/bin/hw/android.hardware.power-service': blob_fixup()
-        .remove_needed('android.hardware.power-V3-ndk.so'),
-        # Keep the Meizu/QTI supplicant extensions without colliding with the
-        # platform executable. Both service definitions use this path.
-        (
-            'vendor/etc/init/android.hardware.wifi.supplicant-service.rc',
-            'vendor/etc/init/hw/init.qcom.rc',
-        ): blob_fixup().regex_replace(
-            '/vendor/bin/hw/wpa_supplicant ',
-            '/vendor/bin/hw/wpa_supplicant.m2391 ',
+        )
+        .regex_replace(
+            r'\s*<hal format="hidl">\s*<name>vendor\.qti\.hardware\.factory</name>[\s\S]*?</hal>',
+            '',
         ),
     },
     extract_fns={

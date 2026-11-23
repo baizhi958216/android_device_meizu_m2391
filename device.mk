@@ -8,8 +8,8 @@ $(call inherit-product, $(DEVICE_PATH)/source-packages.mk)
 # Export upstream namespace roots. Matching vendor prebuilts use prefer: true
 # to replace source placeholders, including PAL's libPeripheralStateUtils.
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH) hardware/qcom-caf/bootctrl \
-    hardware/qcom-caf/sm8550 hardware/qcom-caf/wlan \
-    vendor/qcom/opensource/dataservices
+    hardware/qcom-caf/sm8550 hardware/qcom-caf/thermal hardware/qcom-caf/wlan \
+    vendor/qcom/opensource/dataservices vendor/qcom/opensource/power
 
 PRODUCT_SHIPPING_API_LEVEL := 33
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
