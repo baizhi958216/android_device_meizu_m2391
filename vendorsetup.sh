@@ -9,7 +9,9 @@ _m2391_top="${ANDROID_BUILD_TOP:-$PWD}"
 for _m2391_spec in \
     "frameworks/base:frameworks-base-strictmode-leak-compat.patch" \
     "hardware/qcom-caf/common:hardware-qcom-caf-common-audio-multilib.patch" \
-    "hardware/qcom-caf/sm8550/audio/agm:hardware-qcom-caf-sm8550-audio-agm-portability.patch"; do
+    "hardware/qcom-caf/sm8550/audio/agm:hardware-qcom-caf-sm8550-audio-agm-portability.patch" \
+    "hardware/qcom-caf/sm8550/display:hardware-qcom-caf-sm8550-display-boot-resolution.patch" \
+    "hardware/qcom-caf/sm8550/display:hardware-qcom-caf-sm8550-display-linux-618-ion.patch"; do
     _m2391_repo="${_m2391_spec%%:*}"
     _m2391_patch="${_m2391_top}/device/meizu/m2391/patches/${_m2391_spec#*:}"
     if [[ -f "${_m2391_patch}" && -d "${_m2391_repo}" ]]; then

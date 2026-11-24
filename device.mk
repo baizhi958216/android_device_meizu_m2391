@@ -8,7 +8,9 @@ $(call inherit-product, $(DEVICE_PATH)/source-packages.mk)
 # Export upstream namespace roots. Matching vendor prebuilts use prefer: true
 # to replace source placeholders, including PAL's libPeripheralStateUtils.
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH) hardware/qcom-caf/bootctrl \
-    hardware/qcom-caf/sm8550 hardware/qcom-caf/wlan \
+    hardware/qcom-caf/sm8550 hardware/qcom-caf/thermal hardware/qcom-caf/wlan \
+    hardware/qcom-caf/wlan/qcwcn vendor/qcom/opensource/commonsys/display \
+    vendor/qcom/opensource/commonsys-intf/display \
     vendor/qcom/opensource/dataservices
 
 PRODUCT_SHIPPING_API_LEVEL := 33
@@ -51,10 +53,15 @@ PRODUCT_ENFORCE_VINTF_MANIFEST := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.ir-service.m2391 \
     android.hardware.vibrator-service.m2391 \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.demura-service \
     M2391Gestures \
-    M2391DisplayRecovery \
     M2391ApertureOverlay \
     M2391FrameworkOverlay \
     M2391SettingsOverlay \
@@ -75,6 +82,10 @@ PRODUCT_PACKAGES += vndservicemanager
 
 # Legacy XMLDocument ABI used by the proprietary display and power stack.
 PRODUCT_PACKAGES += libtinyxml2-v34
+
+# Linux 6.18 provides ashmem for the API 33 vendor and sandboxed apps.
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/init/init.m2391-memfd.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.m2391-memfd.rc
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/zz-vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz-vndservicemanager.rc

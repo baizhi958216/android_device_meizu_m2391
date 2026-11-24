@@ -40,10 +40,6 @@ def lib_fixup_vendor_suffix(lib, partition):
     return f'{lib}_vendor' if partition == 'vendor' else None
 
 
-def lib_fixup_m2391_suffix(lib, partition):
-    return f'{lib}_m2391' if partition == 'vendor' else None
-
-
 def lib_fixup_system_ext_suffix(lib, partition):
     return f'{lib}_system_ext' if partition == 'system_ext' else None
 
@@ -55,8 +51,6 @@ module = ExtractUtilsModule(
     lib_fixups={
         **lib_fixups,
         'libvibrator': lib_fixup_vendor_suffix,
-        # Keep the OEM shared Wi-Fi HAL separate from upstream's same-name module.
-        'libwifi-hal-qcom': lib_fixup_m2391_suffix,
         ('vendor.qti.diaghal@1.0', 'vendor.qti.imsrtpservice@3.0',
          'vendor.qti.imsrtpservice@3.1'): lib_fixup_system_ext_suffix,
     },
@@ -66,22 +60,21 @@ module = ExtractUtilsModule(
         'device/meizu/m2391',
         'hardware/qcom-caf/bootctrl',
         'hardware/qcom-caf/sm8550',
+        'hardware/qcom-caf/thermal',
+        'hardware/qcom-caf/wlan/qcwcn',
         'hardware/qcom-caf/wlan',
+        'vendor/qcom/opensource/commonsys/display',
+        'vendor/qcom/opensource/commonsys-intf/display',
         'vendor/qcom/opensource/dataservices',
     ],
     blob_fixups={
+        'vendor/etc/izat.conf': blob_fixup().regex_replace(
+            r'(PROCESS_NAME=lowi-server\nPROCESS_ARGUMENT=\n)PROCESS_STATE=DISABLED\n',
+            r'\1PROCESS_STATE=ENABLED\n\n',
+        ),
         # The OEM HAL asks read(2) for 4 bytes while expecting a full UCI packet.
         # Pass the caller's real capacity so the driver can respect the bound.
-        (
-            'vendor/lib/uwb_uci.helios.nxp4mz.so',
-            'vendor/lib64/uwb_uci.helios.nxp4mz.so',
-        ): blob_fixup().call(fix_uwb_hal),
-        # Keep the OEM display startup script and init service definitions under
-        # device-specific paths, alongside the exported upstream display rules.
-        'vendor/etc/init/init.qti.display_boot.m2391.rc': blob_fixup().regex_replace(
-            r'/vendor/bin/init\.qti\.display_boot\.sh',
-            '/vendor/bin/init.qti.display_boot.m2391.sh',
-        ),
+        'vendor/lib64/uwb_uci.helios.nxp4mz.so': blob_fixup().call(fix_uwb_hal),
         # The audio service is 64-bit, including the legacy effects fallback.
         'vendor/etc/audio/sku_kalama/audio_effects.conf':
             blob_fixup().regex_replace('/vendor/lib/soundfx/', '/vendor/lib64/soundfx/'),
@@ -101,23 +94,13 @@ module = ExtractUtilsModule(
             blob_fixup().call(remove_ims_overlay),
         # EEPROM pair verification needs the real bootloader PSN. Expose it
         # through a camera-owned vendor property instead of default_prop.
-        (
-            'vendor/lib/hw/camera.qcom.so',
-            'vendor/lib64/hw/camera.qcom.so',
-        ): blob_fixup().binary_regex_replace(
+        'vendor/lib64/hw/camera.qcom.so': blob_fixup().binary_regex_replace(
             rb'ro\.meizu\.hardware\.psn\x00', b'ro.vendor.camera.psn\x00\x00',
         ),
         # Qualcomm's Android 13 display/power consumers embed the old
         # XMLDocument layout; current TinyXML2 corrupts those objects.
         (
             'vendor/bin/poweropt-service',
-            'vendor/lib/libaodoptfeature.so',
-            'vendor/lib/libdpps.so',
-            'vendor/lib/libpowercore.so',
-            'vendor/lib/libpsmoptfeature.so',
-            'vendor/lib/libsnapdragoncolor-manager.so',
-            'vendor/lib/libstandbyfeature.so',
-            'vendor/lib/libvideooptfeature.so',
             'vendor/lib64/libaodoptfeature.so',
             'vendor/lib64/libdpps.so',
             'vendor/lib64/libpowercore.so',
@@ -129,51 +112,39 @@ module = ExtractUtilsModule(
         (
             'vendor/bin/qguard',
             'vendor/lib64/libqfp-service.so',
-            'vendor/lib/nfc_nci.nqx.default.hw.so',
             'vendor/lib64/nfc_nci.nqx.default.hw.so',
-            'vendor/lib/hw/vendor.rongcard.hardware.eid_rk@1.0-impl.so',
             'vendor/lib64/hw/vendor.rongcard.hardware.eid_rk@1.0-impl.so',
         ): blob_fixup().replace_needed('libbase.so', 'libbase-v33.so'),
         (
             'vendor/bin/hw/android.hardware.security.keymint-service-qti',
             'vendor/bin/hw/android.hardware.security.keymint-service-spu-qti',
-            'vendor/lib/libqtikeymint.so',
             'vendor/lib64/libqtikeymint.so',
-            'vendor/lib/libspukeymint.so',
             'vendor/lib64/libspukeymint.so',
         ): blob_fixup().add_needed('android.hardware.security.rkp-V2-ndk.so'),
         (
             'vendor/lib/libqcodec2_core.so',
             'vendor/lib64/libqcodec2_core.so',
         ): blob_fixup().add_needed('libcodec2_m2391.so'),
-        (
-            'vendor/lib/vendor.libdpmframework.so',
-            'vendor/lib64/vendor.libdpmframework.so',
-        ): blob_fixup().replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
+        'vendor/lib64/vendor.libdpmframework.so': blob_fixup().replace_needed(
+            'libhidlbase.so', 'libhidlbase-v32.so',
+        ),
         'vendor/lib/vndk/libstagefright_omx.so': blob_fixup().replace_needed(
             'libstagefright_foundation.so', 'libstagefright_foundation-meizu.so',
         ),
         'vendor/bin/slim_daemon': blob_fixup().add_needed('libemutls_m2391.so'),
-        'vendor/bin/hw/hostapd': blob_fixup().replace_needed(
-            'libcrypto.so', 'libcrypto-v33.so',
-        ),
-        'vendor/bin/hw/wpa_supplicant.m2391': blob_fixup()
-        .replace_needed('libcrypto.so', 'libcrypto-v33.so')
-        .replace_needed('libkeystore-engine-wifi-hidl.so', 'libkeystore-engine-wifi-hidl-v33.so'),
-        'vendor/lib64/libkeystore-engine-wifi-hidl-v33.so': blob_fixup()
-        .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
         # These proprietary HIDL interfaces have no source metadata for init's
         # checker. Keep their registration in the HAL, and start non-lazy ones
         # through their existing class rather than interface-triggered startup.
         'vendor/etc/init/qfp-daemon.rc': blob_fixup().regex_replace(
             r'(?m)^[ \t]*interface vendor\.qti\.hardware\.fingerprint@1\.0::.*\n', '',
         ),
-        (
-            'vendor/etc/init/vendor.aks.gamepad@1.0-service.rc',
-            'vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc',
-        ): blob_fixup()
+        'vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc': blob_fixup()
         .regex_replace(r'(?m)^[ \t]*interface .*\n', '')
         .regex_replace(r'(?m)^[ \t]*disabled\n', ''),
+        # Drop factory init import for the removed factory test stack.
+        'vendor/etc/init/hw/init.qcom.rc': blob_fixup().regex_replace(
+            r'(?m)^import /vendor/etc/init/hw/init\.qcom\.factory\.rc\n', '',
+        ),
         # assemble_vintf supplies the version of the source-built policy.
         'vendor/etc/vintf/manifest_kalama.xml': blob_fixup()
         .regex_replace(r'\s*<sepolicy>[\s\S]*?</sepolicy>', '')
@@ -182,19 +153,10 @@ module = ExtractUtilsModule(
         .regex_replace(
             r'\s*<hal format="hidl">\s*<name>android\.hardware\.audio(\.effect)?</name>[\s\S]*?</hal>',
             '',
-        ),
-        # V4 exports all Power symbols used by this service. Vendor binary
-        # redundantly links V3, which Soong rejects alongside V4.
-        'vendor/bin/hw/android.hardware.power-service': blob_fixup()
-        .remove_needed('android.hardware.power-V3-ndk.so'),
-        # Keep the Meizu/QTI supplicant extensions without colliding with the
-        # platform executable. Both service definitions use this path.
-        (
-            'vendor/etc/init/android.hardware.wifi.supplicant-service.rc',
-            'vendor/etc/init/hw/init.qcom.rc',
-        ): blob_fixup().regex_replace(
-            '/vendor/bin/hw/wpa_supplicant ',
-            '/vendor/bin/hw/wpa_supplicant.m2391 ',
+        )
+        .regex_replace(
+            r'\s*<hal format="hidl">\s*<name>vendor\.qti\.hardware\.factory</name>[\s\S]*?</hal>',
+            '',
         ),
     },
     extract_fns={

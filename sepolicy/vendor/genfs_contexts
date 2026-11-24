@@ -47,7 +47,6 @@ genfscon proc "/mz_info/rtx" u:object_r:proc_mz_info:s0
 genfscon proc "/mz_info/sec" u:object_r:proc_mz_info:s0
 genfscon proc "/mpower_kmsg" u:object_r:proc_mpower_kmsg:s0
 genfscon proc "/mz_info/sn" u:object_r:proc_mz_info:s0
-genfscon proc "/tiktap_buf" u:object_r:proc_tiktap_buf:s0
 genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,ucsi/mz_ucsi/swap_dfp_allow" u:object_r:swap_dfp_allow_sysfs:s0
 genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,ucsi/typec/port0/data_role" u:object_r:data_role_sysfs:s0
 genfscon sysfs "/module/soc_sleep_stats/meizu_sleep_stats/system_stats" u:object_r:system_stats_sysfs:s0
@@ -77,3 +76,14 @@ genfscon sysfs "/rstinfo/rstinfo_enable" u:object_r:sysfs_rstinfo_file:s0
 # Device-specific wakeup sources use the standard system_suspend policy type.
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300/c42d000.qcom,spmi:qcom,pmk8550@0:pon_hlos@1300:bark_pwrkey/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_1_geni_se/a80000.i2c/i2c-4/4-0028/wakeup u:object_r:sysfs_wakeup:s0
+
+# Linux 6.18 PMIC GLINK auxiliary-device paths.
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/power_supply/battery" u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/power_supply/battery/wakeup" u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/power_supply/usb" u:object_r:vendor_sysfs_usb_supply:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/power_supply/usb/wakeup" u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/power_supply/wireless" u:object_r:vendor_sysfs_usb_supply:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/power_supply/wireless/wakeup" u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.m2391-charger.0/wakeup" u:object_r:sysfs_wakeup:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.ucsi.0/power_supply/ucsi-source-psy-pmic_glink.ucsi.01" u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs "/devices/platform/soc/soc:qcom,pmic_glink/pmic_glink.ucsi.0/power_supply/ucsi-source-psy-pmic_glink.ucsi.01/wakeup" u:object_r:sysfs_wakeup:s0

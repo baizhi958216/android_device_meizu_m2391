@@ -27,6 +27,8 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 # Stock QSEE/camera/display binaries use the legacy ION allocator ABI.
 $(call soong_config_set_bool,libion,legacy_impl,true)
 
+$(call soong_config_set_bool,qtidisplay,default,true)
+
 # The stock HIDL audio HAL keeps the Android 13 audio port layout.
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
@@ -148,3 +150,23 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/fstab.qcom
 $(call soong_config_set,qtiaudio,kernel_headers,//device/meizu/m2391:m2391_audio_kernel_headers)
 # NFC uses the kernel module tree's userspace UAPI export directly.
 $(call soong_config_set,qtinfc,kernel_headers,//kernel/meizu/m2391-modules:qti_nfc_kernel_headers)
+# Point source-built Power and Display HALs at the QSSI display interfaces.
+$(call soong_config_set,qtidisplay,headers_namespace,vendor/qcom/opensource/commonsys-intf/display)
+$(call soong_config_set,qtidisplay,libdisplayconfig_qti_namespace,hardware/qcom-caf/sm8550)
+$(call soong_config_set,qtidisplay,default,true)
+$(call soong_config_set,qtidisplay,drmpp,true)
+$(call soong_config_set,qtidisplay,gralloc4,true)
+$(call soong_config_set,qtidisplay,gralloc_handle_has_custom_content_md_reserved_size,true)
+$(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
+$(call soong_config_set,qtidisplay,gralloc_handle_has_ubwcp_format,false)
+
+# Wi-Fi (source-built wpa_supplicant, hostapd, and QCOM Wi-Fi HAL)
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_DEFAULT := qca_cld3
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X

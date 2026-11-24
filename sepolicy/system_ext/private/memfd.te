@@ -1,0 +1,6 @@
+# Linux 6.18 supports the Android 17 memfd security class.
+# Activate the existing platform and rebuilt vendor Binder/FMQ sharing rules.
+policycap memfd_class;
+
+# CameraService returns large metadata parcels to system_server.
+allow system_server cameraserver:memfd_file { read write getattr map };

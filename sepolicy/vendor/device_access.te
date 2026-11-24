@@ -3,13 +3,8 @@
 binder_call(fix_1347671, vendor_hal_keymint_qti)
 binder_call(hal_eid_client, hal_eid_server)
 binder_call(hal_eid_server, hal_eid_client)
-binder_call(hal_geofence_client, hal_geofence_server)
-binder_call(hal_geofence_server, hal_geofence_client)
 binder_call(hal_meizu_sensor_aux_client, hal_meizu_sensor_aux_server)
 binder_call(hal_meizu_sensor_aux_server, hal_meizu_sensor_aux_client)
-binder_call(hal_tiktap_client, hal_tiktap_server)
-binder_call(hal_tiktap_server, hal_tiktap_client)
-binder_call(hal_tiktap_server, servicemanager)
 set_prop(hal_fingerprint_default, vendor_meizu_fingerprint_prop)
 set_prop(hal_fingerprint_default, vendor_goodix_fingerprint_prop)
 set_prop(hal_fingerprint_default, vendor_arcsoft_fingerprint_prop)
@@ -17,18 +12,12 @@ set_prop(vendor_qfp-daemon, vendor_meizu_fingerprint_prop)
 set_prop(vendor_init, vendor_goodix_fingerprint_prop)
 set_prop(vendor_init, vendor_arcsoft_fingerprint_prop)
 set_prop(vendor_init, vendor_meizu_fingerprint_prop)
-set_prop(vendor_init, vendor_face_prop)
 set_prop(vendor_init, vendor_ifaa_prop)
 set_prop(vendor_init, vendor_fido_prop)
-set_prop(vendor_init, vendor_secure_store_prop)
-set_prop(vendor_init, vendor_rpmb_prop)
-set_prop(vendor_init, vendor_qteedebug_prop)
 set_prop(vendor_init, vendor_fix_1347671_prop)
 allow hal_uwb_default vendor_uwb_prop:property_service set;
 get_prop(hal_uwb_default, vendor_uwb_prop)
 
-typeattribute system_server hal_geofence_client;
-typeattribute system_server hal_tiktap_client;
 allow vendor_qlogd mdlog_vendor_data_file:file create_file_perms;
 allow vendor_qlogd mdlog_vendor_data_file:dir create_dir_perms;
 allow shell mdlog_vendor_data_file:dir { search };
@@ -41,11 +30,6 @@ allow servicemanager fix_1347671:binder { call transfer };
 allow servicemanager fix_1347671:dir { search };
 allow servicemanager fix_1347671:file { read open };
 allow servicemanager fix_1347671:process { getattr };
-allow hal_face_default tee_device:chr_file rw_file_perms;
-allow hal_face_default ion_device:chr_file rw_file_perms;
-allow hal_face_default vendor_dmabuf_qseecom_heap_device:chr_file rw_file_perms;
-allow hal_face_default vendor_dmabuf_qseecom_ta_heap_device:chr_file rw_file_perms;
-set_prop(hal_face_default, vendor_face_prop)
 allow hal_fingerprint_default hal_meizu_fingerprint_hwservice:hwservice_manager { add find };
 allow hal_fingerprint_default hal_goodix_fingerprint_hwservice:hwservice_manager { add find };
 allow hal_fingerprint_default hal_arcsoft_fingerprint_hwservice:hwservice_manager { add find };
@@ -54,13 +38,6 @@ allow hal_fingerprint_default sysfs_fingerprint_file:dir r_dir_perms;
 allow hal_fingerprint_default sysfs_fingerprint_file:file rw_file_perms;
 allow hal_fingerprint_default vendor_fingerprint_file:dir create_dir_perms;
 allow hal_fingerprint_default vendor_fingerprint_file:file create_file_perms;
-allow hal_geofence_client hal_geofence_service:service_manager { find };
-allow hal_geofence_server hal_geofence_service:service_manager { add find };
-allow hal_geofence_server servicemanager:binder { call transfer };
-allow servicemanager hal_geofence_server:binder { call transfer };
-allow servicemanager hal_geofence_server:dir { search };
-allow servicemanager hal_geofence_server:file { read open };
-allow servicemanager hal_geofence_server:process { getattr };
 allow hal_health_default swap_dfp_allow_sysfs:file { read getattr open };
 allow hal_health_default data_role_sysfs:file { read write getattr open };
 allow hal_health_default pps_online_sysfs:file { read getattr open };
@@ -69,16 +46,12 @@ allow hal_meizu_sensor_aux_server hidl_base_hwservice:hwservice_manager { add };
 allow hal_meizu_sensor_aux_client hal_meizu_sensor_aux_hwservice:hwservice_manager { find };
 allow hal_sensors_default hal_meizu_sensor_aux_default:binder { call };
 allow hal_sensors_default hal_meizu_sensor_aux_hwservice:hwservice_manager { find };
-get_prop(hal_tiktap, hwservicemanager_prop)
-allow hal_tiktap_client hal_tiktap_hwservice:hwservice_manager { find };
-allow hal_tiktap_server hal_tiktap_hwservice:hwservice_manager { add find };
-allow hal_tiktap_server hidl_base_hwservice:hwservice_manager { add };
-allow hal_tiktap_client hal_tiktap_service:service_manager { find };
-allow hal_tiktap_server hal_tiktap_service:service_manager { add find };
 allow init proc_mz_info:file { read getattr setattr open };
 allow init mz_rpmb_device:chr_file { ioctl read write open };
 allow mediacodec videofilter_data_file:file create_file_perms;
 allow mediacodec videofilter_data_file:dir create_dir_perms;
+# App-created MediaCodec message queues are shared with the codec service.
+allow mediacodec appdomain:memfd_file { read write getattr map };
 allow platform_app hal_goodix_fingerprint_hwservice:hwservice_manager { find };
 allow platform_app hal_arcsoft_fingerprint_hwservice:hwservice_manager { find };
 allow platform_app vendor_fingerprint_file:dir create_dir_perms;
@@ -96,19 +69,13 @@ get_prop(platform_app, vendor_ifaa_prop)
 allow platform_app hal_fido_hwservice:hwservice_manager { find };
 allow platform_app hal_fido_default:binder { call transfer };
 get_prop(platform_app, vendor_fido_prop)
-allow platform_app hal_secure_store_hwservice:hwservice_manager { find };
-allow platform_app hal_secure_store_default:binder { call transfer };
-get_prop(platform_app, vendor_secure_store_prop)
 allow platform_app proc_mz_info:file { read getattr setattr open };
 allow system_app haptic_dev:chr_file { read write open };
 allow system_app haptic_dev:file { read write getattr setattr open };
-allow platform_app hal_tiktap_default:binder { call transfer };
 allow platform_app ndt_device:chr_file { read write open };
 allow platform_app ndt_sysfs:file { read write getattr setattr open };
 allow platform_app sysfs_tp_file:dir r_dir_perms;
 allow platform_app sysfs_tp_file:file rw_file_perms;
-allow platform_app hal_fbase_defrag_default:binder { call transfer };
-allow platform_app hal_fbase_defrag_hwservice:hwservice_manager { find };
 allow platform_app sysfs_display_file:dir r_dir_perms;
 allow platform_app sysfs_display_file:file rw_file_perms;
 allow platform_app proc_rstinfo_file:file rw_file_perms;
@@ -118,24 +85,16 @@ allow shell sysfs_fingerprint_file:file rw_file_perms;
 get_prop(shell, vendor_meizu_fingerprint_prop)
 get_prop(shell, vendor_goodix_fingerprint_prop)
 get_prop(shell, vendor_arcsoft_fingerprint_prop)
-get_prop(shell, vendor_face_prop)
 get_prop(shell, vendor_ifaa_prop)
 get_prop(shell, vendor_fido_prop)
-get_prop(shell, vendor_secure_store_prop)
-get_prop(shell, vendor_rpmb_prop)
-get_prop(shell, vendor_qteedebug_prop)
 allow shell proc_mz_info:file { read getattr setattr open };
 allow shell proc_reset_reason:file r_file_perms;
-get_prop(shell, vendor_meizu_kelog_prop)
 allow shell sysfs_tp_file:dir r_dir_perms;
 allow shell sysfs_tp_file:file rw_file_perms;
 allow shell sysfs_display_file:dir r_dir_perms;
 allow shell sysfs_display_file:file rw_file_perms;
-get_prop(shell, vendor_smartzram_prop)
 allow shell videofilter_data_file:file create_file_perms;
 allow shell videofilter_data_file:dir create_dir_perms;
-get_prop(vendor_qti_init_shell, vendor_smartzram_prop)
-allow kernel smart_zram:fd { use };
 allow surfaceflinger hal_meizu_sensor_aux_default:binder { call };
 allow surfaceflinger hal_meizu_sensor_aux_hwservice:hwservice_manager { find };
 allow surfaceflinger sysfs_display_file:dir r_dir_perms;
@@ -155,16 +114,10 @@ get_prop(system_app, vendor_ifaa_prop)
 allow system_app hal_fido_hwservice:hwservice_manager { find };
 allow system_app hal_fido_default:binder { call transfer };
 get_prop(system_app, vendor_fido_prop)
-allow system_app hal_secure_store_hwservice:hwservice_manager { find };
-allow system_app hal_secure_store_default:binder { call transfer };
-get_prop(system_app, vendor_secure_store_prop)
 allow system_app proc_mz_info:file { read getattr setattr open };
-allow system_app hal_tiktap_default:binder { call transfer };
 allow system_app sysfs_tp_file:dir r_dir_perms;
 allow system_app sysfs_tp_file:file rw_file_perms;
 allow system_app sysfs_touch_game_mode:file { getattr open write };
-allow system_app hal_fbase_defrag_default:binder { call transfer };
-allow system_app hal_fbase_defrag_hwservice:hwservice_manager { find };
 allow system_app sysfs_display_file:dir r_dir_perms;
 allow system_app sysfs_display_file:file rw_file_perms;
 allow system_app sysfs_rstinfo_file:file rw_file_perms;
@@ -172,14 +125,8 @@ allow system_app proc_rstinfo_file:file rw_file_perms;
 allow system_app proc_reset_reason:file r_file_perms;
 allow system_app sysfs_pstore_file:file r_file_perms;
 allow system_app sysfs_rstinfo_file:file { setattr };
-allow system_app xmkelog_data_file:dir { read getattr open search };
-allow system_app xmkelog_data_file:file { read getattr open };
-allow system_app hal_meizu_kelog_hwservice:hwservice_manager { find };
-allow system_app hal_meizu_kelog_default:binder { call };
-get_prop(system_app, vendor_meizu_kelog_prop)
 allow system_app videofilter_data_file:file create_file_perms;
 allow system_app videofilter_data_file:dir create_dir_perms;
-allow system_app hal_geofence_default:binder { call transfer };
 allow system_server hal_meizu_fingerprint_hwservice:hwservice_manager { find };
 allow system_server hal_goodix_fingerprint_hwservice:hwservice_manager { find };
 allow system_server hal_arcsoft_fingerprint_hwservice:hwservice_manager { find };
@@ -200,8 +147,6 @@ allow system_server hal_meizu_charging_default:binder { call };
 allow system_server hal_meizu_charging_hwservice:hwservice_manager { find };
 allow system_server system_stats_sysfs:file r_file_perms;
 allow system_server proc_rstinfo_file:file rw_file_perms;
-allow system_server hal_geofence_service:service_manager { find };
-get_prop(system_server, vendor_smartzram_prop)
 allow tee persist_fingerprint_file:dir create_dir_perms;
 allow tee persist_fingerprint_file:file create_file_perms;
 allow traceur_app proc_rstinfo_file:file rw_file_perms;
@@ -209,7 +154,6 @@ allow traceur_app proc_reset_reason:file r_file_perms;
 allow traceur_app sysfs_rstinfo_file:file rw_file_perms;
 allow vendor_hal_usb_qti data_role_sysfs:file { read write getattr open };
 allow vendor_qti_init_shell proc_mz_info:file { read getattr setattr open };
-get_prop(zygote, vendor_smartzram_prop)
 allow hal_camera_default dtof_only_device:chr_file { ioctl read write open };
 allow hal_camera_default vendor_persist_dtof_file:dir { search };
 allow hal_camera_default vendor_persist_dtof_file:file r_file_perms;

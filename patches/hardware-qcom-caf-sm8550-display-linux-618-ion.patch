@@ -1,0 +1,60 @@
+diff --git a/gralloc/gr_allocator.cpp b/gralloc/gr_allocator.cpp
+index 56822ac..e8e8bc7 100644
+--- a/gralloc/gr_allocator.cpp
++++ b/gralloc/gr_allocator.cpp
+@@ -35,8 +35,10 @@
+ #include <string>
+ 
+ #ifndef QMAA
++#if __has_include(<linux/msm_ion.h>)
+ #include <linux/msm_ion.h>
+ #endif
++#endif
+ #include "gr_allocator.h"
+ #include "gr_utils.h"
+ #include <QtiGralloc.h>
+diff --git a/gralloc/gr_dma_legacy_mgr.cpp b/gralloc/gr_dma_legacy_mgr.cpp
+index ab9d376..1ad02f5 100644
+--- a/gralloc/gr_dma_legacy_mgr.cpp
++++ b/gralloc/gr_dma_legacy_mgr.cpp
+@@ -42,7 +42,7 @@
+ #include <cutils/properties.h>
+ #include <errno.h>
+ #include <utils/Trace.h>
+-#ifndef QMAA
++#if !defined(QMAA) && __has_include(<linux/msm_ion.h>)
+ #include <linux/msm_ion.h>
+ #endif
+ #include <string>
+@@ -63,6 +63,31 @@
+ #define ION_FLAG_CP_CAMERA_PREVIEW 0
+ #endif
+ 
++#ifndef ION_FLAG_CP_CAMERA
++#define ION_FLAG_CP_CAMERA 0
++#endif
++
++#ifndef ION_FLAG_CP_SEC_DISPLAY
++#define ION_FLAG_CP_SEC_DISPLAY 0
++#endif
++
++#ifndef ION_FLAG_SECURE
++#define ION_FLAG_SECURE 0
++#endif
++
++#ifndef ION_HEAP
++#define ION_HEAP(bit) (1U << (bit))
++#endif
++
++#ifndef ION_SYSTEM_HEAP_ID
++#define ION_SYSTEM_HEAP_ID 25
++#define ION_ADSP_HEAP_ID 22
++#define ION_DISPLAY_HEAP_ID 3
++#define ION_SECURE_HEAP_ID 9
++#define ION_SECURE_DISPLAY_HEAP_ID 11
++#define ION_SECURE_CARVEOUT_HEAP_ID 15
++#endif
++
+ #ifndef ION_SECURE
+ #define ION_SECURE ION_FLAG_SECURE
+ #endif

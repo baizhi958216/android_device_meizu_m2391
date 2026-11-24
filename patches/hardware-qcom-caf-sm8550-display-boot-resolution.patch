@@ -1,0 +1,83 @@
+diff --git a/composer/hwc_display.cpp b/composer/hwc_display.cpp
+index 7e9fb6f..e0f42a0 100755
+--- a/composer/hwc_display.cpp
++++ b/composer/hwc_display.cpp
+@@ -2846,6 +2846,21 @@ bool HWCDisplay::CheckResourceState(bool *res_exhausted) {
+   return false;
+ }
+ 
++static void PersistBootResolution(DisplayType type, DisplayInterface *display_intf,
++                                  const DisplayConfigVariableInfo &info) {
++  if (type != kBuiltIn || !display_intf || !display_intf->IsPrimaryDisplay() ||
++      info.x_pixels == 0 || info.y_pixels == 0) {
++    return;
++  }
++  char desired[32] = {};
++  snprintf(desired, sizeof(desired), "%ux%u", info.x_pixels, info.y_pixels);
++  char current[PROPERTY_VALUE_MAX] = {};
++  property_get("persist.vendor.display.boot_resolution", current, "");
++  if (strcmp(current, desired) != 0) {
++    property_set("persist.vendor.display.boot_resolution", desired);
++  }
++}
++
+ void HWCDisplay::UpdateActiveConfig() {
+   if (!pending_config_) {
+     return;
+@@ -2866,6 +2881,9 @@ void HWCDisplay::UpdateActiveConfig() {
+     DLOGI("Failed to set %d config", INT(pending_config_index_));
+   } else {
+     SetActiveConfigIndex(pending_config_index_);
++    DisplayConfigVariableInfo info = {};
++    GetDisplayAttributesForConfig(INT(pending_config_index_), &info);
++    PersistBootResolution(type_, display_intf_, info);
+   }
+ 
+   // Reset pending config.
+@@ -3134,6 +3152,7 @@ HWC2::Error HWCDisplay::SubmitDisplayConfig(hwc2_config_t config) {
+   DisplayConfigVariableInfo info = {};
+   GetDisplayAttributesForConfig(INT(config), &info);
+   active_refresh_rate_ = info.fps;
++  PersistBootResolution(type_, display_intf_, info);
+ 
+   DisplayConfigVariableInfo current_config_info = {};
+   GetDisplayAttributesForConfig(INT(current_config), &current_config_info);
+diff --git a/sdm/libs/dal/hw_device_drm.cpp b/sdm/libs/dal/hw_device_drm.cpp
+index 10a409c..600ac9c 100644
+--- a/sdm/libs/dal/hw_device_drm.cpp
++++ b/sdm/libs/dal/hw_device_drm.cpp
+@@ -707,6 +707,34 @@ void HWDeviceDRM::InitializeConfigs() {
+       }
+   }
+ 
++  // Restore persisted boot resolution for the built-in display before SurfaceFlinger
++  // and bootanimation query the initial active config.
++  if (disp_type_ == DRMDisplayType::PERIPHERAL) {
++    char boot_res[128] = {};
++    uint32_t boot_w = 0, boot_h = 0;
++    if (Debug::GetProperty("persist.vendor.display.boot_resolution", boot_res) == kErrorNone &&
++        sscanf(boot_res, "%ux%u", &boot_w, &boot_h) == 2 && boot_w > 0 && boot_h > 0) {
++      uint32_t best_index = current_mode_index_;
++      uint32_t best_vrefresh = 0;
++      bool matched = false;
++      for (uint32_t mode_index = 0; mode_index < connector_info_.modes.size(); mode_index++) {
++        const auto &m = connector_info_.modes[mode_index].mode;
++        if (m.hdisplay == boot_w && m.vdisplay == boot_h &&
++            (!matched || m.vrefresh > best_vrefresh)) {
++          best_index = mode_index;
++          best_vrefresh = m.vrefresh;
++          matched = true;
++        }
++      }
++      if (matched && best_index != current_mode_index_) {
++        DLOGI("Restoring persisted boot resolution %ux%u on display %d-%d: mode %d -> %d (%uHz).",
++              boot_w, boot_h, display_id_, disp_type_, current_mode_index_, best_index,
++              best_vrefresh);
++        current_mode_index_ = best_index;
++      }
++    }
++  }
++
+   display_attributes_.resize(connector_info_.modes.size());
+ 
+   uint32_t width = connector_info_.modes[current_mode_index_].mode.hdisplay;
