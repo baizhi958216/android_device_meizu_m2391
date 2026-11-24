@@ -52,7 +52,7 @@ index 10a409c..600ac9c 100644
  
 +  // Restore persisted boot resolution for the built-in display before SurfaceFlinger
 +  // and bootanimation query the initial active config.
-+  if (disp_type_ == kBuiltIn) {
++  if (disp_type_ == DRMDisplayType::PERIPHERAL) {
 +    char boot_res[128] = {};
 +    uint32_t boot_w = 0, boot_h = 0;
 +    if (Debug::GetProperty("persist.vendor.display.boot_resolution", boot_res) == kErrorNone &&
