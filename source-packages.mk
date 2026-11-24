@@ -410,8 +410,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
-    external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_template.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
+    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
 # Generic HALs and GPT-aware Boot Control / Qualcomm USB / Power / Thermal / Wi-Fi services.
 PRODUCT_PACKAGES += \
@@ -430,7 +429,8 @@ PRODUCT_PACKAGES += \
     sensors.dynamic_sensor_hal \
     vendor.qti.hardware.memtrack-service \
     wpa_cli \
-    wpa_supplicant
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Platform codec and audio policy declarations identical to stock.
 PRODUCT_COPY_FILES += \
