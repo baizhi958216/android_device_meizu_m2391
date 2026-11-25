@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: Apache-2.0
+runtime_resource_overlay {
+    name: "M2391CarrierConfigOverlay",
+    certificate: "platform",
+    product_specific: true,
+    sdk_version: "current",
+    aaptflags: ["--keep-raw-values"],
+}
