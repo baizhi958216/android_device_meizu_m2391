@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 vendor_restricted_prop(vendor_arcsoft_fingerprint_prop)
+vendor_restricted_prop(vendor_face_prop)
 vendor_restricted_prop(vendor_fido_prop)
 vendor_restricted_prop(vendor_fix_1347671_prop)
 vendor_restricted_prop(vendor_goodix_fingerprint_prop)
