@@ -53,6 +53,7 @@ PRODUCT_ENFORCE_VINTF_MANIFEST := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 PRODUCT_PACKAGES += \
+    android.hardware.biometrics.face-service.m2391 \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     android.hardware.ir-service.m2391 \
     android.hardware.vibrator-service.m2391 \
@@ -98,6 +99,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/display/display_port_130.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_port_130.xml
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.biometrics.face.xml
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.camera.m2391.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.camera.m2391.rc

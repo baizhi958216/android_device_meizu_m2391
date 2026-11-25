@@ -50,6 +50,8 @@
 /sys/class/timed_output/vibrator/enable u:object_r:vib_strength_sysfs:s0
 
 /vendor/bin/hw/android\.hardware\.vibrator-service\.m2391 u:object_r:hal_vibrator_m2391_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.face-service\.m2391 u:object_r:hal_face_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.xingji\.hardware\.biometrics\.face@1\.0-service u:object_r:hal_face_default_exec:s0
 
 /(vendor|system/vendor)/bin/hw/vendor\.meizu\.ir@1\.0-service u:object_r:hal_ir_default_exec:s0
 /vendor/bin/hw/android\.hardware\.usb-service\.m2391 u:object_r:vendor_hal_usb_qti_exec:s0

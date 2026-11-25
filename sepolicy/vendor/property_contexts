@@ -37,6 +37,8 @@ vendor.meizu.fingerprint.x                              u:object_r:vendor_meizu_
 vendor.meizu.fingerprint.y                              u:object_r:vendor_meizu_fingerprint_prop:s0
 vendor.meizu.fingerprint.width                          u:object_r:vendor_meizu_fingerprint_prop:s0
 vendor.meizu.fingerprint.height                         u:object_r:vendor_meizu_fingerprint_prop:s0
+vendor.meizu.face.debug                                 u:object_r:vendor_face_prop:s0
+persist.vendor.m2391.face.                              u:object_r:vendor_face_prop:s0
 vendor.meizu.ifaa.version                               u:object_r:vendor_ifaa_prop:s0
 vendor.meizu.ifaa.key                                   u:object_r:vendor_ifaa_prop:s0
 vendor.meizu.fido.aaid                                  u:object_r:vendor_fido_prop:s0

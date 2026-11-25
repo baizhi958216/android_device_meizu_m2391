@@ -890,9 +890,13 @@ vendor/lib64/libsysmon_cdsp_skel.so|74a9aa9d333457fc03b20f82e59ea295a021fdca
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so|6a5325f0244ae4735490530c314d94e044c103a2
 
 # Face authentication
+vendor/bin/hw/vendor.xingji.hardware.biometrics.face@1.0-service|cb7bfeafdcbb9350791415573595d0f2acee10db
+vendor/etc/init/vendor.xingji.hardware.biometrics.face@1.0-service.rc|642f1533ae54307311c21d5407b28f00f769601c
+vendor/etc/vintf/manifest/manifest_xingji_face_default.xml;EXTRACT_ONLY|b8607ac9822e7e0a1c6002bdf269d9f68084557c
 vendor/lib64/libFace3DTA.so|adc2a1b6c4ae6c7defd1024437652dcda44db691
 vendor/lib64/libFace3D_hlos.so|47b7df8ff69c5519911236195a8f3e8c4d1cdade
 vendor/lib64/libface3d_dev.so|ffea73b869dc340d130be4656d0807b4ccb8e085
+vendor/lib64/vendor.xingji.hardware.biometrics.face@1.0.so|899a239cb46a3a6f0ac37f9282977d95a85b03c7
 
 # Factory tests
 vendor/lib64/libmzfactory.so|d3dfb4779e3759d7a2f529958d3b514454a35b69

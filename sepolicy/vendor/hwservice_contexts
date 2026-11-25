@@ -11,3 +11,4 @@ vendor.meizu.hardware.ifaa::IIFAADaemon                                         
 vendor.meizu.hardware.fido::IFIDODaemon                                         u:object_r:hal_fido_hwservice:s0
 vendor.meizu.sensor_aux::ISensorAux                        u:object_r:hal_meizu_sensor_aux_hwservice:s0
 vendor.meizu.hardware.meizu_charging::IMeizuCharging u:object_r:hal_meizu_charging_hwservice:s0
+vendor.xingji.hardware.biometrics.face::IBiometricsFace u:object_r:hal_face_hwservice:s0

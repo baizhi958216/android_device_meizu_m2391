@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: Apache-2.0
+# Vendor face HIDL and m2391 AIDL V5 face bridge.
+
+allow hal_face_default tee_device:chr_file rw_file_perms;
+allow hal_face_default ion_device:chr_file rw_file_perms;
+allow hal_face_default vendor_dmabuf_qseecom_heap_device:chr_file rw_file_perms;
+allow hal_face_default vendor_dmabuf_qseecom_ta_heap_device:chr_file rw_file_perms;
+
+set_prop(vendor_init, vendor_face_prop)
+set_prop(hal_face_default, vendor_face_prop)
+get_prop(hal_face_default, vendor_face_prop)
+get_prop(shell, vendor_face_prop)
+
+# Bridge service connects to vendor face HIDL on hwbinder.
+allow hal_face_default hal_face_hwservice:hwservice_manager { add find };
+binder_call(hal_face_default, hal_face_default)
+binder_call(hal_face_default, vendor_hal_perf_default)
+
+# Bridge service uses libcamera2ndk_vendor to capture front camera frames
+# and render enrollment preview into Settings' SurfaceView.
+get_prop(hal_face_default, camera_config_prop)
+binder_call(hal_face_default, cameraserver)
+binder_call(cameraserver, hal_face_default)
+allow hal_face_default fwk_camera_service:service_manager find;
+allow hal_face_default gpu_device:chr_file rw_file_perms;
+allow hal_face_default dmabuf_system_heap_device:chr_file r_file_perms;
+hal_client_domain(hal_face_default, hal_graphics_allocator)
+hal_client_domain(hal_face_default, hal_graphics_composer)
