@@ -65,6 +65,8 @@ PRODUCT_PACKAGES += \
     M2391LineageOverlay \
     M2391TelephonyOverlay \
     M2391SystemUIOverlay \
+    M2391TetheringOverlay \
+    M2391TetheringOverlayGoogle \
     M2391WifiOverlay \
     M2391UwbOverlay \
     android.hidl.allocator@1.0-service \
@@ -100,7 +102,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.biometrics.face.xml
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/init/init.camera.m2391.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.camera.m2391.rc
+    $(DEVICE_PATH)/configs/init/init.camera.m2391.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.camera.m2391.rc \
+    $(DEVICE_PATH)/configs/init/init.m2391-usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.m2391-usb.rc
 
 # The generic default only covers cameras 0/1 and omits 4K. Include the physical
 # auxiliaries and logical camera 4 using modes exposed by this device's HAL.

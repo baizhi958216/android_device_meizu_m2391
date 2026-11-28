@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <!-- Use CDC NCM (1) instead of RNDIS (0) for USB tethering so macOS,
+         Windows 10/11, and Linux hosts work natively without extra drivers. -->
+    <integer translatable="false" name="config_tether_usb_functions">1</integer>
+
+    <string-array translatable="false" name="config_tether_ncm_regexs">
+        <item>ncm\\d</item>
+        <item>usb\\d</item>
+    </string-array>
+</resources>
