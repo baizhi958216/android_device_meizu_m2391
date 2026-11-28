@@ -1,12 +1,13 @@
 #  Device Tree for MEIZU 20 Pro (`m2391`)
 
-## Build
+## Build crDroid Android 17
 
 ```sh
+export SOONG_INCREMENTAL_ANALYSIS=false
 source build/envsetup.sh
 source vendor/lineage/vars/aosp_target_release
 lunch lineage_m2391 "$aosp_target_release" userdebug
-mka bacon
+mka -j10 bacon
 ```
 
 ## Spec Sheet
