@@ -7,6 +7,5 @@
 
     <string-array translatable="false" name="config_tether_ncm_regexs">
         <item>ncm\\d</item>
-        <item>usb\\d</item>
     </string-array>
 </resources>

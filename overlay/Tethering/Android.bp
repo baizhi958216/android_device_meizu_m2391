@@ -1,14 +1,18 @@
 // SPDX-License-Identifier: Apache-2.0
 runtime_resource_overlay {
     name: "M2391TetheringOverlay",
+    manifest: "AndroidManifest.xml",
+    resource_dirs: ["res"],
     certificate: "platform",
     product_specific: true,
     sdk_version: "current",
 }
 
-override_runtime_resource_overlay {
+runtime_resource_overlay {
     name: "M2391TetheringOverlayGoogle",
-    base: "M2391TetheringOverlay",
-    package_name: "org.lineageos.overlay.m2391.tethering.google",
-    target_package_name: "com.google.android.networkstack.tethering",
+    manifest: "AndroidManifestGoogle.xml",
+    resource_dirs: ["res"],
+    certificate: "platform",
+    product_specific: true,
+    sdk_version: "current",
 }
