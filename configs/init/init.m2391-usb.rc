@@ -1,5 +1,7 @@
-# Expose the ncm.gs6 function expected by QTI UsbGadget HAL and advertise
-# WINNCM in OS descriptors for Windows 10/11 composite ncm,adb compatibility.
+# Expose the ncm.gs6 function expected by QTI UsbGadget HAL, name the netdev
+# ncm%d so EthernetTracker's (usb|eth)\d+ filter does not hijack it as a client
+# interface, and advertise WINNCM for Windows 10/11 composite ncm,adb hosts.
 on boot
     mkdir /config/usb_gadget/g1/functions/ncm.gs6
+    write /config/usb_gadget/g1/functions/ncm.gs6/ifname ncm%d
     write /config/usb_gadget/g1/functions/ncm.gs6/os_desc/interface.ncm/compatible_id WINNCM
