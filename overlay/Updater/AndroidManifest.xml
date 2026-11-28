@@ -3,6 +3,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.lineageos.overlay.m2391.updater">
     <application android:hasCode="false" />
-    <overlay android:targetPackage="org.lineageos.updater" android:isStatic="true"
+    <overlay android:targetPackage="org.evolution.updater" android:isStatic="true"
         android:priority="999" />
 </manifest>

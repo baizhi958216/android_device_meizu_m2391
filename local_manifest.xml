@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="m2391" fetch="https://github.com" />
-  <project name="baizhi958216/android_device_meizu_m2391" path="device/meizu/m2391" remote="m2391" revision="oss/lineage-24.0-6.18" />
+  <project name="baizhi958216/android_device_meizu_m2391" path="device/meizu/m2391" remote="m2391" revision="oss/evox-cnb-6.18" />
   <project name="baizhi958216/android_vendor_meizu_m2391" path="vendor/meizu/m2391" remote="m2391" revision="oss/lineage-24.0-6.18" />
   <project name="baizhi958216/android_kernel_meizu_m2391" path="kernel/meizu/m2391" remote="m2391" revision="oss/lineage-24.0-6.18" />
   <!-- Keep the checkout path required by Kbuild and the trace headers. -->

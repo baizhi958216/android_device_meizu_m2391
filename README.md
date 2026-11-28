@@ -6,7 +6,7 @@
 source build/envsetup.sh
 source vendor/lineage/vars/aosp_target_release
 lunch lineage_m2391 "$aosp_target_release" userdebug
-mka bacon
+m evolution
 ```
 
 ## Spec Sheet
