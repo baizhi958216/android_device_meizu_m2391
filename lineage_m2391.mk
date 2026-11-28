@@ -13,5 +13,9 @@ PRODUCT_MANUFACTURER := meizu
 PRODUCT_BRAND := Meizu
 PRODUCT_MODEL := MEIZU 20 Pro
 
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+PRODUCT_PACKAGES += adb_root
+endif
+
 # Check the m2391 community Evolution X OTA feed.
 PRODUCT_PACKAGES += M2391UpdaterOverlay
