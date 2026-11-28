@@ -1,0 +1,682 @@
+Exclude the crDroid ROM-hiding implementation from libc and restore its
+call sites and syscall entry points to their pre-hook behavior. The unused
+upstream implementation may continue to evolve without affecting this build.
+
+diff --git a/libc/Android.bp b/libc/Android.bp
+index 9c62423..2676766 100644
+--- a/libc/Android.bp
++++ b/libc/Android.bp
+@@ -1040,7 +1040,6 @@ cc_library_static {
+         "bionic/rand.cpp",
+         "bionic/readlink.cpp",
+         "bionic/realpath.cpp",
+-        "bionic/custom_rom_hide.cpp",
+         "bionic/reboot.cpp",
+         "bionic/recv.cpp",
+         "bionic/recvmsg.cpp",
+diff --git a/libc/SYSCALLS.TXT b/libc/SYSCALLS.TXT
+index 78078ba..3622ca4 100644
+--- a/libc/SYSCALLS.TXT
++++ b/libc/SYSCALLS.TXT
+@@ -162,12 +162,12 @@ __openat:openat(int, const char*, int, mode_t) all
+ __faccessat:faccessat(int, const char*, int)  all
+ __fchmodat:fchmodat(int, const char*, mode_t)  all
+ fchownat(int, const char*, uid_t, gid_t, int)  all
+-__fstatat64:fstatat64(int, const char*, struct stat*, int)   lp32
+-__fstatat:newfstatat(int, const char*, struct stat*, int)  lp64
++fstatat64|fstatat:fstatat64(int, const char*, struct stat*, int)   lp32
++fstatat64|fstatat:newfstatat(int, const char*, struct stat*, int)  lp64
+ linkat(int, const char*, int, const char*, int)  all
+ mkdirat(int, const char*, mode_t)  all
+ mknodat(int, const char*, mode_t, dev_t)  all
+-__readlinkat:readlinkat(int, const char*, char*, size_t)  all
++readlinkat(int, const char*, char*, size_t)  all
+ renameat2(int, const char*, int, const char*, unsigned)  all
+ symlinkat(const char*, int, const char*)  all
+ unlinkat(int, const char*, int)   all
+@@ -211,8 +211,8 @@ __fstatfs:fstatfs(int, struct statfs*)  lp64
+ __statfs64:statfs64(const char*, size_t, struct statfs*)  lp32
+ __statfs:statfs(const char*, struct statfs*)  lp64
+ 
+-__fstat64:fstat64(int, struct stat*) lp32
+-__fstat:fstat(int, struct stat*) lp64
++fstat64|fstat:fstat64(int, struct stat*) lp32
++fstat64|fstat:fstat(int, struct stat*) lp64
+ 
+ # file system
+ chdir(const char*)              all
+@@ -228,7 +228,7 @@ listxattr(const char*, char*, size_t) all
+ llistxattr(const char*, char*, size_t) all
+ removexattr(const char*, const char*) all
+ lremovexattr(const char*, const char*) all
+-__statx:statx(int, const char*, int, unsigned, struct statx*) all
++statx(int, const char*, int, unsigned, struct statx*) all
+ swapon(const char*, int) all
+ swapoff(const char*) all
+ 
+diff --git a/libc/bionic/dirent.cpp b/libc/bionic/dirent.cpp
+index 1481df8..8921ca0 100644
+--- a/libc/bionic/dirent.cpp
++++ b/libc/bionic/dirent.cpp
+@@ -41,7 +41,6 @@
+ #include "private/bionic_fortify.h"
+ #include "private/ErrnoRestorer.h"
+ #include "private/ScopedPthreadMutexLocker.h"
+-#include "custom_rom_hide.h"
+ 
+ extern "C" int __getdents64(unsigned int, dirent*, unsigned int);
+ 
+@@ -117,22 +116,17 @@ static bool __fill_DIR(DIR* d) {
+ }
+ 
+ static dirent* __readdir_locked(DIR* d) {
+-  while (true) {
+-    if (d->available_bytes_ == 0 && !__fill_DIR(d)) {
+-      return nullptr;
+-    }
+-
+-    dirent* entry = d->next_;
+-    d->next_ = reinterpret_cast<dirent*>(reinterpret_cast<char*>(entry) + entry->d_reclen);
+-    d->available_bytes_ -= entry->d_reclen;
+-    // The directory entry offset uses 0, 1, 2 instead of real file offset,
+-    // so the value range of long type is enough.
+-    d->current_pos_ = static_cast<long>(entry->d_off);
+-
+-    if (!custom_rom_hide_should_filter_dirent(d->fd_, entry->d_name)) {
+-      return entry;
+-    }
++  if (d->available_bytes_ == 0 && !__fill_DIR(d)) {
++    return nullptr;
+   }
++
++  dirent* entry = d->next_;
++  d->next_ = reinterpret_cast<dirent*>(reinterpret_cast<char*>(entry) + entry->d_reclen);
++  d->available_bytes_ -= entry->d_reclen;
++  // The directory entry offset uses 0, 1, 2 instead of real file offset,
++  // so the value range of long type is enough.
++  d->current_pos_ = static_cast<long>(entry->d_off);
++  return entry;
+ }
+ 
+ dirent* readdir(DIR* d) {
+diff --git a/libc/bionic/dup.cpp b/libc/bionic/dup.cpp
+index 713c9bb..d9e89a5 100644
+--- a/libc/bionic/dup.cpp
++++ b/libc/bionic/dup.cpp
+@@ -29,16 +29,13 @@
+ #include <fcntl.h>
+ #include <unistd.h>
+ 
+-#include "custom_rom_hide.h"
+ #include "private/bionic_fdtrack.h"
+ 
+ extern "C" int __dup(int old_fd);
+ extern "C" int __dup3(int old_fd, int new_fd, int flags);
+ 
+ int dup(int old_fd) {
+-  int new_fd = __dup(old_fd);
+-  custom_rom_hide_transfer_fd(old_fd, new_fd);
+-  return FDTRACK_CREATE(new_fd);
++  return FDTRACK_CREATE(__dup(old_fd));
+ }
+ 
+ int dup2(int old_fd, int new_fd) {
+@@ -52,13 +49,9 @@ int dup2(int old_fd, int new_fd) {
+     return old_fd;
+   }
+ 
+-  int rc = __dup3(old_fd, new_fd, 0);
+-  custom_rom_hide_transfer_fd(old_fd, rc);
+-  return FDTRACK_CREATE(rc);
++  return FDTRACK_CREATE(__dup3(old_fd, new_fd, 0));
+ }
+ 
+ int dup3(int old_fd, int new_fd, int flags) {
+-  int rc = __dup3(old_fd, new_fd, flags);
+-  custom_rom_hide_transfer_fd(old_fd, rc);
+-  return FDTRACK_CREATE(rc);
++  return FDTRACK_CREATE(__dup3(old_fd, new_fd, flags));
+ }
+diff --git a/libc/bionic/faccessat.cpp b/libc/bionic/faccessat.cpp
+index 1516ff8..1f38107 100644
+--- a/libc/bionic/faccessat.cpp
++++ b/libc/bionic/faccessat.cpp
+@@ -30,8 +30,6 @@
+ #include <unistd.h>
+ #include <errno.h>
+ 
+-#include "custom_rom_hide.h"
+-
+ extern "C" int __faccessat(int, const char*, int);
+ 
+ int faccessat(int dirfd, const char* pathname, int mode, int flags) {
+@@ -58,10 +56,5 @@ int faccessat(int dirfd, const char* pathname, int mode, int flags) {
+     return -1;
+   }
+ 
+-  if (custom_rom_hide_should_block_at(dirfd, pathname)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-
+   return __faccessat(dirfd, pathname, mode);
+ }
+diff --git a/libc/bionic/fcntl.cpp b/libc/bionic/fcntl.cpp
+index 3bc1fbe..7730a15 100644
+--- a/libc/bionic/fcntl.cpp
++++ b/libc/bionic/fcntl.cpp
+@@ -29,7 +29,6 @@
+ #include <stdarg.h>
+ #include <fcntl.h>
+ 
+-#include "custom_rom_hide.h"
+ #include "private/bionic_fdtrack.h"
+ #include "private/bionic_fortify.h"
+ 
+@@ -55,10 +54,8 @@ int fcntl(int fd, int cmd, ...) {
+   int rc = __fcntl64(fd, cmd, arg);
+ #endif
+   if (cmd == F_DUPFD) {
+-    custom_rom_hide_transfer_fd(fd, rc);
+     return FDTRACK_CREATE_NAME("F_DUPFD", rc);
+   } else if (cmd == F_DUPFD_CLOEXEC) {
+-    custom_rom_hide_transfer_fd(fd, rc);
+     return FDTRACK_CREATE_NAME("F_DUPFD_CLOEXEC", rc);
+   }
+   return rc;
+diff --git a/libc/bionic/fdsan.cpp b/libc/bionic/fdsan.cpp
+index f58c063..382696c 100644
+--- a/libc/bionic/fdsan.cpp
++++ b/libc/bionic/fdsan.cpp
+@@ -44,7 +44,6 @@
+ #include <platform/bionic/reserved_signals.h>
+ #include <sys/system_properties.h>
+ 
+-#include "custom_rom_hide.h"
+ #include "private/bionic_fdtrack.h"
+ #include "private/bionic_globals.h"
+ #include "private/bionic_inline_raise.h"
+@@ -248,7 +247,6 @@ int android_fdsan_close_with_tag(int fd, uint64_t expected_tag) {
+   }
+ 
+   FDTRACK_CLOSE(fd);
+-  custom_rom_hide_unregister_fd(fd);
+   FdEntry* fde = GetFdEntry(fd);
+   if (!fde) {
+     return __close(fd);
+diff --git a/libc/bionic/lstat.cpp b/libc/bionic/lstat.cpp
+index 6178486..84d17e2 100644
+--- a/libc/bionic/lstat.cpp
++++ b/libc/bionic/lstat.cpp
+@@ -26,33 +26,12 @@
+  * SUCH DAMAGE.
+  */
+ 
+-#include <errno.h>
+ #include <fcntl.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
+ #include <unistd.h>
+ 
+-#include "custom_rom_hide.h"
+-
+-#if defined(__LP64__)
+-extern "C" int __fstatat(int, const char*, struct stat*, int);
+-#else
+-extern "C" int __fstatat64(int, const char*, struct stat*, int);
+-#endif
+-
+ int lstat(const char* path, struct stat* sb) {
+-  if (custom_rom_hide_should_block(path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-#if defined(__LP64__)
+-  int res = __fstatat(AT_FDCWD, path, sb, AT_SYMLINK_NOFOLLOW);
+-#else
+-  int res = __fstatat64(AT_FDCWD, path, sb, AT_SYMLINK_NOFOLLOW);
+-#endif
+-  if (res == 0) {
+-    custom_rom_hide_spoof_stat(path, sb);
+-  }
+-  return res;
++  return fstatat(AT_FDCWD, path, sb, AT_SYMLINK_NOFOLLOW);
+ }
+ __strong_alias(lstat64, lstat);
+diff --git a/libc/bionic/open.cpp b/libc/bionic/open.cpp
+index 0e43b60..bd8685a 100644
+--- a/libc/bionic/open.cpp
++++ b/libc/bionic/open.cpp
+@@ -26,7 +26,6 @@
+  * SUCH DAMAGE.
+  */
+ 
+-#include <errno.h>
+ #include <fcntl.h>
+ #include <stdarg.h>
+ #include <stdlib.h>
+@@ -34,7 +33,6 @@
+ 
+ #include "private/bionic_fdtrack.h"
+ #include "private/bionic_fortify.h"
+-#include "custom_rom_hide.h"
+ 
+ extern "C" int __openat(int, const char*, int, int);
+ 
+@@ -50,32 +48,6 @@ static inline bool needs_mode(int flags) {
+   return ((flags & O_CREAT) == O_CREAT) || ((flags & O_TMPFILE) == O_TMPFILE);
+ }
+ 
+-static inline bool can_filter_open(int flags) {
+-  return (flags & O_ACCMODE) == O_RDONLY &&
+-         (flags & (O_CREAT | O_TRUNC | O_TMPFILE | O_PATH | O_DIRECTORY)) == 0;
+-}
+-
+-static int filter_readonly_file(const char* path, int flags) {
+-  if (!path || path[0] != '/' || !can_filter_open(flags)) return -1;
+-  int fd = custom_rom_hide_filter_proc(path);
+-  if (fd < 0) fd = custom_rom_hide_filter_vintf(path);
+-  if (fd < 0) fd = custom_rom_hide_filter_sepolicy(path);
+-  // O_NOFOLLOW only concerns the last component: regular files such as /proc/cmdline are
+-  // substituted as usual, while a symlink such as /proc/mounts must still fail with ELOOP.
+-  if (fd >= 0 && (flags & O_NOFOLLOW) && custom_rom_hide_is_symlink(path)) {
+-    close(fd);
+-    return -1;
+-  }
+-  return fd;
+-}
+-
+-static inline int finish_filtered(int filtered_fd, int flags) {
+-  if (filtered_fd >= 0 && (flags & O_CLOEXEC)) {
+-    fcntl(filtered_fd, F_SETFD, FD_CLOEXEC);
+-  }
+-  return filtered_fd;
+-}
+-
+ int creat(const char* pathname, mode_t mode) {
+   return open(pathname, O_CREAT | O_TRUNC | O_WRONLY, mode);
+ }
+@@ -91,26 +63,12 @@ int open(const char* pathname, int flags, ...) {
+     va_end(args);
+   }
+ 
+-  int filtered_fd = filter_readonly_file(pathname, flags);
+-  if (filtered_fd >= 0) return FDTRACK_CREATE(finish_filtered(filtered_fd, flags));
+-
+-  if (custom_rom_hide_should_block(pathname)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-
+   return FDTRACK_CREATE(__openat(AT_FDCWD, pathname, force_O_LARGEFILE(flags), mode));
+ }
+ __strong_alias(open64, open);
+ 
+ int __open_2(const char* pathname, int flags) {
+   if (needs_mode(flags)) __fortify_fatal("open: called with O_CREAT/O_TMPFILE but no mode");
+-  int filtered_fd = filter_readonly_file(pathname, flags);
+-  if (filtered_fd >= 0) return FDTRACK_CREATE_NAME("open", finish_filtered(filtered_fd, flags));
+-  if (custom_rom_hide_should_block(pathname)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+   return FDTRACK_CREATE_NAME("open", __openat(AT_FDCWD, pathname, force_O_LARGEFILE(flags), 0));
+ }
+ 
+@@ -124,25 +82,11 @@ int openat(int fd, const char *pathname, int flags, ...) {
+     va_end(args);
+   }
+ 
+-  int filtered_fd = filter_readonly_file(pathname, flags);
+-  if (filtered_fd >= 0) return FDTRACK_CREATE_NAME("openat", finish_filtered(filtered_fd, flags));
+-
+-  if (custom_rom_hide_should_block_at(fd, pathname)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-
+   return FDTRACK_CREATE_NAME("openat", __openat(fd, pathname, force_O_LARGEFILE(flags), mode));
+ }
+ __strong_alias(openat64, openat);
+ 
+ int __openat_2(int fd, const char* pathname, int flags) {
+   if (needs_mode(flags)) __fortify_fatal("open: called with O_CREAT/O_TMPFILE but no mode");
+-  int filtered_fd = filter_readonly_file(pathname, flags);
+-  if (filtered_fd >= 0) return FDTRACK_CREATE_NAME("openat", finish_filtered(filtered_fd, flags));
+-  if (custom_rom_hide_should_block_at(fd, pathname)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+   return FDTRACK_CREATE_NAME("openat", __openat(fd, pathname, force_O_LARGEFILE(flags), 0));
+ }
+diff --git a/libc/bionic/readlink.cpp b/libc/bionic/readlink.cpp
+index b17cebb..3bb7bc1 100644
+--- a/libc/bionic/readlink.cpp
++++ b/libc/bionic/readlink.cpp
+@@ -26,32 +26,11 @@
+  * SUCH DAMAGE.
+  */
+ 
+-#include <errno.h>
+ #include <fcntl.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
+ #include <unistd.h>
+-#include <stdlib.h>
+-#include <string.h>
+-
+-#include "custom_rom_hide.h"
+-
+-extern "C" ssize_t __readlinkat(int, const char*, char*, size_t);
+ 
+ ssize_t readlink(const char* path, char* buf, size_t size) {
+-  if (custom_rom_hide_should_block(path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+   return readlinkat(AT_FDCWD, path, buf, size);
+ }
+-
+-ssize_t readlinkat(int dirfd, const char* path, char* buf, size_t size) {
+-  if (custom_rom_hide_should_block_at(dirfd, path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-
+-  ssize_t ret = __readlinkat(dirfd, path, buf, size);
+-  return custom_rom_hide_readlinkat_post(dirfd, path, buf, size, ret);
+-}
+diff --git a/libc/bionic/stat.cpp b/libc/bionic/stat.cpp
+index 720c67a..e71d9d4 100644
+--- a/libc/bionic/stat.cpp
++++ b/libc/bionic/stat.cpp
+@@ -26,86 +26,12 @@
+  * SUCH DAMAGE.
+  */
+ 
+-#include <errno.h>
+ #include <fcntl.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
+ #include <unistd.h>
+ 
+-#include "custom_rom_hide.h"
+-
+-extern "C" int __statx(int, const char*, int, unsigned, struct statx*);
+-#if defined(__LP64__)
+-extern "C" int __fstatat(int, const char*, struct stat*, int);
+-extern "C" int __fstat(int, struct stat*);
+-#else
+-extern "C" int __fstatat64(int, const char*, struct stat*, int);
+-extern "C" int __fstat64(int, struct stat*);
+-#endif
+-
+-static int raw_fstatat(int dirfd, const char* path, struct stat* sb, int flags) {
+-#if defined(__LP64__)
+-  return __fstatat(dirfd, path, sb, flags);
+-#else
+-  return __fstatat64(dirfd, path, sb, flags);
+-#endif
+-}
+-
+-int fstat(int fd, struct stat* sb) {
+-#if defined(__LP64__)
+-  int res = __fstat(fd, sb);
+-#else
+-  int res = __fstat64(fd, sb);
+-#endif
+-  if (res == 0) {
+-    custom_rom_hide_spoof_fd_stat(fd, sb);
+-  }
+-  return res;
+-}
+-__strong_alias(fstat64, fstat);
+-
+-int fstatat(int dirfd, const char* path, struct stat* sb, int flags) {
+-  if (custom_rom_hide_should_block_at(dirfd, path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-  int res = raw_fstatat(dirfd, path, sb, flags);
+-  if (res == 0) {
+-    if ((flags & AT_EMPTY_PATH) && custom_rom_hide_is_empty_path(path)) {
+-      custom_rom_hide_spoof_fd_stat(dirfd, sb);
+-    } else {
+-      custom_rom_hide_spoof_stat(path, sb);
+-    }
+-  }
+-  return res;
+-}
+-__strong_alias(fstatat64, fstatat);
+-
+ int stat(const char* path, struct stat* sb) {
+-  if (custom_rom_hide_should_block(path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-  int res = raw_fstatat(AT_FDCWD, path, sb, 0);
+-  if (res == 0) {
+-    custom_rom_hide_spoof_stat(path, sb);
+-  }
+-  return res;
++  return fstatat(AT_FDCWD, path, sb, 0);
+ }
+ __strong_alias(stat64, stat);
+-
+-int statx(int dirfd, const char* path, int flags, unsigned mask, struct statx* buf) {
+-  if (custom_rom_hide_should_block_at(dirfd, path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+-  int res = __statx(dirfd, path, flags, mask, buf);
+-  if (res == 0) {
+-    if ((flags & AT_EMPTY_PATH) && custom_rom_hide_is_empty_path(path)) {
+-      custom_rom_hide_spoof_fd_statx(dirfd, mask, buf);
+-    } else {
+-      custom_rom_hide_spoof_statx(path, buf);
+-    }
+-  }
+-  return res;
+-}
+diff --git a/libc/bionic/sys_statfs.cpp b/libc/bionic/sys_statfs.cpp
+index 3594dae..d78de2d 100644
+--- a/libc/bionic/sys_statfs.cpp
++++ b/libc/bionic/sys_statfs.cpp
+@@ -14,11 +14,8 @@
+  * limitations under the License.
+  */
+ 
+-#include <errno.h>
+ #include <sys/statfs.h>
+ 
+-#include "custom_rom_hide.h"
+-
+ // Paper over the fact that 32-bit kernels use fstatfs64/statfs64 with
+ // an extra argument, but 64-bit kernels don't have the "64" bit suffix or
+ // the extra size_t argument.
+@@ -42,22 +39,16 @@ int fstatfs(int fd, struct statfs* result) {
+   if (rc != 0) {
+     return rc;
+   }
+-  custom_rom_hide_spoof_fd_statfs(fd, result);
+   result->f_flags &= ~ST_VALID;
+   return 0;
+ }
+ __strong_alias(fstatfs64, fstatfs);
+ 
+ int statfs(const char* path, struct statfs* result) {
+-  if (custom_rom_hide_should_block(path)) {
+-    errno = ENOENT;
+-    return -1;
+-  }
+   int rc = __statfs64(path, sizeof(*result), result);
+   if (rc != 0) {
+     return rc;
+   }
+-  custom_rom_hide_spoof_statfs(path, result);
+   result->f_flags &= ~ST_VALID;
+   return 0;
+ }
+diff --git a/libc/bionic/system_property_api.cpp b/libc/bionic/system_property_api.cpp
+index e3c1b80..34438e7 100644
+--- a/libc/bionic/system_property_api.cpp
++++ b/libc/bionic/system_property_api.cpp
+@@ -32,10 +32,7 @@
+ #include <system_properties/prop_area.h>
+ #include <system_properties/system_properties.h>
+ 
+-#include <string.h>
+-
+ #include "private/bionic_defs.h"
+-#include "custom_rom_hide.h"
+ 
+ static SystemProperties system_properties;
+ static_assert(__is_trivially_constructible(SystemProperties),
+@@ -69,58 +66,12 @@ uint32_t __system_property_area_serial() {
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ const prop_info* __system_property_find(const char* name) {
+-  if (custom_rom_hide_should_hide_prop(name)) {
+-    return nullptr;
+-  }
+   return system_properties.Find(name);
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ int __system_property_read(const prop_info* pi, char* name, char* value) {
+-  int len = system_properties.Read(pi, name, value);
+-  const char* prop_name = name ? name : (pi ? pi->name : nullptr);
+-  if (prop_name && custom_rom_hide_should_spoof_prop(prop_name, value)) {
+-    return strlen(value);
+-  }
+-  return len;
+-}
+-
+-struct ReadCallbackOverrideCtx {
+-    void (*original_callback)(void* cookie, const char* name, const char* value, uint32_t serial);
+-    void* original_cookie;
+-};
+-
+-static void read_callback_intercept(void* cookie, const char* name, const char* value,
+-                                    uint32_t serial) {
+-    auto* ctx = static_cast<ReadCallbackOverrideCtx*>(cookie);
+-
+-    if (!custom_rom_hide_is_app_process()) {
+-        ctx->original_callback(ctx->original_cookie, name, value, serial);
+-        return;
+-    }
+-
+-    bool is_ro = (strncmp(name, "ro.", 3) == 0);
+-
+-    if (custom_rom_hide_should_hide_prop(name)) {
+-        uint32_t fake_serial = is_ro ? 0 : (serial & 0xffffff);
+-        ctx->original_callback(ctx->original_cookie, name, "", fake_serial);
+-        return;
+-    }
+-
+-    const char* override_val = custom_rom_hide_get_prop_override(name);
+-    if (override_val) {
+-        uint32_t len = strlen(override_val);
+-        uint32_t fake_serial = serial;
+-        if (is_ro) {
+-            fake_serial = (len < PROP_VALUE_MAX) ? (len << 24) : ((50 << 24) | (1 << 16));
+-        } else {
+-            fake_serial = (serial & 0xffffff) | (len << 24);
+-        }
+-        ctx->original_callback(ctx->original_cookie, name, override_val, fake_serial);
+-        return;
+-    }
+-
+-    ctx->original_callback(ctx->original_cookie, name, value, serial);
++  return system_properties.Read(pi, name, value);
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+@@ -128,17 +79,12 @@ void __system_property_read_callback(const prop_info* pi,
+                                      void (*callback)(void* cookie, const char* name,
+                                                       const char* value, uint32_t serial),
+                                      void* cookie) {
+-  ReadCallbackOverrideCtx ctx{callback, cookie};
+-  return system_properties.ReadCallback(pi, read_callback_intercept, &ctx);
++  return system_properties.ReadCallback(pi, callback, cookie);
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ int __system_property_get(const char* name, char* value) {
+-  int len = system_properties.Get(name, value);
+-  if (custom_rom_hide_should_spoof_prop(name, value)) {
+-    return strlen(value);
+-  }
+-  return len;
++  return system_properties.Get(name, value);
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+@@ -160,29 +106,7 @@ uint32_t __system_property_serial(const prop_info* pi) {
+   // __system_property_serial enforcing memory order, e.g., in case
+   // someone spins on the result of this function changing before
+   // loading some value.
+-  if (!pi) return 0;
+-  uint32_t real_serial = atomic_load_explicit(&pi->serial, memory_order_acquire);
+-
+-  if (!custom_rom_hide_is_app_process()) return real_serial;
+-
+-  const char* name = pi->name;
+-  bool is_ro = (strncmp(name, "ro.", 3) == 0);
+-
+-  if (custom_rom_hide_should_hide_prop(name)) {
+-      return is_ro ? 0 : (real_serial & 0xffffff);
+-  }
+-
+-  const char* override_val = custom_rom_hide_get_prop_override(name);
+-  if (override_val) {
+-      uint32_t len = strlen(override_val);
+-      if (is_ro) {
+-          return (len < PROP_VALUE_MAX) ? (len << 24) : ((50 << 24) | (1 << 16));
+-      } else {
+-          return (real_serial & 0xffffff) | (len << 24);
+-      }
+-  }
+-
+-  return real_serial;
++  return atomic_load_explicit(&pi->serial, memory_order_acquire);
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+@@ -201,35 +125,9 @@ const prop_info* __system_property_find_nth(unsigned n) {
+   return system_properties.FindNth(n);
+ }
+ 
+-struct ForeachOverrideCtx {
+-    void (*original_callback)(const prop_info* pi, void* cookie);
+-    void* original_cookie;
+-};
+-
+-struct ForeachReadCtx {
+-    const prop_info* pi;
+-    ForeachOverrideCtx* foreach_ctx;
+-};
+-
+-static void foreach_read_callback(void* cookie, const char* name, const char*, uint32_t) {
+-    auto* ctx = static_cast<ForeachReadCtx*>(cookie);
+-    if (custom_rom_hide_should_hide_prop(name)) {
+-        return;
+-    }
+-    ctx->foreach_ctx->original_callback(ctx->pi, ctx->foreach_ctx->original_cookie);
+-}
+-
+-static void foreach_callback_intercept(const prop_info* pi, void* cookie) {
+-    auto* ctx = static_cast<ForeachOverrideCtx*>(cookie);
+-    ForeachReadCtx read_ctx{pi, ctx};
+-    system_properties.ReadCallback(pi, foreach_read_callback, &read_ctx);
+-}
+-
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ int __system_property_foreach(void (*propfn)(const prop_info* pi, void* cookie), void* cookie) {
+-    if (!propfn) return -1;
+-    ForeachOverrideCtx ctx{propfn, cookie};
+-    return system_properties.Foreach(foreach_callback_intercept, &ctx);
++  return system_properties.Foreach(propfn, cookie);
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE

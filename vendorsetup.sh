@@ -7,6 +7,7 @@ fi
 # Keep source-built userspace and build integration dependencies consistent.
 _m2391_top="${ANDROID_BUILD_TOP:-$PWD}"
 for _m2391_spec in \
+    "bionic:bionic-remove-custom-rom-hide.patch" \
     "hardware/qcom-caf/common:hardware-qcom-caf-common-audio-multilib.patch" \
     "hardware/qcom-caf/sm8550/audio/agm:hardware-qcom-caf-sm8550-audio-agm-portability.patch" \
     "hardware/qcom-caf/sm8550/display:hardware-qcom-caf-sm8550-display-boot-resolution.patch" \
